@@ -14,5 +14,7 @@ Local index:
   - https://github.com/SeanTrig/organic-integration/issues/3
 - `#4` / `OI-004`: Create player-facing text audit artifact
   - https://github.com/SeanTrig/organic-integration/issues/4
+- `#5` / `OI-005`: Insight project can start before Insight generation is available
+  - https://github.com/SeanTrig/organic-integration/issues/5
 
 Use this file only as a quick pointer. New playtest reports should be filed as GitHub issues.
