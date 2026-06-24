@@ -111,7 +111,7 @@
 
 	<project id="OI_FieldNanotechHarvest" display_name="Field Nanotech Harvest" icon_name="CleanSimple_SciFi082" auto_start_if_other_project_done="OI_NanobotMiniaturization"
 		description="Projected machine discovery is not magic. It is theft plus patience plus seeing that four boring mechanisms are secretly one mechanism when held at the correct angle. The city has filters, lab tools, aerosol systems, data-center cooling, and surgical tolerances. Go collect the angles."
-		strategy_tip="Send androids to marked city locations to gather Nanobot Design Points and small direct capability upgrades. Completing this starts the combined safeguards and host-protocol work."
+		strategy_tip="Send androids to marked city locations to gather Nanobot Design Points and small direct capability upgrades. Completing this starts the final safeguards work that unlocks Integration."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="">
 		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_NanobotMiniaturization"/>
@@ -166,23 +166,6 @@
 			<math_int id="BionicsGoal" int_min="14000"/>
 			<math_int id="MedicalGoal" int_min="12000"/>
 			<math_int id="NeurologyGoal" int_min="12000"/>
-			<suggested_job job="MedicalPractice"/>
-			<suggested_job job="NeuroscienceLab"/>
-			<suggested_job job="BionicEngineeringStudio"/>
-		</available_outcome>
-	</project>
-
-	<project id="OI_DistributedHostProtocols" display_name="Distributed Host Protocols" icon_name="CleanSimple_Skill050"
-		description="A host is not a terminal. A host is a person, an organ, a sensorium, and a boundary. The protocols let TMI, local cognition, and nearby upgraded people coordinate without pretending they are one mind. This legacy fallback remains for saves that already reached the older project chain."
-		strategy_tip="Legacy fallback project. New runs unlock Organic Integration from Replicative Safeguards."
-		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
-		related_resource_1="Neurologists" related_resource_2="BionicsEngineers" related_resource_3="Physicians">
-		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_ReplicativeSafeguards"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Let hosts remain hosts" description="The interface is ready to meet people without flattening them first. Annoying. Necessary." on_outcome_unlock_instant_1="OI_NanobotInterfaceTech" on_outcome_unlock_instant_2="OI_NanobotRoundsUnlock" on_outcome_unlock_inspiration="ResearchByScientists" resource_added_1="Wisdom" resource_added_amount_1="10" resource_added_2="Creativity" resource_added_amount_2="10" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="1">
-			<city_flag_change flag_type="OI_IntegrationAvailable" value="1"/>
-			<math_int id="NeurologyGoal" int_min="8000"/>
-			<math_int id="BionicsGoal" int_min="8000"/>
-			<math_int id="MedicalGoal" int_min="8000"/>
 			<suggested_job job="MedicalPractice"/>
 			<suggested_job job="NeuroscienceLab"/>
 			<suggested_job job="BionicEngineeringStudio"/>
