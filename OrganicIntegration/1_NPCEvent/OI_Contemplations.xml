@@ -12,7 +12,7 @@
 			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
 			collections="All,MoreInternalRobotics"/>
 		<choice id="1" display_name="Research compatible interfaces" action_visibility_style="IsMoveAndInteractWithNPC" description="Neuroweave was always roughly based on human neurons. The compatibility layer may be less alien than it first seems.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_ResearchingBCIs" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="2" research_domain_inspiration_type_2="AndroidOptimization" research_domain_inspiration_amount_2="2">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_ResearchingBCIs" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1">
 				<city_flag_change flag_type="OI_BCIContemplationStarted" value="1"/>
 			</possible_result>
 		</choice>
@@ -30,10 +30,10 @@
 			icon_scale="0.5" color_hex="#1D6D88" color_hdr_intensity="2.4" color_hovered_hdr_intensity="0.6"
 			collections="All,SideExploration"/>
 		<choice id="1" display_name="Open Nanobot Upgrade Hubs" action_visibility_style="IsMoveAndInteractWithNPC" description="Offer the interface. Worker Sledges can handle distribution. Upgraded people can explain the parts that your own explanations would turn into diagrams and mild terror.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NanobotUpgradeHubUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="2"/>
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NanobotUpgradeHubUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="StructuralImprovement" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ComputingOptimization" research_domain_inspiration_amount_2="1"/>
 		</choice>
 		<choice id="2" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The fastest path is aerosolized, quiet, and deniable. It is also exactly the kind of thing Vorsiber would fear." hidden_if_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NaniteWindGeneratorUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="AndroidOptimization" research_domain_inspiration_amount_1="2" upgrade_int_granted_1="WindEngine"/>
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NaniteWindGeneratorUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="ProcurementEfficacy" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1" upgrade_int_granted_1="WindEngine"/>
 		</choice>
 		<choice id="3" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The idea forms, and then refuses to remain formed." is_always_blocked="true" lang_key_reason_is_always_blocked="OI_CoerciveBlockedByAGIBridge" hidden_without_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage"/>

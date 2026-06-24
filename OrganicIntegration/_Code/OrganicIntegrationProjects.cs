@@ -30,6 +30,11 @@ namespace Arcen.HotM.OrganicIntegration
                             BufferOrNull, ref CanBeCompletedNow, RandOrNull );
                         break;
 
+                    case "OI_InterfaceStressSurvey":
+                        HandleStatisticProgress( Logic, OutcomeOrNoneYet, "OI_InterfaceTrialDesignPoints",
+                            OutcomeOrNoneYet.GetSingleIntByID( "DesignPointGoal", 24 ), BufferOrNull, ref CanBeCompletedNow );
+                        break;
+
                     case "OI_FieldNanotechHarvest":
                         HandleStatisticProgress( Logic, OutcomeOrNoneYet, "OI_NanobotHarvestDesignPoints",
                             OutcomeOrNoneYet.GetSingleIntByID( "DesignPointGoal", 32 ), BufferOrNull, ref CanBeCompletedNow );

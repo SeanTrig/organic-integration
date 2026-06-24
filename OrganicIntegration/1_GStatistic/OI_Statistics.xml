@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<city_statistic id="OI_UpgradedPopulation" lang_key_for_name="OI_Stat_Name_UpgradedPopulation" lang_key_for_description="OI_Stat_Desc_UpgradedPopulation" should_be_in_citywide_category="true" should_show_even_when_zero="true" has_no_meta_counterpart="true"/>
+	<city_statistic id="OI_InterfaceTrialDesignPoints" lang_key_for_name="OI_Stat_Name_InterfaceTrialDesignPoints" lang_key_for_description="OI_Stat_Desc_InterfaceTrialDesignPoints" should_be_in_citywide_category="true" should_show_even_when_zero="false" has_no_meta_counterpart="true"/>
 	<city_statistic id="OI_NanobotHarvestDesignPoints" lang_key_for_name="OI_Stat_Name_NanobotHarvestDesignPoints" lang_key_for_description="OI_Stat_Desc_NanobotHarvestDesignPoints" should_be_in_citywide_category="true" should_show_even_when_zero="false" has_no_meta_counterpart="true"/>
 </root>
