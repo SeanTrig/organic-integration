@@ -36,7 +36,7 @@
 		</available_outcome>
 	</project>
 
-	<project id="OI_MicrobotInterfaceTrials" display_name="Microbot Interface Trials" icon_name="SK_Molecule1" auto_start_if_other_project_done="Ch2_MIN_DesignHumanCompatibleNeuroweave"
+	<project id="OI_MicrobotInterfaceTrials" display_name="Microbot Interface Trials" icon_name="SK_Molecule1"
 		description="Existing microbots are blunt instruments by the standards of living tissue. They can move, carry, cut, and repair. The trial is not whether they are useful. The trial is whether they can touch Anthroneuroweave without turning a host into a cautionary note."
 		strategy_tip="Begins the microbot-to-nanobot research arc after Anthroneuroweave. Completing this starts an active city survey before miniaturization."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
