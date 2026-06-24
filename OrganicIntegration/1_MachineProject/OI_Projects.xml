@@ -14,7 +14,7 @@
 		</available_outcome>
 	</project>
 
-	<project id="OI_DesignHumanCompatibleNeuroweave" display_name="Design Anthroneuroweave" icon_name="FlatSkillC90"
+	<project id="OI_DesignHumanCompatibleNeuroweave" display_name="Design Anthroneuroweave" icon_name="FlatSkillC90" auto_start_if_other_project_done="OI_ResearchingBCIs"
 		description="The FedCorp exploit was not required. Neuroweave was built in the shape of human neurons because humans made it while trying to understand themselves. That is the joke and the opening. The task is to design a human-compatible weave that can speak to living tissue without pretending that tissue is just another android substrate."
 		strategy_tip="Requires medical, neurology, and bionics work. This grants Human Compatible Neuroweave and starts the Organic Integration microbot-to-nanobot arc."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
