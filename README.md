@@ -23,11 +23,11 @@ The current route begins after successful self-therapy:
 1. `Researching BCIs`
    - Appears after `GaveUpColdBlood`.
    - Frames TMI's successful self-therapy as a clue that neuroweave-like interfaces might work in humans.
-   - Currently routes into vanilla `Design Human Compatible Neuroweave`.
+   - Routes into a BCI-specific copy of `Design Anthroneuroweave`, avoiding the vanilla Yishi supply-chain framing.
 
-2. Vanilla Anthroneuroweave route
-   - The mod currently reuses the vanilla Anthroneuroweave substrate.
-   - Yishi sale, Rebel Anthroneuroweave, Syndicate BrainPal, and BrainPal sales are meant to remain available.
+2. Anthroneuroweave substrate
+   - The BCI route uses a modded Anthroneuroweave design project with Organic Integration framing.
+   - The mod still preserves the vanilla Anthroneuroweave substrate and intends to keep Yishi sale, Rebel Anthroneuroweave, Syndicate BrainPal, and BrainPal sales available.
 
 3. Microbot-to-nanobot research arc
    - `Microbot Interface Trials`

@@ -35,6 +35,7 @@ namespace Arcen.HotM.OrganicIntegration
                             OutcomeOrNoneYet.GetSingleIntByID( "DesignPointGoal", 32 ), BufferOrNull, ref CanBeCompletedNow );
                         break;
 
+                    case "OI_DesignHumanCompatibleNeuroweave":
                     case "OI_ReplicativeSafeguards":
                     case "OI_DistributedHostProtocols":
                         ProjectHelper.HandleScienceWork3X( Logic, OutcomeOrNoneYet,
