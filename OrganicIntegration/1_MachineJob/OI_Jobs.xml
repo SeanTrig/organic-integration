@@ -18,6 +18,29 @@
 		<part_of collection="Military" sort_index="2000" />
 	</job>
 
+	<job id="OI_MedicalGradeNanobotReplicator" display_name="Medical-Grade Nanobot Replicator" marker_color="DeepCyan" ui_color="#fefefe" loathsomeness="0"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock"
+		description="A sealed production line for medical-grade nanobots. The hard part is not making small machines. The hard part is making small machines that stop."
+		strategy_tip_optional="Consumes Elemental Slurry, Microbuilders, Neodymium, and Alumina each turn to produce Medical-Grade Nanobots. Each replicator also adds one billion Medical-Grade Nanobot storage capacity."
+		icon_name="SW_Nanotechnology5" turns_to_install="4" required_structure_type="LargePlotE" job_work_order_priority="98"
+		on_installation_start="InstallationStart_SmallStructure" on_installation_complete="InstallationComplete_SmallStructure" actor_data_set="SimpleJobs"
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.JobsRoutineFlow"
+		job_classes="Factory" internal_robotics_type_needed="Assembler" internal_robots_count_needed="5"
+		resource_cap_to_increase_1="OI_MedicalGradeNanobots" resource_cap_increased_flat1="1000000000" is_suggested_to_always_build_at_least="1"
+		related_resource_1="OI_MedicalGradeNanobots" related_resource_2="ElementalSlurry" related_resource_3="Microbuilders" related_resource_4="Neodymium" related_resource_5="Alumina"
+		shuts_off_at_percentage_electricity="90" portrait_icon_name="BuildingMilitary">
+		<initial_actor_rating data_type="RequiredElectricity" value="3090" />
+		<math_int id="ElementalSlurry" int_min="1000" income_or_expense_resource="ElementalSlurry" math_type="InputCost" />
+		<math_int id="Microbuilders" int_min="250" income_or_expense_resource="Microbuilders" math_type="InputCost" />
+		<math_int id="Neodymium" int_min="100" income_or_expense_resource="Neodymium" math_type="InputCost" />
+		<math_int id="Alumina" int_min="100" income_or_expense_resource="Alumina" math_type="InputCost" />
+		<math_int id="MedicalGradeNanobots" int_min="100000" income_or_expense_resource="OI_MedicalGradeNanobots" math_type="OutputResult" />
+		<resource_cost resource_type="Microbuilders" cost="1200" />
+		<part_of collection="All" sort_index="100" />
+		<part_of collection="Self" sort_index="100" />
+		<part_of collection="Chain" sort_index="100" />
+	</job>
+
 	<job id="OI_NaniteWindGenerator" display_name="Nanite Wind Generator" copy_from="LargeWindGenerator"
 		is_locked_before_unlock="OI_NaniteWindGeneratorUnlock" is_blocked_after_city_flag1="OI_IntegrationVoluntaryLocked" is_blocked_after_city_flag2="OI_CoerciveIntegrationBlockedByAGIBridge" is_suggested_to_always_build_at_least="1"
 		description="A Large Wind Generator refit to disperse safeguarded nanobots throughout its effect radius. The power output remains intact. So does the plausible deniability."

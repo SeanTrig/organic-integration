@@ -7,4 +7,5 @@
 	<unlock id="OI_NanobotUpgradeHubUnlock" display_name="Nanobot Upgrade Hub" structure_job="OI_NanobotUpgradeHub" />
 	<unlock id="OI_NaniteWindGeneratorUnlock" display_name="Nanite Wind Generators" structure_job="OI_NaniteWindGenerator" />
 	<unlock id="OI_NanobotRoundsUnlock" display_name="Nanobot Rounds" equipment_type="OI_NanobotRounds" />
+	<unlock id="OI_MedicalGradeNanobotReplicatorUnlock" display_name="Medical-Grade Nanobot Replicator" structure_job="OI_MedicalGradeNanobotReplicator" />
 </root>

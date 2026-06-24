@@ -10,4 +10,10 @@
 		strategy_tip="Produces Insight and Neural Expansion without counting as Mind Farm or Torment occupants. Voluntary Integration currently caps at about 45 percent of the normal city population."
 		base_storage_capacity="-1" is_lifeform="true" show_even_if_none_had_if_this_is_unlocked="OI_NanobotInterfaceTech"
 		lang_key_for_excess="ExcessResourcePersonNote" sort_order="1000" dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.ResourceTypes_Basic"/>
+	<resource id="OI_MedicalGradeNanobots" display_name="Medical-Grade Nanobots" icon_name="SW_Nanotechnology5" icon_color="#8FE6D3"
+		description="Safeguarded nanobots intended for blood, neural tissue, prosthetics, and synthetic substrates. They are not safe because they are small. They are safe because every useful instinct has a leash."
+		strategy_tip="Produced by Medical-Grade Nanobot Replicators after Replicative Safeguards. Later Integration infrastructure will consume these."
+		base_storage_capacity="0" show_even_if_none_had_if_this_is_unlocked="OI_MedicalGradeNanobotReplicatorUnlock"
+		lang_key_for_excess="ExcessResourceBasicNote"
+		sort_order="1000" dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.ResourceTypes_Basic"/>
 </root>
