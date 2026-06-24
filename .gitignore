@@ -1,0 +1,21 @@
+# Agent scratch
+.agents/
+
+# Build intermediates
+**/bin/
+**/obj/
+*.pdb
+
+# Local editor files
+.vscode/
+*.suo
+*.user
+
+# Runtime logs/saves if copied into the workspace
+PlayerData/
+Logs/
+*.log
+
+# Windows noise
+Thumbs.db
+Desktop.ini

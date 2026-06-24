@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<actor_feat id="OI_NanobotRounds" display_name="Nanobot Rounds"
+		description="Physical attacks seed enemies with a stacking Grey Goo payload. The payload is not armor-piercing; it is patient."
+		strategy_tip_optional="Applies Grey Goo to enemies hit by physical attacks, even when armor blocks the immediate damage. Rapid Fire applies additional stacks, so the per-hit payload is intentionally restrained."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="CleanSimple_SciFi082" icon_color="#8FE6D3" tooltip_color="RedOrange2" has_code_when_dealing_damage="true"/>
+</root>

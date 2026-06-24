@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<swarm id="OI_UpgradedHumans" display_name="Upgraded Humans" icon_name="SW_People" color_hex="#8FE6D3" color_hdr_intensity="0.5" color_hovered_hdr_intensity="1.6" icon_scale="0.25" tags="OI_UpgradedHumans"
+		description="This building contains people whose nervous systems are threaded through nanobot-mediated Anthroneuroweave. They are still people. This is more inconvenient than the old model." />
+</root>

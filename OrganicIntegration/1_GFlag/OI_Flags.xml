@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<city_flag id="OI_BCIContemplationStarted" display_name="Organic Integration: BCI path started" has_no_code="true"/>
+	<city_flag id="OI_IntegrationAvailable" display_name="Organic Integration available" has_no_code="true"/>
+	<city_flag id="OI_IntegrationVoluntaryLocked" display_name="Voluntary Integration chosen" has_no_code="true"/>
+	<city_flag id="OI_IntegrationCoerciveLocked" display_name="Coercive Integration chosen" has_no_code="true"/>
+	<city_flag id="OI_CoerciveIntegrationBlockedByAGIBridge" display_name="Coercive Integration blocked by AGI bridge" has_no_code="true"/>
+</root>

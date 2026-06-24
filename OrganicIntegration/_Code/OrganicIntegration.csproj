@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF9F372A-390F-4683-B9B8-7D2E4F6547D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Arcen.HotM.OrganicIntegration</RootNamespace>
+    <AssemblyName>OrganicIntegration</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>latest</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ModdableLogicDLLs\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <HotMInstallRoot>C:\Program Files (x86)\Steam\steamapps\common\HeartOfTheMachine</HotMInstallRoot>
+  </PropertyGroup>
+  <Target Name="StripMicrosoftVisualBasic" BeforeTargets="ResolveReferences">
+    <ItemGroup>
+      <Reference Remove="Microsoft.VisualBasic" />
+    </ItemGroup>
+  </Target>
+  <ItemGroup>
+    <Compile Include="GlobalUsings.cs" />
+    <Compile Include="InitialSetupForDLL.cs" />
+    <Compile Include="OrganicIntegrationProjects.cs" />
+    <Compile Include="OrganicIntegrationCalculators.cs" />
+    <Compile Include="OrganicIntegrationFeats.cs" />
+    <Compile Include="OrganicIntegrationObjectiveHandlers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ArcenUniversal">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\ArcenDLLs\ArcenUniversal.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HotMCore">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\ArcenDLLs\HotMCore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HotMVisualization">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\ArcenDLLs\HotMVisualization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HotMExternal0CommonCode">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\ArcenDLLs\HotMExternal0CommonCode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HotMExternalVisualizationCode">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\ArcenDLLs\HotMExternalVisualizationCode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\netstandard2.1\netstandard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\netstandard2.1\mscorlib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(HotMInstallRoot)\ReliableDLLStorage\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

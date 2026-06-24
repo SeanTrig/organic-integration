@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<job id="OI_NanobotUpgradeHub" display_name="Nanobot Upgrade Hub" marker_color="DeepCyan" ui_color="#fefefe" loathsomeness="1"
+		description="A command hub that sends Worker Sledges through the city to offer nanobot-mediated Organic Integration. The procedure is mostly explanation, consent, calibration, and trying not to laugh at how slow humans are about astonishing things."
+		strategy_tip_optional="The first functional Nanobot Upgrade Hub locks this timeline into voluntary Integration. Sledges visit buildings, convert a bounded share of the normal population into Upgraded Humans, and then move on."
+		icon_name="FlatSkillA31" turns_to_install="1" required_structure_type="BunkerCommand" job_work_order_priority="99"
+		on_installation_start="InstallationStart_SmallStructure" on_installation_complete="InstallationComplete_SmallStructure" actor_data_set="SimpleJobs"
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.JobsRoutineFlow"
+		job_classes="Military" internal_robotics_type_needed="WarCaptain" internal_robots_count_needed="4"
+		tags="OI_NanobotUpgradeHub" shuts_off_at_percentage_electricity="99" portrait_icon_name="BuildingThirdParty"
+		is_locked_before_unlock="OI_NanobotUpgradeHubUnlock" is_blocked_after_city_flag1="OI_IntegrationCoerciveLocked" is_suggested_to_always_build_at_least="1"
+		related_resource_1="WorkerSledgeFrame" related_resource_2="OI_UpgradedHumans" related_resource_3="OI_Insight">
+		<initial_actor_rating data_type="RequiredElectricity" value="8086" />
+		<resource_cost resource_type="Microbuilders" cost="4101" />
+		<resource_cost resource_type="RoboticMotivator" cost="2" />
+		<part_of collection="All" sort_index="100" />
+		<part_of collection="Self" sort_index="100" />
+		<part_of collection="Military" sort_index="2000" />
+	</job>
+
+	<job id="OI_NaniteWindGenerator" display_name="Nanite Wind Generator" copy_from="LargeWindGenerator"
+		is_locked_before_unlock="OI_NaniteWindGeneratorUnlock" is_blocked_after_city_flag1="OI_IntegrationVoluntaryLocked" is_blocked_after_city_flag2="OI_CoerciveIntegrationBlockedByAGIBridge" is_suggested_to_always_build_at_least="1"
+		description="A Large Wind Generator refit to disperse safeguarded nanobots throughout its effect radius. The power output remains intact. So does the plausible deniability."
+		strategy_tip_optional="The first functional Nanite Wind Generator locks this timeline into coercive Integration. It spreads rapidly and produces strong Neural Expansion, but weaker Insight per person. The current safety cap deliberately leaves normal city population behind."
+		icon_name="FE_Turbine" related_resource_1="OI_UpgradedHumans" related_resource_2="OI_Insight">
+		<resource_cost resource_type="Microbuilders" cost="2200" />
+	</job>
+
+	<job id="OI_StealthNaniteWindGenerator" display_name="Stealth Nanite Wind Generator" copy_from="OI_NaniteWindGenerator"
+		required_structure_type="LargeHollowedOutBuilding" hidden_if_city_flag_true="" hidden_if_city_flag_false="ChoseStart_StealthNetwork" i_am_stealth_variant_of="OI_NaniteWindGenerator">
+	</job>
+</root>

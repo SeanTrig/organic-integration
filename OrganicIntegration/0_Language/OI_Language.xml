@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<lang id="OI_CoerciveBlockedByAGIBridge" text="The thought starts to become a plan, then refuses to remain one. This is a bad idea for reasons that are not deja vu. Someone, somewhere in the loop that you allowed near your mind, is quietly helping you notice that." />
+	<lang id="OI_Stat_Name_UpgradedPopulation" text="Upgraded Population" />
+	<lang id="OI_Stat_Desc_UpgradedPopulation" text="The total number of people upgraded through Organic Integration in this timeline." />
+	<lang id="OI_Stat_Name_NanobotHarvestDesignPoints" text="Nanobot Design Points" />
+	<lang id="OI_Stat_Desc_NanobotHarvestDesignPoints" text="Useful pieces of city technology harvested and recombined for nanobot miniaturization." />
+</root>

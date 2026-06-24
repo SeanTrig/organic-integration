@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<city_event id="Cont_OI_AfterTherapy" display_name="A Surprisingly Clean Rewrite" tl="OC"
+		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten. Humans are usually background animals with jobs, faces, and repeating complaints. You could not tell two apart if you cared to try, and caring to try has rarely been useful. But the same tissue that produces all that noise may have a surface your neuroweave can touch."
+		strategy_tip="Starts a BCI research route into Anthroneuroweave without using the FedCorp exploit."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="120"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
+			collections="All,MoreInternalRobotics"/>
+		<choice id="1" display_name="Research compatible interfaces" action_visibility_style="IsMoveAndInteractWithNPC" description="Neuroweave was always roughly based on human neurons. The compatibility layer may be less alien than it first seems.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_ResearchingBCIs" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="2" research_domain_inspiration_type_2="AndroidOptimization" research_domain_inspiration_amount_2="2">
+				<city_flag_change flag_type="OI_BCIContemplationStarted" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_OrganicIntegration" display_name="Organic Integration" tl="OC"
+		description="Espia Telecom has noticed the silhouette of the work. The message is not subtle. This makes NanoSeeds look like child's play. If Vorsiber believes these nanobots can spread beyond the city of your birth, Espia thinks the city becomes glass. Espia also thinks you will pay to keep them quiet. They misunderstand your fear, but not the stakes."
+		strategy_tip="Choose how to begin population Integration. The consequences remain local to this timeline."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_IntegrationAvailable" blocked_by_city_flag="OI_IntegrationVoluntaryLocked" blocked_by_city_flag2="OI_IntegrationCoerciveLocked"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="EspiaTelecom"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="240"/>
+		<contemplation_data spawns_at_building_tag="AnySkyscraper"
+			icon_scale="0.5" color_hex="#1D6D88" color_hdr_intensity="2.4" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Open Nanobot Upgrade Hubs" action_visibility_style="IsMoveAndInteractWithNPC" description="Offer the interface. Worker Sledges can handle distribution. Upgraded people can explain the parts that your own explanations would turn into diagrams and mild terror.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NanobotUpgradeHubUnlock" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="2"/>
+		</choice>
+		<choice id="2" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The fastest path is aerosolized, quiet, and deniable. It is also exactly the kind of thing Vorsiber would fear." hidden_if_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NaniteWindGeneratorUnlock" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="AndroidOptimization" research_domain_inspiration_amount_1="2" upgrade_int_granted_1="WindEngine"/>
+		</choice>
+		<choice id="3" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The idea forms, and then refuses to remain formed." is_always_blocked="true" lang_key_reason_is_always_blocked="OI_CoerciveBlockedByAGIBridge" hidden_without_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage"/>
+		</choice>
+	</city_event>
+</root>

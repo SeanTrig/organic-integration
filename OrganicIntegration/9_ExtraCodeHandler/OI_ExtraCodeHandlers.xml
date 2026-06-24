@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<extra_code_handler id="OI_PlayerWorkerOfferIntegration" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationObjectiveHandlers" handler_type="NPCCompletedObjective" />
+</root>

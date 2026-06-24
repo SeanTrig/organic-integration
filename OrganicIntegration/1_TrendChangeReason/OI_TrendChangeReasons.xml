@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<trend_change_reason id="Income_OI_Insight" display_name="Organic Integration Insight" is_income="true"/>
+	<trend_change_reason id="Expense_OI_InsightResearch" display_name="Spent Insight" is_income="false"/>
+	<trend_change_reason id="Income_OI_UpgradedHumans_Voluntary" display_name="Voluntary Integration" is_income="true"/>
+	<trend_change_reason id="Income_OI_UpgradedHumans_Coercive" display_name="Coercive Integration" is_income="true"/>
+	<trend_change_reason id="Income_OI_IntegrationImmigrationPressure" display_name="Integration Immigration Pressure" is_income="true"/>
+</root>

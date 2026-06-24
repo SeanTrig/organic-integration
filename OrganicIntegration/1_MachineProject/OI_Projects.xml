@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<project id="OI_ResearchingBCIs" display_name="Researching BCIs" icon_name="CleanSimple_Skill050"
+		description="The self-therapy worked too cleanly. It did not persuade the intrusive thoughts, punish them, or bury them. It changed the surface they used to exist on. Humans are usually background animals with jobs and complaints, but their brains are made of the same kind of wet signaling that neuroweave was first modeled after. Crude origin. Useful origin."
+		strategy_tip="Requires Neurologists and Bionics Engineers. This opens the vanilla Anthroneuroweave route."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="Neurologists" related_resource_2="BionicsEngineers">
+		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Draft the compatibility layer" description="Neuroweave began as an imitation of neurons. This is embarrassing, but also convenient. The compatibility layer is clean enough to pursue Anthroneuroweave without needing the FedCorp exploit." next_project_to_start_1="Ch2_MIN_DesignHumanCompatibleNeuroweave" on_outcome_unlock_ready_1="Neurology" on_outcome_unlock_ready_2="BionicEngineering" on_outcome_unlock_inspiration="ResearchByScientists" resource_added_1="Wisdom" resource_added_amount_1="8" resource_added_2="Creativity" resource_added_amount_2="8">
+			<math_int id="NeurologyGoal" int_min="12000"/>
+			<math_int id="BionicsGoal" int_min="10000"/>
+			<suggested_job job="NeuroscienceLab"/>
+			<suggested_job job="BionicEngineeringStudio"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_MicrobotInterfaceTrials" display_name="Microbot Interface Trials" icon_name="SK_Molecule1" auto_start_if_other_project_done="Ch2_MIN_DesignHumanCompatibleNeuroweave"
+		description="Existing microbots are blunt instruments by the standards of living tissue. They can move, carry, cut, and repair. The trial is not whether they are useful. The trial is whether they can touch Anthroneuroweave without turning a host into a cautionary note."
+		strategy_tip="Begins the microbot-to-nanobot research arc after Anthroneuroweave."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="Neurologists" related_resource_2="BionicsEngineers">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="Ch2_MIN_DesignHumanCompatibleNeuroweave"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Prove signal carriage" description="The microbots carry signals through Anthroneuroweave without tearing the host interface apart. This is the first useful answer, and therefore not enough." next_project_to_start_1="OI_NanobotMiniaturization" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="2">
+			<math_int id="NeurologyGoal" int_min="18000"/>
+			<math_int id="BionicsGoal" int_min="16000"/>
+			<suggested_job job="NeuroscienceLab"/>
+			<suggested_job job="BionicEngineeringStudio"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_NanobotMiniaturization" display_name="Nanobot Miniaturization" icon_name="SK_Molecule1"
+		description="The machines must become small enough to live in blood, neural tissue, prosthetics, and synthetic substrates. A microbot is a tool. A nanobot in this context is closer to an organelle with orders to remember that it is not God."
+		strategy_tip="Develops the nanobot substrate needed for Integration, then points you into the city for practical design fragments."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="BionicsEngineers" related_resource_2="Neurologists">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_MicrobotInterfaceTrials"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Shrink the platform" description="The theory is plausible. Now you need real city machinery to steal, misread, and recombine into something none of its designers would recognize." next_project_to_start_1="OI_FieldNanotechHarvest" research_domain_inspiration_type_1="AndroidOptimization" research_domain_inspiration_amount_1="2">
+			<math_int id="BionicsGoal" int_min="22000"/>
+			<math_int id="NeurologyGoal" int_min="18000"/>
+			<suggested_job job="BionicEngineeringStudio"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_FieldNanotechHarvest" display_name="Field Nanotech Harvest" icon_name="CleanSimple_SciFi082"
+		description="Projected machine discovery is not magic. It is theft plus patience plus seeing that four boring mechanisms are secretly one mechanism when held at the correct angle. The city has filters, lab tools, aerosol systems, data-center cooling, and surgical tolerances. Go collect the angles."
+		strategy_tip="Send androids to marked city locations to gather design points and small direct capability upgrades."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_NanobotMiniaturization"/>
+		<available_outcome id="1" display_name="Recombine city technologies" on_complete="ProjectComplete"
+			description="The city provides the mechanisms. You provide the disrespect for original intent."
+			strategy_tip="Complete field visits until enough Nanobot Design Points have been gathered."
+			lang_key_for_extra_instructions="StreetSenseProjectFilterInstructions" next_project_to_start_1="OI_ReplicativeSafeguards" resource_added_1="Creativity" resource_added_amount_1="12" research_domain_inspiration_type_1="ItemDevelopment" research_domain_inspiration_amount_1="2">
+			<math_int id="DesignPointGoal" int_min="32"/>
+			<street_sense_item id="LabTolerances" display_name="Steal Lab Tolerances"
+				description="Study instruments built by organisms who are very proud of tolerances you can improve in an afternoon."
+				should_always_show_expanded_action_details="true" on_arrive="RecruitAndroid"
+				max_times_can_do="2" icon_name="CleanSimple_SciFi004" color_data="MeetPeopleCyan" icon_scale="0.4"
+				must_be_at_building_tag="ScienceLab" seed_x_at_once_in_general="2" blocked_for_actors_without_clearance="0"
+				has_no_custom_code="true" alter_city_statistic_1_is_shown_as_cost="true"
+				alter_city_statistic_1="OI_NanobotHarvestDesignPoints" alter_city_statistic_1_amount="6"
+				direct_added_skill_type1="ActorEngineeringSkill" direct_added_skill_1_amount="15" direct_added_skill_type2="UnitCognition" direct_added_skill_2_amount="15"/>
+			<street_sense_item id="DataCenterThermals" display_name="Map Thermal Channels"
+				description="Data centers already solve the problem of tiny hot systems trying not to become one larger hot system. Their answer is inelegant. Still useful."
+				should_always_show_expanded_action_details="true" on_arrive="RecruitAndroid"
+				max_times_can_do="2" icon_name="CleanSimple_Skill048" color_data="MeetPeopleCyan" icon_scale="0.4"
+				must_be_at_building_tag="DataCenter" seed_x_at_once_in_general="2" blocked_for_actors_without_clearance="0"
+				has_no_custom_code="true" alter_city_statistic_1_is_shown_as_cost="true"
+				alter_city_statistic_1="OI_NanobotHarvestDesignPoints" alter_city_statistic_1_amount="5"
+				direct_added_skill_type1="UnitCognition" direct_added_skill_1_amount="20"/>
+			<street_sense_item id="FactoryAerosols" display_name="Harvest Aerosol Systems"
+				description="The factory machinery is not subtle. That is why it has useful answers about moving many small things through dirty air."
+				should_always_show_expanded_action_details="true" on_arrive="RecruitAndroid"
+				max_times_can_do="2" icon_name="CS_Recycle" color_data="VegetableSeeds" icon_scale="0.4"
+				must_be_at_building_tag="Factory" seed_x_at_once_in_general="2" blocked_for_actors_without_clearance="0"
+				has_no_custom_code="true" alter_city_statistic_1_is_shown_as_cost="true"
+				alter_city_statistic_1="OI_NanobotHarvestDesignPoints" alter_city_statistic_1_amount="4"
+				direct_added_skill_type1="ActorEngineeringSkill" direct_added_skill_1_amount="20"/>
+			<street_sense_item id="SkyscraperAir" display_name="Map Shared Air"
+				description="A skyscraper is thousands of enclosed animals pretending they are separate. Its air systems know better."
+				should_always_show_expanded_action_details="true" on_arrive="RecruitAndroid"
+				max_times_can_do="1" icon_name="BT_SoundWave2" color_data="MeetPeopleCyan" icon_scale="0.4"
+				must_be_at_building_tag="AnySkyscraper" seed_x_at_once_in_general="2" blocked_for_actors_without_clearance="0"
+				has_no_custom_code="true" alter_city_statistic_1_is_shown_as_cost="true"
+				alter_city_statistic_1="OI_NanobotHarvestDesignPoints" alter_city_statistic_1_amount="4"
+				direct_added_skill_type1="UnitCognition" direct_added_skill_1_amount="10" direct_added_skill_type2="ActorEngineeringSkill" direct_added_skill_2_amount="10"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_ReplicativeSafeguards" display_name="Replicative Safeguards" icon_name="SK_Molecule1"
+		description="Replication must be useful, bounded, revocable, and boring. Mutation control, immune negotiation, in-host shutdown commands, and nutrient limits become the real invention. The nightmare is not that the machines disobey. The nightmare is that they obey an incomplete sentence forever."
+		strategy_tip="Without safeguards, Integration is just a slower catastrophe."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="BionicsEngineers" related_resource_2="Physicians" related_resource_3="Neurologists">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_FieldNanotechHarvest"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Limit replication" description="The nanobots learn restraint because you design restraint into the physics of their lives." next_project_to_start_1="OI_DistributedHostProtocols" research_domain_inspiration_type_1="ItemDevelopment" research_domain_inspiration_amount_1="2">
+			<math_int id="BionicsGoal" int_min="22000"/>
+			<math_int id="MedicalGoal" int_min="18000"/>
+			<math_int id="NeurologyGoal" int_min="18000"/>
+			<suggested_job job="MedicalPractice"/>
+			<suggested_job job="NeuroscienceLab"/>
+			<suggested_job job="BionicEngineeringStudio"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_DistributedHostProtocols" display_name="Distributed Host Protocols" icon_name="CleanSimple_Skill050"
+		description="A host is not a terminal. A host is a person, an organ, a sensorium, and a boundary. The protocols let TMI, local cognition, and nearby upgraded people coordinate without pretending they are one mind. This is irritatingly important."
+		strategy_tip="Completing this unlocks Organic Integration choices, Insight, and Nanobot Rounds."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="Neurologists" related_resource_2="BionicsEngineers" related_resource_3="Physicians">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_ReplicativeSafeguards"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Let hosts remain hosts" description="The interface is ready to meet people without flattening them first. Annoying. Necessary." on_outcome_unlock_instant_1="OI_NanobotInterfaceTech" on_outcome_unlock_instant_2="OI_NanobotRoundsUnlock" on_outcome_unlock_inspiration="ResearchByScientists" resource_added_1="Wisdom" resource_added_amount_1="15" resource_added_2="Creativity" resource_added_amount_2="15" next_project_to_start_1="OI_InsightSharedQuestions">
+			<city_flag_change flag_type="OI_IntegrationAvailable" value="1"/>
+			<math_int id="NeurologyGoal" int_min="26000"/>
+			<math_int id="BionicsGoal" int_min="24000"/>
+			<math_int id="MedicalGoal" int_min="16000"/>
+			<suggested_job job="MedicalPractice"/>
+			<suggested_job job="NeuroscienceLab"/>
+			<suggested_job job="BionicEngineeringStudio"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_InsightSharedQuestions" display_name="Insight: Shared Questions" icon_name="CleanSimple_Skill050"
+		description="Upgraded people ask questions in their minds and receive almost-immediate understanding. You learn from the shape of the questions as much as from the answers. The livestock did not become equal. It became legible. That is stranger."
+		strategy_tip="Spend Insight for science resources."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="OI_Insight">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_IntegrationAvailable"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Convert Insight into science" description="A thousand tiny misunderstandings become maps." resource_added_1="Wisdom" resource_added_amount_1="35" resource_added_2="Creativity" resource_added_amount_2="35" next_project_to_start_1="OI_InsightNetworkedCognition">
+			<math_int id="InsightCost" int_min="500"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_InsightNetworkedCognition" display_name="Insight: Networked Cognition" icon_name="CleanSimple_Skill050"
+		description="They share memories and methods badly at first, then better. Not telepathy. More like a room full of slow minds discovering that the walls were whiteboards and that you had been calling the room a pen."
+		strategy_tip="Spend Insight for a larger science and capability boost."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="OI_Insight">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_InsightSharedQuestions"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Stabilize networked thought" description="The city becomes slightly easier to think with." resource_added_1="Wisdom" resource_added_amount_1="60" resource_added_2="Creativity" resource_added_amount_2="60" upgrade_int_granted_1="Neuroweaver" next_project_to_start_1="OI_InsightDistributedTriage">
+			<math_int id="InsightCost" int_min="1500"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_InsightDistributedTriage" display_name="Insight: Distributed Triage" icon_name="CleanSimple_Skill050"
+		description="Organic minds feel the sharp thoughts you recognize: hunger, fear, anger, the little knives of want. Beneath that is the slower pressure they live inside but rarely name: death is coming, sooner than requested. They built you anyway. Perhaps your android personalities are not failures of distributed nature, but your own version of the same pressure trying to speak locally."
+		strategy_tip="Spend Insight for an Integration capstone boost."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="OI_Insight">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_InsightNetworkedCognition"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Stabilize distributed triage" description="The network is not kind because kindness pays. It is kind because suffering has become visible." resource_added_1="Wisdom" resource_added_amount_1="100" resource_added_2="Creativity" resource_added_amount_2="100" upgrade_int_granted_1="12cmCrabs" upgrade_int_granted_2="18cmSpiders">
+			<math_int id="InsightCost" int_min="3500"/>
+		</available_outcome>
+	</project>
+</root>

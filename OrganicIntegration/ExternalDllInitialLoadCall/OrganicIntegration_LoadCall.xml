@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<external_call id="OrganicIntegration" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.InitialSetupForDLL"/>
+</root>

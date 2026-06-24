@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<npc_objective id="OI_PlayerWorkerOfferIntegration" display_name="Offer Integration" dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.NPCObjective_Basics"
+		causes_unit_to_always_be_visible_as_if_out_of_fog_of_war="false" points_required_to_complete_objective="160" min_points_per_turn_from_actors="150"
+		required_distance_xz_from_building_objective="2"
+		objective_style="PointsCollectionAgainstBuilding" popup_text_on_complete="" on_complete="Silent"
+		popup_text_scale="0.6" popup_color="#8FE6D3" popup_color_hdr_intensity="1.2"
+		icon_name="FlatSkillA31" icon_color="#8FE6D3" icon_color_hdr_intensity="1.2" icon_scale="0.6"
+		extra_code_to_run_on_objective_complete="OI_PlayerWorkerOfferIntegration">
+		<acting_actor_accumulator_change accumulator_type="NDAC1" min="-10000" max="0" />
+		<acting_actor_accumulator_change accumulator_type="NDAC2" min="-10000" max="0" />
+		<acting_actor_accumulator_change accumulator_type="NDAC3" min="-10000" max="0" />
+	</npc_objective>
+</root>

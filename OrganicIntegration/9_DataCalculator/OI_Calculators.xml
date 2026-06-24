@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data_calculator id="OI_IntegrationPerTurn" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationCalculators" calculator_type="PerTurn_Late"/>
+	<data_calculator id="OI_IntegrationPerQuarterSecond" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationCalculators" calculator_type="PerQuarterSecond"/>
+	<data_calculator id="OI_NaniteDeathSpread" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationCalculators" calculator_type="AnyUnitDeath"/>
+</root>

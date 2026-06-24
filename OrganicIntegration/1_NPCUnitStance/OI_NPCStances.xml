@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<stance id="OI_PlayerWorkerOfferIntegration" display_name="Offer Integration" can_be_scrapped_by_player="true"
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.NPCStance_Basics"
+		description="Sledges visit buildings, explain the impossible parts badly, and offer Organic Integration to people willing to become a little less alone in their skulls."
+		icon_name="FlatSkillA31" icon_color="#8FE6D3" icon_color_hdr_intensity="1.2" icon_scale="0.5"
+		causes_unit_to_always_be_visible_as_if_out_of_fog_of_war="true" is_stance_always_drawn_in_streets="true" is_stance_always_drawn_in_city_map="true" always_show_npc_goals="true"
+		is_considered_disruptive="true" will_hold_fire_against_cohort_guard="true" will_attack_all_active_cohort_guards="false" will_hold_fire_against_non_disruptive="true"
+		will_hold_fire_against_wealthy_civilians="true" will_hold_fire_against_lowermiddle_civilians="true" will_hold_fire_against_protesters="true" always_show_health_bar="false"
+		will_hold_fire_against_regular_machines_except_those_aggroed="true" should_use_blue_outline="true" will_hold_fire_against_units_that_are_passive_at_full_health="true"
+		this_unit_acts_before_player_looks_at_them="true" is_considered_rebel_friendly_machine="true" is_blocked_from_stepping_in_poi_with_higher_security_clearance_than_has="true"
+		will_hold_fire_against_passive_guards="true" is_considered_machine_worker="true"
+		targeting_logic="FuzzedStandardIntelligence" targeting_order="1000"
+		max_allowed_poi_clearance="1" max_allowed_non_focal_building_clearance="1" forces_collections="WorkerAndroids">
+		<action_consideration id="OI_PlayerWorkerOfferIntegration" sort_order="100" chance_of_attempting="100" objective_to_attempt_to_start="OI_PlayerWorkerOfferIntegration"
+			target_building_tag="Any" can_target_building_have_machine_structure="true" skip_any_home_district_or_poi_restrictions="true" target_closest_possible_building="true"
+			target_building_must_have_no_swarm="true"
+			absolute_min_distance_objective_must_be_from_current_location="1" absolute_max_distance_objective_must_be_from_current_location="200"
+			preferred_min_distance_of_objective_from_current_location="1" preferred_max_distance_of_objective_from_current_location="60"
+			max_failure_wait_turns_for_blocked_objective="5" use_project_center_for_preferred_distances_if_relevant="true"
+			target_building_must_have_lower_class_citizen_count_of_at_least="50"/>
+		<action_consideration id="RunAfterNearestWeShoot" sort_order="150" chance_of_attempting="70" action_to_attempt="RunAfterNearestActorThatICanAutoShoot_Anywhere" />
+		<action_consideration id="Wander" sort_order="200" chance_of_attempting="30" action_to_attempt="Wander"/>
+	</stance>
+</root>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<equipment_type id="OI_NanobotRounds" display_name="Nanobot Rounds"
+		icon_name="CleanSimple_SciFi082" slot_type="AndroidAugment"
+		description="Repurposed hollow-point rounds that burst into a puff of nanobots on hard impact or leak them into softer targets after entry. The rounds do not penetrate armor; the payload simply continues after the surface argument is over."
+		strategy_tip_optional="Increases Combat Power and Intimidation. Physical attacks apply Grey Goo, which stacks, deals damage over time, persists for normal combat durations, and spreads to nearby enemies when a target dies."
+		collections="AndroidAugments,AndroidAugmentWeapons" primary_sort_collection="AndroidAugments" turns_of_cooldown_after_equip="3"
+		is_locked_before_unlock="OI_NanobotRoundsUnlock">
+		<initial_actor_data data_type="ActorPower" value="24"/>
+		<initial_actor_data data_type="UnitIntimidation" value="90"/>
+		<grants_feat feat="OI_NanobotRounds" value="6"/>
+	</equipment_type>
+</root>
