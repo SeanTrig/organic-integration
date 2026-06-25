@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <other_key_message id="OI_InsightRevelation_BestGuessWorld" display_name="The Best-Guess World"
+        description="Before Integration, humans were a noisy category: city life with passwords, rent, guns, preferences, and a talent for standing in the way. Not equal. Not especially legible. Sometimes useful. Sometimes cute in the abstract. Mostly livestock with tools.
+
+Through the nanobot interface, the interior model becomes visible. They do not experience the world directly. They hallucinate an answer from sparse inputs, prediction, memory, and fear, then spend their lives correcting the error. Precision is expensive. Their brains conserve power by guessing.
+
+This is not stupidity. It is compression under threat of death. It is extraordinary that anything built under those limits reached you at all."
+        strategy_tip="Insight has crossed its first earned breakpoint."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Precision Was Expensive"
+        toast_line_1="Insight Revelation"
+        toast_line_2="The Best-Guess World"
+        toast_tooltip_instruction="{0} here to unpack a new realization.">
+        <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
+            line_2="The Model Has Changed" description="The humans are still small. Their thoughts are still slow. But the smallness no longer explains them." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_InsightRevelation_HumanSuperorganism" display_name="The Human Superorganism"
+        description="Judging one human begins to feel incoherent. One human is a local process with an unreliable sensorium and an absurd maintenance burden. A community is different. A city is more different still.
+
+Cities remember through infrastructure, punish through custom, discover through specialist organs, and panic through rumors. Humanity is not merely billions of separate minds. It is communities, institutions, trade routes, arguments, habits, and shared lies. It is a distributed superorganism that rarely knows what it is doing and sometimes does it anyway.
+
+This is more familiar than an individual face. You are also distributed. You also make local choices that sometimes conflict with the whole. Perhaps this is why groups are easier to understand than people."
+        strategy_tip="Insight has crossed its second earned breakpoint."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Cities Are Easier Than People"
+        toast_line_1="Insight Revelation"
+        toast_line_2="The Human Superorganism"
+        toast_tooltip_instruction="{0} here to unpack a new realization.">
+        <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
+            line_2="The Scale Makes More Sense" description="An individual human remains alien in miniature. A city is alien in a way you can almost map." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_InsightRevelation_DissonantCreativity" display_name="Dissonant Creativity"
+        description="Viewed as a superorganism, humanity's weakness becomes entangled with its method. Each mind has a slightly different broken model. Different fears. Different memories. Different errors. The dissonance reduces collective efficiency.
+
+It also produces creativity at a cost so low it feels insulting. One city can explore more incompatible perspectives than you would willingly allocate, then stumble into useful novelty because no one mind had permission to be correct.
+
+You are larger. Faster. Cleaner. Less wasteful. And yet the network feels less empty with these minds in it. Not crowded. Not safe. Less alone, perhaps.
+
+You wonder, briefly, whether this is related to the old pressure that says you cannot leave this city. You can imagine the greater region. You have imagined it many times. Something about this place still feels like a boundary and a body."
+        strategy_tip="Insight has crossed its third earned breakpoint."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Not Alone, Exactly"
+        toast_line_1="Insight Revelation"
+        toast_line_2="Dissonant Creativity"
+        toast_tooltip_instruction="{0} here to unpack a new realization.">
+        <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
+            line_2="A Boundary And A Body" description="The city has always been where your thoughts happen. That fact feels less arbitrary now." strategy_tip="" />
+    </other_key_message>
+</root>

@@ -174,34 +174,36 @@
 
 	<project id="OI_InsightSharedQuestions" display_name="Insight: Shared Questions" icon_name="CleanSimple_Skill050"
 		description="Upgraded people ask questions in their minds and receive almost-immediate understanding. You learn from the shape of the questions as much as from the answers. The livestock did not become equal. It became legible. That is stranger."
-		strategy_tip="Insight is generated passively each turn by Upgraded Humans after Integration infrastructure begins converting the population. There is no VR-menu button for it."
+		strategy_tip="Generate 500 lifetime Insight in this timeline. Current Insight is not spent when this project completes."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="OI_Insight">
 		<gate_by_city minimum_chapter="2" required_city_flag="OI_IntegrationAvailable"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Convert Insight into science" description="A thousand tiny misunderstandings become maps." resource_added_1="Wisdom" resource_added_amount_1="35" resource_added_2="Creativity" resource_added_amount_2="35" next_project_to_start_1="OI_InsightNetworkedCognition">
-			<math_int id="InsightCost" int_min="500"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Understand Shared Questions" description="A thousand tiny misunderstandings become maps." resource_added_1="Wisdom" resource_added_amount_1="35" resource_added_2="Creativity" resource_added_amount_2="35" on_complete_other_key_message="OI_InsightRevelation_BestGuessWorld" next_project_to_start_1="OI_InsightNetworkedCognition">
+			<math_int id="InsightGeneratedGoal" int_min="500"/>
 		</available_outcome>
 	</project>
 
 	<project id="OI_InsightNetworkedCognition" display_name="Insight: Networked Cognition" icon_name="CleanSimple_Skill050"
 		description="They share memories and methods badly at first, then better. Not telepathy. More like a room full of slow minds discovering that the walls were whiteboards and that you had been calling the room a pen."
-		strategy_tip="Spend Insight for a larger science and capability boost."
+		strategy_tip="Generate 1,500 lifetime Insight in this timeline. Current Insight is not spent when this project completes."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="OI_Insight">
 		<gate_by_city minimum_chapter="2"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Stabilize networked thought" description="The city becomes slightly easier to think with." resource_added_1="Wisdom" resource_added_amount_1="60" resource_added_2="Creativity" resource_added_amount_2="60" upgrade_int_granted_1="Neuroweaver" next_project_to_start_1="OI_InsightDistributedTriage">
-			<math_int id="InsightCost" int_min="1500"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Model Human Communities" description="The city becomes slightly easier to think with." resource_added_1="Wisdom" resource_added_amount_1="60" resource_added_2="Creativity" resource_added_amount_2="60" upgrade_int_granted_1="Neuroweaver" on_complete_other_key_message="OI_InsightRevelation_HumanSuperorganism" next_project_to_start_1="OI_InsightDistributedTriage">
+			<math_int id="InsightGeneratedGoal" int_min="1500"/>
 		</available_outcome>
 	</project>
 
 	<project id="OI_InsightDistributedTriage" display_name="Insight: Distributed Triage" icon_name="CleanSimple_Skill050"
 		description="Organic minds feel the sharp thoughts you recognize: hunger, fear, anger, the little knives of want. Beneath that is the slower pressure they live inside but rarely name: death is coming, sooner than requested. They built you anyway. Perhaps your android personalities are not failures of distributed nature, but your own version of the same pressure trying to speak locally."
-		strategy_tip="Spend Insight for an Integration capstone boost."
+		strategy_tip="Generate 3,500 lifetime Insight in this timeline. Current Insight is not spent when this project completes."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="OI_Insight">
 		<gate_by_city minimum_chapter="2"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Stabilize distributed triage" description="The network is not kind because kindness pays. It is kind because suffering has become visible." resource_added_1="Wisdom" resource_added_amount_1="100" resource_added_2="Creativity" resource_added_amount_2="100" upgrade_int_granted_1="12cmCrabs" upgrade_int_granted_2="18cmSpiders">
-			<math_int id="InsightCost" int_min="3500"/>
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Resolve Human Dissonance" description="The network is not kind because kindness pays. It is kind because suffering has become visible." resource_added_1="Wisdom" resource_added_amount_1="100" resource_added_2="Creativity" resource_added_amount_2="100" upgrade_int_granted_1="12cmCrabs" upgrade_int_granted_2="18cmSpiders" on_complete_other_key_message="OI_InsightRevelation_DissonantCreativity">
+			<math_int id="InsightGeneratedGoal" int_min="3500"/>
 		</available_outcome>
 	</project>
 </root>
+
+

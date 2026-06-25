@@ -37,6 +37,7 @@
     <Compile Include="InitialSetupForDLL.cs" />
     <Compile Include="OrganicIntegrationProjects.cs" />
     <Compile Include="OrganicIntegrationCalculators.cs" />
+    <Compile Include="OrganicIntegrationVRActions.cs" />
     <Compile Include="OrganicIntegrationFeats.cs" />
     <Compile Include="OrganicIntegrationObjectiveHandlers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,3 +82,4 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+

@@ -54,7 +54,7 @@ namespace Arcen.HotM.OrganicIntegration
                     case "OI_InsightSharedQuestions":
                     case "OI_InsightNetworkedCognition":
                     case "OI_InsightDistributedTriage":
-                        HandleInsightPurchase( Logic, OutcomeOrNoneYet, BufferOrNull, ref CanBeCompletedNow );
+                        HandleInsightEarnedGate( Logic, OutcomeOrNoneYet, BufferOrNull, ref CanBeCompletedNow );
                         break;
 
                     default:
@@ -101,32 +101,31 @@ namespace Arcen.HotM.OrganicIntegration
             }
         }
 
-        private static void HandleInsightPurchase( ProjectLogic Logic, ProjectOutcome Outcome, ArcenCharacterBufferBase BufferOrNull, ref bool CanBeCompletedNow )
+        private static void HandleInsightEarnedGate( ProjectLogic Logic, ProjectOutcome Outcome, ArcenCharacterBufferBase BufferOrNull, ref bool CanBeCompletedNow )
         {
-            ResourceType insight = ResourceTypeTable.Instance.GetRowByIDOrNullIfNotFound( "OI_Insight" );
-            int cost = Outcome.GetSingleIntByID( "InsightCost", 100 );
-            long current = insight?.Current ?? 0;
+            GStatisticBase statistic = GStatisticTable.Instance.GetRowByID( "OI_TotalInsightGenerated" );
+            int target = Outcome.GetSingleIntByID( "InsightGeneratedGoal", 100 );
+            long current = statistic?.DGD?.GetScore() ?? 0;
 
-            CanBeCompletedNow = current >= cost;
+            CanBeCompletedNow = current >= target;
 
             switch ( Logic )
             {
                 case ProjectLogic.WriteProgressIconText:
                 case ProjectLogic.WriteProgressTextBrief:
                     if ( BufferOrNull != null )
-                        BufferOrNull.AddRaw( MathA.Min( 100, (int)((current * 100) / MathA.Max( 1, cost )) ).ToString() + "%" );
+                        BufferOrNull.AddRaw( MathA.Min( 100, (int)((current * 100) / MathA.Max( 1, target )) ).ToString() + "%" );
                     break;
                 case ProjectLogic.WriteRequirements_OneLine:
                 case ProjectLogic.WriteRequirements_ManyLines:
                     if ( BufferOrNull != null )
-                        BufferOrNull.AddFormat3( "RequiredResourceAmount", current.ToStringThousandsWhole(), cost.ToStringThousandsWhole(), insight?.GetDisplayName() ?? "Insight" ).Line();
+                        BufferOrNull.AddFormat3( "RequiredResourceAmount", current.ToStringThousandsWhole(), target.ToStringThousandsWhole(), statistic?.GetDisplayName() ?? "Total Insight Generated" ).Line();
                     break;
+                case ProjectLogic.WriteAddedContext:
                 case ProjectLogic.DoAfterCompletion:
-                    insight?.AlterCurrent_Named( -cost, "Expense_OI_InsightResearch", ResourceAddRule.IgnoreUntilTurnChange );
                     break;
             }
         }
-
         public void HandleStreetItem( ProjectOutcome Outcome, ProjectOutcomeStreetSenseItem StreetItem, BaseBuilding Building, ISimMachineActor Actor, SquirrelRand Rand, ArcenDoubleCharacterBuffer PopupBufferOrNull )
         {
         }
@@ -149,3 +148,4 @@ namespace Arcen.HotM.OrganicIntegration
         }
     }
 }
+

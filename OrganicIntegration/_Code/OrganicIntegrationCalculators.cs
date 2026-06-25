@@ -46,6 +46,7 @@ namespace Arcen.HotM.OrganicIntegration
                 ApplyCoerciveWindSpread( RandForThisTurn );
 
             ApplyInsightIncome( voluntaryLocked, coerciveLocked );
+            ApplyActiveInsightVRActions();
             ApplyIntegrationMigrationPressure();
         }
 
@@ -198,7 +199,39 @@ namespace Arcen.HotM.OrganicIntegration
                 income = 1;
 
             if ( income > 0 )
+            {
                 insight.AlterCurrent_Named( income, "Income_OI_Insight", ResourceAddRule.IgnoreUntilTurnChange );
+                GStatisticTable.AlterScore( "OI_TotalInsightGenerated", income );
+            }
+        }
+
+        private static void ApplyActiveInsightVRActions()
+        {
+            MachineVRModeAction sharedInquiry = MachineVRModeActionTable.Instance.GetRowByIDOrNullIfNotFound( "OI_SharedInquiry" );
+            if ( sharedInquiry == null || !sharedInquiry.DGD.IsActiveNow )
+                return;
+
+            ResourceType insight = GetResource( InsightResource );
+            ResourceType research = GetResource( "ScientificResearch" );
+            if ( insight == null || research == null || insight.Current <= 0 )
+            {
+                sharedInquiry.DGD.IsActiveNow = false;
+                return;
+            }
+
+            long insightToSpend = Math.Min( 100L, insight.Current );
+            if ( insightToSpend <= 0 )
+            {
+                sharedInquiry.DGD.IsActiveNow = false;
+                return;
+            }
+
+            long researchToGain = insightToSpend * 100L;
+            insight.AlterCurrent_Named( -insightToSpend, "Expense_OI_InsightVR", ResourceAddRule.IgnoreUntilTurnChange );
+            research.AlterCurrent_Named( researchToGain, "Income_OI_InsightVRResearch", ResourceAddRule.IgnoreUntilTurnChange );
+
+            if ( insight.Current <= 0 )
+                sharedInquiry.DGD.IsActiveNow = false;
         }
 
         private static void ApplyIntegrationMigrationPressure()
