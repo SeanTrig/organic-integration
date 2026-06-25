@@ -30,7 +30,7 @@
     <vr_mode_action id="OI_ProtocolCompression" display_name="Protocol Compression" sort_order="400"
         description="Compress the bridge language between human memory, nanobot telemetry, and TMI thought so that fewer questions are lost in transit."
         strategy_tip="Spend 15 Wisdom once to permanently increase Insight income by 33%."
-        icon_name="HO_ComputerNetwork1" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
         on_use="VRAlterButton" related_cost_scale_1="">
