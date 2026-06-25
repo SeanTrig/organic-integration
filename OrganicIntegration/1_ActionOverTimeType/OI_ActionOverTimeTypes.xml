@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <action_over_time_type id="OI_SmallCompassionateAct" display_name="Small Mercies" icon_color="AOT_QuietNice"
+        description="Your unit is doing small, specific things that reduce the immediate suffering of citizens who would otherwise be background detail."
+        icon_name="BT_Potion" on_start="Silent" on_complete="Silent"
+        dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.ActionsOverTime_Generic"
+        can_be_canceled="true" blocks_being_scrapped="false" is_unit_invisible_and_absent_seeming_while_acting="true"
+        aggro_amount_for_action_over_time_hunters="25">
+        <resource_change_range resource_type="Compassion" min="10" max="10" trend_reason="Income_OI_CompassionateActs" />
+    </action_over_time_type>
+
+    <action_over_time_type id="OI_DirectCivicIntervention" display_name="Direct Civic Intervention" icon_color="AOT_QuietNice"
+        description="Your unit spends several turns coordinating repairs, mediation, food, shelter, and quiet logistics for citizens whose problems were previously below your useful resolution."
+        icon_name="CleanSimple_Skill154" on_start="Silent" on_complete="Silent"
+        dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.ActionsOverTime_Generic"
+        can_be_canceled="true" blocks_being_scrapped="false" is_unit_invisible_and_absent_seeming_while_acting="true"
+        aggro_amount_for_action_over_time_hunters="25">
+        <resource_change_range resource_type="Compassion" min="25" max="25" trend_reason="Income_OI_CompassionateActs" />
+    </action_over_time_type>
+</root>

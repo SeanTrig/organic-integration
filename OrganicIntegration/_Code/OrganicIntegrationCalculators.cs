@@ -28,7 +28,15 @@ namespace Arcen.HotM.OrganicIntegration
         private const long CooperativeInsightPerTurn = 100L;
         private const long CooperativeCompassionPerTurn = 1L;
         private const long CooperativeMentalEnergyPerTurn = 2L;
-        private const long ConsentCascadeInsightPerTurn = 25L;
+        private const long SharedInquiryInsightPerTurn = 300L;
+        private const long SharedInquiryMentalEnergyPerTurn = 1L;
+        private const long SharedInquiryBaseResearchPerTurn = 30000L;
+        private const long SharedInquiryResearchPerUpgradedHumanDivisor = 10L;
+        private const long SharedInquiryMaxResearchPerTurn = 250000L;
+        private const long ProtocolCompressionMentalEnergyPerTurn = 1L;
+        private const long ConsentCascadeInsightPerTurn = 300L;
+        private const long ConsentCascadeCompassionPerTurn = 1L;
+        private const long SharedTriageInsightPerRepairTurn = 250L;
         private const long NanobotsPerSharedTriageHP = 25000L;
         private const int MaxSharedTriageHPPerTurn = 750;
 
@@ -237,7 +245,7 @@ namespace Arcen.HotM.OrganicIntegration
 
             if ( income > 0 )
             {
-                if ( HasActionEverBeenDone( ProtocolCompressionAction ) )
+                if ( IsVRActionActive( ProtocolCompressionAction ) )
                     income = Math.Max( income + 1L, (income * 4L + 2L) / 3L );
                 if ( voluntaryLocked && !coerciveLocked && IsVRActionActive( ConsentCascadeAction ) )
                     income = Math.Max( income + 1L, (income * 6L + 4L) / 5L );
@@ -250,6 +258,7 @@ namespace Arcen.HotM.OrganicIntegration
         private static void ApplyPreJobInsightActionUpkeep()
         {
             ApplyCooperativeModelingUpkeep();
+            ApplyProtocolCompressionUpkeep();
             ApplyConsentCascadeUpkeep();
         }
 
@@ -273,6 +282,22 @@ namespace Arcen.HotM.OrganicIntegration
             mentalEnergy.AlterCurrent_Named( -CooperativeMentalEnergyPerTurn, "Expense_OI_CooperativeModeling", ResourceAddRule.IgnoreUntilTurnChange );
         }
 
+        private static void ApplyProtocolCompressionUpkeep()
+        {
+            MachineVRModeAction action = GetVRAction( ProtocolCompressionAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+
+            ResourceType mentalEnergy = GetResource( "MentalEnergy" );
+            if ( !CanAfford( mentalEnergy, ProtocolCompressionMentalEnergyPerTurn ) )
+            {
+                action.DGD.IsActiveNow = false;
+                return;
+            }
+
+            mentalEnergy.AlterCurrent_Named( -ProtocolCompressionMentalEnergyPerTurn, "Expense_OI_ProtocolCompression", ResourceAddRule.IgnoreUntilTurnChange );
+        }
+
         private static void ApplyConsentCascadeUpkeep()
         {
             MachineVRModeAction action = GetVRAction( ConsentCascadeAction );
@@ -280,13 +305,15 @@ namespace Arcen.HotM.OrganicIntegration
                 return;
 
             ResourceType insight = GetResource( InsightResource );
-            if ( !CanAfford( insight, ConsentCascadeInsightPerTurn ) )
+            ResourceType compassion = GetResource( "Compassion" );
+            if ( !CanAfford( insight, ConsentCascadeInsightPerTurn ) || !CanAfford( compassion, ConsentCascadeCompassionPerTurn ) )
             {
                 action.DGD.IsActiveNow = false;
                 return;
             }
 
             insight.AlterCurrent_Named( -ConsentCascadeInsightPerTurn, "Expense_OI_ConsentCascade", ResourceAddRule.IgnoreUntilTurnChange );
+            compassion.AlterCurrent_Named( -ConsentCascadeCompassionPerTurn, "Expense_OI_ConsentCascade", ResourceAddRule.IgnoreUntilTurnChange );
         }
 
         private static void ApplyActiveInsightVRActions()
@@ -302,26 +329,19 @@ namespace Arcen.HotM.OrganicIntegration
                 return;
 
             ResourceType insight = GetResource( InsightResource );
+            ResourceType mentalEnergy = GetResource( "MentalEnergy" );
             ResourceType research = GetResource( "ScientificResearch" );
-            if ( insight == null || research == null || insight.Current <= 0 )
+            ResourceType upgraded = GetResource( UpgradedResource );
+            if ( !CanAfford( insight, SharedInquiryInsightPerTurn ) || !CanAfford( mentalEnergy, SharedInquiryMentalEnergyPerTurn ) || research == null )
             {
                 sharedInquiry.DGD.IsActiveNow = false;
                 return;
             }
 
-            long insightToSpend = Math.Min( 100L, insight.Current );
-            if ( insightToSpend <= 0 )
-            {
-                sharedInquiry.DGD.IsActiveNow = false;
-                return;
-            }
-
-            long researchToGain = insightToSpend * 100L;
-            insight.AlterCurrent_Named( -insightToSpend, "Expense_OI_InsightVR", ResourceAddRule.IgnoreUntilTurnChange );
+            long researchToGain = CalculateSharedInquiryResearch( upgraded?.Current ?? 0L );
+            insight.AlterCurrent_Named( -SharedInquiryInsightPerTurn, "Expense_OI_InsightVR", ResourceAddRule.IgnoreUntilTurnChange );
+            mentalEnergy.AlterCurrent_Named( -SharedInquiryMentalEnergyPerTurn, "Expense_OI_InsightVR", ResourceAddRule.IgnoreUntilTurnChange );
             research.AlterCurrent_Named( researchToGain, "Income_OI_InsightVRResearch", ResourceAddRule.IgnoreUntilTurnChange );
-
-            if ( insight.Current <= 0 )
-                sharedInquiry.DGD.IsActiveNow = false;
         }
 
         private static void ApplySharedTriage()
@@ -331,8 +351,16 @@ namespace Arcen.HotM.OrganicIntegration
                 return;
 
             ResourceType upgraded = GetResource( UpgradedResource );
+            ResourceType insight = GetResource( InsightResource );
             ResourceType nanobots = GetResource( MedicalNanobotsResource );
-            if ( upgraded == null || upgraded.Current <= 0 || nanobots == null || nanobots.Current < NanobotsPerSharedTriageHP )
+            if ( upgraded == null || upgraded.Current <= 0 )
+            {
+                sharedTriage.DGD.IsActiveNow = false;
+                return;
+            }
+            if ( !HasAnyRepairableTriageTarget() )
+                return;
+            if ( !CanAfford( insight, SharedTriageInsightPerRepairTurn ) || !CanAfford( nanobots, NanobotsPerSharedTriageHP ) )
             {
                 sharedTriage.DGD.IsActiveNow = false;
                 return;
@@ -340,8 +368,12 @@ namespace Arcen.HotM.OrganicIntegration
 
             int hpBudget = CalculateSharedTriageHPBudget( upgraded.Current, nanobots.Current );
             if ( hpBudget <= 0 )
+            {
+                sharedTriage.DGD.IsActiveNow = false;
                 return;
+            }
 
+            int repairedTotal = 0;
             foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
             {
                 if ( hpBudget <= 0 || nanobots.Current < NanobotsPerSharedTriageHP )
@@ -351,7 +383,7 @@ namespace Arcen.HotM.OrganicIntegration
                 if ( structure == null || structure.IsInvalid || structure.IsFullDead || structure.IsUnderConstruction )
                     continue;
 
-                RepairWithMedicalNanobots( structure, ref hpBudget, nanobots );
+                repairedTotal += RepairWithMedicalNanobots( structure, ref hpBudget, nanobots );
             }
 
             foreach ( ISimMachineActor actor in SimCommon.AllMachineActors.GetDisplayList() )
@@ -361,8 +393,41 @@ namespace Arcen.HotM.OrganicIntegration
                 if ( actor == null || actor.IsInvalid || actor.IsFullDead )
                     continue;
 
-                RepairWithMedicalNanobots( actor, ref hpBudget, nanobots );
+                repairedTotal += RepairWithMedicalNanobots( actor, ref hpBudget, nanobots );
             }
+
+            if ( repairedTotal > 0 )
+                insight.AlterCurrent_Named( -SharedTriageInsightPerRepairTurn, "Expense_OI_SharedTriage", ResourceAddRule.IgnoreUntilTurnChange );
+        }
+
+        private static long CalculateSharedInquiryResearch( long upgradedHumans )
+        {
+            long scaled = SharedInquiryBaseResearchPerTurn + Math.Max( 0L, upgradedHumans ) / SharedInquiryResearchPerUpgradedHumanDivisor;
+            if ( scaled > SharedInquiryMaxResearchPerTurn )
+                scaled = SharedInquiryMaxResearchPerTurn;
+            return scaled;
+        }
+
+        private static bool HasAnyRepairableTriageTarget()
+        {
+            foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
+            {
+                MachineStructure structure = kv.Value;
+                if ( structure == null || structure.IsInvalid || structure.IsFullDead || structure.IsUnderConstruction )
+                    continue;
+                if ( structure.GetActorDataLostFromMax( ActorRefs.ActorHP, true ) > 0 )
+                    return true;
+            }
+
+            foreach ( ISimMachineActor actor in SimCommon.AllMachineActors.GetDisplayList() )
+            {
+                if ( actor == null || actor.IsInvalid || actor.IsFullDead )
+                    continue;
+                if ( actor.GetActorDataLostFromMax( ActorRefs.ActorHP, true ) > 0 )
+                    return true;
+            }
+
+            return false;
         }
 
         private static int CalculateSharedTriageHPBudget( long upgradedHumans, long nanobotsAvailable )

@@ -11,4 +11,5 @@
 	<trend_change_reason id="Income_OI_UpgradedHumans_Voluntary" display_name="Voluntary Integration" is_income="true"/>
 	<trend_change_reason id="Income_OI_UpgradedHumans_Coercive" display_name="Coercive Integration" is_income="true"/>
 	<trend_change_reason id="Income_OI_IntegrationImmigrationPressure" display_name="Integration Immigration Pressure" is_income="true"/>
+	<trend_change_reason id="Income_OI_CompassionateActs" display_name="Compassionate Acts" is_income="true"/>
 </root>

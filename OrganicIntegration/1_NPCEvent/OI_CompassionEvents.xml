@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <city_event id="OI_CompassionSmallMercies" display_name="Small Mercies"
+        description="A household has become legible as more than an address with thermal noise inside it. The problem is small. The delay is small. For the humans involved, neither feels small."
+        strategy_tip="Dispatch an android for 3 turns to perform compassionate work for citizens. Rewards 10 Compassion."
+        icon_name="BT_Potion" has_no_code="true" event_is_blocked_for_actors_without_clearance="false"
+        street_sense_collections="All,NPCInteraction">
+        <gate_by_city minimum_chapter="2" required_unlock_1="OI_NanobotInterfaceTech" blocked_by_city_flag="IsPostFinalDoom" blocked_by_city_flag2="IsCityBarrenOfCitizens" />
+        <minor_event_data specific_cohort="Yourself" max_times_can_be_executed="999" max_times_can_appear_at_once="1" seed_weight="100"
+            should_always_show_expanded_action_details="true" icon_scale="0.4" color_data="MeetPeopleCyan"
+            seeds_one_per_district="true" chance_of_seeding_per_district="20">
+            <seed_at building_seed_tag="Housing" min_security_clearance_of_seed_spot="0" max_security_clearance_of_seed_spot="5" />
+        </minor_event_data>
+        <choice id="Help" display_name="Do Something Useful"
+            description="The details do not matter to your survival. That is part of why doing this is useful."
+            strategy_tip="This unit will remain busy at this site for 3 turns."
+            action_visibility_style="IsMoveAndInteractWithNPC">
+            <possible_result id="0" unskilled_weight="100" vfx_and_sound="UnexpectedBonusUnlock" despawn_characters_on_the_right="false"
+                action_over_time_to_start="OI_SmallCompassionateAct" turns_for_action_over_time_to_last="3" skip_having_result_message="true" />
+        </choice>
+    </city_event>
+
+    <city_event id="OI_CompassionCivicIntervention" display_name="Civic Intervention"
+        description="Several human problems overlap here: logistics, health, fear, money, habit, language. Previously this would have compressed into a single unhelpful category. Now the category has internal structure."
+        strategy_tip="Dispatch an android for 5 turns to coordinate a larger compassionate intervention. Rewards 25 Compassion."
+        icon_name="CleanSimple_Skill154" has_no_code="true" event_is_blocked_for_actors_without_clearance="false"
+        street_sense_collections="All,NPCInteraction">
+        <gate_by_city minimum_chapter="2" required_unlock_1="OI_NanobotInterfaceTech" blocked_by_city_flag="IsPostFinalDoom" blocked_by_city_flag2="IsCityBarrenOfCitizens" />
+        <minor_event_data specific_cohort="Yourself" max_times_can_be_executed="999" max_times_can_appear_at_once="1" seed_weight="70"
+            should_always_show_expanded_action_details="true" icon_scale="0.4" color_data="MeetPeopleCyan"
+            seeds_one_per_district="true" chance_of_seeding_per_district="12">
+            <seed_at building_seed_tag="Housing" min_security_clearance_of_seed_spot="0" max_security_clearance_of_seed_spot="5" />
+        </minor_event_data>
+        <choice id="Intervene" display_name="Coordinate The Intervention"
+            description="This is not efficient if humans are livestock. It is efficient if the livestock were never livestock."
+            strategy_tip="This unit will remain busy at this site for 5 turns."
+            action_visibility_style="IsMoveAndInteractWithNPC">
+            <possible_result id="0" unskilled_weight="100" vfx_and_sound="UnexpectedBonusUnlock" despawn_characters_on_the_right="false"
+                action_over_time_to_start="OI_DirectCivicIntervention" turns_for_action_over_time_to_last="5" skip_having_result_message="true" />
+        </choice>
+    </city_event>
+</root>

@@ -45,6 +45,7 @@ namespace Arcen.HotM.OrganicIntegration
         private static VRActionResult HandleSharedInquiry( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
         {
             ResourceType insight = GetResource( InsightResource );
+            ResourceType mentalEnergy = GetResource( MentalEnergyResource );
             ResourceType research = GetResource( ResearchResource );
 
             switch ( Logic )
@@ -55,18 +56,20 @@ namespace Arcen.HotM.OrganicIntegration
                         BufferOrNull.StartStyleLineHeightA();
                         BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
                         BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
-                            .AddExpandableResourceCost( 0, "up to 100", insight ).Line();
+                            .AddExpandableResourceCost( 0, "300", insight ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "1", mentalEnergy ).Line();
                         BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
-                            .AddExpandablePositiveResourceGain( 10000, research ).Line();
+                            .AddRaw( "Gains 30,000 to 250,000 Scientific Research per turn, scaling with Upgraded Humans." ).Line();
                         BufferOrNull.EndLineHeight();
                     }
                     break;
                 case VRActionLogic.FlagAnyRelatedResources:
                     FlagRelated( insight );
+                    FlagRelated( mentalEnergy );
                     FlagRelated( research );
                     break;
                 case VRActionLogic.GetCanAfford:
-                    return Action.DGD.IsActiveNow || CanAfford( insight, 1L ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                    return Action.DGD.IsActiveNow || (CanAfford( insight, 300L ) && CanAfford( mentalEnergy, 1L )) ? VRActionResult.Success : VRActionResult.Indeterminate;
                 case VRActionLogic.TryPayCosts:
                     return VRActionResult.Success;
                 case VRActionLogic.MenuClick:
@@ -121,6 +124,7 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static VRActionResult HandleSharedTriage( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
         {
+            ResourceType insight = GetResource( InsightResource );
             ResourceType nanobots = GetResource( MedicalNanobotsResource );
 
             switch ( Logic )
@@ -131,17 +135,19 @@ namespace Arcen.HotM.OrganicIntegration
                         BufferOrNull.StartStyleLineHeightA();
                         BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
                         BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                            .AddExpandableResourceCost( 0, "250 when repairs are made", insight ).ListSeparator()
                             .AddExpandableResourceCost( 0, "25,000 per HP restored", nanobots ).Line();
                         BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
-                            .AddRaw( "Repairs damaged player structures and machine actors after normal repairs." ).Line();
+                            .AddRaw( "Repairs damaged player structures and machine actors after normal repairs. Spends nothing if nothing needs repair." ).Line();
                         BufferOrNull.EndLineHeight();
                     }
                     break;
                 case VRActionLogic.FlagAnyRelatedResources:
+                    FlagRelated( insight );
                     FlagRelated( nanobots );
                     break;
                 case VRActionLogic.GetCanAfford:
-                    return Action.DGD.IsActiveNow || CanAfford( nanobots, 25000L ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                    return Action.DGD.IsActiveNow || (CanAfford( insight, 250L ) && CanAfford( nanobots, 25000L )) ? VRActionResult.Success : VRActionResult.Indeterminate;
                 case VRActionLogic.TryPayCosts:
                     return VRActionResult.Success;
                 case VRActionLogic.MenuClick:
@@ -156,7 +162,9 @@ namespace Arcen.HotM.OrganicIntegration
         {
             ResourceType wisdom = GetResource( WisdomResource );
             ResourceType insight = GetResource( InsightResource );
+            ResourceType mentalEnergy = GetResource( MentalEnergyResource );
             const long wisdomCost = 15L;
+            const long mentalEnergyCost = 1L;
 
             switch ( Logic )
             {
@@ -164,10 +172,11 @@ namespace Arcen.HotM.OrganicIntegration
                     if ( BufferOrNull != null )
                     {
                         BufferOrNull.StartStyleLineHeightA();
-                        if ( Action.DGD.HasEverBeenDone )
-                            BufferOrNull.BoldLineHeader( "Status" ).AddRaw( "Already active." ).Line();
-                        else
-                            BufferOrNull.BoldLineHeader( "Cost" ).AddExpandableResourceCost( 0, wisdomCost.ToStringThousandsWhole(), wisdom ).Line();
+                        BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
+                        if ( !Action.DGD.HasEverBeenDone )
+                            BufferOrNull.BoldLineHeader( "Deal_ActivationCost" ).AddExpandableResourceCost( 0, wisdomCost.ToStringThousandsWhole(), wisdom ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                            .AddExpandableResourceCost( 0, mentalEnergyCost.ToStringThousandsWhole(), mentalEnergy ).Line();
                         BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" ).AddRaw( "+33% Insight income." ).Line();
                         BufferOrNull.EndLineHeight();
                     }
@@ -175,18 +184,25 @@ namespace Arcen.HotM.OrganicIntegration
                 case VRActionLogic.FlagAnyRelatedResources:
                     FlagRelated( wisdom );
                     FlagRelated( insight );
+                    FlagRelated( mentalEnergy );
                     break;
                 case VRActionLogic.GetCanAfford:
-                    return !Action.DGD.HasEverBeenDone && CanAfford( wisdom, wisdomCost ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                    return Action.DGD.IsActiveNow || ((Action.DGD.HasEverBeenDone || CanAfford( wisdom, wisdomCost )) && CanAfford( mentalEnergy, mentalEnergyCost ))
+                        ? VRActionResult.Success : VRActionResult.Indeterminate;
                 case VRActionLogic.TryPayCosts:
-                    if ( Action.DGD.HasEverBeenDone || !CanAfford( wisdom, wisdomCost ) )
-                        return VRActionResult.Indeterminate;
-                    wisdom.AlterCurrent_Named( -wisdomCost, "Expense_OI_ProtocolCompression", ResourceAddRule.IgnoreUntilTurnChange );
+                    if ( Action.DGD.IsActiveNow )
+                        return VRActionResult.Success;
+                    if ( !Action.DGD.HasEverBeenDone )
+                    {
+                        if ( !CanAfford( wisdom, wisdomCost ) )
+                            return VRActionResult.Indeterminate;
+                        wisdom.AlterCurrent_Named( -wisdomCost, "Expense_OI_ProtocolCompression", ResourceAddRule.IgnoreUntilTurnChange );
+                    }
                     return VRActionResult.Success;
                 case VRActionLogic.MenuClick:
-                    if ( Action.DGD.HasEverBeenDone )
-                        return VRActionResult.Indeterminate;
-                    MarkDone( Action );
+                    if ( !Action.DGD.HasEverBeenDone )
+                        MarkDone( Action );
+                    Action.ToggleActive();
                     return VRActionResult.Success;
             }
 
@@ -209,7 +225,9 @@ namespace Arcen.HotM.OrganicIntegration
                         BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
                         if ( activationCost > 0 )
                             BufferOrNull.BoldLineHeader( "Deal_ActivationCost" ).AddExpandableResourceCost( 0, activationCost.ToStringThousandsWhole(), compassion ).Line();
-                        BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" ).AddExpandableResourceCost( 0, "25", insight ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                            .AddExpandableResourceCost( 0, "300", insight ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "1", compassion ).Line();
                         BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
                             .AddRaw( "Voluntary Integration can reach 67% of the city and spreads more efficiently." ).Line();
                         BufferOrNull.EndLineHeight();
@@ -220,8 +238,11 @@ namespace Arcen.HotM.OrganicIntegration
                     FlagRelated( compassion );
                     break;
                 case VRActionLogic.GetCanAfford:
-                    return Action.DGD.IsActiveNow || activationCost <= 0 || CanAfford( compassion, activationCost ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                    return Action.DGD.IsActiveNow || ((activationCost <= 0 || CanAfford( compassion, activationCost )) && CanAfford( insight, 300L ) && CanAfford( compassion, 1L ))
+                        ? VRActionResult.Success : VRActionResult.Indeterminate;
                 case VRActionLogic.TryPayCosts:
+                    if ( Action.DGD.IsActiveNow )
+                        return VRActionResult.Success;
                     if ( activationCost > 0 )
                     {
                         if ( !CanAfford( compassion, activationCost ) )
@@ -230,6 +251,8 @@ namespace Arcen.HotM.OrganicIntegration
                     }
                     return VRActionResult.Success;
                 case VRActionLogic.MenuClick:
+                    if ( !Action.DGD.HasEverBeenDone )
+                        MarkDone( Action );
                     Action.ToggleActive();
                     return VRActionResult.Success;
             }
