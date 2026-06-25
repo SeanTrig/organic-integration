@@ -32,6 +32,30 @@ namespace Arcen.HotM.OrganicIntegration
                         return HandleProtocolCompression( Action, BufferOrNull, Logic );
                     case "OI_ConsentCascade":
                         return HandleConsentCascade( Action, BufferOrNull, Logic );
+                    case "OI_CivicSensorium":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "+25% Insight income, +30% Shared Inquiry research, and +2 Grey Goo stacks from Nanobot Rounds.",
+                            Cost( InsightResource, 250L ), Cost( MentalEnergyResource, 1L ) );
+                    case "OI_PublicHealthMesh":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Increases the city waitlist as rumors of impossible medicine spread through the city.",
+                            Cost( InsightResource, 250L ), Cost( MedicalNanobotsResource, 5000000L ) );
+                    case "OI_ShelterFilaments":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Moves up to 1,000 Abandoned Humans into open housing each turn, if housing capacity exists.",
+                            Cost( InsightResource, 250L ), Cost( MedicalNanobotsResource, 10000000L ) );
+                    case "OI_InfrastructureFilaments":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Improves Shared Triage to 1,500 HP per turn and lowers its nanobot cost to 15,000 per HP.",
+                            Cost( InsightResource, 300L ), Cost( MedicalNanobotsResource, 20000000L ) );
+                    case "OI_ArchitecturalWeave":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "+25% Integration Neural Expansion from Upgraded Humans by using city structures as a calmer substrate.",
+                            Cost( InsightResource, 350L ), Cost( MedicalNanobotsResource, 25000000L ) );
+                    case "OI_ControlledBloom":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Voluntary Integration can reach 78% of the city and Upgraded Humans continue converting nearby citizens without Worker Sledges.",
+                            Cost( InsightResource, 400L ), Cost( MedicalNanobotsResource, 30000000L ), Cost( CompassionResource, 1L ) );
                 }
             }
             catch ( Exception e )
@@ -260,6 +284,62 @@ namespace Arcen.HotM.OrganicIntegration
             return VRActionResult.Indeterminate;
         }
 
+        private static VRActionResult HandleMaintainedToggle( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic, string bonusText, params ResourceCost[] costs )
+        {
+            switch ( Logic )
+            {
+                case VRActionLogic.AppendToVRActionTooltip:
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
+                        BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" );
+                        for ( int i = 0; i < costs.Length; i++ )
+                        {
+                            if ( i > 0 )
+                                BufferOrNull.ListSeparator();
+                            BufferOrNull.AddExpandableResourceCost( 0, costs[i].DisplayAmount, costs[i].Resource );
+                        }
+                        BufferOrNull.Line();
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" ).AddRaw( bonusText ).Line();
+                        BufferOrNull.EndLineHeight();
+                    }
+                    break;
+                case VRActionLogic.FlagAnyRelatedResources:
+                    for ( int i = 0; i < costs.Length; i++ )
+                        FlagRelated( costs[i].Resource );
+                    break;
+                case VRActionLogic.GetCanAfford:
+                    return Action.DGD.IsActiveNow || CanAffordAll( costs ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                case VRActionLogic.TryPayCosts:
+                    return VRActionResult.Success;
+                case VRActionLogic.MenuClick:
+                    Action.ToggleActive();
+                    return VRActionResult.Success;
+            }
+
+            return VRActionResult.Indeterminate;
+        }
+
+        private static ResourceCost Cost( string resourceID, long amount )
+        {
+            return new ResourceCost( GetResource( resourceID ), amount, amount.ToStringThousandsWhole() );
+        }
+
+        private struct ResourceCost
+        {
+            public readonly ResourceType Resource;
+            public readonly long Amount;
+            public readonly string DisplayAmount;
+
+            public ResourceCost( ResourceType resource, long amount, string displayAmount )
+            {
+                Resource = resource;
+                Amount = amount;
+                DisplayAmount = displayAmount;
+            }
+        }
+
         private static ResourceType GetResource( string id )
         {
             return ResourceTypeTable.Instance.GetRowByIDOrNullIfNotFound( id );
@@ -267,7 +347,17 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static bool CanAfford( ResourceType resource, long amount )
         {
-            return resource != null && resource.Current >= amount;
+            return amount <= 0 || (resource != null && resource.Current >= amount);
+        }
+
+        private static bool CanAffordAll( ResourceCost[] costs )
+        {
+            for ( int i = 0; i < costs.Length; i++ )
+            {
+                if ( !CanAfford( costs[i].Resource, costs[i].Amount ) )
+                    return false;
+            }
+            return true;
         }
 
         private static void FlagRelated( ResourceType resource )

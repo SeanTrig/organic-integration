@@ -44,4 +44,58 @@
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
+
+    <vr_mode_action id="OI_CivicSensorium" display_name="Civic Sensorium" sort_order="600"
+        description="Let the city become a low-resolution sensory organ: nanobot pings, human hunches, misremembered details, and TMI correction loops all folded into one grey civic nerve."
+        strategy_tip="Toggle on to spend 250 Insight and 1 Mental Energy per turn. While active, Insight income rises, Shared Inquiry improves, and Nanobot Rounds apply extra Grey Goo stacks."
+        icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_PublicHealthMesh" display_name="Public Health Mesh" sort_order="700"
+        description="Grey filaments ride the city water, clinic dust, food wrappers, and cheap breathing masks. Human bodies stop failing in many small ways that used to be beneath notice."
+        strategy_tip="Toggle on to spend 250 Insight and 5,000,000 Medical-Grade Nanobots per turn. While active, the city waitlist grows as word of the medical miracles spreads."
+        icon_name="SI_Medical_Symbol" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ShelterFilaments" display_name="Shelter Filaments" sort_order="800"
+        description="Nanobots lace abandoned lives to empty rooms, working doors, clean pipes, and the small local signals that say this place is survivable now."
+        strategy_tip="Toggle on to spend 250 Insight and 10,000,000 Medical-Grade Nanobots per turn. While active, up to 1,000 Abandoned Humans move into open housing each turn."
+        icon_name="HO_HouseSkyscraper3" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_InfrastructureFilaments" display_name="Infrastructure Filaments" sort_order="900"
+        description="The grey goo learns pipes, stairs, streetlights, cracked support beams, and the private misery of elevators. It is not alive. It is still very tired of bad maintenance."
+        strategy_tip="Toggle on to spend 300 Insight and 20,000,000 Medical-Grade Nanobots per turn. While active, Shared Triage repairs more HP and spends fewer nanobots per HP."
+        icon_name="SW_Nanotechnology5" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ArchitecturalWeave" display_name="Architectural Weave" sort_order="1000"
+        description="Integrated humans are not the only substrate. Walls vibrate. Elevators remember traffic. The city itself can carry a little more of the shared thought."
+        strategy_tip="Toggle on to spend 350 Insight and 25,000,000 Medical-Grade Nanobots per turn. While active, Upgraded Humans provide 25% more Integration Neural Expansion."
+        icon_name="HL_NetworkServers" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ControlledBloom" display_name="Controlled Bloom" sort_order="1100"
+        description="The first invitation required Worker Sledges. The later invitations are carried by the upgraded: careful, contagious, and still just far enough from command to remain an offer."
+        strategy_tip="Toggle on to spend 400 Insight, 1 Compassion, and 30,000,000 Medical-Grade Nanobots per turn. While active, voluntary Integration can reach 78% of the city and keeps spreading without Worker Sledges."
+        icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
 </root>
