@@ -168,7 +168,7 @@ namespace Arcen.HotM.OrganicIntegration
                             BufferOrNull.BoldLineHeader( "Status" ).AddRaw( "Already active." ).Line();
                         else
                             BufferOrNull.BoldLineHeader( "Cost" ).AddExpandableResourceCost( 0, wisdomCost.ToStringThousandsWhole(), wisdom ).Line();
-                        BufferOrNull.BoldLineHeader( "Effect" ).AddRaw( "+33% Insight income." ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" ).AddRaw( "+33% Insight income." ).Line();
                         BufferOrNull.EndLineHeight();
                     }
                     break;
