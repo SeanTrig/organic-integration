@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-    <vr_mode_action id="OI_SynthesizeResearch" display_name="Synthesize Research" sort_order="100"
-        description="Translate a compact bundle of integrated-human questions into ordinary scientific work."
-        strategy_tip="Spend 250 Insight to gain 25,000 Scientific Research."
-        icon_name="SF2_Beaker" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
-        vr_mode_category="OI_Insight"
-        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
-        on_use="VRAlterButton" related_cost_scale_1="">
-    </vr_mode_action>
-
-    <vr_mode_action id="OI_SharedInquiry" display_name="Shared Inquiry" sort_order="200"
+    <vr_mode_action id="OI_SharedInquiry" display_name="Shared Inquiry" sort_order="100"
         description="Maintain a low-bandwidth question-and-answer loop with integrated humans, converting Insight into ongoing research."
         strategy_tip="Toggle on to spend up to 100 Insight per turn for 10,000 Scientific Research per turn. Turns itself off if Insight runs out."
         icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
@@ -18,10 +9,37 @@
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
-    <vr_mode_action id="OI_CooperativeModeling" display_name="Cooperative Modeling" sort_order="300"
-        description="Ask integrated humans to model what your own cognition does not naturally feel, then stabilize the useful errors."
-        strategy_tip="Spend 500 Insight and 2 Compassion to gain 75,000 Scientific Research and 2 Creativity."
+    <vr_mode_action id="OI_CooperativeModeling" display_name="Cooperative Modeling" sort_order="200"
+        description="Let integrated humans keep asking where your model of the world is too clean, too precise, or too inhuman to notice the right error."
+        strategy_tip="Toggle on to spend 100 Insight, 1 Compassion, and 2 Mental Energy per turn. While active, scientific jobs produce twice as much Scientific Research."
         icon_name="CleanSimple_SkillB092" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_SharedTriage" display_name="Shared Triage" sort_order="300"
+        description="Ask upgraded humans to shed medical nanobots into damaged machine systems. The grey filament repairs, spends itself, and does not keep enough replication balance to become a disaster."
+        strategy_tip="Toggle on to spend Medical-Grade Nanobots each turn repairing damaged player structures and machine actors after normal repairs."
+        icon_name="SomethingHealth" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ProtocolCompression" display_name="Protocol Compression" sort_order="400"
+        description="Compress the bridge language between human memory, nanobot telemetry, and TMI thought so that fewer questions are lost in transit."
+        strategy_tip="Spend 15 Wisdom once to permanently increase Insight income by 33%."
+        icon_name="HO_ComputerNetwork1" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ConsentCascade" display_name="Consent Cascade" sort_order="500"
+        description="Let upgraded humans explain the interface to one another until the offer no longer depends on Worker Sledges as the messenger."
+        strategy_tip="First activation costs 8 Compassion. While active, spend 25 Insight per turn to raise voluntary Integration coverage to 67%, improve conversion efficiency, and slightly increase Insight income."
+        icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
         on_use="VRAlterButton" related_cost_scale_1="">

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<upgrade_float id="OI_CooperativeModelingScienceMultiplier" display_name="Cooperative Modeling"
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.Upgrade_Basics" icon_name="CleanSimple_SkillB092"
+		float_original="1" float_increment="1" float_cap="2" show_data_as_percentage="true"
+		description="Integrated humans provide live model correction for scientific jobs. This is maintained by an Organic Integration VR action and is hidden from the normal upgrades screen.">
+		<data_target_int_multiplied_structure_jobs id="ScientificResearch" target_int_id="ScientificResearch">
+			<applies_to structure_job="MolecularGeneticsLab" allowed="true" />
+			<applies_to structure_job="ForensicGeneticsLab" allowed="true" />
+			<applies_to structure_job="ZoologyLab" allowed="true" />
+			<applies_to structure_job="MedicalPractice" allowed="true" />
+			<applies_to structure_job="VeterinaryPractice" allowed="true" />
+			<applies_to structure_job="BotanyLab" allowed="true" />
+			<applies_to structure_job="BionicEngineeringStudio" allowed="true" />
+			<applies_to structure_job="EpidemiologyLab" allowed="true" />
+			<applies_to structure_job="NeuroscienceLab" allowed="true" />
+		</data_target_int_multiplied_structure_jobs>
+		<data_target_int_multiplied_structure_jobs id="DataminerResearch" target_int_id="ScientificResearchPerTurn">
+			<applies_to structure_job="Dataminer" allowed="true" />
+		</data_target_int_multiplied_structure_jobs>
+	</upgrade_float>
+</root>

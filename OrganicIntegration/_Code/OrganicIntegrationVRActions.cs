@@ -9,7 +9,9 @@ namespace Arcen.HotM.OrganicIntegration
         private const string InsightResource = "OI_Insight";
         private const string ResearchResource = "ScientificResearch";
         private const string CompassionResource = "Compassion";
-        private const string CreativityResource = "Creativity";
+        private const string WisdomResource = "Wisdom";
+        private const string MentalEnergyResource = "MentalEnergy";
+        private const string MedicalNanobotsResource = "OI_MedicalGradeNanobots";
 
         public VRActionResult TryHandleVRAction( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
         {
@@ -20,51 +22,21 @@ namespace Arcen.HotM.OrganicIntegration
             {
                 switch ( Action.ID )
                 {
-                    case "OI_SynthesizeResearch":
-                        return HandleSynthesizeResearch( Action, BufferOrNull, Logic );
                     case "OI_SharedInquiry":
                         return HandleSharedInquiry( Action, BufferOrNull, Logic );
                     case "OI_CooperativeModeling":
                         return HandleCooperativeModeling( Action, BufferOrNull, Logic );
+                    case "OI_SharedTriage":
+                        return HandleSharedTriage( Action, BufferOrNull, Logic );
+                    case "OI_ProtocolCompression":
+                        return HandleProtocolCompression( Action, BufferOrNull, Logic );
+                    case "OI_ConsentCascade":
+                        return HandleConsentCascade( Action, BufferOrNull, Logic );
                 }
             }
             catch ( Exception e )
             {
                 ArcenDebugging.LogSingleLine( "OrganicIntegrationVRActions error in '" + Action.ID + "': " + e, Verbosity.ShowAsError );
-            }
-
-            return VRActionResult.Indeterminate;
-        }
-
-        private static VRActionResult HandleSynthesizeResearch( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
-        {
-            ResourceType insight = GetResource( InsightResource );
-            ResourceType research = GetResource( ResearchResource );
-            const long insightCost = 250L;
-            const long researchGain = 25000L;
-
-            switch ( Logic )
-            {
-                case VRActionLogic.AppendToVRActionTooltip:
-                    WriteOneShotTooltip( BufferOrNull, insightCost, insight, researchGain, research, 0, null, 0, null );
-                    break;
-                case VRActionLogic.FlagAnyRelatedResources:
-                    FlagRelated( insight );
-                    FlagRelated( research );
-                    break;
-                case VRActionLogic.GetCanAfford:
-                    return CanAfford( insight, insightCost ) ? VRActionResult.Success : VRActionResult.Indeterminate;
-                case VRActionLogic.TryPayCosts:
-                    if ( !CanAfford( insight, insightCost ) )
-                        return VRActionResult.Indeterminate;
-                    insight.AlterCurrent_Named( -insightCost, "Expense_OI_InsightVR", ResourceAddRule.IgnoreUntilTurnChange );
-                    return VRActionResult.Success;
-                case VRActionLogic.MenuClick:
-                    if ( research == null )
-                        return VRActionResult.Indeterminate;
-                    research.AlterCurrent_Named( researchGain, "Income_OI_InsightVRResearch", ResourceAddRule.IgnoreUntilTurnChange );
-                    MarkDone( Action );
-                    return VRActionResult.Success;
             }
 
             return VRActionResult.Indeterminate;
@@ -109,37 +81,111 @@ namespace Arcen.HotM.OrganicIntegration
         {
             ResourceType insight = GetResource( InsightResource );
             ResourceType compassion = GetResource( CompassionResource );
+            ResourceType mentalEnergy = GetResource( MentalEnergyResource );
             ResourceType research = GetResource( ResearchResource );
-            ResourceType creativity = GetResource( CreativityResource );
-            const long insightCost = 500L;
-            const long compassionCost = 2L;
-            const long researchGain = 75000L;
-            const long creativityGain = 2L;
 
             switch ( Logic )
             {
                 case VRActionLogic.AppendToVRActionTooltip:
-                    WriteOneShotTooltip( BufferOrNull, insightCost, insight, researchGain, research, compassionCost, compassion, creativityGain, creativity );
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
+                        BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                            .AddExpandableResourceCost( 0, "100", insight ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "1", compassion ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "2", mentalEnergy ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
+                            .AddRaw( "Scientific jobs produce 2x Scientific Research." ).Line();
+                        BufferOrNull.EndLineHeight();
+                    }
                     break;
                 case VRActionLogic.FlagAnyRelatedResources:
                     FlagRelated( insight );
                     FlagRelated( compassion );
+                    FlagRelated( mentalEnergy );
                     FlagRelated( research );
-                    FlagRelated( creativity );
                     break;
                 case VRActionLogic.GetCanAfford:
-                    return CanAfford( insight, insightCost ) && CanAfford( compassion, compassionCost ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                    return Action.DGD.IsActiveNow || (CanAfford( insight, 100L ) && CanAfford( compassion, 1L ) && CanAfford( mentalEnergy, 2L ))
+                        ? VRActionResult.Success : VRActionResult.Indeterminate;
                 case VRActionLogic.TryPayCosts:
-                    if ( !CanAfford( insight, insightCost ) || !CanAfford( compassion, compassionCost ) )
-                        return VRActionResult.Indeterminate;
-                    insight.AlterCurrent_Named( -insightCost, "Expense_OI_InsightVR", ResourceAddRule.IgnoreUntilTurnChange );
-                    compassion.AlterCurrent_Named( -compassionCost, "Expense_OI_InsightVR", ResourceAddRule.IgnoreUntilTurnChange );
                     return VRActionResult.Success;
                 case VRActionLogic.MenuClick:
-                    if ( research == null || creativity == null )
+                    Action.ToggleActive();
+                    return VRActionResult.Success;
+            }
+
+            return VRActionResult.Indeterminate;
+        }
+
+        private static VRActionResult HandleSharedTriage( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
+        {
+            ResourceType nanobots = GetResource( MedicalNanobotsResource );
+
+            switch ( Logic )
+            {
+                case VRActionLogic.AppendToVRActionTooltip:
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
+                        BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                            .AddExpandableResourceCost( 0, "25,000 per HP restored", nanobots ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
+                            .AddRaw( "Repairs damaged player structures and machine actors after normal repairs." ).Line();
+                        BufferOrNull.EndLineHeight();
+                    }
+                    break;
+                case VRActionLogic.FlagAnyRelatedResources:
+                    FlagRelated( nanobots );
+                    break;
+                case VRActionLogic.GetCanAfford:
+                    return Action.DGD.IsActiveNow || CanAfford( nanobots, 25000L ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                case VRActionLogic.TryPayCosts:
+                    return VRActionResult.Success;
+                case VRActionLogic.MenuClick:
+                    Action.ToggleActive();
+                    return VRActionResult.Success;
+            }
+
+            return VRActionResult.Indeterminate;
+        }
+
+        private static VRActionResult HandleProtocolCompression( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
+        {
+            ResourceType wisdom = GetResource( WisdomResource );
+            ResourceType insight = GetResource( InsightResource );
+            const long wisdomCost = 15L;
+
+            switch ( Logic )
+            {
+                case VRActionLogic.AppendToVRActionTooltip:
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        if ( Action.DGD.HasEverBeenDone )
+                            BufferOrNull.BoldLineHeader( "Status" ).AddRaw( "Already active." ).Line();
+                        else
+                            BufferOrNull.BoldLineHeader( "Cost" ).AddExpandableResourceCost( 0, wisdomCost.ToStringThousandsWhole(), wisdom ).Line();
+                        BufferOrNull.BoldLineHeader( "Effect" ).AddRaw( "+33% Insight income." ).Line();
+                        BufferOrNull.EndLineHeight();
+                    }
+                    break;
+                case VRActionLogic.FlagAnyRelatedResources:
+                    FlagRelated( wisdom );
+                    FlagRelated( insight );
+                    break;
+                case VRActionLogic.GetCanAfford:
+                    return !Action.DGD.HasEverBeenDone && CanAfford( wisdom, wisdomCost ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                case VRActionLogic.TryPayCosts:
+                    if ( Action.DGD.HasEverBeenDone || !CanAfford( wisdom, wisdomCost ) )
                         return VRActionResult.Indeterminate;
-                    research.AlterCurrent_Named( researchGain, "Income_OI_InsightVRResearch", ResourceAddRule.IgnoreUntilTurnChange );
-                    creativity.AlterCurrent_Named( creativityGain, "Income_OI_InsightVRCreativity", ResourceAddRule.IgnoreUntilTurnChange );
+                    wisdom.AlterCurrent_Named( -wisdomCost, "Expense_OI_ProtocolCompression", ResourceAddRule.IgnoreUntilTurnChange );
+                    return VRActionResult.Success;
+                case VRActionLogic.MenuClick:
+                    if ( Action.DGD.HasEverBeenDone )
+                        return VRActionResult.Indeterminate;
                     MarkDone( Action );
                     return VRActionResult.Success;
             }
@@ -147,29 +193,48 @@ namespace Arcen.HotM.OrganicIntegration
             return VRActionResult.Indeterminate;
         }
 
-        private static void WriteOneShotTooltip( ArcenCharacterBufferBase BufferOrNull, long primaryCost, ResourceType primaryCostResource,
-            long primaryGain, ResourceType primaryGainResource, long secondaryCost, ResourceType secondaryCostResource,
-            long secondaryGain, ResourceType secondaryGainResource )
+        private static VRActionResult HandleConsentCascade( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
         {
-            if ( BufferOrNull == null )
-                return;
+            ResourceType insight = GetResource( InsightResource );
+            ResourceType compassion = GetResource( CompassionResource );
+            const long compassionActivationCost = 8L;
+            long activationCost = Action.DGD.HasEverBeenDone ? 0L : compassionActivationCost;
 
-            BufferOrNull.StartStyleLineHeightA();
-            BufferOrNull.BoldLineHeader( "Cost" )
-                .AddExpandableResourceCost( 0, primaryCost.ToStringThousandsWhole(), primaryCostResource ).Line();
-            if ( secondaryCost > 0 )
+            switch ( Logic )
             {
-                BufferOrNull.BoldLineHeader( "Cost" )
-                    .AddExpandableResourceCost( 0, secondaryCost.ToStringThousandsWhole(), secondaryCostResource ).Line();
+                case VRActionLogic.AppendToVRActionTooltip:
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
+                        if ( activationCost > 0 )
+                            BufferOrNull.BoldLineHeader( "Deal_ActivationCost" ).AddExpandableResourceCost( 0, activationCost.ToStringThousandsWhole(), compassion ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" ).AddExpandableResourceCost( 0, "25", insight ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
+                            .AddRaw( "Voluntary Integration can reach 67% of the city and spreads more efficiently." ).Line();
+                        BufferOrNull.EndLineHeight();
+                    }
+                    break;
+                case VRActionLogic.FlagAnyRelatedResources:
+                    FlagRelated( insight );
+                    FlagRelated( compassion );
+                    break;
+                case VRActionLogic.GetCanAfford:
+                    return Action.DGD.IsActiveNow || activationCost <= 0 || CanAfford( compassion, activationCost ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                case VRActionLogic.TryPayCosts:
+                    if ( activationCost > 0 )
+                    {
+                        if ( !CanAfford( compassion, activationCost ) )
+                            return VRActionResult.Indeterminate;
+                        compassion.AlterCurrent_Named( -activationCost, "Expense_OI_ConsentCascade", ResourceAddRule.IgnoreUntilTurnChange );
+                    }
+                    return VRActionResult.Success;
+                case VRActionLogic.MenuClick:
+                    Action.ToggleActive();
+                    return VRActionResult.Success;
             }
-            BufferOrNull.BoldLineHeader( "Effect" )
-                .AddExpandablePositiveResourceGain( primaryGain, primaryGainResource ).Line();
-            if ( secondaryGain > 0 )
-            {
-                BufferOrNull.BoldLineHeader( "Effect" )
-                    .AddExpandablePositiveResourceGain( secondaryGain, secondaryGainResource ).Line();
-            }
-            BufferOrNull.EndLineHeight();
+
+            return VRActionResult.Indeterminate;
         }
 
         private static ResourceType GetResource( string id )
