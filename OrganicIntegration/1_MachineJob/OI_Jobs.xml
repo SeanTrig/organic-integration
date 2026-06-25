@@ -9,7 +9,7 @@
 		job_classes="Military" internal_robotics_type_needed="WarCaptain" internal_robots_count_needed="4"
 		tags="OI_NanobotUpgradeHub" shuts_off_at_percentage_electricity="99" portrait_icon_name="BuildingThirdParty"
 		is_locked_before_unlock="OI_NanobotUpgradeHubUnlock" is_blocked_after_city_flag1="OI_IntegrationCoerciveLocked" is_suggested_to_always_build_at_least="1"
-		related_resource_1="WorkerSledgeFrame" related_resource_2="OI_UpgradedHumans" related_resource_3="OI_Insight">
+		related_resource_1="RoboticMotivator" related_resource_2="OI_UpgradedHumans" related_resource_3="OI_Insight">
 		<initial_actor_rating data_type="RequiredElectricity" value="8086" />
 		<resource_cost resource_type="Microbuilders" cost="4101" />
 		<resource_cost resource_type="RoboticMotivator" cost="2" />

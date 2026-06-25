@@ -5,9 +5,7 @@
 			min_turns_between_activity="1" max_turns_between_activity="2"
 			max_security_clearance_of_seed_spot="0" target_job_tag="OI_NanobotUpgradeHub"
 			threat_radius="100" home_radius="15">
-			<gate_by_city>
-				<required_resource resource_type="WorkerSledgeFrame" at_least="true" value="9"/>
-			</gate_by_city>
+			<gate_by_city/>
 		</periodic_data>
 		<unit id="0" to_spawn="WorkerSledge" stance_to_start_in="OI_PlayerWorkerOfferIntegration" forces_collections="WorkerAndroids,WorkerSledges"
 			should_be_specific_cohort="YourAutomatedWorkers"
@@ -16,7 +14,6 @@
 			spawn_radius_max="7" spawn_radius_relaxed_max="14"
 			skip_ever_making_player_focus_on_these="true"
 			spawn_as_close_as_possible="false" max_security_clearance_of_seed_spot="0"
-			should_hard_despawn_on_manager_blocked="true" should_ignore_resource_portion_of_manager_blocked_for_despawn_logic="true"
-			resource_change_on_spawn1="WorkerSledgeFrame" resource_change_on_spawn1_amount_per_squad_size="-1"/>
+			should_hard_despawn_on_manager_blocked="true" should_ignore_resource_portion_of_manager_blocked_for_despawn_logic="true"/>
 	</npc_manager>
 </root>

@@ -146,7 +146,7 @@ namespace Arcen.HotM.OrganicIntegration
         {
             ResourceType upgraded = GetResource( UpgradedResource );
             Swarm swarm = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( UpgradedSwarm );
-            if ( building == null || building.GetIsDestroyed() || upgraded == null || swarm == null )
+            if ( building == null || building.GetIsDestroyed() || upgraded == null )
                 return 0;
 
             int peopleHere = building.GetTotalResidentCount() + building.GetTotalWorkerCount();
