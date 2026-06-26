@@ -28,13 +28,13 @@ namespace Arcen.HotM.OrganicIntegration
                         return HandleCooperativeModeling( Action, BufferOrNull, Logic );
                     case "OI_SharedTriage":
                         return HandleSharedTriage( Action, BufferOrNull, Logic );
-                    case "OI_ProtocolCompression":
-                        return HandleProtocolCompression( Action, BufferOrNull, Logic );
+                    case "OI_OrganicQuantization":
+                        return HandleOrganicQuantization( Action, BufferOrNull, Logic );
                     case "OI_ConsentCascade":
                         return HandleConsentCascade( Action, BufferOrNull, Logic );
                     case "OI_CivicSensorium":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "+25% Insight income, +30% Shared Inquiry research, and +2 Grey Goo stacks from Nanobot Rounds.",
+                            "+25% Insight income and +2 Grey Goo stacks from Nanobot Rounds.",
                             Cost( InsightResource, 250L ), Cost( MentalEnergyResource, 1L ) );
                     case "OI_PublicHealthMesh":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
@@ -42,16 +42,14 @@ namespace Arcen.HotM.OrganicIntegration
                             Cost( InsightResource, 250L ), Cost( MedicalNanobotsResource, 5000000L ) );
                     case "OI_ShelterFilaments":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "Moves up to 1,000 Abandoned Humans into open housing each turn, if housing capacity exists.",
+                            "Moves up to 1,000 Abandoned Humans into filament shelters each turn, adding them to the city population.",
                             Cost( InsightResource, 250L ), Cost( MedicalNanobotsResource, 10000000L ) );
                     case "OI_InfrastructureFilaments":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "Improves Shared Triage to 1,500 HP per turn and lowers its nanobot cost to 15,000 per HP.",
+                            "Siphons trace resources from city infrastructure traffic, producing Wealth, Neodymium, and Scandium each turn.",
                             Cost( InsightResource, 300L ), Cost( MedicalNanobotsResource, 20000000L ) );
                     case "OI_ArchitecturalWeave":
-                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "+25% Integration Neural Expansion from Upgraded Humans by using city structures as a calmer substrate.",
-                            Cost( InsightResource, 350L ), Cost( MedicalNanobotsResource, 25000000L ) );
+                        return HandleArchitecturalWeave( Action, BufferOrNull, Logic );
                     case "OI_ControlledBloom":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
                             "Voluntary Integration can reach 78% of the city and Upgraded Humans continue converting nearby citizens without Worker Sledges.",
@@ -83,7 +81,7 @@ namespace Arcen.HotM.OrganicIntegration
                             .AddExpandableResourceCost( 0, "300", insight ).ListSeparator()
                             .AddExpandableResourceCost( 0, "1", mentalEnergy ).Line();
                         BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
-                            .AddRaw( "Gains 30,000 to 250,000 Scientific Research per turn, scaling with Upgraded Humans." ).Line();
+                            .AddRaw( "Gains 100 to 15,000 Scientific Research per turn, scaling with Upgraded Humans." ).Line();
                         BufferOrNull.EndLineHeight();
                     }
                     break;
@@ -159,10 +157,10 @@ namespace Arcen.HotM.OrganicIntegration
                         BufferOrNull.StartStyleLineHeightA();
                         BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
                         BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
-                            .AddExpandableResourceCost( 0, "250 when repairs are made", insight ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "250", insight ).ListSeparator()
                             .AddExpandableResourceCost( 0, "25,000 per HP restored", nanobots ).Line();
                         BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
-                            .AddRaw( "Repairs damaged player structures and machine actors after normal repairs. Spends nothing if nothing needs repair." ).Line();
+                            .AddRaw( "Repairs damaged player structures and machine actors after normal repairs. Medical-Grade Nanobots are spent only when HP is restored." ).Line();
                         BufferOrNull.EndLineHeight();
                     }
                     break;
@@ -171,7 +169,7 @@ namespace Arcen.HotM.OrganicIntegration
                     FlagRelated( nanobots );
                     break;
                 case VRActionLogic.GetCanAfford:
-                    return Action.DGD.IsActiveNow || (CanAfford( insight, 250L ) && CanAfford( nanobots, 25000L )) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                    return Action.DGD.IsActiveNow || CanAfford( insight, 250L ) ? VRActionResult.Success : VRActionResult.Indeterminate;
                 case VRActionLogic.TryPayCosts:
                     return VRActionResult.Success;
                 case VRActionLogic.MenuClick:
@@ -182,12 +180,13 @@ namespace Arcen.HotM.OrganicIntegration
             return VRActionResult.Indeterminate;
         }
 
-        private static VRActionResult HandleProtocolCompression( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
+        private static VRActionResult HandleOrganicQuantization( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
         {
             ResourceType wisdom = GetResource( WisdomResource );
             ResourceType insight = GetResource( InsightResource );
             ResourceType mentalEnergy = GetResource( MentalEnergyResource );
             const long wisdomCost = 15L;
+            const long insightCost = 300L;
             const long mentalEnergyCost = 1L;
 
             switch ( Logic )
@@ -200,8 +199,9 @@ namespace Arcen.HotM.OrganicIntegration
                         if ( !Action.DGD.HasEverBeenDone )
                             BufferOrNull.BoldLineHeader( "Deal_ActivationCost" ).AddExpandableResourceCost( 0, wisdomCost.ToStringThousandsWhole(), wisdom ).Line();
                         BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                            .AddExpandableResourceCost( 0, insightCost.ToStringThousandsWhole(), insight ).ListSeparator()
                             .AddExpandableResourceCost( 0, mentalEnergyCost.ToStringThousandsWhole(), mentalEnergy ).Line();
-                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" ).AddRaw( "+33% Insight income." ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" ).AddRaw( "+50% Insight income; voluntary Upgraded Human growth is halved while active." ).Line();
                         BufferOrNull.EndLineHeight();
                     }
                     break;
@@ -211,7 +211,7 @@ namespace Arcen.HotM.OrganicIntegration
                     FlagRelated( mentalEnergy );
                     break;
                 case VRActionLogic.GetCanAfford:
-                    return Action.DGD.IsActiveNow || ((Action.DGD.HasEverBeenDone || CanAfford( wisdom, wisdomCost )) && CanAfford( mentalEnergy, mentalEnergyCost ))
+                    return Action.DGD.IsActiveNow || ((Action.DGD.HasEverBeenDone || CanAfford( wisdom, wisdomCost )) && CanAfford( insight, insightCost ) && CanAfford( mentalEnergy, mentalEnergyCost ))
                         ? VRActionResult.Success : VRActionResult.Indeterminate;
                 case VRActionLogic.TryPayCosts:
                     if ( Action.DGD.IsActiveNow )
@@ -220,7 +220,7 @@ namespace Arcen.HotM.OrganicIntegration
                     {
                         if ( !CanAfford( wisdom, wisdomCost ) )
                             return VRActionResult.Indeterminate;
-                        wisdom.AlterCurrent_Named( -wisdomCost, "Expense_OI_ProtocolCompression", ResourceAddRule.IgnoreUntilTurnChange );
+                        wisdom.AlterCurrent_Named( -wisdomCost, "Expense_OI_OrganicQuantization", ResourceAddRule.IgnoreUntilTurnChange );
                     }
                     return VRActionResult.Success;
                 case VRActionLogic.MenuClick:
@@ -277,6 +277,66 @@ namespace Arcen.HotM.OrganicIntegration
                 case VRActionLogic.MenuClick:
                     if ( !Action.DGD.HasEverBeenDone )
                         MarkDone( Action );
+                    Action.ToggleActive();
+                    return VRActionResult.Success;
+            }
+
+            return VRActionResult.Indeterminate;
+        }
+
+        private static VRActionResult HandleArchitecturalWeave( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
+        {
+            ResourceType insight = GetResource( InsightResource );
+            ResourceType nanobots = GetResource( MedicalNanobotsResource );
+            UpgradeInt host = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "ComputingHost" );
+            UpgradeInt client = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "ComputingClient" );
+            bool isComplete = (host?.DGD?.GetHasAlreadyBeenFullyUpgraded() ?? true) && (client?.DGD?.GetHasAlreadyBeenFullyUpgraded() ?? true);
+            long goal = GetArchitecturalWeaveInsightForNextUpgrade( Action );
+
+            switch ( Logic )
+            {
+                case VRActionLogic.AppendToVRActionTooltip:
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        BufferOrNull.AddActiveOrInactiveOrCompleteStatusLine( Action.DGD.IsActiveNow, isComplete );
+                        if ( !isComplete )
+                        {
+                            BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                                .AddExpandableResourceCost( 0, "350", insight ).ListSeparator()
+                                .AddExpandableResourceCost( 0, "25,000,000", nanobots ).Line();
+                            BufferOrNull.AddInvestmentTowardGoalLine( Action.DGD.UpgradePoints, goal, insight );
+                        }
+                        if ( host != null )
+                        {
+                            BufferOrNull.AddExpandableUpgradeIntGainCurrent( host );
+                            if ( !host.DGD.GetHasAlreadyBeenFullyUpgraded() )
+                                BufferOrNull.AddExpandableUpgradeIntGainNextBonus( host );
+                            BufferOrNull.AddExpandableUpgradeIntGainMax( host );
+                        }
+                        if ( client != null )
+                        {
+                            BufferOrNull.AddExpandableUpgradeIntGainCurrent( client );
+                            if ( !client.DGD.GetHasAlreadyBeenFullyUpgraded() )
+                                BufferOrNull.AddExpandableUpgradeIntGainNextBonus( client );
+                            BufferOrNull.AddExpandableUpgradeIntGainMax( client );
+                        }
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" ).AddRaw( "Each completed weave level grants +1 Computing Host and +1 Computing Client." ).Line();
+                        BufferOrNull.EndLineHeight();
+                    }
+                    break;
+                case VRActionLogic.FlagAnyRelatedResources:
+                    FlagRelated( insight );
+                    FlagRelated( nanobots );
+                    break;
+                case VRActionLogic.GetCanAfford:
+                    return Action.DGD.IsActiveNow || (!isComplete && CanAfford( insight, 350L ) && CanAfford( nanobots, 25000000L ))
+                        ? VRActionResult.Success : VRActionResult.Indeterminate;
+                case VRActionLogic.TryPayCosts:
+                    return VRActionResult.Success;
+                case VRActionLogic.MenuClick:
+                    if ( isComplete )
+                        return VRActionResult.Indeterminate;
                     Action.ToggleActive();
                     return VRActionResult.Success;
             }
@@ -370,6 +430,17 @@ namespace Arcen.HotM.OrganicIntegration
         {
             Action.DGD.TimesDone++;
             Action.DGD.HasEverBeenDone = true;
+        }
+
+        private static long GetArchitecturalWeaveInsightForNextUpgrade( MachineVRModeAction Action )
+        {
+            long[] costs = new long[] { 1500L, 2500L, 4000L, 6500L, 10000L, 15000L, 22000L, 30000L };
+            int index = Action?.DGD?.PaidUnlocks ?? 0;
+            if ( index < 0 )
+                index = 0;
+            if ( index >= costs.Length )
+                index = costs.Length - 1;
+            return costs[index];
         }
     }
 }

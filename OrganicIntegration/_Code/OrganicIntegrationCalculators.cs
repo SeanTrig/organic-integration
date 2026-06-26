@@ -19,7 +19,7 @@ namespace Arcen.HotM.OrganicIntegration
         private const string CooperativeModelingUpgrade = "OI_CooperativeModelingScienceMultiplier";
         private const string SharedInquiryAction = "OI_SharedInquiry";
         private const string SharedTriageAction = "OI_SharedTriage";
-        private const string ProtocolCompressionAction = "OI_ProtocolCompression";
+        private const string OrganicQuantizationAction = "OI_OrganicQuantization";
         private const string ConsentCascadeAction = "OI_ConsentCascade";
         private const string CivicSensoriumAction = "OI_CivicSensorium";
         private const string PublicHealthMeshAction = "OI_PublicHealthMesh";
@@ -37,13 +37,14 @@ namespace Arcen.HotM.OrganicIntegration
         private const long CooperativeMentalEnergyPerTurn = 2L;
         private const long SharedInquiryInsightPerTurn = 300L;
         private const long SharedInquiryMentalEnergyPerTurn = 1L;
-        private const long SharedInquiryBaseResearchPerTurn = 30000L;
-        private const long SharedInquiryResearchPerUpgradedHumanDivisor = 10L;
-        private const long SharedInquiryMaxResearchPerTurn = 250000L;
-        private const long ProtocolCompressionMentalEnergyPerTurn = 1L;
+        private const long SharedInquiryBaseResearchPerTurn = 100L;
+        private const long SharedInquiryResearchPerUpgradedHumanDivisor = 1350L;
+        private const long SharedInquiryMaxResearchPerTurn = 15000L;
+        private const long OrganicQuantizationInsightPerTurn = 300L;
+        private const long OrganicQuantizationMentalEnergyPerTurn = 1L;
         private const long ConsentCascadeInsightPerTurn = 300L;
         private const long ConsentCascadeCompassionPerTurn = 1L;
-        private const long SharedTriageInsightPerRepairTurn = 250L;
+        private const long SharedTriageInsightPerTurn = 250L;
         private const long NanobotsPerSharedTriageHP = 25000L;
         private const int MaxSharedTriageHPPerTurn = 750;
         private const long CivicSensoriumInsightPerTurn = 250L;
@@ -59,6 +60,7 @@ namespace Arcen.HotM.OrganicIntegration
         private const long ControlledBloomInsightPerTurn = 400L;
         private const long ControlledBloomCompassionPerTurn = 1L;
         private const long ControlledBloomNanobotsPerTurn = 30000000L;
+        private static readonly long[] ArchitecturalWeaveInsightPerUpgrade = new long[] { 1500L, 2500L, 4000L, 6500L, 10000L, 15000L, 22000L, 30000L };
 
         private static readonly string[] ScienceMultiplierJobs = new string[]
         {
@@ -265,8 +267,8 @@ namespace Arcen.HotM.OrganicIntegration
 
             if ( income > 0 )
             {
-                if ( IsVRActionActive( ProtocolCompressionAction ) )
-                    income = Math.Max( income + 1L, (income * 4L + 2L) / 3L );
+                if ( IsVRActionActive( OrganicQuantizationAction ) )
+                    income = Math.Max( income + 1L, (income * 3L + 1L) / 2L );
                 if ( IsVRActionActive( CivicSensoriumAction ) )
                     income = Math.Max( income + 1L, (income * 5L + 3L) / 4L );
                 if ( voluntaryLocked && !coerciveLocked && IsVRActionActive( ConsentCascadeAction ) )
@@ -283,8 +285,9 @@ namespace Arcen.HotM.OrganicIntegration
         private static void ApplyPreJobInsightActionUpkeep()
         {
             ApplyCooperativeModelingUpkeep();
-            ApplyProtocolCompressionUpkeep();
+            ApplyOrganicQuantizationUpkeep();
             ApplyConsentCascadeUpkeep();
+            ApplySharedTriageInsightUpkeep();
             ApplyCivicSensoriumUpkeep();
             ApplyPublicHealthMeshUpkeep();
             ApplyShelterFilamentsUpkeep();
@@ -313,20 +316,22 @@ namespace Arcen.HotM.OrganicIntegration
             mentalEnergy.AlterCurrent_Named( -CooperativeMentalEnergyPerTurn, "Expense_OI_CooperativeModeling", ResourceAddRule.IgnoreUntilTurnChange );
         }
 
-        private static void ApplyProtocolCompressionUpkeep()
+        private static void ApplyOrganicQuantizationUpkeep()
         {
-            MachineVRModeAction action = GetVRAction( ProtocolCompressionAction );
+            MachineVRModeAction action = GetVRAction( OrganicQuantizationAction );
             if ( action == null || !action.DGD.IsActiveNow )
                 return;
 
+            ResourceType insight = GetResource( InsightResource );
             ResourceType mentalEnergy = GetResource( "MentalEnergy" );
-            if ( !CanAfford( mentalEnergy, ProtocolCompressionMentalEnergyPerTurn ) )
+            if ( !CanAfford( insight, OrganicQuantizationInsightPerTurn ) || !CanAfford( mentalEnergy, OrganicQuantizationMentalEnergyPerTurn ) )
             {
                 action.DGD.IsActiveNow = false;
                 return;
             }
 
-            mentalEnergy.AlterCurrent_Named( -ProtocolCompressionMentalEnergyPerTurn, "Expense_OI_ProtocolCompression", ResourceAddRule.IgnoreUntilTurnChange );
+            insight.AlterCurrent_Named( -OrganicQuantizationInsightPerTurn, "Expense_OI_OrganicQuantization", ResourceAddRule.IgnoreUntilTurnChange );
+            mentalEnergy.AlterCurrent_Named( -OrganicQuantizationMentalEnergyPerTurn, "Expense_OI_OrganicQuantization", ResourceAddRule.IgnoreUntilTurnChange );
         }
 
         private static void ApplyConsentCascadeUpkeep()
@@ -345,6 +350,22 @@ namespace Arcen.HotM.OrganicIntegration
 
             insight.AlterCurrent_Named( -ConsentCascadeInsightPerTurn, "Expense_OI_ConsentCascade", ResourceAddRule.IgnoreUntilTurnChange );
             compassion.AlterCurrent_Named( -ConsentCascadeCompassionPerTurn, "Expense_OI_ConsentCascade", ResourceAddRule.IgnoreUntilTurnChange );
+        }
+
+        private static void ApplySharedTriageInsightUpkeep()
+        {
+            MachineVRModeAction action = GetVRAction( SharedTriageAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+
+            ResourceType insight = GetResource( InsightResource );
+            if ( !CanAfford( insight, SharedTriageInsightPerTurn ) )
+            {
+                action.DGD.IsActiveNow = false;
+                return;
+            }
+
+            insight.AlterCurrent_Named( -SharedTriageInsightPerTurn, "Expense_OI_SharedTriage", ResourceAddRule.IgnoreUntilTurnChange );
         }
 
         private static void ApplyCivicSensoriumUpkeep()
@@ -440,7 +461,6 @@ namespace Arcen.HotM.OrganicIntegration
                 return;
 
             ResourceType upgraded = GetResource( UpgradedResource );
-            ResourceType insight = GetResource( InsightResource );
             ResourceType nanobots = GetResource( MedicalNanobotsResource );
             if ( upgraded == null || upgraded.Current <= 0 )
             {
@@ -450,7 +470,7 @@ namespace Arcen.HotM.OrganicIntegration
             if ( !HasAnyRepairableTriageTarget() )
                 return;
             long nanobotsPerHP = GetNanobotsPerSharedTriageHP();
-            if ( !CanAfford( insight, SharedTriageInsightPerRepairTurn ) || !CanAfford( nanobots, nanobotsPerHP ) )
+            if ( !CanAfford( nanobots, nanobotsPerHP ) )
             {
                 sharedTriage.DGD.IsActiveNow = false;
                 return;
@@ -486,15 +506,12 @@ namespace Arcen.HotM.OrganicIntegration
                 repairedTotal += RepairWithMedicalNanobots( actor, ref hpBudget, nanobots );
             }
 
-            if ( repairedTotal > 0 )
-                insight.AlterCurrent_Named( -SharedTriageInsightPerRepairTurn, "Expense_OI_SharedTriage", ResourceAddRule.IgnoreUntilTurnChange );
+            _ = repairedTotal;
         }
 
         private static long CalculateSharedInquiryResearch( long upgradedHumans )
         {
             long scaled = SharedInquiryBaseResearchPerTurn + Math.Max( 0L, upgradedHumans ) / SharedInquiryResearchPerUpgradedHumanDivisor;
-            if ( IsVRActionActive( CivicSensoriumAction ) )
-                scaled = (scaled * 13L + 9L) / 10L;
             if ( scaled > SharedInquiryMaxResearchPerTurn )
                 scaled = SharedInquiryMaxResearchPerTurn;
             return scaled;
@@ -506,6 +523,10 @@ namespace Arcen.HotM.OrganicIntegration
                 ApplyPublicHealthMesh();
             if ( IsVRActionActive( ShelterFilamentsAction ) )
                 ApplyShelterFilaments();
+            if ( IsVRActionActive( InfrastructureFilamentsAction ) )
+                ApplyInfrastructureFilaments();
+            if ( IsVRActionActive( ArchitecturalWeaveAction ) )
+                ApplyArchitecturalWeaveProgress();
             if ( IsVRActionActive( ControlledBloomAction ) )
                 ApplyControlledBloomConversion( Rand );
         }
@@ -523,20 +544,68 @@ namespace Arcen.HotM.OrganicIntegration
         private static void ApplyShelterFilaments()
         {
             ResourceType abandoned = GetResource( "AbandonedHumans" );
-            ResourceType sheltered = GetResource( "ShelteredHumans" );
-            if ( abandoned == null || sheltered == null || abandoned.Current <= 0 )
+            if ( abandoned == null || abandoned.Current <= 0 )
                 return;
 
-            long storageAvailable = sheltered.EffectiveHardCapStorageAvailable64;
-            if ( storageAvailable <= 0 )
-                return;
-
-            long toMove = Math.Min( storageAvailable, Math.Min( abandoned.Current, 1000L ) );
+            long toMove = Math.Min( abandoned.Current, 1000L );
             if ( toMove <= 0 )
                 return;
 
             abandoned.AlterCurrent_Named( -toMove, "Income_OI_ShelterFilaments", ResourceAddRule.StoreExcess );
-            sheltered.AlterCurrent_Named( toMove, "Income_OI_ShelterFilaments", ResourceAddRule.StoreExcess );
+            GStatisticTable.AlterScore( "VorsiberAmnestyBribes", toMove );
+        }
+
+        private static void ApplyInfrastructureFilaments()
+        {
+            ResourceType upgraded = GetResource( UpgradedResource );
+            if ( upgraded == null || upgraded.Current <= 0 )
+                return;
+
+            ResourceType wealth = GetResource( "Wealth" );
+            ResourceType neodymium = GetResource( "Neodymium" );
+            ResourceType scandium = GetResource( "Scandium" );
+
+            long scale = Math.Max( 1L, upgraded.Current / 1000000L );
+            long wealthGain = Math.Min( 2500000L, 50000L + (scale * 25000L) );
+            long neodymiumGain = Math.Min( 25L, 1L + scale );
+            long scandiumGain = Math.Min( 25L, 1L + (scale / 2L) );
+
+            wealth?.AlterCurrent_Named( wealthGain, "Income_OI_InfrastructureFilaments", ResourceAddRule.BlockExcess );
+            neodymium?.AlterCurrent_Named( neodymiumGain, "Income_OI_InfrastructureFilaments", ResourceAddRule.BlockExcess );
+            scandium?.AlterCurrent_Named( scandiumGain, "Income_OI_InfrastructureFilaments", ResourceAddRule.BlockExcess );
+        }
+
+        private static void ApplyArchitecturalWeaveProgress()
+        {
+            MachineVRModeAction action = GetVRAction( ArchitecturalWeaveAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+
+            UpgradeInt host = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "ComputingHost" );
+            UpgradeInt client = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "ComputingClient" );
+            if ( host == null || client == null )
+                return;
+
+            if ( host.DGD.GetHasAlreadyBeenFullyUpgraded() && client.DGD.GetHasAlreadyBeenFullyUpgraded() )
+            {
+                action.DGD.IsActiveNow = false;
+                return;
+            }
+
+            action.DGD.UpgradePoints += ArchitecturalWeaveInsightPerTurn;
+            while ( action.DGD.UpgradePoints >= GetArchitecturalWeaveInsightForNextUpgrade( action ) )
+            {
+                long goal = GetArchitecturalWeaveInsightForNextUpgrade( action );
+                action.DGD.UpgradePoints -= goal;
+                bool grantedAny = GrantUpgradeInt( host ) | GrantUpgradeInt( client );
+                if ( !grantedAny )
+                {
+                    action.DGD.IsActiveNow = false;
+                    action.DGD.UpgradePoints = 0;
+                    break;
+                }
+                action.DGD.PaidUnlocks++;
+            }
         }
 
         private static void ApplyControlledBloomConversion( SquirrelRand Rand )
@@ -551,7 +620,10 @@ namespace Arcen.HotM.OrganicIntegration
             if ( remainingUnderCap <= 0 )
                 return;
 
-            int perTurnBudget = ClampToInt( Math.Min( 25000L, remainingUnderCap ) );
+            long perTurnBudgetLong = Math.Min( 25000L, remainingUnderCap );
+            if ( IsVRActionActive( OrganicQuantizationAction ) )
+                perTurnBudgetLong = Math.Max( 1L, perTurnBudgetLong / 2L );
+            int perTurnBudget = ClampToInt( perTurnBudgetLong );
             if ( perTurnBudget <= 0 )
                 return;
 
@@ -570,7 +642,8 @@ namespace Arcen.HotM.OrganicIntegration
                 if ( peopleHere <= 0 )
                     continue;
 
-                int desired = Math.Max( 1, (peopleHere * 8 + 99) / 100 );
+                int desiredPercent = IsVRActionActive( OrganicQuantizationAction ) ? 4 : 8;
+                int desired = Math.Max( 1, (peopleHere * desiredPercent + 99) / 100 );
                 int toConvert = (int)Math.Min( Math.Min( desired, perTurnBudget ), remainingUnderCap );
                 int converted = building.KillRandomHere( toConvert, Rand, false, string.Empty );
                 if ( converted <= 0 )
@@ -640,12 +713,33 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static long GetNanobotsPerSharedTriageHP()
         {
-            return IsVRActionActive( InfrastructureFilamentsAction ) ? 15000L : NanobotsPerSharedTriageHP;
+            return NanobotsPerSharedTriageHP;
         }
 
         private static int GetMaxSharedTriageHPPerTurn()
         {
-            return IsVRActionActive( InfrastructureFilamentsAction ) ? 1500 : MaxSharedTriageHPPerTurn;
+            return MaxSharedTriageHPPerTurn;
+        }
+
+        private static long GetArchitecturalWeaveInsightForNextUpgrade( MachineVRModeAction action )
+        {
+            int index = action?.DGD?.PaidUnlocks ?? 0;
+            if ( index < 0 )
+                index = 0;
+            if ( index >= ArchitecturalWeaveInsightPerUpgrade.Length )
+                index = ArchitecturalWeaveInsightPerUpgrade.Length - 1;
+            return ArchitecturalWeaveInsightPerUpgrade[index];
+        }
+
+        private static bool GrantUpgradeInt( UpgradeInt upgrade )
+        {
+            if ( upgrade == null || upgrade.DGD.GetHasAlreadyBeenFullyUpgraded() )
+                return false;
+
+            upgrade.DGD.DirectUnlocks++;
+            upgrade.DGD.RecalculateCurrent();
+            upgrade.DGD.RecalculateHasBeenUnlocked();
+            return true;
         }
 
         private static void SyncCooperativeModelingUpgrade( bool recalculateJobs )
@@ -706,8 +800,6 @@ namespace Arcen.HotM.OrganicIntegration
             bool coerciveLocked = IsFlagTripped( "OI_IntegrationCoerciveLocked" );
             long divisorForNE = coerciveLocked ? 6L : 8L;
             long integrationNeuralExpansion = upgraded.Current / divisorForNE;
-            if ( IsVRActionActive( ArchitecturalWeaveAction ) )
-                integrationNeuralExpansion = (integrationNeuralExpansion * 5L + 3L) / 4L;
             int totalNeuralExpansion = ClampToInt( integrationNeuralExpansion );
             int divisor = Math.Max( 1, providers.Count );
             int index = 0;
@@ -766,9 +858,15 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static int GetVoluntaryConversionPercent()
         {
+            int percent;
             if ( IsVRActionActive( ControlledBloomAction ) )
-                return VoluntaryControlledBloomCapPercent;
-            return IsVRActionActive( ConsentCascadeAction ) ? VoluntaryConsentCascadeCapPercent : VoluntaryPopulationCapPercent;
+                percent = VoluntaryControlledBloomCapPercent;
+            else
+                percent = IsVRActionActive( ConsentCascadeAction ) ? VoluntaryConsentCascadeCapPercent : VoluntaryPopulationCapPercent;
+
+            if ( IsVRActionActive( OrganicQuantizationAction ) )
+                percent = Math.Max( 1, (percent + 1) / 2 );
+            return percent;
         }
 
         private static int CountFunctionalStructures( params string[] jobIDs )
