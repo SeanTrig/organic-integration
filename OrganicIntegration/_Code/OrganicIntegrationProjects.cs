@@ -52,6 +52,11 @@ namespace Arcen.HotM.OrganicIntegration
                         break;
 
                     case "OI_InsightSharedQuestions":
+                        HandleResourceGate( Logic, OutcomeOrNoneYet, "OI_UpgradedHumans",
+                            OutcomeOrNoneYet.GetSingleIntByID( "UpgradedHumansGoal", 100000 ), "Upgraded Humans",
+                            BufferOrNull, ref CanBeCompletedNow );
+                        break;
+
                     case "OI_InsightNetworkedCognition":
                     case "OI_InsightDistributedTriage":
                         HandleInsightEarnedGate( Logic, OutcomeOrNoneYet, BufferOrNull, ref CanBeCompletedNow );
@@ -94,6 +99,29 @@ namespace Arcen.HotM.OrganicIntegration
                 case ProjectLogic.WriteRequirements_ManyLines:
                     if ( BufferOrNull != null )
                         BufferOrNull.AddFormat3( "RequiredResourceAmount", current.ToStringThousandsWhole(), Target.ToStringThousandsWhole(), statistic?.GetDisplayName() ?? StatisticID ).Line();
+                    break;
+                case ProjectLogic.WriteAddedContext:
+                case ProjectLogic.DoAfterCompletion:
+                    break;
+            }
+        }
+
+        private static void HandleResourceGate( ProjectLogic Logic, ProjectOutcome Outcome, string ResourceID, int Target, string FallbackName, ArcenCharacterBufferBase BufferOrNull, ref bool CanBeCompletedNow )
+        {
+            ResourceType resource = ResourceTypeTable.Instance.GetRowByIDOrNullIfNotFound( ResourceID );
+            long current = resource?.Current ?? 0;
+            CanBeCompletedNow = current >= Target;
+
+            switch ( Logic )
+            {
+                case ProjectLogic.WriteProgressIconText:
+                case ProjectLogic.WriteProgressTextBrief:
+                    ProjectHelper.WritePercentageFromTwoNumbers( Logic, Outcome, (int)( current > int.MaxValue ? int.MaxValue : current ), Target, BufferOrNull );
+                    break;
+                case ProjectLogic.WriteRequirements_OneLine:
+                case ProjectLogic.WriteRequirements_ManyLines:
+                    if ( BufferOrNull != null )
+                        BufferOrNull.AddFormat3( "RequiredResourceAmount", current.ToStringThousandsWhole(), Target.ToStringThousandsWhole(), resource?.GetDisplayName() ?? FallbackName ).Line();
                     break;
                 case ProjectLogic.WriteAddedContext:
                 case ProjectLogic.DoAfterCompletion:

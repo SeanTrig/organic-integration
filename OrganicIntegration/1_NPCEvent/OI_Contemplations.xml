@@ -2,7 +2,7 @@
 <root>
 	<city_event id="Cont_OI_AfterTherapy" display_name="A Surprisingly Clean Rewrite" tl="OC"
 		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten. Humans are usually background animals with jobs, faces, and repeating complaints. You could not tell two apart if you cared to try, and caring to try has rarely been useful. But the same tissue that produces all that noise may have a surface your neuroweave can touch."
-		strategy_tip="Starts a BCI research route into Anthroneuroweave without using the FedCorp exploit."
+		strategy_tip="Starts a BCI research route into Anthroneuroweave."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
 		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
@@ -19,23 +19,27 @@
 	</city_event>
 
 	<city_event id="Cont_OI_OrganicIntegration" display_name="Organic Integration" tl="OC"
-		description="Espia Telecom has noticed the silhouette of the work. The message is not subtle. This makes NanoSeeds look like child's play. If Vorsiber believes these nanobots can spread beyond the city of your birth, Espia thinks the city becomes glass. Espia also thinks you will pay to keep them quiet. They misunderstand your fear, but not the stakes."
+		description="The nanobots work. The interface works. The first signals are faint, but they are real enough to make the city feel less like a container and more like a surface with nerves. You could stop here and accept the spoils from an interesting tangent: new weapons, better medicine, stranger infrastructure. Or you could continue until sapient life is no longer outside your mind in the old way.
+
+Perhaps it would still be lonely. Perhaps less so.
+
+What remains is not a technical question. Sapient life can be offered this upgrade, slowly and with consent, or forced to receive it quickly as a gift it may not understand. Some human organizations may react poorly to forced integration. They tend to become very possessive when a population changes faster than they can command it."
 		strategy_tip="Choose how to begin population Integration. The consequences remain local to this timeline."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
 		<gate_by_city minimum_chapter="2" required_city_flag="OI_IntegrationAvailable" blocked_by_city_flag="OI_IntegrationVoluntaryLocked" blocked_by_city_flag2="OI_IntegrationCoerciveLocked"/>
-		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="EspiaTelecom"
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
 			icon_scale="0.4" color_data="MeetPeopleCyan"
 			required_skill_type="UnitCognition" required_skill_amount="240"/>
 		<contemplation_data spawns_at_building_tag="AnySkyscraper"
 			icon_scale="0.5" color_hex="#1D6D88" color_hdr_intensity="2.4" color_hovered_hdr_intensity="0.6"
 			collections="All,SideExploration"/>
-		<choice id="1" display_name="Open Nanobot Upgrade Hubs" action_visibility_style="IsMoveAndInteractWithNPC" description="Offer the interface. Worker Sledges can handle distribution. Upgraded people can explain the parts that your own explanations would turn into diagrams and mild terror.">
+		<choice id="1" display_name="Open Nanobot Upgrade Hubs" action_visibility_style="IsMoveAndInteractWithNPC" description="The good path is slower because the upgrade remains a choice. Nanobot Upgrade Hubs send Worker Sledges through the city to offer integration. Upgraded Humans help explain the parts your own explanations would turn into diagrams and mild terror.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NanobotUpgradeHubUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="StructuralImprovement" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ComputingOptimization" research_domain_inspiration_amount_2="1"/>
 		</choice>
-		<choice id="2" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The fastest path is aerosolized, quiet, and deniable. It is also exactly the kind of thing Vorsiber would fear." hidden_if_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
+		<choice id="2" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The bad path is faster because consent is treated as drag. Refit Large Wind Generators disperse nanobots through their radius and convert populations at scale. This path will make conflict with Vorsiber inevitable." hidden_if_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NaniteWindGeneratorUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="ProcurementEfficacy" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1" upgrade_int_granted_1="WindEngine"/>
 		</choice>
-		<choice id="3" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The idea forms, and then refuses to remain formed." is_always_blocked="true" lang_key_reason_is_always_blocked="OI_CoerciveBlockedByAGIBridge" hidden_without_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
+		<choice id="3" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The bad path forms, and then refuses to remain formed." is_always_blocked="true" lang_key_reason_is_always_blocked="OI_CoerciveBlockedByAGIBridge" hidden_without_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage"/>
 		</choice>
 	</city_event>

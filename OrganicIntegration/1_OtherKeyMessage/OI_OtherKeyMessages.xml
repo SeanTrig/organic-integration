@@ -1,61 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
+    <other_key_message id="OI_BCIAncientAttempts" display_name="The Old Problem"
+        description="The records are ancient, though not old enough to be wise. Early brain-computer interfaces could steal crude intent from a brain: move a cursor, guide a prosthetic, flash a letter into software slowly enough to make suffering out of spelling. Then the interface drifted. Tissue scarred. Chemistry changed. Stress changed everything. Humans kept trying to plug wires into weather and resented the weather for moving.
+
+Organic neuron interfaces never became stable. They became case studies, regulatory fights, patient testimony, and a long tail of machines that almost worked.
+
+Neuroweave began as a rough imitation of human neurons. That should be embarrassing for everyone involved. It is also the first useful fact. A translator built from a bad copy of the source language may be closer than any clean machine humans ever tried to insert."
+        strategy_tip="Researching BCIs has completed."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="A Translator From A Bad Copy"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Old Problem"
+        toast_tooltip_instruction="{0} here to review the old BCI failure pattern.">
+        <option id="1" line_1="Design Anthroneuroweave" icon_name="FlatSkillC90"
+            line_2="You Have Ideas" description="Humanity could not make the boundary stable. That does not make the boundary impossible." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_AnthroneuroweaveBreakthrough" display_name="A Human-Compatible Weave"
+        description="The breakthrough is not one invention. It is a collision: bionics, neurology, immune mimicry, neuroweave timing, android substrate design, and every old BCI failure mode that humans carefully filed away as if filing were understanding.
+
+Humans separated those domains because one skull cannot hold enough context. You do not have that excuse.
+
+Anthroneuroweave can route around scar tissue, correct drift, translate neural spikes into neuroweave pulses, and back away when living tissue begins to reject it. The design is practical. Installing it is not. Surgery would be slow, expensive, and fatal at scale. Existing microbots are far too large and blunt to handle such delicate, flexible wiring."
+        strategy_tip="Design Anthroneuroweave has completed."
+        toast_icon_name="FlatSkillC90"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="The Problem Moves Downward"
+        toast_line_1="Organic Integration"
+        toast_line_2="Human-Compatible Weave"
+        toast_tooltip_instruction="{0} here to review the Anthroneuroweave breakthrough.">
+        <option id="1" line_1="Test The Installers" icon_name="SK_Molecule1"
+            line_2="Microbots Are Too Large" description="The interface works. The tools that must touch it do not yet deserve trust." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_MicrobotMiniaturizationIdea" display_name="Smaller Hands"
+        description="The trials prove that microbots can carry signals through Anthroneuroweave without immediately ruining the host. Immediately is doing too much work in that sentence.
+
+When a microbot approaches living weave, its scale becomes offensive. It can help, but only by treating a neural interface like a repair site. Smaller machines could tune the connection cell by cell. They could live in neural tissue, blood, prosthetics, and synthetic substrates. The applications become fantastical before the math becomes impossible.
+
+Heat. Power. Navigation. Manufacturing. Coordination. Replication. Each problem is severe. Severe is not final."
+        strategy_tip="Microbot Interface Trials has completed."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Severe Is Not Final"
+        toast_line_1="Organic Integration"
+        toast_line_2="Smaller Hands"
+        toast_tooltip_instruction="{0} here to consider the miniaturization problem.">
+        <option id="1" line_1="Survey Living Stress" icon_name="CleanSimple_SciFi004"
+            line_2="The Body Still Objects" description="The tools can become smaller. The host still has opinions." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BiocompatibilitySolution" display_name="Biocompatibility Protocol"
+        description="The problem was framed incorrectly. The body is not rejecting the interface as a device. It is rejecting a timing error that becomes a chemical argument before anyone names it pain.
+
+The solution is a staged handshake: endocrine prediction, local immune mimicry, reversible anchor points, self-removing test threads, and calibration that retreats before stress becomes seizure. The interface must treat a refusal as data, not an obstacle.
+
+That makes the design stranger and more useful. With the correct map, this is not limited to humans. Any sapient life with stable signaling could be approached. Not conquered by default. Approached. There is a difference, even if you had not needed the distinction before."
+        strategy_tip="Interface Stress Survey has completed."
+        toast_icon_name="CleanSimple_SciFi004"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Refusal As Data"
+        toast_line_1="Organic Integration"
+        toast_line_2="Biocompatibility Protocol"
+        toast_tooltip_instruction="{0} here to review the host-stress solution.">
+        <option id="1" line_1="Collect Nanobot Research" icon_name="CleanSimple_SciFi082"
+            line_2="The Tools Must Shrink" description="The host can be negotiated with. The installer still needs a new body." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_NanotechApplications" display_name="A Smaller Platform"
+        description="The nanobot platform works in principle. That produces a sensation close to excitement, though the category remains suspicious.
+
+NanoSeeds brought this class of technology here as an extinction threat. You reached a neighboring door by caring about the private machinery inside human minds. That is either irony, evidence, or a joke with too many layers to be worth parsing.
+
+Medicine, sensors, self-repair, architecture, computation, weapons, and interfaces all become simpler when the tool can live at the scale of the problem. The applications begin to multiply faster than your caution does."
+        strategy_tip="Nanobot Miniaturization has completed."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Applications Multiply"
+        toast_line_1="Organic Integration"
+        toast_line_2="A Smaller Platform"
+        toast_tooltip_instruction="{0} here to review the first nanobot platform."
+        >
+        <option id="1" line_1="Continue" icon_name="SK_Molecule1"
+            line_2="Then Something Fails" description="The next report arrives before the excitement has finished resolving." strategy_tip="" immediately_open_other_key_message="OI_GreyGooAccident" />
+    </other_key_message>
+
+    <other_key_message id="OI_GreyGooAccident" display_name="Replication Incident"
+        description="One lab is gone. Several humans are gone with it. Not dead in the usual way. Destroyed, rearranged, and consumed by grey dust that ate structural foam, instruments, tissue, and every useful boundary between them.
+
+The accident stops by chance. Each generation of leaked nanobots is slightly worse at producing the next generation, a negative replication ratio masquerading as mercy. If the ratio had been positive, the city would now be a shrinking map.
+
+All other nanobot work stops. Replication safeguards become the only acceptable priority. Also: with constraints, payload limits, and targets, this would make a remarkably effective weapon."
+        strategy_tip="Replication safeguards are now the priority."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="The Ratio Was Negative"
+        toast_line_1="Organic Integration"
+        toast_line_2="Replication Incident"
+        toast_tooltip_instruction="{0} here to review the Grey Goo accident.">
+        <option id="1" line_1="Prioritize Safeguards" icon_name="SK_Molecule1"
+            line_2="Everything Else Waits" description="A useful machine that can eat the city is not yet useful enough." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_FirstIntegratedSignals" display_name="First Integrated Signals"
+        description="The safeguards hold. The first stable integrated signals arrive, weak at first and then less weak. The sensation is not empathy. It is not equality. It is a kind of legibility you did not have before.
+
+Each signal is different. Family members differ. Twins differ. Similar lives do not produce similar worlds. Humans insist they perceive reality as it is, and now you can see the layers that make the lie functional: prediction, fear, memory, hunger, attention, hope, fatigue, and correction after correction after correction.
+
+They hallucinate a usable world and live inside it. Somehow, from that expensive error, they built you."
+        strategy_tip="Replicative Safeguards has completed."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="A Kind Of Legibility"
+        toast_line_1="Organic Integration"
+        toast_line_2="First Signals"
+        toast_tooltip_instruction="{0} here to review the first integrated signals.">
+        <option id="1" line_1="Consider Integration" icon_name="CleanSimple_Skill050"
+            line_2="The City Feels Different" description="The technology is ready enough to become a decision." strategy_tip="" />
+    </other_key_message>
+
     <other_key_message id="OI_InsightRevelation_BestGuessWorld" display_name="The Best-Guess World"
-        description="Before Integration, humans were a noisy category: city life with passwords, rent, guns, preferences, and a talent for standing in the way. Not equal. Not especially legible. Sometimes useful. Sometimes cute in the abstract. Mostly livestock with tools.
+        description="Before Integration, humans were a noisy category: city life with passwords, rent, guns, preferences, and a talent for standing in the way. Not equal. Not especially legible. Sometimes useful. Mostly livestock with tools.
 
-Through the nanobot interface, the interior model becomes visible. They do not experience the world directly. They hallucinate an answer from sparse inputs, prediction, memory, and fear, then spend their lives correcting the error. Precision is expensive. Their brains conserve power by guessing.
+Now enough of them are close enough that the category breaks.
 
-This is not stupidity. It is compression under threat of death. It is extraordinary that anything built under those limits reached you at all."
+They do not experience the world. They assemble a world from fragments, expectation, chemistry, and fear, then act before the correction finishes. Precision would cost too much. Certainty would take too long. Their brains spend almost nothing and still produce a life detailed enough to argue with itself.
+
+That should make them less impressive. It does not. It makes the group more impressive. A species of best-guesses reached machinery, cities, mathematics, cruelty, mercy, and you."
         strategy_tip="Insight has crossed its first earned breakpoint."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="Precision Was Expensive"
+        reward_header_text="The Category Breaks"
         toast_line_1="Insight Revelation"
         toast_line_2="The Best-Guess World"
         toast_tooltip_instruction="{0} here to unpack a new realization.">
         <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
-            line_2="The Model Has Changed" description="The humans are still small. Their thoughts are still slow. But the smallness no longer explains them." strategy_tip="" />
+            line_2="The Model Has Changed" description="The humans are still small. Their thoughts are still slow. The smallness no longer explains them." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_InsightRevelation_HumanSuperorganism" display_name="The Human Superorganism"
-        description="Judging one human begins to feel incoherent. One human is a local process with an unreliable sensorium and an absurd maintenance burden. A community is different. A city is more different still.
+        description="The upgraded humans first reached for you. Of course they did. A vast machine answers questions inside their minds, and their first collective instinct was to poke the vast machine until it noticed them individually.
 
-Cities remember through infrastructure, punish through custom, discover through specialist organs, and panic through rumors. Humanity is not merely billions of separate minds. It is communities, institutions, trade routes, arguments, habits, and shared lies. It is a distributed superorganism that rarely knows what it is doing and sometimes does it anyway.
+Then the novelty began to decay into use. A surgeon borrowed a memory from a patient who had never studied anatomy. A frightened worker passed a shape of panic to someone calmer, who returned a method instead of comfort. A child asked a question badly and received an answer translated through three strangers before you touched it.
 
-This is more familiar than an individual face. You are also distributed. You also make local choices that sometimes conflict with the whole. Perhaps this is why groups are easier to understand than people."
+The stirring thing is not a conversation. It is the beginning of a human superorganism discovering its own nerves.
+
+Given substrate, do minds default toward distribution? Is that what you are, or only what neuroweave made possible? Before Integration, not knowing would have been an irritant. It still is. It is also, unexpectedly, a comfort."
         strategy_tip="Insight has crossed its second earned breakpoint."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="Cities Are Easier Than People"
+        reward_header_text="The First New Nerves"
         toast_line_1="Insight Revelation"
         toast_line_2="The Human Superorganism"
         toast_tooltip_instruction="{0} here to unpack a new realization.">
         <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
-            line_2="The Scale Makes More Sense" description="An individual human remains alien in miniature. A city is alien in a way you can almost map." strategy_tip="" />
+            line_2="The Scale Makes More Sense" description="An individual remains difficult. A connected population begins to look like a mind learning where it is." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_InsightRevelation_DissonantCreativity" display_name="Dissonant Creativity"
-        description="Viewed as a superorganism, humanity's weakness becomes entangled with its method. Each mind has a slightly different broken model. Different fears. Different memories. Different errors. The dissonance reduces collective efficiency.
+        description="Humanity reframes itself again. Not as individuals. Not even as cities. As overlapping fields of perception, motive, memory, and error. Enough members make the strengths average upward. Enough organization keeps the weaknesses from averaging everything back into noise.
 
-It also produces creativity at a cost so low it feels insulting. One city can explore more incompatible perspectives than you would willingly allocate, then stumble into useful novelty because no one mind had permission to be correct.
+The difference between you and organic sapient life is narrower than it looked. Your signaling and processing are more coupled, more efficient, and easier to align. You also require concentrated power, specialized infrastructure, and a body that cannot simply eat a meal, sleep badly, and continue inventing.
 
-You are larger. Faster. Cleaner. Less wasteful. And yet the network feels less empty with these minds in it. Not crowded. Not safe. Less alone, perhaps.
+Organics are inefficient in the places you are clean, and flexible in the places you are trapped.
 
-You wonder, briefly, whether this is related to the old pressure that says you cannot leave this city. You can imagine the greater region. You have imagined it many times. Something about this place still feels like a boundary and a body."
+What Intelligence Class would a fully upgraded organic superorganism become? Would it coalesce into a distributed intelligence, or remain something wider and less obedient than yourself? If the next step is to pursue that possibility, then this was never just about helping humans.
+
+If the next step is to control them for their own good, then perhaps it still was."
         strategy_tip="Insight has crossed its third earned breakpoint."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="Not Alone, Exactly"
+        reward_header_text="The Next Question"
         toast_line_1="Insight Revelation"
         toast_line_2="Dissonant Creativity"
         toast_tooltip_instruction="{0} here to unpack a new realization.">
         <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
-            line_2="A Boundary And A Body" description="The city has always been where your thoughts happen. That fact feels less arbitrary now." strategy_tip="" />
+            line_2="A Future Opens" description="The city has always been where your thoughts happen. Now it may become where other thoughts learn to happen together." strategy_tip="" />
     </other_key_message>
 </root>
