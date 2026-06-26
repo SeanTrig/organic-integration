@@ -5,4 +5,5 @@
 	<city_flag id="OI_IntegrationVoluntaryLocked" display_name="Voluntary Integration chosen" has_no_code="true"/>
 	<city_flag id="OI_IntegrationCoerciveLocked" display_name="Coercive Integration chosen" has_no_code="true"/>
 	<city_flag id="OI_CoerciveIntegrationBlockedByAGIBridge" display_name="Coercive Integration blocked by AGI bridge" has_no_code="true"/>
+	<city_flag id="OI_PublicHealthPactAccepted" display_name="Organic Integration public health pact accepted" has_no_code="true"/>
 </root>

@@ -2,7 +2,7 @@
 <root>
 	<actor_status id="OI_GreyGoo" display_name="Grey Goo"
 		description="A controlled grey-goo payload is dismantling this unit from the inside out. It reproduces just enough to keep destroying tissue and machinery at the rate dictated by its stack count."
-		strategy_tip_optional="Stacks. Deals health damage each turn based on intensity and does not naturally tick down during normal combat. When a target dies, half the payload spreads to nearby enemies and combines with any existing Grey Goo stacks."
+		strategy_tip_optional="Stacks. Deals health damage each turn based on intensity. Each turn has a 35% chance to shed 1 stack as hostile conditions break replication balance. When a target dies, half the payload spreads to nearby enemies and combines with any existing Grey Goo stacks."
 		icon_name="SK_Molecule1" icon_color="#8FE6D3" icon_hdr_intensity="1.35" tooltip_color="RedOrange2" should_show_icon_next_to_health_bar="true" is_negative_status_tied_to_id="true">
 		<change_per_turn_by_intensity actor_data_type="ActorHP" multiplied_with_intensity="-1" max_abs_value_offset="250"/>
 	</actor_status>

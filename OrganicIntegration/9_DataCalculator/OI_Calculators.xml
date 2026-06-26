@@ -4,4 +4,5 @@
 	<data_calculator id="OI_IntegrationPerTurn" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationCalculators" calculator_type="PerTurn_Late"/>
 	<data_calculator id="OI_IntegrationPerQuarterSecond" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationCalculators" calculator_type="PerQuarterSecond"/>
 	<data_calculator id="OI_NaniteDeathSpread" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationCalculators" calculator_type="AnyUnitDeath"/>
+	<data_calculator id="OI_NPCUnitPerTurn" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationCalculators" calculator_type="PerTurnForNPCUnit"/>
 </root>

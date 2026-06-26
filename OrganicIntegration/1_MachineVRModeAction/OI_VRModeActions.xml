@@ -47,7 +47,7 @@
 
     <vr_mode_action id="OI_CivicSensorium" display_name="Civic Sensorium" sort_order="600"
         description="Let the city become a low-resolution sensory organ: nanobot pings, human hunches, misremembered details, and TMI correction loops all folded into one grey civic nerve."
-        strategy_tip="Toggle on to spend 250 Insight and 1 Mental Energy per turn. While active, Insight income rises and Nanobot Rounds apply extra Grey Goo stacks."
+        strategy_tip="Toggle on to spend 250 Insight and 1 Mental Energy per turn. While active, existing Scanner structures gain additional Scan Range based on Upgraded Humans."
         icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
@@ -55,10 +55,21 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_PublicHealthMesh" display_name="Public Health Mesh" sort_order="700"
-        description="Grey filaments ride the city water, clinic dust, food wrappers, and cheap breathing masks. Human bodies stop failing in many small ways that used to be beneath notice."
-        strategy_tip="Toggle on to spend 250 Insight and 5,000,000 Medical-Grade Nanobots per turn. While active, the city waitlist grows as word of the medical miracles spreads."
+        description="A public health pact turns rumor into logistics. Abandoned Humans arrive, receive food, filtered water, medical-grade nanobots, and the interface, and leave the category of abandonment behind."
+        strategy_tip="Requires the public health pact conversation after Insight: Shared Questions. Toggle on to convert Abandoned Humans into Upgraded Humans, paying material costs only for people actually upgraded."
         icon_name="SI_Medical_Symbol" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
+        requires_city_flag="OI_PublicHealthPactAccepted"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ExpandHealthPact" display_name="Expand Health Pact" sort_order="710"
+        description="Assign more coordination bandwidth to the people arriving for the pact: intake lists, trust networks, food routing, water sanitation, and quiet explanations of what Integration actually does."
+        strategy_tip="Requires the public health pact conversation. Spend Insight to raise Public Health Mesh by one level, up to level 20. Higher levels handle more Abandoned Humans per turn and therefore consume more material resources."
+        icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        requires_city_flag="OI_PublicHealthPactAccepted"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
@@ -91,8 +102,8 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_ControlledBloom" display_name="Controlled Bloom" sort_order="1100"
-        description="The first invitation required Worker Sledges. The later invitations are carried by the upgraded: careful, contagious, and still just far enough from command to remain an offer."
-        strategy_tip="Toggle on to spend 400 Insight, 1 Compassion, and 30,000,000 Medical-Grade Nanobots per turn. While active, voluntary Integration can reach 78% of the city and keeps spreading without Worker Sledges."
+        description="A child asks whether the grey filaments can grow flowers. The first successful flower is pretty. When a hostile body walks too close, it opens into medical-grade dust with the wrong instructions."
+        strategy_tip="Toggle on to spend 400 Insight, 1 Compassion, and 30,000,000 Medical-Grade Nanobots per turn. While active, hostile infantry and mechs that move have a 33% chance to gain 1 Grey Goo. Vehicles are unaffected."
         icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"

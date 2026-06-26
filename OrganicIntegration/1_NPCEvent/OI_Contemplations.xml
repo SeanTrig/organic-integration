@@ -43,4 +43,26 @@ What remains is not a technical question. Sapient life can be offered this upgra
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage"/>
 		</choice>
 	</city_event>
+
+	<city_event id="Cont_OI_PublicHealthPact" display_name="Someone From The Waitlist" tl="OC"
+		description="The person is not from the city. Not originally. They crossed three clearance zones, slept under two different awnings, and learned enough local rumors to find the place where your machines sometimes answer questions.
+
+They did not come for religion. They did not come for rebellion. They came because someone told them that the sick stop being sick here, sometimes, and that the machine under the city has begun making deals that humans survive.
+
+They ask for a clinic that is not a clinic. Food, filtered water, medical nanobots, and a path from abandonment into Integration. In return, they offer the one thing they still possess in excess: other people who will hear about this and come."
+		strategy_tip="Unlocks Public Health Mesh and Expand Health Pact in the Insight menu. The pact consumes Abandoned Humans, Medical-Grade Nanobots, Hydroponic Greens, Vat-Grown Meat, and Filtered Water to create Upgraded Humans."
+		icon_name="SI_Medical_Symbol" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_InsightSharedQuestions" blocked_by_city_flag="OI_PublicHealthPactAccepted"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Homeless"
+			icon_scale="0.45" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="180"/>
+		<contemplation_data spawns_at_building_tag="Housing"
+			icon_scale="0.5" color_hex="#6CC7B2" color_hdr_intensity="1.7" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Make The Deal" action_visibility_style="IsMoveAndInteractWithNPC" description="This will make the Insight menu able to run a public health pact. The pact is not free, but it converts Abandoned Humans into Upgraded Humans instead of waiting for housing systems to find them first.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The pact begins at level one. It will expand only if you keep assigning Insight to the logistics of trust, food, water, and medical-grade nanobot delivery.">
+				<city_flag_change flag_type="OI_PublicHealthPactAccepted" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
 </root>

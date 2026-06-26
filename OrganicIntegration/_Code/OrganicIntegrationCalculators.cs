@@ -5,7 +5,7 @@ using Arcen.Universal;
 
 namespace Arcen.HotM.OrganicIntegration
 {
-    public class OrganicIntegrationCalculators : IDataCalculator_DoPerTurn_EarlyBeforeJobs, IDataCalculator_DoPerTurn_Late, IDataCalculator_DoPerQuarterSecond, IDataCalculator_DoAfterAnyUnitDeath
+    public class OrganicIntegrationCalculators : IDataCalculator_DoPerTurn_EarlyBeforeJobs, IDataCalculator_DoPerTurn_Late, IDataCalculator_DoPerQuarterSecond, IDataCalculator_DoAfterAnyUnitDeath, IDataCalculator_DoPerTurnForNPCUnit
     {
         internal const string VoluntaryJob = "OI_NanobotUpgradeHub";
         internal const string CoerciveJob = "OI_NaniteWindGenerator";
@@ -29,9 +29,10 @@ namespace Arcen.HotM.OrganicIntegration
         private const string ControlledBloomAction = "OI_ControlledBloom";
         private const int VoluntaryPopulationCapPercent = 45;
         private const int VoluntaryConsentCascadeCapPercent = 67;
-        private const int VoluntaryControlledBloomCapPercent = 78;
         private const int CoercivePopulationCapPercent = 85;
         private const int GreyGooDuration = 9999;
+        private const int GreyGooFalloffPercent = 35;
+        private const int ControlledBloomProcPercent = 33;
         private const long CooperativeInsightPerTurn = 100L;
         private const long CooperativeCompassionPerTurn = 1L;
         private const long CooperativeMentalEnergyPerTurn = 2L;
@@ -49,8 +50,12 @@ namespace Arcen.HotM.OrganicIntegration
         private const int MaxSharedTriageHPPerTurn = 750;
         private const long CivicSensoriumInsightPerTurn = 250L;
         private const long CivicSensoriumMentalEnergyPerTurn = 1L;
-        private const long PublicHealthMeshInsightPerTurn = 250L;
-        private const long PublicHealthMeshNanobotsPerTurn = 5000000L;
+        internal const int PublicHealthMaxLevel = 20;
+        internal const long PublicHealthBaseHumansPerTurn = 250L;
+        internal const long PublicHealthNanobotsPerHuman = 15000L;
+        internal const long PublicHealthGreensPerHuman = 1L;
+        internal const long PublicHealthMeatPerHuman = 1L;
+        internal const long PublicHealthWaterPerHuman = 2L;
         private const long ShelterFilamentsInsightPerTurn = 250L;
         private const long ShelterFilamentsNanobotsPerTurn = 10000000L;
         private const long InfrastructureFilamentsInsightPerTurn = 300L;
@@ -119,7 +124,28 @@ namespace Arcen.HotM.OrganicIntegration
         {
             RecalculateAGIBridgeBlock();
             ApplyIntegrationNeuralExpansion();
+            ApplyCivicSensoriumScannerRange();
             SyncCooperativeModelingUpgrade( false );
+        }
+
+        public void DoPerTurnForNPCUnit( DataCalculator Calculator, ISimNPCUnit Unit, SquirrelRand Rand )
+        {
+            if ( Calculator == null || Unit == null || Unit.IsFullDead )
+                return;
+
+            if ( Rand == null )
+                Rand = Engine_Universal.PermanentQualityRandom;
+
+            switch ( Calculator.ID )
+            {
+                case "OI_NPCUnitPerTurn":
+                    ApplyGreyGooFalloff( Unit, Rand );
+                    ApplyControlledBloomToUnit( Unit, Rand );
+                    break;
+                default:
+                    ArcenDebugging.LogSingleLine( "DoPerTurnForNPCUnit: OrganicIntegrationCalculators was asked to handle '" + Calculator.ID + "', but no entry was set up for that!", Verbosity.ShowAsError );
+                    break;
+            }
         }
 
         public void DoAfterAnyUnitDeath( DataCalculator Calculator, ISimMapMobileActor Actor, NPCDisbandReason AnyUnitReason, SquirrelRand Rand )
@@ -269,8 +295,6 @@ namespace Arcen.HotM.OrganicIntegration
             {
                 if ( IsVRActionActive( OrganicQuantizationAction ) )
                     income = Math.Max( income + 1L, (income * 3L + 1L) / 2L );
-                if ( IsVRActionActive( CivicSensoriumAction ) )
-                    income = Math.Max( income + 1L, (income * 5L + 3L) / 4L );
                 if ( voluntaryLocked && !coerciveLocked && IsVRActionActive( ConsentCascadeAction ) )
                     income = Math.Max( income + 1L, (income * 6L + 4L) / 5L );
 
@@ -289,7 +313,6 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyConsentCascadeUpkeep();
             ApplySharedTriageInsightUpkeep();
             ApplyCivicSensoriumUpkeep();
-            ApplyPublicHealthMeshUpkeep();
             ApplyShelterFilamentsUpkeep();
             ApplyInfrastructureFilamentsUpkeep();
             ApplyArchitecturalWeaveUpkeep();
@@ -371,11 +394,6 @@ namespace Arcen.HotM.OrganicIntegration
         private static void ApplyCivicSensoriumUpkeep()
         {
             SpendMaintainedActionCostOrDisable( CivicSensoriumAction, "Expense_OI_CivicSensorium", CivicSensoriumInsightPerTurn, 0L, CivicSensoriumMentalEnergyPerTurn, 0L );
-        }
-
-        private static void ApplyPublicHealthMeshUpkeep()
-        {
-            SpendMaintainedActionCostOrDisable( PublicHealthMeshAction, "Expense_OI_PublicHealthMesh", PublicHealthMeshInsightPerTurn, PublicHealthMeshNanobotsPerTurn, 0L, 0L );
         }
 
         private static void ApplyShelterFilamentsUpkeep()
@@ -527,18 +545,49 @@ namespace Arcen.HotM.OrganicIntegration
                 ApplyInfrastructureFilaments();
             if ( IsVRActionActive( ArchitecturalWeaveAction ) )
                 ApplyArchitecturalWeaveProgress();
-            if ( IsVRActionActive( ControlledBloomAction ) )
-                ApplyControlledBloomConversion( Rand );
         }
 
         private static void ApplyPublicHealthMesh()
         {
-            ResourceType upgraded = GetResource( UpgradedResource );
-            if ( upgraded == null || upgraded.Current <= 0 )
+            MachineVRModeAction action = GetVRAction( PublicHealthMeshAction );
+            if ( action == null || !action.DGD.IsActiveNow )
                 return;
 
-            long waitlistGain = Math.Min( 300000L, Math.Max( 25000L, upgraded.Current / 120L ) );
-            GStatisticTable.AlterScore( "CityHumanCitizenWaitlist", waitlistGain );
+            int level = EnsurePublicHealthLevel( action );
+            if ( level <= 0 )
+            {
+                action.DGD.IsActiveNow = false;
+                return;
+            }
+
+            ResourceType upgraded = GetResource( UpgradedResource );
+            ResourceType abandoned = GetResource( "AbandonedHumans" );
+            ResourceType nanobots = GetResource( MedicalNanobotsResource );
+            ResourceType greens = GetResource( "HydroponicGreens" );
+            ResourceType meat = GetResource( "VatGrownMeat" );
+            ResourceType water = GetResource( "FilteredWater" );
+            if ( upgraded == null || abandoned == null || nanobots == null || greens == null || meat == null || water == null )
+                return;
+
+            long desired = GetPublicHealthHumansHandledPerTurn( level );
+            long affordable = desired;
+            affordable = Math.Min( affordable, abandoned.Current );
+            affordable = Math.Min( affordable, nanobots.Current / PublicHealthNanobotsPerHuman );
+            affordable = Math.Min( affordable, greens.Current / PublicHealthGreensPerHuman );
+            affordable = Math.Min( affordable, meat.Current / PublicHealthMeatPerHuman );
+            affordable = Math.Min( affordable, water.Current / PublicHealthWaterPerHuman );
+
+            int toConvert = ClampToInt( affordable );
+            if ( toConvert <= 0 )
+                return;
+
+            abandoned.AlterCurrent_Named( -toConvert, "Expense_OI_PublicHealthMesh", ResourceAddRule.IgnoreUntilTurnChange );
+            nanobots.AlterCurrent_Named( -(toConvert * PublicHealthNanobotsPerHuman), "Expense_OI_PublicHealthMesh", ResourceAddRule.IgnoreUntilTurnChange );
+            greens.AlterCurrent_Named( -(toConvert * PublicHealthGreensPerHuman), "Expense_OI_PublicHealthMesh", ResourceAddRule.IgnoreUntilTurnChange );
+            meat.AlterCurrent_Named( -(toConvert * PublicHealthMeatPerHuman), "Expense_OI_PublicHealthMesh", ResourceAddRule.IgnoreUntilTurnChange );
+            water.AlterCurrent_Named( -(toConvert * PublicHealthWaterPerHuman), "Expense_OI_PublicHealthMesh", ResourceAddRule.IgnoreUntilTurnChange );
+
+            AddUpgradedHumans( null, null, upgraded, toConvert, "Income_OI_UpgradedHumans_PublicHealthMesh" );
         }
 
         private static void ApplyShelterFilaments()
@@ -605,53 +654,6 @@ namespace Arcen.HotM.OrganicIntegration
                     break;
                 }
                 action.DGD.PaidUnlocks++;
-            }
-        }
-
-        private static void ApplyControlledBloomConversion( SquirrelRand Rand )
-        {
-            ResourceType upgraded = GetResource( UpgradedResource );
-            Swarm swarm = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( UpgradedSwarm );
-            if ( upgraded == null || swarm == null )
-                return;
-
-            long normalPopulation = GetCityStatisticScore( "CityHumanCitizenPopulation" );
-            long remainingUnderCap = CalculatePopulationCap( normalPopulation, upgraded.Current, VoluntaryControlledBloomCapPercent ) - upgraded.Current;
-            if ( remainingUnderCap <= 0 )
-                return;
-
-            long perTurnBudgetLong = Math.Min( 25000L, remainingUnderCap );
-            if ( IsVRActionActive( OrganicQuantizationAction ) )
-                perTurnBudgetLong = Math.Max( 1L, perTurnBudgetLong / 2L );
-            int perTurnBudget = ClampToInt( perTurnBudgetLong );
-            if ( perTurnBudget <= 0 )
-                return;
-
-            foreach ( Arcen.Universal.KeyValuePair<int, BaseBuilding> kv in World.Buildings.GetAllBuildings() )
-            {
-                if ( perTurnBudget <= 0 || remainingUnderCap <= 0 )
-                    break;
-
-                BaseBuilding building = kv.Value;
-                if ( building == null || building.GetIsDestroyed() )
-                    continue;
-                if ( building.SwarmSpread != null && building.SwarmSpread != swarm )
-                    continue;
-
-                int peopleHere = building.GetTotalResidentCount() + building.GetTotalWorkerCount();
-                if ( peopleHere <= 0 )
-                    continue;
-
-                int desiredPercent = IsVRActionActive( OrganicQuantizationAction ) ? 4 : 8;
-                int desired = Math.Max( 1, (peopleHere * desiredPercent + 99) / 100 );
-                int toConvert = (int)Math.Min( Math.Min( desired, perTurnBudget ), remainingUnderCap );
-                int converted = building.KillRandomHere( toConvert, Rand, false, string.Empty );
-                if ( converted <= 0 )
-                    continue;
-
-                AddUpgradedHumans( building, swarm, upgraded, converted, "Income_OI_UpgradedHumans_Voluntary" );
-                perTurnBudget -= converted;
-                remainingUnderCap -= converted;
             }
         }
 
@@ -787,6 +789,29 @@ namespace Arcen.HotM.OrganicIntegration
                 if ( abandonedGain > 0 )
                     abandoned.AlterCurrent_Named( abandonedGain, "Income_OI_IntegrationImmigrationPressure", ResourceAddRule.IgnoreUntilTurnChange );
             }
+
+            ApplyPublicHealthMigrationPressure();
+        }
+
+        private static void ApplyPublicHealthMigrationPressure()
+        {
+            if ( !IsFlagTripped( "OI_PublicHealthPactAccepted" ) )
+                return;
+
+            MachineVRModeAction action = GetVRAction( PublicHealthMeshAction );
+            int level = EnsurePublicHealthLevel( action );
+            if ( level <= 0 )
+                level = 1;
+
+            long waitlistGain = 15000L * level;
+            GStatisticTable.AlterScore( "CityHumanCitizenWaitlist", waitlistGain );
+
+            ResourceType abandoned = GetResource( "AbandonedHumans" );
+            if ( abandoned == null )
+                return;
+
+            long abandonedGain = Math.Min( 10000L, 250L * level );
+            abandoned.AlterCurrent_Named( abandonedGain, "Income_OI_IntegrationImmigrationPressure", ResourceAddRule.IgnoreUntilTurnChange );
         }
 
         private static void ApplyIntegrationNeuralExpansion()
@@ -841,6 +866,70 @@ namespace Arcen.HotM.OrganicIntegration
             neuralData.SetCurrentSilently_BeVeryCarefulWithThis( amount );
         }
 
+        private static void ApplyCivicSensoriumScannerRange()
+        {
+            ActorDataType scanRange = ActorRefs.ScanRange;
+            if ( scanRange == null )
+                return;
+
+            bool active = IsVRActionActive( CivicSensoriumAction );
+            bool changedAny = false;
+            int bonus = active ? CalculateCivicSensoriumScanBonus() : 0;
+
+            foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
+            {
+                MachineStructure structure = kv.Value;
+                if ( structure == null || structure.IsInvalid || structure.IsFullDead )
+                    continue;
+
+                int baseline = GetBaselineStructureActorData( structure, scanRange );
+                MapActorData data = structure.GetActorDataData( scanRange, true );
+                bool hasOverride = data != null && data.IsOverridingCalculatedStyle;
+                if ( baseline <= 0 && !hasOverride )
+                    continue;
+
+                int desired = active && baseline > 0 ? baseline + bonus : baseline;
+                if ( data == null && desired <= 0 )
+                    continue;
+                if ( data == null )
+                    data = structure.GetActorDataDataAndInitializeIfNeedBe( scanRange, desired, desired );
+
+                bool shouldOverride = active && baseline > 0;
+                if ( data.IsOverridingCalculatedStyle == shouldOverride && data.Current == desired && data.Maximum == desired )
+                    continue;
+
+                data.IsOverridingCalculatedStyle = shouldOverride;
+                data.SetOriginalMaximum( desired );
+                data.SetCurrentSilently_BeVeryCarefulWithThis( desired );
+                changedAny = true;
+            }
+
+            if ( changedAny )
+            {
+                SimCommon.NeedsBuildingListRecalculation = true;
+                SimCommon.NeedsVisibilityGranterRecalculation = true;
+            }
+        }
+
+        private static int CalculateCivicSensoriumScanBonus()
+        {
+            ResourceType upgraded = GetResource( UpgradedResource );
+            long upgradedHumans = upgraded?.Current ?? 0L;
+            long scaled = 20L + Math.Min( 80L, upgradedHumans / 250000L );
+            return Math.Max( 20, ClampToInt( scaled ) );
+        }
+
+        private static int GetBaselineStructureActorData( MachineStructure structure, ActorDataType dataType )
+        {
+            if ( structure == null || dataType == null )
+                return 0;
+
+            int baseline = structure.Type?.DGD?.ActorData[dataType] ?? 0;
+            if ( structure.IsFunctionalStructure && structure.IsFunctionalJob && !structure.IsJobPaused && !structure.IsJobStillInstalling )
+                baseline += structure.CurrentJob?.DGD?.ActorData[dataType] ?? 0;
+            return baseline;
+        }
+
         private static long CalculatePopulationCap( long normalPopulation, long upgradedPopulation, int percent )
         {
             long total = Math.Max( 0L, normalPopulation ) + Math.Max( 0L, upgradedPopulation );
@@ -851,22 +940,58 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static int GetVoluntaryPopulationCapPercent()
         {
-            if ( IsVRActionActive( ControlledBloomAction ) )
-                return VoluntaryControlledBloomCapPercent;
             return IsVRActionActive( ConsentCascadeAction ) ? VoluntaryConsentCascadeCapPercent : VoluntaryPopulationCapPercent;
         }
 
         private static int GetVoluntaryConversionPercent()
         {
-            int percent;
-            if ( IsVRActionActive( ControlledBloomAction ) )
-                percent = VoluntaryControlledBloomCapPercent;
-            else
-                percent = IsVRActionActive( ConsentCascadeAction ) ? VoluntaryConsentCascadeCapPercent : VoluntaryPopulationCapPercent;
+            int percent = IsVRActionActive( ConsentCascadeAction ) ? VoluntaryConsentCascadeCapPercent : VoluntaryPopulationCapPercent;
 
             if ( IsVRActionActive( OrganicQuantizationAction ) )
                 percent = Math.Max( 1, (percent + 1) / 2 );
             return percent;
+        }
+
+        private static void ApplyGreyGooFalloff( ISimNPCUnit unit, SquirrelRand Rand )
+        {
+            ActorStatus status = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
+            if ( status == null || unit == null || unit.IsFullDead )
+                return;
+
+            int intensity = unit.GetStatusIntensity( status );
+            if ( intensity <= 0 )
+                return;
+            if ( Rand.Next( 0, 100 ) >= GreyGooFalloffPercent )
+                return;
+
+            unit.ClearStatus( status );
+            if ( intensity > 1 )
+                unit.AddStatus( null, status, intensity - 1, GreyGooDuration, false );
+        }
+
+        private static void ApplyControlledBloomToUnit( ISimNPCUnit unit, SquirrelRand Rand )
+        {
+            if ( !IsVRActionActive( ControlledBloomAction ) )
+                return;
+            if ( unit == null || unit.IsFullDead || !unit.GetIsConsideredHostileToPlayer() )
+                return;
+            if ( unit.GetIsPartOfPlayerForcesInAnyWay() || unit.GetIsAnAllyFromThePlayerPerspective() )
+                return;
+            if ( unit.IsVehicle )
+                return;
+            if ( unit.TurnsSinceMoved > 1 )
+                return;
+            if ( Rand.Next( 0, 100 ) >= ControlledBloomProcPercent )
+                return;
+
+            ActorStatus status = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
+            if ( status == null )
+                return;
+
+            unit.AddStatus( null, status, 1, GreyGooDuration, false );
+            unit.HasBeenPhysicallyDamagedByPlayer = true;
+            unit.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayer = true;
+            unit.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayerThisTurn = true;
         }
 
         private static int CountFunctionalStructures( params string[] jobIDs )
@@ -936,9 +1061,32 @@ namespace Arcen.HotM.OrganicIntegration
             return GetVRAction( id )?.DGD?.HasEverBeenDone ?? false;
         }
 
+        internal static int EnsurePublicHealthLevel( MachineVRModeAction action )
+        {
+            if ( action == null )
+                return 0;
+            if ( action.DGD.PaidUnlocks <= 0 && IsFlagTripped( "OI_PublicHealthPactAccepted" ) )
+                action.DGD.PaidUnlocks = 1;
+            if ( action.DGD.PaidUnlocks > PublicHealthMaxLevel )
+                action.DGD.PaidUnlocks = PublicHealthMaxLevel;
+            return action.DGD.PaidUnlocks;
+        }
+
+        internal static long GetPublicHealthHumansHandledPerTurn( int level )
+        {
+            level = Math.Max( 1, Math.Min( PublicHealthMaxLevel, level ) );
+            return PublicHealthBaseHumansPerTurn * level * level;
+        }
+
+        internal static long GetPublicHealthUpgradeInsightCost( int currentLevel )
+        {
+            currentLevel = Math.Max( 1, Math.Min( PublicHealthMaxLevel, currentLevel ) );
+            return 500L + (250L * currentLevel);
+        }
+
         private static bool CanAfford( ResourceType resource, long amount )
         {
-            return resource != null && resource.Current >= amount;
+            return amount <= 0 || (resource != null && resource.Current >= amount);
         }
 
         private static long GetCityStatisticScore( string id )

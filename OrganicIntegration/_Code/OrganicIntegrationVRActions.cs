@@ -12,6 +12,10 @@ namespace Arcen.HotM.OrganicIntegration
         private const string WisdomResource = "Wisdom";
         private const string MentalEnergyResource = "MentalEnergy";
         private const string MedicalNanobotsResource = "OI_MedicalGradeNanobots";
+        private const string AbandonedHumansResource = "AbandonedHumans";
+        private const string HydroponicGreensResource = "HydroponicGreens";
+        private const string VatGrownMeatResource = "VatGrownMeat";
+        private const string FilteredWaterResource = "FilteredWater";
 
         public VRActionResult TryHandleVRAction( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
         {
@@ -34,12 +38,12 @@ namespace Arcen.HotM.OrganicIntegration
                         return HandleConsentCascade( Action, BufferOrNull, Logic );
                     case "OI_CivicSensorium":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "+25% Insight income and +2 Grey Goo stacks from Nanobot Rounds.",
+                            "Existing Scanner structures gain +20 to +100 Scan Range, scaling with Upgraded Humans.",
                             Cost( InsightResource, 250L ), Cost( MentalEnergyResource, 1L ) );
                     case "OI_PublicHealthMesh":
-                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "Increases the city waitlist as rumors of impossible medicine spread through the city.",
-                            Cost( InsightResource, 250L ), Cost( MedicalNanobotsResource, 5000000L ) );
+                        return HandlePublicHealthMesh( Action, BufferOrNull, Logic );
+                    case "OI_ExpandHealthPact":
+                        return HandleExpandHealthPact( Action, BufferOrNull, Logic );
                     case "OI_ShelterFilaments":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
                             "Moves up to 1,000 Abandoned Humans into filament shelters each turn, adding them to the city population.",
@@ -52,7 +56,7 @@ namespace Arcen.HotM.OrganicIntegration
                         return HandleArchitecturalWeave( Action, BufferOrNull, Logic );
                     case "OI_ControlledBloom":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "Voluntary Integration can reach 78% of the city and Upgraded Humans continue converting nearby citizens without Worker Sledges.",
+                            "Hostile infantry and mechs that move through the city have a 33% chance to gain 1 Grey Goo. Vehicles are unaffected.",
                             Cost( InsightResource, 400L ), Cost( MedicalNanobotsResource, 30000000L ), Cost( CompassionResource, 1L ) );
                 }
             }
@@ -278,6 +282,105 @@ namespace Arcen.HotM.OrganicIntegration
                     if ( !Action.DGD.HasEverBeenDone )
                         MarkDone( Action );
                     Action.ToggleActive();
+                    return VRActionResult.Success;
+            }
+
+            return VRActionResult.Indeterminate;
+        }
+
+        private static VRActionResult HandlePublicHealthMesh( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
+        {
+            int level = OrganicIntegrationCalculators.EnsurePublicHealthLevel( Action );
+            if ( level <= 0 )
+                level = 1;
+
+            long humans = OrganicIntegrationCalculators.GetPublicHealthHumansHandledPerTurn( level );
+            ResourceType abandoned = GetResource( AbandonedHumansResource );
+            ResourceType nanobots = GetResource( MedicalNanobotsResource );
+            ResourceType greens = GetResource( HydroponicGreensResource );
+            ResourceType meat = GetResource( VatGrownMeatResource );
+            ResourceType water = GetResource( FilteredWaterResource );
+
+            switch ( Logic )
+            {
+                case VRActionLogic.AppendToVRActionTooltip:
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        BufferOrNull.AddActiveOrInactiveStatusLine( Action.DGD.IsActiveNow );
+                        BufferOrNull.BoldLineHeader( "DealLevel_CurrentLevel" ).AddRaw( level.ToStringThousandsWhole() + " / " + OrganicIntegrationCalculators.PublicHealthMaxLevel.ToStringThousandsWhole() ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                            .AddExpandableResourceCost( 0, "up to " + humans.ToStringThousandsWhole(), abandoned ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "15,000 per person", nanobots ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "1 per person", greens ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "1 per person", meat ).ListSeparator()
+                            .AddExpandableResourceCost( 0, "2 per person", water ).Line();
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" )
+                            .AddRaw( "Converts up to " + humans.ToStringThousandsWhole() + " Abandoned Humans per turn into Upgraded Humans. Costs are paid only for people actually upgraded." ).Line();
+                        BufferOrNull.EndLineHeight();
+                    }
+                    break;
+                case VRActionLogic.FlagAnyRelatedResources:
+                    FlagRelated( abandoned );
+                    FlagRelated( nanobots );
+                    FlagRelated( greens );
+                    FlagRelated( meat );
+                    FlagRelated( water );
+                    break;
+                case VRActionLogic.GetCanAfford:
+                    return VRActionResult.Success;
+                case VRActionLogic.TryPayCosts:
+                    return VRActionResult.Success;
+                case VRActionLogic.MenuClick:
+                    Action.ToggleActive();
+                    return VRActionResult.Success;
+            }
+
+            return VRActionResult.Indeterminate;
+        }
+
+        private static VRActionResult HandleExpandHealthPact( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
+        {
+            MachineVRModeAction mesh = MachineVRModeActionTable.Instance.GetRowByIDOrNullIfNotFound( "OI_PublicHealthMesh" );
+            int level = OrganicIntegrationCalculators.EnsurePublicHealthLevel( mesh );
+            bool isComplete = level >= OrganicIntegrationCalculators.PublicHealthMaxLevel;
+            ResourceType insight = GetResource( InsightResource );
+            long cost = OrganicIntegrationCalculators.GetPublicHealthUpgradeInsightCost( level );
+
+            switch ( Logic )
+            {
+                case VRActionLogic.AppendToVRActionTooltip:
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        BufferOrNull.AddActiveOrInactiveOrCompleteStatusLine( false, isComplete );
+                        BufferOrNull.BoldLineHeader( "DealLevel_CurrentLevel" ).AddRaw( level.ToStringThousandsWhole() + " / " + OrganicIntegrationCalculators.PublicHealthMaxLevel.ToStringThousandsWhole() ).Line();
+                        if ( !isComplete )
+                        {
+                            long nextHumans = OrganicIntegrationCalculators.GetPublicHealthHumansHandledPerTurn( level + 1 );
+                            BufferOrNull.BoldLineHeader( "Deal_ActivationCost" ).AddExpandableResourceCost( 0, cost.ToStringThousandsWhole(), insight ).Line();
+                            BufferOrNull.BoldLineHeader( "Deal_BonusOnTrigger" ).AddRaw( "Raises Public Health Mesh to level " + (level + 1).ToStringThousandsWhole() + ", handling up to " + nextHumans.ToStringThousandsWhole() + " Abandoned Humans per turn." ).Line();
+                        }
+                        BufferOrNull.EndLineHeight();
+                    }
+                    break;
+                case VRActionLogic.FlagAnyRelatedResources:
+                    FlagRelated( insight );
+                    break;
+                case VRActionLogic.GetCanAfford:
+                    return !isComplete && CanAfford( insight, cost ) ? VRActionResult.Success : VRActionResult.Indeterminate;
+                case VRActionLogic.TryPayCosts:
+                    if ( isComplete || !CanAfford( insight, cost ) )
+                        return VRActionResult.Indeterminate;
+                    insight.AlterCurrent_Named( -cost, "Expense_OI_PublicHealthMesh", ResourceAddRule.IgnoreUntilTurnChange );
+                    return VRActionResult.Success;
+                case VRActionLogic.MenuClick:
+                    if ( mesh == null || isComplete )
+                        return VRActionResult.Indeterminate;
+                    mesh.DGD.PaidUnlocks++;
+                    mesh.DGD.HasEverBeenDone = true;
+                    Action.DGD.TimesDone++;
+                    Action.DGD.HasEverBeenDone = true;
                     return VRActionResult.Success;
             }
 

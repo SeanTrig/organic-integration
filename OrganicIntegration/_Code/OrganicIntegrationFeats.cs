@@ -24,8 +24,6 @@ namespace Arcen.HotM.OrganicIntegration
                 return;
 
             int intensity = Math.Max( 1, (int)Math.Round( FeatAmount ) );
-            if ( MachineVRModeActionTable.Instance.GetRowByIDOrNullIfNotFound( "OI_CivicSensorium" )?.DGD?.IsActiveNow ?? false )
-                intensity += 2;
             Target.AddStatus( Attacker, status, intensity, GreyGooDuration, Attacker is ISimNPCUnit );
         }
 
