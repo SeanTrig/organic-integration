@@ -37,9 +37,7 @@ namespace Arcen.HotM.OrganicIntegration
                     case "OI_ConsentCascade":
                         return HandleConsentCascade( Action, BufferOrNull, Logic );
                     case "OI_CivicSensorium":
-                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "Existing Scanner structures gain +20 to +100 Scan Range, scaling with Upgraded Humans.",
-                            Cost( InsightResource, 250L ), Cost( MentalEnergyResource, 1L ) );
+                        return HandleCivicSensorium( Action, BufferOrNull, Logic );
                     case "OI_PublicHealthMesh":
                         return HandlePublicHealthMesh( Action, BufferOrNull, Logic );
                     case "OI_ExpandHealthPact":
@@ -281,6 +279,57 @@ namespace Arcen.HotM.OrganicIntegration
                 case VRActionLogic.MenuClick:
                     if ( !Action.DGD.HasEverBeenDone )
                         MarkDone( Action );
+                    Action.ToggleActive();
+                    return VRActionResult.Success;
+            }
+
+            return VRActionResult.Indeterminate;
+        }
+
+        private static VRActionResult HandleCivicSensorium( MachineVRModeAction Action, ArcenCharacterBufferBase BufferOrNull, VRActionLogic Logic )
+        {
+            ResourceType insight = GetResource( InsightResource );
+            ResourceType mentalEnergy = GetResource( MentalEnergyResource );
+            int level = OrganicIntegrationCalculators.GetCivicSensoriumLevel( Action );
+            bool isComplete = level >= OrganicIntegrationCalculators.CivicSensoriumMaxLevel;
+            long goal = OrganicIntegrationCalculators.GetCivicSensoriumInsightForNextUpgrade( Action );
+            int currentBonus = OrganicIntegrationCalculators.GetCivicSensoriumScanRangeBonus( Action );
+            int nextLevel = Math.Min( OrganicIntegrationCalculators.CivicSensoriumMaxLevel, level + 1 );
+            int nextBonus = nextLevel * OrganicIntegrationCalculators.CivicSensoriumScanRangePerLevel;
+            int maxBonus = OrganicIntegrationCalculators.CivicSensoriumMaxLevel * OrganicIntegrationCalculators.CivicSensoriumScanRangePerLevel;
+
+            switch ( Logic )
+            {
+                case VRActionLogic.AppendToVRActionTooltip:
+                    if ( BufferOrNull != null )
+                    {
+                        BufferOrNull.StartStyleLineHeightA();
+                        BufferOrNull.AddActiveOrInactiveOrCompleteStatusLine( Action.DGD.IsActiveNow, isComplete );
+                        BufferOrNull.BoldLineHeader( "DealLevel_CurrentLevel" ).AddRaw( level.ToStringThousandsWhole() + " / " + OrganicIntegrationCalculators.CivicSensoriumMaxLevel.ToStringThousandsWhole() ).Line();
+                        if ( !isComplete )
+                        {
+                            BufferOrNull.BoldLineHeader( "Deal_CostPerTurn" )
+                                .AddExpandableResourceCost( 0, "250", insight ).ListSeparator()
+                                .AddExpandableResourceCost( 0, "1", mentalEnergy ).Line();
+                            BufferOrNull.AddInvestmentTowardGoalLine( Action.DGD.UpgradePoints, goal, insight );
+                            BufferOrNull.BoldLineHeader( "Deal_BonusOnTrigger" ).AddRaw( "Raises Scanner structure range bonus from +" + currentBonus.ToStringThousandsWhole() + " to +" + nextBonus.ToStringThousandsWhole() + "." ).Line();
+                        }
+                        BufferOrNull.BoldLineHeader( "Deal_BonusWhileActive" ).AddRaw( "Completed sensorium levels currently grant +" + currentBonus.ToStringThousandsWhole() + " Scan Range to existing Scanner structures. Maximum: +" + maxBonus.ToStringThousandsWhole() + "." ).Line();
+                        BufferOrNull.EndLineHeight();
+                    }
+                    break;
+                case VRActionLogic.FlagAnyRelatedResources:
+                    FlagRelated( insight );
+                    FlagRelated( mentalEnergy );
+                    break;
+                case VRActionLogic.GetCanAfford:
+                    return Action.DGD.IsActiveNow || (!isComplete && CanAfford( insight, 250L ) && CanAfford( mentalEnergy, 1L ))
+                        ? VRActionResult.Success : VRActionResult.Indeterminate;
+                case VRActionLogic.TryPayCosts:
+                    return VRActionResult.Success;
+                case VRActionLogic.MenuClick:
+                    if ( isComplete )
+                        return VRActionResult.Indeterminate;
                     Action.ToggleActive();
                     return VRActionResult.Success;
             }

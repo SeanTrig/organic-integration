@@ -97,7 +97,7 @@ Current Insight VR actions:
 - `Civic Sensorium`
   - Toggle.
   - Costs 250 Insight and 1 Mental Energy per turn.
-  - Increases the Scan Range of existing Scanner structures based on Upgraded Humans.
+  - Invests in permanent Civic Sensorium levels. Each level adds +20 Scan Range to existing Scanner structures, up to +120.
 - `Public Health Mesh`
   - Unlocked by a public-health pact conversation after `Insight: Shared Questions`.
   - Converts Abandoned Humans into Upgraded Humans, consuming Medical-Grade Nanobots, Hydroponic Greens, Vat-Grown Meat, and Filtered Water only for people actually upgraded.

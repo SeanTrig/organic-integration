@@ -50,6 +50,8 @@ namespace Arcen.HotM.OrganicIntegration
         private const int MaxSharedTriageHPPerTurn = 750;
         private const long CivicSensoriumInsightPerTurn = 250L;
         private const long CivicSensoriumMentalEnergyPerTurn = 1L;
+        internal const int CivicSensoriumMaxLevel = 6;
+        internal const int CivicSensoriumScanRangePerLevel = 20;
         internal const int PublicHealthMaxLevel = 20;
         internal const long PublicHealthBaseHumansPerTurn = 250L;
         internal const long PublicHealthNanobotsPerHuman = 15000L;
@@ -65,6 +67,7 @@ namespace Arcen.HotM.OrganicIntegration
         private const long ControlledBloomInsightPerTurn = 400L;
         private const long ControlledBloomCompassionPerTurn = 1L;
         private const long ControlledBloomNanobotsPerTurn = 30000000L;
+        private static readonly long[] CivicSensoriumInsightPerUpgrade = new long[] { 500L, 1000L, 2000L, 3500L, 5500L, 8000L };
         private static readonly long[] ArchitecturalWeaveInsightPerUpgrade = new long[] { 1500L, 2500L, 4000L, 6500L, 10000L, 15000L, 22000L, 30000L };
 
         private static readonly string[] ScienceMultiplierJobs = new string[]
@@ -393,6 +396,16 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static void ApplyCivicSensoriumUpkeep()
         {
+            MachineVRModeAction action = GetVRAction( CivicSensoriumAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+            if ( GetCivicSensoriumLevel( action ) >= CivicSensoriumMaxLevel )
+            {
+                action.DGD.IsActiveNow = false;
+                action.DGD.UpgradePoints = 0;
+                return;
+            }
+
             SpendMaintainedActionCostOrDisable( CivicSensoriumAction, "Expense_OI_CivicSensorium", CivicSensoriumInsightPerTurn, 0L, CivicSensoriumMentalEnergyPerTurn, 0L );
         }
 
@@ -539,6 +552,8 @@ namespace Arcen.HotM.OrganicIntegration
         {
             if ( IsVRActionActive( PublicHealthMeshAction ) )
                 ApplyPublicHealthMesh();
+            if ( IsVRActionActive( CivicSensoriumAction ) )
+                ApplyCivicSensoriumProgress();
             if ( IsVRActionActive( ShelterFilamentsAction ) )
                 ApplyShelterFilaments();
             if ( IsVRActionActive( InfrastructureFilamentsAction ) )
@@ -622,6 +637,38 @@ namespace Arcen.HotM.OrganicIntegration
             wealth?.AlterCurrent_Named( wealthGain, "Income_OI_InfrastructureFilaments", ResourceAddRule.BlockExcess );
             neodymium?.AlterCurrent_Named( neodymiumGain, "Income_OI_InfrastructureFilaments", ResourceAddRule.BlockExcess );
             scandium?.AlterCurrent_Named( scandiumGain, "Income_OI_InfrastructureFilaments", ResourceAddRule.BlockExcess );
+        }
+
+        private static void ApplyCivicSensoriumProgress()
+        {
+            MachineVRModeAction action = GetVRAction( CivicSensoriumAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+
+            if ( GetCivicSensoriumLevel( action ) >= CivicSensoriumMaxLevel )
+            {
+                action.DGD.IsActiveNow = false;
+                action.DGD.UpgradePoints = 0;
+                return;
+            }
+
+            action.DGD.UpgradePoints += CivicSensoriumInsightPerTurn;
+            while ( action.DGD.UpgradePoints >= GetCivicSensoriumInsightForNextUpgrade( action ) )
+            {
+                long goal = GetCivicSensoriumInsightForNextUpgrade( action );
+                action.DGD.UpgradePoints -= goal;
+                action.DGD.PaidUnlocks++;
+
+                SimCommon.NeedsBuildingListRecalculation = true;
+                SimCommon.NeedsVisibilityGranterRecalculation = true;
+
+                if ( GetCivicSensoriumLevel( action ) >= CivicSensoriumMaxLevel )
+                {
+                    action.DGD.IsActiveNow = false;
+                    action.DGD.UpgradePoints = 0;
+                    break;
+                }
+            }
         }
 
         private static void ApplyArchitecturalWeaveProgress()
@@ -731,6 +778,29 @@ namespace Arcen.HotM.OrganicIntegration
             if ( index >= ArchitecturalWeaveInsightPerUpgrade.Length )
                 index = ArchitecturalWeaveInsightPerUpgrade.Length - 1;
             return ArchitecturalWeaveInsightPerUpgrade[index];
+        }
+
+        internal static int GetCivicSensoriumLevel( MachineVRModeAction action )
+        {
+            int level = action?.DGD?.PaidUnlocks ?? 0;
+            if ( level < 0 )
+                return 0;
+            if ( level > CivicSensoriumMaxLevel )
+                return CivicSensoriumMaxLevel;
+            return level;
+        }
+
+        internal static int GetCivicSensoriumScanRangeBonus( MachineVRModeAction action )
+        {
+            return GetCivicSensoriumLevel( action ) * CivicSensoriumScanRangePerLevel;
+        }
+
+        internal static long GetCivicSensoriumInsightForNextUpgrade( MachineVRModeAction action )
+        {
+            int index = GetCivicSensoriumLevel( action );
+            if ( index >= CivicSensoriumInsightPerUpgrade.Length )
+                index = CivicSensoriumInsightPerUpgrade.Length - 1;
+            return CivicSensoriumInsightPerUpgrade[index];
         }
 
         private static bool GrantUpgradeInt( UpgradeInt upgrade )
@@ -872,9 +942,9 @@ namespace Arcen.HotM.OrganicIntegration
             if ( scanRange == null )
                 return;
 
-            bool active = IsVRActionActive( CivicSensoriumAction );
             bool changedAny = false;
-            int bonus = active ? CalculateCivicSensoriumScanBonus() : 0;
+            MachineVRModeAction action = GetVRAction( CivicSensoriumAction );
+            int bonus = GetCivicSensoriumScanRangeBonus( action );
 
             foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
             {
@@ -888,13 +958,13 @@ namespace Arcen.HotM.OrganicIntegration
                 if ( baseline <= 0 && !hasOverride )
                     continue;
 
-                int desired = active && baseline > 0 ? baseline + bonus : baseline;
+                int desired = bonus > 0 && baseline > 0 ? baseline + bonus : baseline;
                 if ( data == null && desired <= 0 )
                     continue;
                 if ( data == null )
                     data = structure.GetActorDataDataAndInitializeIfNeedBe( scanRange, desired, desired );
 
-                bool shouldOverride = active && baseline > 0;
+                bool shouldOverride = bonus > 0 && baseline > 0;
                 if ( data.IsOverridingCalculatedStyle == shouldOverride && data.Current == desired && data.Maximum == desired )
                     continue;
 
@@ -909,14 +979,6 @@ namespace Arcen.HotM.OrganicIntegration
                 SimCommon.NeedsBuildingListRecalculation = true;
                 SimCommon.NeedsVisibilityGranterRecalculation = true;
             }
-        }
-
-        private static int CalculateCivicSensoriumScanBonus()
-        {
-            ResourceType upgraded = GetResource( UpgradedResource );
-            long upgradedHumans = upgraded?.Current ?? 0L;
-            long scaled = 20L + Math.Min( 80L, upgradedHumans / 250000L );
-            return Math.Max( 20, ClampToInt( scaled ) );
         }
 
         private static int GetBaselineStructureActorData( MachineStructure structure, ActorDataType dataType )
