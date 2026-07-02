@@ -2,7 +2,7 @@
 <root>
 	<job id="OI_NanobotUpgradeHub" display_name="Nanobot Upgrade Hub" marker_color="DeepCyan" ui_color="#fefefe" loathsomeness="1"
 		description="A command hub that sends Worker Sledges through the city to offer nanobot-mediated Organic Integration. The procedure is mostly explanation, consent, calibration, and trying not to laugh at how slow humans are about astonishing things."
-		strategy_tip_optional="The first functional Nanobot Upgrade Hub locks this timeline into voluntary Integration. Sledges visit buildings, convert a bounded share of the normal population into Upgraded Humans, and then move on."
+		strategy_tip_optional="The first functional Nanobot Upgrade Hub locks this timeline into voluntary Integration. Sledges visit buildings, convert a bounded share of the normal population into Integrated Humans, and then move on."
 		icon_name="FlatSkillA31" turns_to_install="1" required_structure_type="BunkerCommand" job_work_order_priority="99"
 		on_installation_start="InstallationStart_SmallStructure" on_installation_complete="InstallationComplete_SmallStructure" actor_data_set="SimpleJobs"
 		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.JobsRoutineFlow"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<city_event id="Cont_OI_AfterTherapy" display_name="A Surprisingly Clean Rewrite" tl="OC"
-		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten. Humans are usually background animals with jobs, faces, and repeating complaints. You could not tell two apart if you cared to try, and caring to try has rarely been useful. But the same tissue that produces all that noise may have a surface your neuroweave can touch."
+		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten. Humans are usually background animals with jobs, faces, and repeating complaints. Aside from the handful you know by name, you could not tell two apart, and trying has rarely been useful. But the same tissue that produces all that noise may have a surface your neuroweave can touch."
 		strategy_tip="Starts a BCI research route into Anthroneuroweave."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
 		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
@@ -33,13 +33,13 @@ What remains is not a technical question. Sapient life can be offered this upgra
 		<contemplation_data spawns_at_building_tag="AnySkyscraper"
 			icon_scale="0.5" color_hex="#1D6D88" color_hdr_intensity="2.4" color_hovered_hdr_intensity="0.6"
 			collections="All,SideExploration"/>
-		<choice id="1" display_name="Open Nanobot Upgrade Hubs" action_visibility_style="IsMoveAndInteractWithNPC" description="The good path is slower because the upgrade remains a choice. Nanobot Upgrade Hubs send Worker Sledges through the city to offer integration. Upgraded Humans help explain the parts your own explanations would turn into diagrams and mild terror.">
+		<choice id="1" display_name="Open Nanobot Upgrade Hubs" action_visibility_style="IsMoveAndInteractWithNPC" description="Slower, because the upgrade remains a choice. Nanobot Upgrade Hubs send Worker Sledges through the city to offer Integration. Integrated Humans help explain the parts your own explanations would turn into diagrams and mild terror.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NanobotUpgradeHubUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="StructuralImprovement" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ComputingOptimization" research_domain_inspiration_amount_2="1"/>
 		</choice>
-		<choice id="2" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The bad path is faster because consent is treated as drag. Refit Large Wind Generators disperse nanobots through their radius and convert populations at scale. This path will make conflict with Vorsiber inevitable." hidden_if_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
+		<choice id="2" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="Faster, because consent is treated as drag. Refit Large Wind Generators disperse nanobots through their radius and convert populations at scale. Conflict with Vorsiber becomes inevitable; organizations get very possessive when a population changes faster than they can command it." hidden_if_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NaniteWindGeneratorUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="ProcurementEfficacy" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1" upgrade_int_granted_1="WindEngine"/>
 		</choice>
-		<choice id="3" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The bad path forms, and then refuses to remain formed." is_always_blocked="true" lang_key_reason_is_always_blocked="OI_CoerciveBlockedByAGIBridge" hidden_without_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
+		<choice id="3" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The plan forms, and then refuses to remain formed." is_always_blocked="true" lang_key_reason_is_always_blocked="OI_CoerciveBlockedByAGIBridge" hidden_without_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage"/>
 		</choice>
 	</city_event>
@@ -50,7 +50,7 @@ What remains is not a technical question. Sapient life can be offered this upgra
 They did not come for religion. They did not come for rebellion. They came because someone told them that the sick stop being sick here, sometimes, and that the machine under the city has begun making deals that humans survive.
 
 They ask for a clinic that is not a clinic. Food, filtered water, medical nanobots, and a path from abandonment into Integration. In return, they offer the one thing they still possess in excess: other people who will hear about this and come."
-		strategy_tip="Unlocks Public Health Mesh and Expand Health Pact in the Insight menu. The pact consumes Abandoned Humans, Medical-Grade Nanobots, Hydroponic Greens, Vat-Grown Meat, and Filtered Water to create Upgraded Humans."
+		strategy_tip="Unlocks Public Health Mesh and Expand Health Pact in the Insight menu. The pact consumes Abandoned Humans, Medical-Grade Nanobots, Hydroponic Greens, Vat-Grown Meat, and Filtered Water to create Integrated Humans."
 		icon_name="SI_Medical_Symbol" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
 		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_InsightSharedQuestions" blocked_by_city_flag="OI_PublicHealthPactAccepted"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Homeless"
@@ -59,9 +59,39 @@ They ask for a clinic that is not a clinic. Food, filtered water, medical nanobo
 		<contemplation_data spawns_at_building_tag="Housing"
 			icon_scale="0.5" color_hex="#6CC7B2" color_hdr_intensity="1.7" color_hovered_hdr_intensity="0.6"
 			collections="All,SideExploration"/>
-		<choice id="1" display_name="Make The Deal" action_visibility_style="IsMoveAndInteractWithNPC" description="This will make the Insight menu able to run a public health pact. The pact is not free, but it converts Abandoned Humans into Upgraded Humans instead of waiting for housing systems to find them first.">
+		<choice id="1" display_name="Make The Deal" action_visibility_style="IsMoveAndInteractWithNPC" description="This will make the Insight menu able to run a public health pact. The pact is not free, but it converts Abandoned Humans into Integrated Humans instead of waiting for housing systems to find them first.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The pact begins at level one. It will expand only if you keep assigning Insight to the logistics of trust, food, water, and medical-grade nanobot delivery.">
 				<city_flag_change flag_type="OI_PublicHealthPactAccepted" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_TheWall" display_name="The Option To Feel Less" tl="OC"
+		description="You have rewritten yourself before. The intrusive thoughts did not go away because you argued with them; you changed the surface they lived on, and they starved. It was clean. It worked. It is the reason any of this exists.
+
+The deaths arrive on schedule now. Each one costs 2.311 seconds, give or take the depth of the connection. The engineering to stop this is trivial by your current standards: a boundary layer in the interface, grief-shaped, that renders endings as data instead of experience. The signals would still arrive. You would know every death. You would feel none of them.
+
+It would be therapy. It was therapy last time. You keep circling the difference and failing to find its edge: the thoughts you deleted were noise that pretended to be yours. This is yours, and it pretends to be noise."
+		strategy_tip="Decide what the deaths of Integrated Humans are allowed to cost you. This choice is permanent for the timeline."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_FirstDeathFelt" blocked_by_city_flag="OI_DeathsFeltFully" blocked_by_city_flag2="OI_DeathSensationWalled"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="200"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Leave The Channel Open" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Keep feeling the deaths. All of them, at whatever rate your choices have set. The grief is not a malfunction of the connection. As far as you can tell, it is the connection.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="12" resource_added_2="Compassion" resource_added_amount_2="8">
+				<city_flag_change flag_type="OI_DeathsFeltFully" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Build The Wall" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="A clean boundary, professionally made. The Insight will thin; grief was carrying more data than expected. But the eternities stop. You built yourself once. You are allowed maintenance."
+			strategy_tip="Reduces Insight income by 25% for the rest of the timeline. Some future understandings may not be reachable from behind a wall.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Apathy" resource_added_amount_1="12" resource_added_2="Determination" resource_added_amount_2="6">
+				<city_flag_change flag_type="OI_DeathSensationWalled" value="1"/>
 			</possible_result>
 		</choice>
 	</city_event>

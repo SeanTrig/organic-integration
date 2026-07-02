@@ -6,4 +6,12 @@
 	<city_flag id="OI_IntegrationCoerciveLocked" display_name="Coercive Integration chosen" has_no_code="true"/>
 	<city_flag id="OI_CoerciveIntegrationBlockedByAGIBridge" display_name="Coercive Integration blocked by AGI bridge" has_no_code="true"/>
 	<city_flag id="OI_PublicHealthPactAccepted" display_name="Organic Integration public health pact accepted" has_no_code="true"/>
+	<city_flag id="OI_DoctrineRushed" display_name="Replication Doctrine: applications led" has_no_code="true"/>
+	<city_flag id="OI_DoctrineContained" display_name="Replication Doctrine: every variable contained" has_no_code="true"/>
+	<city_flag id="OI_DoctrineCollaborative" display_name="Replication Doctrine: human hands borrowed" has_no_code="true"/>
+	<city_flag id="OI_GooLeakSeeded" display_name="1.4 kilograms unaccounted for" has_no_code="true"/>
+	<city_flag id="OI_SabotageDiscovered" display_name="Program sabotage traced to the exit visa trade" has_no_code="true"/>
+	<city_flag id="OI_FirstDeathFelt" display_name="First Integrated death felt through the interface" has_no_code="true"/>
+	<city_flag id="OI_DeathsFeltFully" display_name="The channel stays open" has_no_code="true"/>
+	<city_flag id="OI_DeathSensationWalled" display_name="Death sensation walled off" has_no_code="true"/>
 </root>

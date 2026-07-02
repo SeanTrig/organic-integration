@@ -2,7 +2,7 @@
 <root>
     <vr_mode_action id="OI_SharedInquiry" display_name="Shared Inquiry" sort_order="100"
         description="Maintain a low-bandwidth question-and-answer loop with integrated humans, converting Insight into ongoing research."
-        strategy_tip="Toggle on to spend 300 Insight and 1 Mental Energy per turn for Scientific Research. Output scales from 100 to 15,000 per turn based on Upgraded Humans."
+        strategy_tip="Toggle on to spend 300 Insight and 1 Mental Energy per turn for Scientific Research. Output scales from 100 to 15,000 per turn based on Integrated Humans."
         icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
@@ -28,8 +28,8 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_OrganicQuantization" display_name="Organic Quantization" sort_order="400"
-        description="Orthogonalize the human signal before it reaches TMI, preserving more useful contrast while making the interface feel less immediate to new participants."
-        strategy_tip="First activation costs 15 Wisdom. While active, spend 300 Insight and 1 Mental Energy per turn to increase Insight income by 50%, but voluntary Upgraded Human growth is halved."
+        description="Orthogonalize the human signal before it reaches you, preserving more useful contrast while making the interface feel less immediate to new participants."
+        strategy_tip="First activation costs 15 Wisdom. While active, spend 300 Insight and 1 Mental Energy per turn to increase Insight income by 50%, but voluntary Integrated Human growth is halved."
         icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
@@ -56,7 +56,7 @@
 
     <vr_mode_action id="OI_PublicHealthMesh" display_name="Public Health Mesh" sort_order="700"
         description="A public health pact turns rumor into logistics. Abandoned Humans arrive, receive food, filtered water, medical-grade nanobots, and the interface, and leave the category of abandonment behind."
-        strategy_tip="Requires the public health pact conversation after Insight: Shared Questions. Toggle on to convert Abandoned Humans into Upgraded Humans, paying material costs only for people actually upgraded."
+        strategy_tip="Requires the public health pact conversation after Insight: Shared Questions. Toggle on to convert Abandoned Humans into Integrated Humans, paying material costs only for people actually upgraded."
         icon_name="SI_Medical_Symbol" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         requires_city_flag="OI_PublicHealthPactAccepted"

@@ -2,13 +2,13 @@
 <root>
     <resource id="OI_Insight" display_name="Insight" icon_name="CleanSimple_Skill050" icon_color="#6CC7B2"
         description="Understanding produced when organic minds use your machinery to notice themselves, and you notice them noticing. It is science-adjacent, but not the same thing."
-        strategy_tip="Generated each turn by Upgraded Humans in this timeline. Voluntary Integration produces more per person; coercive Integration reaches more people faster."
+        strategy_tip="Generated each turn by Integrated Humans in this timeline. Voluntary Integration produces more per person; coercive Integration reaches more people faster."
         base_storage_capacity="1000000000" is_strategic_resource="true" is_locked_before_unlock="OI_NanobotInterfaceTech" show_even_if_none_had_if_this_is_unlocked="OI_NanobotInterfaceTech"
         lang_key_for_excess="ExcessResourceBasicNote" sort_order="1000" dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.ResourceTypes_Basic">
         <part_of collection="All" sort_index="100" />
         <part_of collection="Integration" sort_index="100" />
     </resource>
-    <resource id="OI_UpgradedHumans" display_name="Upgraded Humans" icon_name="SW_People" icon_color="#8FE6D3"
+    <resource id="OI_UpgradedHumans" display_name="Integrated Humans" icon_name="SW_People" icon_color="#8FE6D3"
         description="People carrying nanobot-mediated Anthroneuroweave interfaces. They remain livestock-sized minds, but the livestock contains a great deal more interior weather than it first appeared."
         strategy_tip="Produces Insight and Neural Expansion without counting as Mind Farm or Torment occupants. Voluntary Integration currently caps at about 45 percent of the normal city population."
         base_storage_capacity="-1" is_lifeform="true" is_locked_before_unlock="OI_NanobotInterfaceTech" show_even_if_none_had_if_this_is_unlocked="OI_NanobotInterfaceTech"

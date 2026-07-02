@@ -42,6 +42,7 @@ namespace Arcen.HotM.OrganicIntegration
 
                     case "OI_DesignHumanCompatibleNeuroweave":
                     case "OI_ReplicativeSafeguards":
+                    case "OI_ReplicationDoctrine":
                         ProjectHelper.HandleScienceWork3X( Logic, OutcomeOrNoneYet,
                             OutcomeOrNoneYet.GetSingleIntByID( "NeurologyGoal", 100 ),
                             OutcomeOrNoneYet.GetSingleIntByID( "BionicsGoal", 100 ),
@@ -53,13 +54,19 @@ namespace Arcen.HotM.OrganicIntegration
 
                     case "OI_InsightSharedQuestions":
                         HandleResourceGate( Logic, OutcomeOrNoneYet, "OI_UpgradedHumans",
-                            OutcomeOrNoneYet.GetSingleIntByID( "UpgradedHumansGoal", 100000 ), "Upgraded Humans",
+                            OutcomeOrNoneYet.GetSingleIntByID( "UpgradedHumansGoal", 100000 ), "Integrated Humans",
                             BufferOrNull, ref CanBeCompletedNow );
+                        if ( Logic == ProjectLogic.DoAfterCompletion )
+                            FireInsightRevelation( "OI_InsightRevelation_BestGuessWorld" );
                         break;
 
                     case "OI_InsightNetworkedCognition":
                     case "OI_InsightDistributedTriage":
                         HandleInsightEarnedGate( Logic, OutcomeOrNoneYet, BufferOrNull, ref CanBeCompletedNow );
+                        if ( Logic == ProjectLogic.DoAfterCompletion )
+                            FireInsightRevelation( Project.ID == "OI_InsightNetworkedCognition"
+                                ? "OI_InsightRevelation_HumanSuperorganism"
+                                : "OI_InsightRevelation_DissonantCreativity" );
                         break;
 
                     default:
@@ -81,6 +88,18 @@ namespace Arcen.HotM.OrganicIntegration
             }
 
             return false;
+        }
+
+        private static void FireInsightRevelation( string baseMessageID )
+        {
+            bool coercive = GFlagTable.Instance.GetRowByIDOrNullIfNotFound( "OI_IntegrationCoerciveLocked" )?.DGD?.IsTripped ?? false;
+            bool voluntary = GFlagTable.Instance.GetRowByIDOrNullIfNotFound( "OI_IntegrationVoluntaryLocked" )?.DGD?.IsTripped ?? false;
+            string messageID = (coercive && !voluntary) ? baseMessageID + "_Coercive" : baseMessageID;
+
+            var message = OtherKeyMessageTable.Instance.GetRowByIDOrNullIfNotFound( messageID );
+            if ( message == null )
+                message = OtherKeyMessageTable.Instance.GetRowByIDOrNullIfNotFound( baseMessageID );
+            message?.SetIsReadyToBeViewed( false );
         }
 
         private static void HandleStatisticProgress( ProjectLogic Logic, ProjectOutcome Outcome, string StatisticID, int Target, ArcenCharacterBufferBase BufferOrNull, ref bool CanBeCompletedNow )

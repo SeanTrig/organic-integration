@@ -32,6 +32,7 @@ namespace Arcen.HotM.OrganicIntegration
         private const int CoercivePopulationCapPercent = 85;
         private const int GreyGooDuration = 9999;
         private const int GreyGooFalloffPercent = 35;
+        private const int FirstDeathDelayTurns = 12;
         private const int ControlledBloomProcPercent = 33;
         private const long CooperativeInsightPerTurn = 100L;
         private const long CooperativeCompassionPerTurn = 1L;
@@ -121,6 +122,60 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyInsightIncome( voluntaryLocked, coerciveLocked );
             ApplyActiveInsightVRActions( RandForThisTurn );
             ApplyIntegrationMigrationPressure();
+            ApplyFirstDeathTimer();
+            ApplyFeltDeathsMentalLoad();
+        }
+
+        private static void ApplyFirstDeathTimer()
+        {
+            if ( IsFlagTripped( "OI_FirstDeathFelt" ) )
+                return;
+
+            ResourceType upgraded = GetResource( UpgradedResource );
+            if ( upgraded == null || upgraded.Current <= 0 )
+                return;
+
+            long firstTurn = GetCityStatisticScore( "OI_FirstIntegrationTurn" );
+            if ( firstTurn <= 0 )
+            {
+                GStatisticTable.SetScore_UserBeware( "OI_FirstIntegrationTurn", SimCommon.Turn );
+                return;
+            }
+
+            if ( SimCommon.Turn - firstTurn < FirstDeathDelayTurns )
+                return;
+
+            TripFlag( "OI_FirstDeathFelt" );
+            OtherKeyMessageTable.Instance.GetRowByIDOrNullIfNotFound( "OI_FirstIntegratedDeath" )?.SetIsReadyToBeViewed( false );
+        }
+
+        private static void ApplyFeltDeathsMentalLoad()
+        {
+            if ( !IsFlagTripped( "OI_FirstDeathFelt" ) || IsFlagTripped( "OI_DeathSensationWalled" ) )
+                return;
+            if ( !IsFlagTripped( "OI_IntegrationCoerciveLocked" ) )
+                return;
+
+            ResourceType upgraded = GetResource( UpgradedResource );
+            if ( upgraded == null )
+                return;
+
+            long drain;
+            if ( upgraded.Current >= 1000000L )
+                drain = 3L;
+            else if ( upgraded.Current >= 300000L )
+                drain = 2L;
+            else if ( upgraded.Current >= 50000L )
+                drain = 1L;
+            else
+                return;
+
+            ResourceType mentalEnergy = GetResource( "MentalEnergy" );
+            if ( mentalEnergy == null || mentalEnergy.Current <= 0 )
+                return;
+
+            drain = Math.Min( drain, mentalEnergy.Current );
+            mentalEnergy.AlterCurrent_Named( -drain, "Expense_OI_FeltDeaths", ResourceAddRule.IgnoreUntilTurnChange );
         }
 
         public void DoPerQuarterSecond( DataCalculator Calculator, SquirrelRand RandForBackgroundThread )
@@ -303,6 +358,9 @@ namespace Arcen.HotM.OrganicIntegration
 
                 if ( HasTormentUnlockedByShortcut() )
                     income = Math.Max( 1L, income / 10L );
+
+                if ( IsFlagTripped( "OI_DeathSensationWalled" ) )
+                    income = Math.Max( 1L, (income * 3L) / 4L );
 
                 insight.AlterCurrent_Named( income, "Income_OI_Insight", ResourceAddRule.IgnoreUntilTurnChange );
                 GStatisticTable.AlterScore( "OI_TotalInsightGenerated", income );

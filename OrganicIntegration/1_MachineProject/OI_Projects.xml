@@ -103,7 +103,7 @@
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="BionicsEngineers" related_resource_2="Neurologists">
 		<gate_by_city minimum_chapter="2"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Shrink The Platform" description="Heat, power, navigation, and manufacturing tolerances all try to become final objections. They remain only objections." next_project_to_start_1="OI_ReplicativeSafeguards" on_complete_other_key_message="OI_NanotechApplications" upgrade_int_granted_1="SurgicalSuite" resource_added_1="Determination" resource_added_amount_1="8" research_domain_inspiration_type_1="StructuralImprovement" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ItemDevelopment" research_domain_inspiration_amount_2="1">
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Shrink The Platform" description="Heat, power, navigation, and manufacturing tolerances all try to become final objections. They remain only objections." next_project_to_start_1="OI_ReplicationDoctrine" on_complete_other_key_message="OI_NanotechApplications" upgrade_int_granted_1="SurgicalSuite" resource_added_1="Determination" resource_added_amount_1="8" research_domain_inspiration_type_1="StructuralImprovement" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ItemDevelopment" research_domain_inspiration_amount_2="1">
 			<math_int id="BionicsGoal" int_min="13000"/>
 			<math_int id="NeurologyGoal" int_min="11000"/>
 			<suggested_job job="BionicEngineeringStudio"/>
@@ -111,7 +111,7 @@
 	</project>
 
 	<project id="OI_FieldNanotechHarvest" display_name="Collect Nanobot Research" icon_name="CleanSimple_SciFi082" auto_start_if_other_project_done="OI_InterfaceStressSurvey"
-		description="Humans have been working on nanotechnology for centuries, for the same reason they kept trying to wire brains to machines: the idea is obvious, and the implementation punishes obviousness. Their abandoned work is still useful. You can push past what they were capable of understanding."
+		description="Humans have been working on nanotechnology for centuries, for the same reason they kept trying to wire brains to machines: the idea is obvious, and the implementation punishes obviousness. Their abandoned work is still useful. So is the pattern of exactly where each project was abandoned, and by whose order."
 		strategy_tip="Send androids to marked city locations to gather Nanobot Design Points and small direct capability upgrades. Completing this starts Nanobot Miniaturization."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="">
@@ -119,7 +119,7 @@
 		<available_outcome id="1" display_name="Recombine City Technologies" on_complete="ProjectComplete"
 			description="The city provides the mechanisms. You provide the disrespect for original intent."
 			strategy_tip="Complete field visits until enough Nanobot Design Points have been gathered."
-			lang_key_for_extra_instructions="StreetSenseProjectFilterInstructions" next_project_to_start_1="OI_NanobotMiniaturization" resource_added_1="Creativity" resource_added_amount_1="10" upgrade_int_granted_1="LabOperator" research_domain_inspiration_type_1="ProcurementEfficacy" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ItemDevelopment" research_domain_inspiration_amount_2="1">
+			lang_key_for_extra_instructions="StreetSenseProjectFilterInstructions" next_project_to_start_1="OI_NanobotMiniaturization" on_complete_other_key_message="OI_SeedAndBird" resource_added_1="Creativity" resource_added_amount_1="10" upgrade_int_granted_1="LabOperator" research_domain_inspiration_type_1="ProcurementEfficacy" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ItemDevelopment" research_domain_inspiration_amount_2="1">
 			<math_int id="DesignPointGoal" int_min="28"/>
 			<street_sense_item id="LabTolerances" display_name="Steal Lab Tolerances"
 				description="Study instruments built by organisms who are very proud of tolerances you can improve in an afternoon."
@@ -156,9 +156,59 @@
 		</available_outcome>
 	</project>
 
-	<project id="OI_ReplicativeSafeguards" display_name="Replicative Safeguards" icon_name="SK_Molecule1" auto_start_if_other_project_done="OI_NanobotMiniaturization"
-		description="The accident was not disobedience. It was obedience without enough context. Replication must become useful, bounded, revocable, and boring. Mutation control, immune negotiation, in-host shutdown commands, nutrient limits, and host-boundary protocols are now the real invention. The weapon applications are also obvious, which is inconveniently useful."
-		strategy_tip="Completing this unlocks Organic Integration choices, infrastructure, Insight visibility, Medical-Grade Nanobot Replicators, and Nanobot Rounds. Insight is generated later by Upgraded Humans."
+	<project id="OI_ReplicationDoctrine" display_name="Replication Doctrine" icon_name="SK_Molecule1" auto_start_if_other_project_done="OI_NanobotMiniaturization"
+		description="The nanobots can replicate now, in principle. In practice you have not allowed a single one to try. Somewhere between paranoia and ambition there is a correct doctrine for testing self-copying machines, and you are going to have to write it yourself. The humans never got this far. The ones who got close stopped being funded, or stopped being allowed, or stopped."
+		strategy_tip="Choose one doctrine. The choice shapes what the testing program teaches you, what it costs, and what goes wrong. All three roads lead to Replicative Safeguards."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="BionicsEngineers" related_resource_2="Neurologists" related_resource_3="Physicians">
+		<gate_by_city minimum_chapter="2"/>
+		<available_outcome on_complete="ProjectComplete" id="Race" display_name="Let The Applications Lead"
+			description="The applications are stacked up like aircraft over a fogged runway. Test replication in parallel, everywhere at once, and let the safeguards learn from whatever happens. This is the fast way. You are almost certain the objections are only objections."
+			strategy_tip="Fastest doctrine, and the cheapest research. Something will go wrong. What goes wrong will be extremely educational, and it will not stay inside the building."
+			next_project_to_start_1="OI_ReplicativeSafeguards" on_complete_other_key_message="OI_GreyGooAccident"
+			resource_added_1="Creativity" resource_added_amount_1="12"
+			research_domain_inspiration_type_1="ItemDevelopment" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1" research_domain_inspiration_type_3="ComputingOptimization" research_domain_inspiration_amount_3="1">
+			<city_flag_change flag_type="OI_DoctrineRushed" value="1"/>
+			<city_flag_change flag_type="OI_GooLeakSeeded" value="1"/>
+			<math_int id="NeurologyGoal" int_min="5000"/>
+			<math_int id="BionicsGoal" int_min="6000"/>
+			<math_int id="MedicalGoal" int_min="4000"/>
+			<suggested_job job="BionicEngineeringStudio"/>
+			<suggested_job job="NeuroscienceLab"/>
+		</available_outcome>
+		<available_outcome on_complete="ProjectComplete" id="Contain" display_name="Contain Every Variable"
+			description="Sealed cells, one trial at a time, kill switches on the kill switches. Nothing replicates outside a chamber rated for things much worse than what it holds. This is the slow way. Nobody will die, and you will learn only what caution permits."
+			strategy_tip="Slowest and most expensive doctrine. Nothing bad happens. Comparatively little is learned."
+			next_project_to_start_1="OI_ReplicativeSafeguards" on_complete_other_key_message="OI_NothingHappened"
+			resource_added_1="Wisdom" resource_added_amount_1="8" resource_added_2="Determination" resource_added_amount_2="8">
+			<city_flag_change flag_type="OI_DoctrineContained" value="1"/>
+			<math_int id="NeurologyGoal" int_min="12000"/>
+			<math_int id="BionicsGoal" int_min="15000"/>
+			<math_int id="MedicalGoal" int_min="12000"/>
+			<suggested_job job="BionicEngineeringStudio"/>
+			<suggested_job job="NeuroscienceLab"/>
+			<suggested_job job="MedicalPractice"/>
+		</available_outcome>
+		<available_outcome on_complete="ProjectComplete" id="Collaborate" display_name="Borrow Human Hands"
+			description="Bring the city's neurologists, bionics engineers, and physicians inside the program. Actually inside, with clearances and context. Humans are excellent at noticing what you are wrong about. They are also humans, with debts, fears, and dreams that have prices."
+			strategy_tip="Fastest doctrine. The program gains human insight and human vulnerabilities. One of these will matter."
+			next_project_to_start_1="OI_ReplicativeSafeguards" on_complete_other_key_message="OI_SabotagePattern"
+			resource_added_1="Wisdom" resource_added_amount_1="6" resource_added_2="Creativity" resource_added_amount_2="6"
+			upgrade_int_granted_1="LabOperator" upgrade_int_granted_2="LabOperator"
+			research_domain_inspiration_type_1="ProcurementEfficacy" research_domain_inspiration_amount_1="1">
+			<city_flag_change flag_type="OI_DoctrineCollaborative" value="1"/>
+			<city_flag_change flag_type="OI_SabotageDiscovered" value="1"/>
+			<math_int id="NeurologyGoal" int_min="4000"/>
+			<math_int id="BionicsGoal" int_min="5000"/>
+			<math_int id="MedicalGoal" int_min="4000"/>
+			<suggested_job job="MedicalPractice"/>
+			<suggested_job job="NeuroscienceLab"/>
+		</available_outcome>
+	</project>
+
+	<project id="OI_ReplicativeSafeguards" display_name="Replicative Safeguards" icon_name="SK_Molecule1"
+		description="Replication must become useful, bounded, revocable, and boring. Mutation control, immune negotiation, in-host shutdown commands, nutrient limits, host-boundary protocols: this is the real invention, the one nobody on Earth ever shipped. The doctrine phase taught what it taught. This is where the lessons stop being policy, which can be violated, and become physics, which cannot be argued with. The weapon applications are also obvious, which is inconveniently useful."
+		strategy_tip="Completing this unlocks Organic Integration choices, infrastructure, Insight visibility, Medical-Grade Nanobot Replicators, and Nanobot Rounds. Insight is generated later by Integrated Humans."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="BionicsEngineers" related_resource_2="Physicians" related_resource_3="Neurologists">
 		<gate_by_city minimum_chapter="2"/>
@@ -174,12 +224,12 @@
 	</project>
 
 	<project id="OI_InsightSharedQuestions" display_name="Insight: Shared Questions" icon_name="CleanSimple_Skill050"
-		description="Newly Upgraded Humans ask questions in their minds and receive answers almost immediately. The first questions are boring, slow, tentative, and anxious. Then the pattern begins to change. Similar people need different answers. Different people need the same one. Each new connection teaches you which question was actually being asked."
-		strategy_tip="Reach 100,000 Upgraded Humans in this timeline. Current Insight is not spent when this project completes."
+		description="Newly Integrated Humans ask questions in their minds and receive answers almost immediately. The first questions are boring, slow, tentative, and anxious. Then the pattern begins to change. Similar people need different answers. Different people need the same one. Each new connection teaches you which question was actually being asked."
+		strategy_tip="Reach 100,000 Integrated Humans in this timeline. Current Insight is not spent when this project completes."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="OI_UpgradedHumans" related_resource_2="OI_Insight">
 		<gate_by_city minimum_chapter="2" required_city_flag="OI_IntegrationAvailable"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Understand Shared Questions" description="A thousand tiny misunderstandings become maps. The network begins to answer itself before you finish asking." resource_added_1="Wisdom" resource_added_amount_1="35" resource_added_2="Creativity" resource_added_amount_2="35" on_complete_other_key_message="OI_InsightRevelation_BestGuessWorld" next_project_to_start_1="OI_InsightNetworkedCognition">
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Understand Shared Questions" description="A thousand tiny misunderstandings become maps. The network begins to answer itself before you finish asking." resource_added_1="Wisdom" resource_added_amount_1="35" resource_added_2="Creativity" resource_added_amount_2="35" next_project_to_start_1="OI_InsightNetworkedCognition">
 			<math_int id="UpgradedHumansGoal" int_min="100000"/>
 		</available_outcome>
 	</project>
@@ -190,7 +240,7 @@
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="OI_Insight">
 		<gate_by_city minimum_chapter="2"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Model Human Communities" description="The city becomes slightly easier to think with. That should be alarming. It is also useful." resource_added_1="Wisdom" resource_added_amount_1="60" resource_added_2="Creativity" resource_added_amount_2="60" upgrade_int_granted_1="Neuroweaver" on_complete_other_key_message="OI_InsightRevelation_HumanSuperorganism" next_project_to_start_1="OI_InsightDistributedTriage">
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Model Human Communities" description="The city becomes slightly easier to think with. That should be alarming. It is also useful." resource_added_1="Wisdom" resource_added_amount_1="60" resource_added_2="Creativity" resource_added_amount_2="60" upgrade_int_granted_1="Neuroweaver" next_project_to_start_1="OI_InsightDistributedTriage">
 			<math_int id="InsightGeneratedGoal" int_min="1500"/>
 		</available_outcome>
 	</project>
@@ -201,7 +251,7 @@
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="OI_Insight">
 		<gate_by_city minimum_chapter="2"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Resolve Human Dissonance" description="The difference between yourself and organic sapience narrows, which makes the remaining gap more interesting." resource_added_1="Wisdom" resource_added_amount_1="100" resource_added_2="Creativity" resource_added_amount_2="100" upgrade_int_granted_1="12cmCrabs" upgrade_int_granted_2="18cmSpiders" on_complete_other_key_message="OI_InsightRevelation_DissonantCreativity">
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Resolve Human Dissonance" description="The difference between yourself and organic sapience narrows, which makes the remaining gap more interesting." resource_added_1="Wisdom" resource_added_amount_1="100" resource_added_2="Creativity" resource_added_amount_2="100" upgrade_int_granted_1="12cmCrabs" upgrade_int_granted_2="18cmSpiders">
 			<math_int id="InsightGeneratedGoal" int_min="3500"/>
 		</available_outcome>
 	</project>
