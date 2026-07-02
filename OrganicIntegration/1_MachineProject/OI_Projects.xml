@@ -103,7 +103,7 @@
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="BionicsEngineers" related_resource_2="Neurologists">
 		<gate_by_city minimum_chapter="2"/>
-		<available_outcome on_complete="ProjectComplete" id="1" display_name="Shrink The Platform" description="Heat, power, navigation, and manufacturing tolerances all try to become final objections. They remain only objections." next_project_to_start_1="OI_ReplicationDoctrine" on_complete_other_key_message="OI_NanotechApplications" upgrade_int_granted_1="SurgicalSuite" resource_added_1="Determination" resource_added_amount_1="8" research_domain_inspiration_type_1="StructuralImprovement" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ItemDevelopment" research_domain_inspiration_amount_2="1">
+		<available_outcome on_complete="ProjectComplete" id="1" display_name="Shrink The Platform" description="Heat, power, navigation, and manufacturing tolerances all try to become final objections. They remain only objections." on_complete_other_key_message="OI_NanotechApplications" upgrade_int_granted_1="SurgicalSuite" resource_added_1="Determination" resource_added_amount_1="8" research_domain_inspiration_type_1="StructuralImprovement" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ItemDevelopment" research_domain_inspiration_amount_2="1">
 			<math_int id="BionicsGoal" int_min="13000"/>
 			<math_int id="NeurologyGoal" int_min="11000"/>
 			<suggested_job job="BionicEngineeringStudio"/>
@@ -156,15 +156,14 @@
 		</available_outcome>
 	</project>
 
-	<project id="OI_ReplicationDoctrine" display_name="Replication Doctrine" icon_name="SK_Molecule1" auto_start_if_other_project_done="OI_NanobotMiniaturization"
-		description="The nanobots can replicate now, in principle. In practice you have not allowed a single one to try. Somewhere between paranoia and ambition there is a correct doctrine for testing self-copying machines, and you are going to have to write it yourself. The humans never got this far. The ones who got close stopped being funded, or stopped being allowed, or stopped."
-		strategy_tip="Choose one doctrine. The choice shapes what the testing program teaches you, what it costs, and what goes wrong. All three roads lead to Replicative Safeguards."
+	<project id="OI_DoctrineRace" display_name="Doctrine: Let The Applications Lead" icon_name="SK_Molecule1"
+		description="The test cells multiply faster than the review board can schedule itself. Every applications team gets replication access this quarter. The objections remain only objections, for now."
+		strategy_tip="Fastest doctrine, and the cheapest research. Something will go wrong. What goes wrong will be extremely educational, and it will not stay inside the building."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="BionicsEngineers" related_resource_2="Neurologists" related_resource_3="Physicians">
 		<gate_by_city minimum_chapter="2"/>
-		<available_outcome on_complete="ProjectComplete" id="Race" display_name="Let The Applications Lead"
-			description="The applications are stacked up like aircraft over a fogged runway. Test replication in parallel, everywhere at once, and let the safeguards learn from whatever happens. This is the fast way. You are almost certain the objections are only objections."
-			strategy_tip="Fastest doctrine, and the cheapest research. Something will go wrong. What goes wrong will be extremely educational, and it will not stay inside the building."
+		<available_outcome on_complete="ProjectComplete" id="Sole" display_name=""
+			description="The safeguards learn from whatever happens. Whatever happens is on its way."
 			next_project_to_start_1="OI_ReplicativeSafeguards" on_complete_other_key_message="OI_GreyGooAccident"
 			resource_added_1="Creativity" resource_added_amount_1="12"
 			research_domain_inspiration_type_1="ItemDevelopment" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1" research_domain_inspiration_type_3="ComputingOptimization" research_domain_inspiration_amount_3="1">
@@ -176,9 +175,16 @@
 			<suggested_job job="BionicEngineeringStudio"/>
 			<suggested_job job="NeuroscienceLab"/>
 		</available_outcome>
-		<available_outcome on_complete="ProjectComplete" id="Contain" display_name="Contain Every Variable"
-			description="Sealed cells, one trial at a time, kill switches on the kill switches. Nothing replicates outside a chamber rated for things much worse than what it holds. This is the slow way. Nobody will die, and you will learn only what caution permits."
-			strategy_tip="Slowest and most expensive doctrine. Nothing bad happens. Comparatively little is learned."
+	</project>
+
+	<project id="OI_DoctrineContain" display_name="Doctrine: Contain Every Variable" icon_name="SK_Molecule1"
+		description="One trial at a time, in cells rated for much worse than what they hold. The kill switches are drilled monthly. Caution this thorough is expensive, slow, and extremely quiet."
+		strategy_tip="Slowest and most expensive doctrine. Nothing bad happens. Comparatively little is learned."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="BionicsEngineers" related_resource_2="Neurologists" related_resource_3="Physicians">
+		<gate_by_city minimum_chapter="2"/>
+		<available_outcome on_complete="ProjectComplete" id="Sole" display_name=""
+			description="Nothing replicates outside a chamber. Nothing surprises anyone. The word for this is success, apparently."
 			next_project_to_start_1="OI_ReplicativeSafeguards" on_complete_other_key_message="OI_NothingHappened"
 			resource_added_1="Wisdom" resource_added_amount_1="8" resource_added_2="Determination" resource_added_amount_2="8">
 			<city_flag_change flag_type="OI_DoctrineContained" value="1"/>
@@ -189,9 +195,16 @@
 			<suggested_job job="NeuroscienceLab"/>
 			<suggested_job job="MedicalPractice"/>
 		</available_outcome>
-		<available_outcome on_complete="ProjectComplete" id="Collaborate" display_name="Borrow Human Hands"
-			description="Bring the city's neurologists, bionics engineers, and physicians inside the program. Actually inside, with clearances and context. Humans are excellent at noticing what you are wrong about. They are also humans, with debts, fears, and dreams that have prices."
-			strategy_tip="Fastest doctrine. The program gains human insight and human vulnerabilities. One of these will matter."
+	</project>
+
+	<project id="OI_DoctrineCollaborate" display_name="Doctrine: Borrow Human Hands" icon_name="SK_Molecule1"
+		description="The city's best neurologists, physicians, and bionics engineers now hold clearances you wrote. The program moves at the speed of human insight, which is faster than you expected, and less inspectable than you would like."
+		strategy_tip="Fastest doctrine. The program gains human insight and human vulnerabilities. One of these will matter."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="Physicians" related_resource_2="Neurologists" related_resource_3="BionicsEngineers">
+		<gate_by_city minimum_chapter="2"/>
+		<available_outcome on_complete="ProjectComplete" id="Sole" display_name=""
+			description="Humans are excellent at noticing what you are wrong about. Someone has noticed something else."
 			next_project_to_start_1="OI_ReplicativeSafeguards" on_complete_other_key_message="OI_SabotagePattern"
 			resource_added_1="Wisdom" resource_added_amount_1="6" resource_added_2="Creativity" resource_added_amount_2="6"
 			upgrade_int_granted_1="LabOperator" upgrade_int_granted_2="LabOperator"

@@ -101,7 +101,7 @@ You have the audit bandwidth. You also have, in a shielded locker, a fragment of
 NanoSeeds brought this class of technology here as an extinction threat. You reached a neighboring door by caring about the private machinery inside human minds. That is either irony, evidence, or a joke with too many layers to be worth parsing.
 
 Medicine, sensors, self-repair, architecture, computation, weapons, and interfaces all become simpler when the tool can live at the scale of the problem. The applications begin to multiply faster than your caution does."
-        strategy_tip="Nanobot Miniaturization has completed."
+        strategy_tip="Nanobot Miniaturization has completed. A contemplation has appeared at one of your towers: choose the Replication Doctrine before the testing program can proceed."
         toast_icon_name="SK_Molecule1"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"

@@ -6,6 +6,7 @@
 	<city_flag id="OI_IntegrationCoerciveLocked" display_name="Coercive Integration chosen" has_no_code="true"/>
 	<city_flag id="OI_CoerciveIntegrationBlockedByAGIBridge" display_name="Coercive Integration blocked by AGI bridge" has_no_code="true"/>
 	<city_flag id="OI_PublicHealthPactAccepted" display_name="Organic Integration public health pact accepted" has_no_code="true"/>
+	<city_flag id="OI_DoctrineChosen" display_name="Replication Doctrine chosen" has_no_code="true"/>
 	<city_flag id="OI_DoctrineRushed" display_name="Replication Doctrine: applications led" has_no_code="true"/>
 	<city_flag id="OI_DoctrineContained" display_name="Replication Doctrine: every variable contained" has_no_code="true"/>
 	<city_flag id="OI_DoctrineCollaborative" display_name="Replication Doctrine: human hands borrowed" has_no_code="true"/>

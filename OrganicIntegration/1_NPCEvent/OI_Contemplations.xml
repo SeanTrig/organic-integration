@@ -96,6 +96,40 @@ It would be therapy. It was therapy last time. You keep circling the difference 
 		</choice>
 	</city_event>
 
+	<city_event id="Cont_OI_ReplicationDoctrine" display_name="Replication Doctrine" tl="OC"
+		description="The nanobots can replicate now, in principle. In practice you have not allowed a single one to try. Somewhere between paranoia and ambition there is a correct doctrine for testing self-copying machines, and you are going to have to write it yourself. The humans never got this far. The ones who got close stopped being funded, or stopped being allowed, or stopped."
+		strategy_tip="Choose one doctrine. The choice shapes what the testing program teaches you, what it costs, and what goes wrong. All three roads lead to Replicative Safeguards."
+		icon_name="SK_Molecule1" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_NanobotMiniaturization" blocked_by_city_flag="OI_DoctrineChosen"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="200"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="2.0" color_hovered_hdr_intensity="0.6"
+			collections="All,MoreInternalRobotics"/>
+		<choice id="1" display_name="Let The Applications Lead" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="The applications are stacked up like aircraft over a fogged runway. Test replication in parallel, everywhere at once, and let the safeguards learn from whatever happens. The fast way. You are almost certain the objections are only objections."
+			strategy_tip="Fastest doctrine, cheapest research. Something will go wrong, and it will not stay inside the building.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_DoctrineRace">
+				<city_flag_change flag_type="OI_DoctrineChosen" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Contain Every Variable" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Sealed cells, one trial at a time, kill switches on the kill switches. The slow way. Nobody will die, and you will learn only what caution permits."
+			strategy_tip="Slowest and most expensive doctrine. Nothing bad happens. Comparatively little is learned.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_DoctrineContain">
+				<city_flag_change flag_type="OI_DoctrineChosen" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="3" display_name="Borrow Human Hands" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Bring the city's neurologists, physicians, and bionics engineers actually inside the program, with clearances and context. Humans are excellent at noticing what you are wrong about. They are also humans, with debts, fears, and dreams that have prices."
+			strategy_tip="Fastest doctrine. The program gains human insight and human vulnerabilities. One of these will matter.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_DoctrineCollaborate">
+				<city_flag_change flag_type="OI_DoctrineChosen" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
 	<city_event id="Cont_OI_EspiaResponse" display_name="The Price Of Eleven Households" tl="OC"
 		description="Espia's negotiators do not mention the families even once. They talk about content risk, narrative exposure, and mutually beneficial information hygiene, and the longer they talk the clearer the offer becomes. They believe they are blackmailing a corporation. They have prepared, meticulously, for the wrong meeting.
 

@@ -49,7 +49,7 @@ The current route begins after successful self-therapy:
    - `Interface Stress Survey`
    - `Collect Nanobot Research` (ends with the NanoSeed reconciliation: humans achieved bounded consumption, never bounded replication)
    - `Nanobot Miniaturization`
-   - `Replication Doctrine` — a three-way player choice that shapes what goes wrong:
+   - `Replication Doctrine` — a three-way contemplation choice (starting one of three doctrine projects) that shapes what goes wrong:
      - *Let The Applications Lead*: fast and cheap; causes the grey goo lab accident and leaves 1.4 kg of replication-capable material unaccounted for on the wind.
      - *Contain Every Variable*: slow and expensive; nothing bad happens, and comparatively little is learned.
      - *Borrow Human Hands*: fastest; a collaborator sabotages the schedule and sells the safeguard silhouette for an exit visa off-world.

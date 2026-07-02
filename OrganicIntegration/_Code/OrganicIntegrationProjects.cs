@@ -47,7 +47,9 @@ namespace Arcen.HotM.OrganicIntegration
 
                     case "OI_DesignHumanCompatibleNeuroweave":
                     case "OI_ReplicativeSafeguards":
-                    case "OI_ReplicationDoctrine":
+                    case "OI_DoctrineRace":
+                    case "OI_DoctrineContain":
+                    case "OI_DoctrineCollaborate":
                         ProjectHelper.HandleScienceWork3X( Logic, OutcomeOrNoneYet,
                             OutcomeOrNoneYet.GetSingleIntByID( "NeurologyGoal", 100 ),
                             OutcomeOrNoneYet.GetSingleIntByID( "BionicsGoal", 100 ),

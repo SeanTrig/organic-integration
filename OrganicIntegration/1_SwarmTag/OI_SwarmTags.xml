@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<swarm_tag id="OI_UpgradedHumans" />
+	<swarm_tag id="OI_GreyBloom" />
+	<swarm_tag id="OI_TarkGoo" />
 </root>
