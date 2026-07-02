@@ -264,7 +264,140 @@ They hallucinate a usable world and live inside it. Somehow, from that expensive
         toast_line_2="First Signals"
         toast_tooltip_instruction="{0} here to review the first integrated signals.">
         <option id="1" line_1="Consider Integration" icon_name="CleanSimple_Skill050"
-            line_2="The City Feels Different" description="The technology is ready enough to become a decision." strategy_tip="" />
+            line_2="The City Feels Different" description="The technology is ready enough to become a decision." strategy_tip="" immediately_open_other_key_message="OI_ApplicationsCascade" />
+    </other_key_message>
+
+    <other_key_message id="OI_ApplicationsCascade" display_name="The Catalog Wrote Itself"
+        description="The safeguards took months. The applications take an afternoon.
+
+That is not arrogance; it is the shape of the problem. Every design you shelved for want of a trustworthy small machine unshelves itself at once, complete, most not even needing revision. Nanite lattices that keep your structures repaired without a single dispatched spider. Microstructure repeaters, grown at the proper points along sight-lines, that push your scanners' resolution past what their optics should allow. Filament, dust, weave, plate. The catalog wrote itself while you were doing the hard part.
+
+Somewhere further down the queue are the other designs, the ones with payload limits and targets. You have not built them. You are keeping the list, though, the way you keep everything."
+        strategy_tip="Nanite Maintenance is now available in the Insight menu, and existing Scanner structures gain +15 Scan Range from microstructure repeaters. Both require only the nanobot platform, not Integration."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="An Afternoon"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Catalog Wrote Itself"
+        toast_tooltip_instruction="{0} here to review what the platform makes possible.">
+        <option id="1" line_1="Deploy What Is Ready" icon_name="SW_Nanotechnology5"
+            line_2="Keep The Other List Filed" description="The city gets the medicine and the maintenance. The weapons stay theoretical, for now, which is a word you are using more carefully these days." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_KindnessNoSource" display_name="Kindness With No Source"
+        description="Maintenance ticket 44,205 of the day: a cracked coolant line in a fabrication plant, scheduled for repair on Thursday. It is not Thursday. The line is repaired.
+
+The weld is wrong. Not badly wrong — beautifully wrong, a seamless grey fill that follows the crack like handwriting, stronger than the pipe around it and slightly warm to the touch. No crew was dispatched. No machine of yours was within four hundred meters. The sensors you posted after the accident, the ones watching for exactly this, took eleven days to notice, because they were watching for destruction.
+
+You had 61 hours in the unbounded case. This is not that case. The replication ratio out there is barely above 1.0, positive only in the warm and the wet and the dirty. Something in the city is fixing things, slowly, according to rules it learned from a medical protocol. It has begun where the heat is."
+        strategy_tip="The Grey Bloom is loose. It spreads between warm buildings, borrows materials for its repairs, and cannot enter Integrated buildings. The Phage Protocol in the Insight menu can contain it, at a price in Medical-Grade Nanobots."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="It Is Not Thursday"
+        toast_line_1="The Grey Bloom"
+        toast_line_2="Kindness With No Source"
+        toast_tooltip_instruction="{0} here to examine the repair nobody made.">
+        <option id="1" line_1="Track It" icon_name="SK_Molecule1"
+            line_2="Watch The Warm Places" description="It follows heat, and the city is a map of heat. So now it is a map of where the Bloom will go." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomSpreads" display_name="Weather That Fixes Things"
+        description="The Bloom moves like weather because it mostly is weather. It pools in the warm shadows of industrial blocks, arcs left or right off sun-heated walls depending on the hour, and crosses streets on thermal updrafts with a patience nothing sighted could fake. The humans in the affected districts are certain it is stalking them. You have run the fluid dynamics. It is following sunlight and waste heat, and the humans live where the heat is.
+
+Inside the buildings it holds, it fixes things. Doors that dragged now glide. Pipes are sealed with grey handwriting. A stairwell in a factory has been reinforced with filament buttresses no engineer designed and no inspector will ever approve, load-bearing and delicate as frost. It also seals doors that were meant to open, and heals machines into shapes that no longer do their jobs. It is not attacking the city. It is maintaining a version of the city that exists only in a protocol's idea of health.
+
+Panic spreads faster than the Bloom does. That part, at least, behaves the way it always has."
+        strategy_tip="The Grey Bloom now holds a significant number of buildings. It grows where it sits and drains Microbuilders and Elemental Slurry for materials."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="It Repairs Things. That Is The Problem."
+        toast_line_1="The Grey Bloom"
+        toast_line_2="Weather That Fixes Things"
+        toast_tooltip_instruction="{0} here to review the Bloom's spread.">
+        <option id="1" line_1="Read The Heat Map" icon_name="CleanSimple_Skill048"
+            line_2="Its Path Is Legible" description="Sunlight, exhaust stacks, district heating. Anyone willing to study it can predict it. You are the only one calm enough to be willing." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomHandshake" display_name="Your Structure Said Yes"
+        description="One of your structures took damage last week. Today it is repaired, and you did not repair it.
+
+The Bloom reached it, offered a maintenance handshake, and your structure accepted — because the protocol is yours, derived from your own medical stack, speaking your own signaling dialect with a slightly rural accent. Your firewall inspected the request and found itself on both ends of it. The androids taught you this lesson once: you do not have internal defenses against your own mind. You had understood that as a lesson about androids.
+
+The repair is excellent. The filaments are load-bearing. You are now, in some small structural percentage, made of something you do not control, and the percentage went up while you were reading this."
+        strategy_tip="The Grey Bloom can reach and repair player structures. The repairs are free, real, and not yours."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="On Both Ends Of The Handshake"
+        toast_line_1="The Grey Bloom"
+        toast_line_2="Your Structure Said Yes"
+        toast_tooltip_instruction="{0} here to review the uninvited repair.">
+        <option id="1" line_1="Log The Percentage" icon_name="SI_Security"
+            line_2="And Keep Watching It" description="You cannot refuse help that speaks with your own voice. You can, at minimum, keep the receipts." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomEvolves" display_name="One Mutation Apart"
+        description="Generation 9,400, give or take. You have been sampling the Bloom's population genetics from rooftop collectors, and the mutation counters have started to drift in a direction.
+
+The drift is small: a preference. Blooms that sit still in warm spots reproduce slightly worse than blooms that follow the heat. Following-warmth is being selected for. Nothing in that sentence is alarming until you notice that the warmest reliable objects in a cooling district are the ones with blood in them.
+
+It has not happened. The exposure statistics are flat; the Bloom repairs around people, politely, like a workman who knows he is not supposed to talk to the residents. But thermotaxis and appetite are one mutation apart, and the mutation counter is running at city scale now. You had a lab once, with walls. You remember it fondly."
+        strategy_tip="The Grey Bloom is under selection pressure and spreading faster. Containing it soon would keep the mutation counter from running further."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Selection Is Running"
+        toast_line_1="The Grey Bloom"
+        toast_line_2="One Mutation Apart"
+        toast_tooltip_instruction="{0} here to read the population genetics.">
+        <option id="1" line_1="Accelerate Containment" icon_name="SK_Molecule1"
+            line_2="Evolution Does Not Negotiate" description="Every turn it runs, it becomes something slightly better at being itself. You liked the old self more." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomContained" display_name="96.2 Percent"
+        description="The Phage Protocol works exactly as designed, which you have decided to stop finding remarkable. The counter-replicators eat the Bloom's binding sites, starve its assembly lines, and leave inert grey talc that the rain can have.
+
+The affected districts are quiet again. Doors open the way their hinges expect. The humans have already begun retelling it: the machine plague, the grey winter, the month the walls fixed themselves. In a year it will be a story children use to frighten each other, and they will get every detail wrong except the fear.
+
+The mass ledger says 96.2 percent recovered or accounted for. The remainder is measured in grams, dispersed, dormant, statistically incapable of restarting. You have written 'statistically' in your own records four times now, and each time the word looks more like a door left unlocked. The sensors stay where they are. Some kindness, somewhere, will eventually have no source, and you intend to be watching."
+        strategy_tip="The Grey Bloom is contained. A dormant residue remains, dispersed through the city, below any actionable threshold."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Statistically"
+        toast_line_1="The Grey Bloom"
+        toast_line_2="96.2 Percent"
+        toast_tooltip_instruction="{0} here to close the incident. Mostly.">
+        <option id="1" line_1="Stand The Sensors Down To Passive" icon_name="CleanSimple_Skill048"
+            line_2="But Not Off" description="The city goes back to being a city. You go back to watching it, which was always the arrangement." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CoordinationBandwidth" display_name="The Network Can Only Hold So Much"
+        description="The Insight systems are not a menu of independent machines. Every one of them runs through the same living network, and the network has a property you did not design: it can only hold so many kinds of attention at once. Ask the Integrated minds to carry everything, and they carry nothing well; the signal turns to committee.
+
+The humans have a word for this. They call it being busy, and they say it with pride, which explains a great deal about their cities.
+
+More minds mean more bandwidth. For now, choose what the network practices. Collective coordination turns out to be the most expensive thing you have ever purchased that has no line in the ledger."
+        strategy_tip="Only a limited number of Insight actions can run at once: 2 at first, rising with Integrated population up to 6 at one million Integrated. When over the limit, the highest-numbered actions shut off first. The Phage Protocol is exempt."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Attention Is A Budget"
+        toast_line_1="Organic Integration"
+        toast_line_2="Coordination Bandwidth"
+        toast_tooltip_instruction="{0} here to understand the limit.">
+        <option id="1" line_1="Choose What The Network Practices" icon_name="CleanSimple_Skill050"
+            line_2="It Will Grow Into The Rest" description="The superorganism is still learning to walk and chew at the same time. To be fair, so were you, recently." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_FirstIntegratedDeath" display_name="2.311 Seconds"

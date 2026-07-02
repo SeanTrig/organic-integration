@@ -5,4 +5,7 @@
     <city_statistic id="OI_InterfaceTrialDesignPoints" display_name="Interface Trial Points" lang_key_for_name="OI_Stat_Name_InterfaceTrialDesignPoints" lang_key_for_description="OI_Stat_Desc_InterfaceTrialDesignPoints" has_no_meta_counterpart="true" sort_order="1000" />
     <city_statistic id="OI_NanobotHarvestDesignPoints" display_name="Nanobot Design Points" lang_key_for_name="OI_Stat_Name_NanobotHarvestDesignPoints" lang_key_for_description="OI_Stat_Desc_NanobotHarvestDesignPoints" has_no_meta_counterpart="true" sort_order="1000" />
     <city_statistic id="OI_FirstIntegrationTurn" display_name="First Integration Turn" lang_key_for_name="OI_Stat_Name_FirstIntegrationTurn" lang_key_for_description="OI_Stat_Desc_FirstIntegrationTurn" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_BloomIncubationTurn" display_name="Bloom Incubation Turn" lang_key_for_name="OI_Stat_Name_BloomIncubationTurn" lang_key_for_description="OI_Stat_Desc_BloomIncubationTurn" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_BloomBuildings" display_name="Bloom-Held Buildings" lang_key_for_name="OI_Stat_Name_BloomBuildings" lang_key_for_description="OI_Stat_Desc_BloomBuildings" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_BloomPeakBuildings" display_name="Bloom Peak Buildings" lang_key_for_name="OI_Stat_Name_BloomPeakBuildings" lang_key_for_description="OI_Stat_Desc_BloomPeakBuildings" has_no_meta_counterpart="true" sort_order="1000" />
 </root>

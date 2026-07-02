@@ -76,6 +76,38 @@ The current route begins after successful self-therapy:
 
 ## Major Systems
 
+### The Grey Bloom
+
+If the Replication Doctrine chose speed, 1.4 kilograms of replication-capable material
+left the accident site on the wind. Roughly 14 turns after Replicative Safeguards
+completes, it finds a warm niche: the Grey Bloom appears in a warm building (factories,
+data centers, industrial blocks preferred) and begins to spread on thermal gradients.
+
+The Bloom's pathology is repair without a stop condition. It fixes what it reaches —
+including your own structures, which accept its maintenance handshake because the
+protocol is derived from your own medical stack. While loose it:
+
+- Grows where it sits and spreads to nearby warm buildings (up to 60 buildings).
+- Drains Microbuilders and Elemental Slurry each turn as repair material.
+- Repairs damaged player structures for free, feeding itself in the process.
+- Applies Grey Goo to non-player units that linger near it.
+- Cannot enter Integrated buildings; their resident medical nanobots refuse it.
+
+The `Phage Protocol` toggle (Insight menu) clears up to 3 Bloom-held buildings per turn
+for Medical-Grade Nanobots and Mental Energy. Containment leaves a dormant residue in
+the city, which future content builds on. Escalation beats fire at 12 buildings
+(spread), first player-structure repair (handshake), and 25 buildings (mutation drift).
+
+### Applications Cascade And Coordination Bandwidth
+
+Completing Replicative Safeguards now also delivers the immediate applications: the
+`Nanite Maintenance` toggle (structure self-repair without Integration) and
+microstructure repeaters (+15 Scan Range to Scanners, automatic).
+
+Insight actions share coordination bandwidth: only 2 can run at once at first, rising
+with Integrated population (3 at 50k, 4 at 150k, 5 at 400k, 6 at 1M). Over-limit
+actions shut off from the bottom of the menu upward. The Phage Protocol is exempt.
+
 ### Insight
 
 Insight represents understanding produced by cooperation between TMI and upgraded organic minds. It is meant to feel adjacent to science, but not identical to it: a resource born from questions, memories, sensory context, and experiences TMI does not naturally have.

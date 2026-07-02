@@ -101,6 +101,24 @@
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
+    <vr_mode_action id="OI_NaniteMaintenance" display_name="Nanite Maintenance" sort_order="1150"
+        description="A standing lattice of maintenance nanites keeps your structures repaired without a single dispatched spider. The lattice is polite, bounded, and asks before it welds. You checked."
+        strategy_tip="Toggle on to repair damaged player structures each turn, up to 150 HP per turn at 15,000 Medical-Grade Nanobots per HP restored. Requires only the nanobot platform, not Integration."
+        icon_name="SW_Nanotechnology5" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_PhageProtocol" display_name="Phage Protocol" sort_order="1250"
+        description="Counter-replicators that eat exactly one thing: the Grey Bloom's binding sites. They cannot reproduce past their payload, cannot survive without their prey, and were designed by the only entity on Earth that can audit both claims."
+        strategy_tip="Only useful while the Grey Bloom is loose. Toggle on to spend 1 Mental Energy and 120,000 Medical-Grade Nanobots per turn, clearing up to 3 Bloom-held buildings per turn, smallest infestations first. Exempt from coordination bandwidth; emergencies are reflexes, not coordination."
+        icon_name="SK_Molecule1" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
     <vr_mode_action id="OI_ControlledBloom" display_name="Controlled Bloom" sort_order="1100"
         description="A child asks whether the grey filaments can grow flowers. The first successful flower is pretty. When a hostile body walks too close, it opens into medical-grade dust with the wrong instructions."
         strategy_tip="Toggle on to spend 400 Insight, 1 Compassion, and 30,000,000 Medical-Grade Nanobots per turn. While active, hostile infantry and mechs that move have a 33% chance to gain 1 Grey Goo. Vehicles are unaffected."

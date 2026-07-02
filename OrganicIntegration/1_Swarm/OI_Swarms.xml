@@ -2,4 +2,8 @@
 <root>
 	<swarm id="OI_UpgradedHumans" display_name="Integrated Humans" icon_name="SW_People" color_hex="#8FE6D3" color_hdr_intensity="0.5" color_hovered_hdr_intensity="1.6" icon_scale="0.25" tags="OI_UpgradedHumans"
 		description="This building contains people whose nervous systems are threaded through nanobot-mediated Anthroneuroweave. They are still people. This is more inconvenient than the old model." />
+	<swarm id="OI_GreyBloom" display_name="The Grey Bloom" icon_name="SW_Nanotechnology5" color_hex="#9FB8B0" color_hdr_intensity="1.6" color_hovered_hdr_intensity="2.4" icon_scale="0.4" tags="OI_GreyBloom"
+		message_on_first_appears="OI_KindnessNoSource" city_flag_to_trip_on_first_appears="OI_BloomActive"
+		description="Escaped medical-construction nanites running a repair protocol with no stop condition. The Bloom fixes what it reaches, whether or not the fix was wanted, wherever the heat leads it. Doors that dragged now glide. Doors that opened are now sealed. It is not attacking the city; it is maintaining a version of the city that exists only in a protocol's idea of health."
+		strategy_tip="Spreads between warm buildings on thermal gradients, and cannot take hold in Integrated buildings, whose resident medical nanobots refuse its handshake. It borrows Microbuilders and Elemental Slurry for its repairs, and units lingering near it risk Grey Goo exposure. The Phage Protocol in the Insight menu can clear it." />
 </root>

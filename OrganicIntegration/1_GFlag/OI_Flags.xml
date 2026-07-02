@@ -14,4 +14,11 @@
 	<city_flag id="OI_FirstDeathFelt" display_name="First Integrated death felt through the interface" has_no_code="true"/>
 	<city_flag id="OI_DeathsFeltFully" display_name="The channel stays open" has_no_code="true"/>
 	<city_flag id="OI_DeathSensationWalled" display_name="Death sensation walled off" has_no_code="true"/>
+	<city_flag id="OI_BloomActive" display_name="The Grey Bloom has appeared" has_no_code="true"/>
+	<city_flag id="OI_BloomSpreadBeat" display_name="The Grey Bloom spread across districts" has_no_code="true"/>
+	<city_flag id="OI_BloomHandshakeBeat" display_name="The Grey Bloom repaired a player structure" has_no_code="true"/>
+	<city_flag id="OI_BloomEvolvedBeat" display_name="The Grey Bloom's mutation counters drifted" has_no_code="true"/>
+	<city_flag id="OI_BloomContainedOnce" display_name="The Grey Bloom was contained" has_no_code="true"/>
+	<city_flag id="OI_BloomResidueDormant" display_name="Grey Bloom residue remains, dormant" has_no_code="true"/>
+	<city_flag id="OI_BandwidthNoticeShown" display_name="Coordination bandwidth explained" has_no_code="true"/>
 </root>

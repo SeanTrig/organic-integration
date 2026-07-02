@@ -56,6 +56,14 @@ namespace Arcen.HotM.OrganicIntegration
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
                             "Hostile infantry and mechs that move through the city have a 33% chance to gain 1 Grey Goo. Vehicles are unaffected.",
                             Cost( InsightResource, 400L ), Cost( MedicalNanobotsResource, 30000000L ), Cost( CompassionResource, 1L ) );
+                    case "OI_NaniteMaintenance":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Repairs damaged player structures each turn, up to 150 HP per turn. Nanobots are spent only when HP is restored, at 15,000 per HP.",
+                            Cost( MedicalNanobotsResource, 15000L ) );
+                    case "OI_PhageProtocol":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "While the Grey Bloom is loose: clears up to 3 Bloom-held buildings per turn, smallest infestations first. Costs nothing on turns with no Bloom present.",
+                            Cost( MedicalNanobotsResource, 120000L ), Cost( MentalEnergyResource, 1L ) );
                 }
             }
             catch ( Exception e )

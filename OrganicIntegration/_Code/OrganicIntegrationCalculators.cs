@@ -33,6 +33,38 @@ namespace Arcen.HotM.OrganicIntegration
         private const int GreyGooDuration = 9999;
         private const int GreyGooFalloffPercent = 35;
         private const int FirstDeathDelayTurns = 12;
+        private const string GreyBloomSwarm = "OI_GreyBloom";
+        private const string NaniteMaintenanceAction = "OI_NaniteMaintenance";
+        private const string PhageProtocolAction = "OI_PhageProtocol";
+        private const int BloomIncubationTurns = 14;
+        private const int BloomSeedCount = 40;
+        private const int BloomSpreadThreshold = 80;
+        private const float BloomSpreadRadiusSquared = 90f * 90f;
+        private const float BloomHelpRadiusSquared = 100f * 100f;
+        private const float BloomExposureRadiusSquared = 60f * 60f;
+        private const int BloomExposureChancePercent = 12;
+        private const int BloomMaxBuildings = 60;
+        private const int BloomSpreadBeatBuildings = 12;
+        private const int BloomEvolveBeatBuildings = 25;
+        private const long BloomMicrobuildersPerBuilding = 8L;
+        private const long BloomSlurryPerBuilding = 20L;
+        private const int BloomFreeRepairHPPerTurn = 40;
+        private const int BloomMassPerRepair = 25;
+        private const long PhageNanobotsPerTurn = 120000L;
+        private const int PhageBuildingsPerTurn = 3;
+        private const long NaniteMaintenanceNanobotsPerHP = 15000L;
+        private const int NaniteMaintenanceHPPerTurn = 150;
+        private const int MicrostructureRepeaterScanBonus = 15;
+        private static readonly string[] BloomWarmTags = new string[] { "Factory", "DataCenter", "Industrial" };
+        private static readonly long[] BandwidthPopulationThresholds = new long[] { 50000L, 150000L, 400000L, 1000000L };
+        private const int BandwidthBaseCap = 2;
+        private static readonly string[] BandwidthManagedToggles = new string[]
+        {
+            SharedInquiryAction, CooperativeModelingAction, SharedTriageAction, OrganicQuantizationAction,
+            ConsentCascadeAction, CivicSensoriumAction, PublicHealthMeshAction, ShelterFilamentsAction,
+            InfrastructureFilamentsAction, ArchitecturalWeaveAction, ControlledBloomAction, NaniteMaintenanceAction
+        };
+        private static readonly System.Collections.Generic.List<Vector3A> BloomPositionsCache = new System.Collections.Generic.List<Vector3A>( 64 );
         private const int ControlledBloomProcPercent = 33;
         private const long CooperativeInsightPerTurn = 100L;
         private const long CooperativeCompassionPerTurn = 1L;
@@ -88,6 +120,7 @@ namespace Arcen.HotM.OrganicIntegration
         public void DoPerTurn_EarlyBeforeJobs( DataCalculator Calculator, SquirrelRand RandForThisTurn )
         {
             RecalculateAGIBridgeBlock();
+            EnforceCoordinationBandwidth();
             ApplyPreJobInsightActionUpkeep();
             SyncCooperativeModelingUpgrade( true );
         }
@@ -124,6 +157,423 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyIntegrationMigrationPressure();
             ApplyFirstDeathTimer();
             ApplyFeltDeathsMentalLoad();
+            ApplyGreyBloomLifecycle( RandForThisTurn );
+            ApplyNaniteMaintenance();
+        }
+
+        #region Grey Bloom
+        private static void ApplyGreyBloomLifecycle( SquirrelRand Rand )
+        {
+            Swarm bloom = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( GreyBloomSwarm );
+            if ( bloom == null )
+                return;
+
+            System.Collections.Generic.List<BaseBuilding> bloomed = GetBloomedBuildings( bloom );
+
+            if ( !IsFlagTripped( "OI_BloomActive" ) )
+            {
+                TrySeedGreyBloom( bloom, Rand );
+                RefreshBloomPositionsCache( bloomed );
+                return;
+            }
+
+            if ( bloomed.Count == 0 )
+            {
+                GStatisticTable.SetScore_UserBeware( "OI_BloomBuildings", 0 );
+                if ( !IsFlagTripped( "OI_BloomContainedOnce" ) )
+                {
+                    TripFlag( "OI_BloomContainedOnce" );
+                    TripFlag( "OI_BloomResidueDormant" );
+                    FireKeyMessage( "OI_BloomContained" );
+                }
+                RefreshBloomPositionsCache( bloomed );
+                return;
+            }
+
+            bool evolved = IsFlagTripped( "OI_BloomEvolvedBeat" );
+
+            foreach ( BaseBuilding building in bloomed )
+            {
+                int count = building.SwarmSpreadCount;
+                building.AlterSwarmSpreadCount( Math.Max( 3, count / 12 ) );
+            }
+
+            if ( bloomed.Count < BloomMaxBuildings )
+                SpreadGreyBloom( bloom, bloomed, evolved ? 3 : 2, Rand );
+
+            SiphonBloomMaterials( bloomed.Count );
+            ApplyBloomUnwantedHelp( bloomed );
+            ApplyPhageProtocol( bloom, bloomed );
+
+            bloomed = GetBloomedBuildings( bloom );
+            GStatisticTable.SetScore_UserBeware( "OI_BloomBuildings", bloomed.Count );
+            long peak = GetCityStatisticScore( "OI_BloomPeakBuildings" );
+            if ( bloomed.Count > peak )
+                GStatisticTable.SetScore_UserBeware( "OI_BloomPeakBuildings", bloomed.Count );
+
+            if ( bloomed.Count >= BloomSpreadBeatBuildings && !IsFlagTripped( "OI_BloomSpreadBeat" ) )
+            {
+                TripFlag( "OI_BloomSpreadBeat" );
+                FireKeyMessage( "OI_BloomSpreads" );
+            }
+            if ( bloomed.Count >= BloomEvolveBeatBuildings && !IsFlagTripped( "OI_BloomEvolvedBeat" ) )
+            {
+                TripFlag( "OI_BloomEvolvedBeat" );
+                FireKeyMessage( "OI_BloomEvolves" );
+            }
+
+            RefreshBloomPositionsCache( bloomed );
+        }
+
+        private static void TrySeedGreyBloom( Swarm bloom, SquirrelRand Rand )
+        {
+            if ( IsFlagTripped( "OI_BloomContainedOnce" ) )
+                return;
+            if ( !IsFlagTripped( "OI_GooLeakSeeded" ) )
+                return;
+
+            Unlock interfaceTech = UnlockTable.Instance.GetRowByIDOrNullIfNotFound( "OI_NanobotInterfaceTech" );
+            if ( !(interfaceTech?.DGD?.IsInvented ?? false) )
+                return;
+
+            long incubationTurn = GetCityStatisticScore( "OI_BloomIncubationTurn" );
+            if ( incubationTurn <= 0 )
+            {
+                GStatisticTable.SetScore_UserBeware( "OI_BloomIncubationTurn", SimCommon.Turn );
+                return;
+            }
+            if ( SimCommon.Turn - incubationTurn < BloomIncubationTurns )
+                return;
+
+            BaseBuilding seedTarget = PickBloomTarget( null, Rand );
+            if ( seedTarget == null )
+                return;
+
+            seedTarget.SwarmSpread = bloom;
+            seedTarget.SetSwarmSpreadCount( BloomSeedCount );
+            SimCommon.NeedsBuildingListRecalculation = true;
+        }
+
+        private static void SpreadGreyBloom( Swarm bloom, System.Collections.Generic.List<BaseBuilding> bloomed, int maxNewInfections, SquirrelRand Rand )
+        {
+            int newInfections = 0;
+            foreach ( BaseBuilding source in bloomed )
+            {
+                if ( newInfections >= maxNewInfections )
+                    break;
+                if ( source.SwarmSpreadCount < BloomSpreadThreshold )
+                    continue;
+
+                BaseBuilding target = PickBloomTarget( source, Rand );
+                if ( target == null )
+                    continue;
+
+                int transfer = source.SwarmSpreadCount / 3;
+                if ( transfer <= 0 )
+                    continue;
+
+                source.AlterSwarmSpreadCount( -transfer );
+                target.SwarmSpread = bloom;
+                target.SetSwarmSpreadCount( transfer );
+                newInfections++;
+            }
+
+            if ( newInfections > 0 )
+                SimCommon.NeedsBuildingListRecalculation = true;
+        }
+
+        private static BaseBuilding PickBloomTarget( BaseBuilding nearSource, SquirrelRand Rand )
+        {
+            BaseBuilding bestWarm = null;
+            BaseBuilding bestAny = null;
+            float bestWarmDist = float.MaxValue;
+            float bestAnyDist = float.MaxValue;
+            int warmFallbackConsidered = 0;
+
+            Vector3A sourcePos = nearSource != null ? nearSource.GetEffectiveWorldLocationForContainedUnit() : default(Vector3A);
+
+            foreach ( Arcen.Universal.KeyValuePair<int, BaseBuilding> kv in World.Buildings.GetAllBuildings() )
+            {
+                BaseBuilding candidate = kv.Value;
+                if ( candidate == null || candidate.GetIsDestroyed() || candidate == nearSource )
+                    continue;
+                if ( candidate.SwarmSpread != null )
+                    continue;
+
+                bool isWarm = HasAnyBloomWarmTag( candidate );
+
+                if ( nearSource != null )
+                {
+                    float dist = (candidate.GetEffectiveWorldLocationForContainedUnit() - sourcePos).GetSquareGroundMagnitude();
+                    if ( dist > BloomSpreadRadiusSquared )
+                        continue;
+                    if ( isWarm && dist < bestWarmDist )
+                    {
+                        bestWarmDist = dist;
+                        bestWarm = candidate;
+                    }
+                    else if ( dist < bestAnyDist )
+                    {
+                        bestAnyDist = dist;
+                        bestAny = candidate;
+                    }
+                }
+                else if ( isWarm )
+                {
+                    warmFallbackConsidered++;
+                    if ( Rand.Next( 0, warmFallbackConsidered ) == 0 )
+                        bestWarm = candidate;
+                }
+                else if ( bestAny == null )
+                {
+                    bestAny = candidate;
+                }
+            }
+
+            return bestWarm != null ? bestWarm : bestAny;
+        }
+
+        private static bool HasAnyBloomWarmTag( BaseBuilding building )
+        {
+            if ( building?.Variant?.Tags == null )
+                return false;
+            for ( int i = 0; i < BloomWarmTags.Length; i++ )
+            {
+                if ( building.Variant.Tags.ContainsKey( BloomWarmTags[i] ) )
+                    return true;
+            }
+            return false;
+        }
+
+        private static System.Collections.Generic.List<BaseBuilding> GetBloomedBuildings( Swarm bloom )
+        {
+            System.Collections.Generic.List<BaseBuilding> result = new System.Collections.Generic.List<BaseBuilding>( 64 );
+            foreach ( Arcen.Universal.KeyValuePair<int, BaseBuilding> kv in World.Buildings.GetAllBuildings() )
+            {
+                BaseBuilding building = kv.Value;
+                if ( building == null || building.GetIsDestroyed() )
+                    continue;
+                if ( building.SwarmSpread != bloom || building.SwarmSpreadCount <= 0 )
+                    continue;
+                result.Add( building );
+            }
+            return result;
+        }
+
+        private static void SiphonBloomMaterials( int bloomedCount )
+        {
+            if ( bloomedCount <= 0 )
+                return;
+
+            ResourceType microbuilders = GetResource( "Microbuilders" );
+            ResourceType slurry = GetResource( "ElementalSlurry" );
+
+            long microCost = Math.Min( microbuilders?.Current ?? 0L, BloomMicrobuildersPerBuilding * bloomedCount );
+            long slurryCost = Math.Min( slurry?.Current ?? 0L, BloomSlurryPerBuilding * bloomedCount );
+
+            if ( microCost > 0 )
+                microbuilders.AlterCurrent_Named( -microCost, "Expense_OI_GreyBloom", ResourceAddRule.IgnoreUntilTurnChange );
+            if ( slurryCost > 0 )
+                slurry.AlterCurrent_Named( -slurryCost, "Expense_OI_GreyBloom", ResourceAddRule.IgnoreUntilTurnChange );
+        }
+
+        private static void ApplyBloomUnwantedHelp( System.Collections.Generic.List<BaseBuilding> bloomed )
+        {
+            if ( bloomed.Count == 0 )
+                return;
+
+            int hpBudget = BloomFreeRepairHPPerTurn;
+
+            foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
+            {
+                if ( hpBudget <= 0 )
+                    break;
+
+                MachineStructure structure = kv.Value;
+                if ( structure == null || structure.IsInvalid || structure.IsFullDead || structure.IsUnderConstruction )
+                    continue;
+
+                int healthLost = structure.GetActorDataLostFromMax( ActorRefs.ActorHP, true );
+                if ( healthLost <= 0 )
+                    continue;
+
+                Vector3A structurePos = structure.GetDrawLocation();
+                BaseBuilding nearestBloom = null;
+                foreach ( BaseBuilding building in bloomed )
+                {
+                    float dist = (building.GetEffectiveWorldLocationForContainedUnit() - structurePos).GetSquareGroundMagnitude();
+                    if ( dist <= BloomHelpRadiusSquared )
+                    {
+                        nearestBloom = building;
+                        break;
+                    }
+                }
+                if ( nearestBloom == null )
+                    continue;
+
+                int repairAmount = Math.Min( healthLost, hpBudget );
+                structure.AlterActorDataCurrent( ActorRefs.ActorHP, repairAmount, true );
+                hpBudget -= repairAmount;
+                nearestBloom.AlterSwarmSpreadCount( BloomMassPerRepair );
+
+                if ( !IsFlagTripped( "OI_BloomHandshakeBeat" ) )
+                {
+                    TripFlag( "OI_BloomHandshakeBeat" );
+                    FireKeyMessage( "OI_BloomHandshake" );
+                }
+            }
+        }
+
+        private static void ApplyPhageProtocol( Swarm bloom, System.Collections.Generic.List<BaseBuilding> bloomed )
+        {
+            MachineVRModeAction action = GetVRAction( PhageProtocolAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+            if ( bloomed.Count == 0 )
+                return;
+
+            ResourceType nanobots = GetResource( MedicalNanobotsResource );
+            ResourceType mentalEnergy = GetResource( "MentalEnergy" );
+            if ( !CanAfford( nanobots, PhageNanobotsPerTurn ) || !CanAfford( mentalEnergy, 1L ) )
+            {
+                action.DGD.IsActiveNow = false;
+                return;
+            }
+
+            nanobots.AlterCurrent_Named( -PhageNanobotsPerTurn, "Expense_OI_PhageProtocol", ResourceAddRule.IgnoreUntilTurnChange );
+            mentalEnergy.AlterCurrent_Named( -1L, "Expense_OI_PhageProtocol", ResourceAddRule.IgnoreUntilTurnChange );
+
+            bloomed.Sort( ( a, b ) => a.SwarmSpreadCount.CompareTo( b.SwarmSpreadCount ) );
+            int cleared = 0;
+            foreach ( BaseBuilding building in bloomed )
+            {
+                if ( cleared >= PhageBuildingsPerTurn )
+                    break;
+                building.AlterSwarmSpreadCount( -building.SwarmSpreadCount );
+                building.SwarmSpread = null;
+                cleared++;
+            }
+
+            if ( cleared > 0 )
+                SimCommon.NeedsBuildingListRecalculation = true;
+        }
+
+        private static void RefreshBloomPositionsCache( System.Collections.Generic.List<BaseBuilding> bloomed )
+        {
+            BloomPositionsCache.Clear();
+            foreach ( BaseBuilding building in bloomed )
+                BloomPositionsCache.Add( building.GetEffectiveWorldLocationForContainedUnit() );
+        }
+
+        private static void ApplyBloomExposureToUnit( ISimNPCUnit unit, SquirrelRand Rand )
+        {
+            if ( BloomPositionsCache.Count == 0 )
+                return;
+            if ( unit == null || unit.IsFullDead )
+                return;
+            if ( unit.GetIsPartOfPlayerForcesInAnyWay() || unit.GetIsAnAllyFromThePlayerPerspective() )
+                return;
+            if ( Rand.Next( 0, 100 ) >= BloomExposureChancePercent )
+                return;
+
+            Vector3A unitPos = unit.GetDrawLocation();
+            bool nearBloom = false;
+            for ( int i = 0; i < BloomPositionsCache.Count; i++ )
+            {
+                if ( (BloomPositionsCache[i] - unitPos).GetSquareGroundMagnitude() <= BloomExposureRadiusSquared )
+                {
+                    nearBloom = true;
+                    break;
+                }
+            }
+            if ( !nearBloom )
+                return;
+
+            ActorStatus status = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
+            if ( status == null )
+                return;
+            unit.AddStatus( null, status, 1, GreyGooDuration, false );
+        }
+        #endregion
+
+        private static void ApplyNaniteMaintenance()
+        {
+            MachineVRModeAction action = GetVRAction( NaniteMaintenanceAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+
+            ResourceType nanobots = GetResource( MedicalNanobotsResource );
+            if ( !CanAfford( nanobots, NaniteMaintenanceNanobotsPerHP ) )
+            {
+                action.DGD.IsActiveNow = false;
+                return;
+            }
+
+            int hpBudget = NaniteMaintenanceHPPerTurn;
+            foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
+            {
+                if ( hpBudget <= 0 || nanobots.Current < NaniteMaintenanceNanobotsPerHP )
+                    break;
+
+                MachineStructure structure = kv.Value;
+                if ( structure == null || structure.IsInvalid || structure.IsFullDead || structure.IsUnderConstruction )
+                    continue;
+
+                int healthLost = structure.GetActorDataLostFromMax( ActorRefs.ActorHP, true );
+                if ( healthLost <= 0 )
+                    continue;
+
+                int maxCanAfford = ClampToInt( nanobots.Current / NaniteMaintenanceNanobotsPerHP );
+                int repairAmount = Math.Min( healthLost, Math.Min( hpBudget, maxCanAfford ) );
+                if ( repairAmount <= 0 )
+                    continue;
+
+                structure.AlterActorDataCurrent( ActorRefs.ActorHP, repairAmount, true );
+                nanobots.AlterCurrent_Named( -(repairAmount * NaniteMaintenanceNanobotsPerHP), "Expense_OI_NaniteMaintenance", ResourceAddRule.IgnoreUntilTurnChange );
+                hpBudget -= repairAmount;
+            }
+        }
+
+        private static void EnforceCoordinationBandwidth()
+        {
+            int cap = BandwidthBaseCap;
+            ResourceType upgraded = GetResource( UpgradedResource );
+            long population = upgraded?.Current ?? 0L;
+            for ( int i = 0; i < BandwidthPopulationThresholds.Length; i++ )
+            {
+                if ( population >= BandwidthPopulationThresholds[i] )
+                    cap++;
+            }
+
+            int active = 0;
+            for ( int i = 0; i < BandwidthManagedToggles.Length; i++ )
+            {
+                MachineVRModeAction action = GetVRAction( BandwidthManagedToggles[i] );
+                if ( action != null && action.DGD.IsActiveNow )
+                    active++;
+            }
+            if ( active <= cap )
+                return;
+
+            for ( int i = BandwidthManagedToggles.Length - 1; i >= 0 && active > cap; i-- )
+            {
+                MachineVRModeAction action = GetVRAction( BandwidthManagedToggles[i] );
+                if ( action == null || !action.DGD.IsActiveNow )
+                    continue;
+                action.DGD.IsActiveNow = false;
+                active--;
+            }
+
+            if ( !IsFlagTripped( "OI_BandwidthNoticeShown" ) )
+            {
+                TripFlag( "OI_BandwidthNoticeShown" );
+                FireKeyMessage( "OI_CoordinationBandwidth" );
+            }
+        }
+
+        private static void FireKeyMessage( string messageID )
+        {
+            OtherKeyMessageTable.Instance.GetRowByIDOrNullIfNotFound( messageID )?.SetIsReadyToBeViewed( false );
         }
 
         private static void ApplyFirstDeathTimer()
@@ -199,6 +649,7 @@ namespace Arcen.HotM.OrganicIntegration
                 case "OI_NPCUnitPerTurn":
                     ApplyGreyGooFalloff( Unit, Rand );
                     ApplyControlledBloomToUnit( Unit, Rand );
+                    ApplyBloomExposureToUnit( Unit, Rand );
                     break;
                 default:
                     ArcenDebugging.LogSingleLine( "DoPerTurnForNPCUnit: OrganicIntegrationCalculators was asked to handle '" + Calculator.ID + "', but no entry was set up for that!", Verbosity.ShowAsError );
@@ -1003,6 +1454,10 @@ namespace Arcen.HotM.OrganicIntegration
             bool changedAny = false;
             MachineVRModeAction action = GetVRAction( CivicSensoriumAction );
             int bonus = GetCivicSensoriumScanRangeBonus( action );
+
+            Unlock interfaceTech = UnlockTable.Instance.GetRowByIDOrNullIfNotFound( "OI_NanobotInterfaceTech" );
+            if ( interfaceTech?.DGD?.IsInvented ?? false )
+                bonus += MicrostructureRepeaterScanBonus;
 
             foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
             {

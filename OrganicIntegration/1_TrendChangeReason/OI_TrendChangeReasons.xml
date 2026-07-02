@@ -5,6 +5,9 @@
   <trend_change_reason id="Expense_OI_CooperativeModeling" display_name="Cooperative Modeling" is_income="false" />
   <trend_change_reason id="Expense_OI_OrganicQuantization" display_name="Organic Quantization" is_income="false" />
   <trend_change_reason id="Expense_OI_FeltDeaths" display_name="Integrated Deaths, Felt" is_income="false" />
+  <trend_change_reason id="Expense_OI_GreyBloom" display_name="Grey Bloom Material Theft" is_income="false" />
+  <trend_change_reason id="Expense_OI_PhageProtocol" display_name="Phage Protocol" is_income="false" />
+  <trend_change_reason id="Expense_OI_NaniteMaintenance" display_name="Nanite Maintenance" is_income="false" />
   <trend_change_reason id="Expense_OI_ConsentCascade" display_name="Consent Cascade" is_income="false" />
   <trend_change_reason id="Expense_OI_SharedTriage" display_name="Shared Triage" is_income="false" />
   <trend_change_reason id="Income_OI_InsightVRResearch" display_name="Insight Research Synthesis" is_income="true" />

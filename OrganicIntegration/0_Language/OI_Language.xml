@@ -5,6 +5,12 @@
 	<lang id="OI_Stat_Desc_UpgradedPopulation" text="The total number of people Integrated in this timeline." />
 	<lang id="OI_Stat_Name_FirstIntegrationTurn" text="First Integration Turn" />
 	<lang id="OI_Stat_Desc_FirstIntegrationTurn" text="The turn on which the first humans were Integrated in this timeline." />
+	<lang id="OI_Stat_Name_BloomIncubationTurn" text="Bloom Incubation Turn" />
+	<lang id="OI_Stat_Desc_BloomIncubationTurn" text="The turn on which conditions first favored the escaped replication-capable mass." />
+	<lang id="OI_Stat_Name_BloomBuildings" text="Bloom-Held Buildings" />
+	<lang id="OI_Stat_Desc_BloomBuildings" text="The number of buildings currently held by the Grey Bloom." />
+	<lang id="OI_Stat_Name_BloomPeakBuildings" text="Bloom Peak Buildings" />
+	<lang id="OI_Stat_Desc_BloomPeakBuildings" text="The largest number of buildings the Grey Bloom has held at once in this timeline." />
 	<lang id="OI_Stat_Name_InterfaceTrialDesignPoints" text="Interface Trial Points" />
 	<lang id="OI_Stat_Desc_InterfaceTrialDesignPoints" text="Living-tissue edge cases gathered before miniaturizing the nanobot interface." />
 	<lang id="OI_Stat_Name_NanobotHarvestDesignPoints" text="Nanobot Design Points" />
