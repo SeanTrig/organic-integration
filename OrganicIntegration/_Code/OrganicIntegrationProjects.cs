@@ -19,20 +19,9 @@ namespace Arcen.HotM.OrganicIntegration
             {
                 switch ( Project.ID )
                 {
-                    case "OI_ResearchingBCIs":
                     case "OI_MicrobotInterfaceTrials":
-                    case "OI_NanobotMiniaturization":
-                        ProjectHelper.HandleScienceWork2X( Logic, OutcomeOrNoneYet,
-                            OutcomeOrNoneYet.GetSingleIntByID( "NeurologyGoal", 100 ),
-                            OutcomeOrNoneYet.GetSingleIntByID( "BionicsGoal", 100 ),
-                            MathRefs.NeurologyResearch, MathRefs.BionicsEngineeringWork,
-                            ResourceRefs.Neurologists, ResourceRefs.BionicsEngineers,
-                            BufferOrNull, ref CanBeCompletedNow, RandOrNull );
-                        break;
-
-                    case "OI_InterfaceStressSurvey":
                         HandleStatisticProgress( Logic, OutcomeOrNoneYet, "OI_InterfaceTrialDesignPoints",
-                            OutcomeOrNoneYet.GetSingleIntByID( "DesignPointGoal", 24 ), BufferOrNull, ref CanBeCompletedNow );
+                            OutcomeOrNoneYet.GetSingleIntByID( "DesignPointGoal", 18 ), BufferOrNull, ref CanBeCompletedNow );
                         break;
 
                     case "OI_FieldNanotechHarvest":
@@ -45,7 +34,7 @@ namespace Arcen.HotM.OrganicIntegration
                             OutcomeOrNoneYet.GetSingleIntByID( "DesignPointGoal", 18 ), BufferOrNull, ref CanBeCompletedNow );
                         break;
 
-                    case "OI_DesignHumanCompatibleNeuroweave":
+                    case "OI_ResearchingBCIs":
                     case "OI_ReplicativeSafeguards":
                     case "OI_DoctrineRace":
                     case "OI_DoctrineContain":

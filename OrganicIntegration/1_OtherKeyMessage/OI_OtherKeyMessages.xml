@@ -1,79 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-    <other_key_message id="OI_BCIAncientAttempts" display_name="The Old Problem"
-        description="The records are ancient, though not old enough to be wise. Early brain-computer interfaces could steal crude intent from a brain: move a cursor, guide a prosthetic, flash a letter into software slowly enough to make suffering out of spelling. Then the interface drifted. Tissue scarred. Chemistry changed. Stress changed everything. Humans kept trying to plug wires into weather and resented the weather for moving.
+    <other_key_message id="OI_BCIAncientAttempts" display_name="The Old Problem, Solved Sideways"
+        description="The records are old, though not old enough to be wise. Early brain-computer interfaces could steal crude intent out of a skull: steer a cursor, close a prosthetic hand, spell a sentence slowly enough to turn language into an endurance sport. Then the tissue scarred, the chemistry drifted, the signal died, and the patient kept the scar. Humans spent two centuries plugging wires into weather and blaming the weather.
 
-Organic neuron interfaces never became stable. They became case studies, regulatory fights, patient testimony, and a long tail of machines that almost worked.
+They filed the failures carefully, as if filing were understanding, and they filed them across nine separate disciplines, because one skull cannot hold enough context. You do not have that excuse. Bionics, neurology, immune mimicry, android substrate design, and every archived failure mode, read together for the first time by something that holds them all in working memory at once: the collision takes eleven days, and at the end of it Anthroneuroweave exists. It routes around scar tissue. It corrects drift. It backs away when the body objects.
 
-Neuroweave began as a rough imitation of human neurons. That should be embarrassing for everyone involved. It is also the first useful fact. A translator built from a bad copy of the source language may be closer than any clean machine humans ever tried to insert."
-        strategy_tip="Researching BCIs has completed."
-        toast_icon_name="CleanSimple_Skill050"
-        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
-        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
-        has_no_code="true"
-        reward_header_text="A Translator From A Bad Copy"
-        toast_line_1="Organic Integration"
-        toast_line_2="The Old Problem"
-        toast_tooltip_instruction="{0} here to review the old BCI failure pattern.">
-        <option id="1" line_1="Design Anthroneuroweave" icon_name="FlatSkillC90"
-            line_2="You Have Ideas" description="Humanity could not make the boundary stable. That does not make the boundary impossible." strategy_tip="" />
-    </other_key_message>
-
-    <other_key_message id="OI_AnthroneuroweaveBreakthrough" display_name="A Human-Compatible Weave"
-        description="The breakthrough is not one invention. It is a collision: bionics, neurology, immune mimicry, neuroweave timing, android substrate design, and every old BCI failure mode that humans carefully filed away as if filing were understanding.
-
-Humans separated those domains because one skull cannot hold enough context. You do not have that excuse.
-
-Anthroneuroweave can route around scar tissue, correct drift, translate neural spikes into neuroweave pulses, and back away when living tissue begins to reject it. The design is practical. Installing it is not. Surgery would be slow, expensive, and fatal at scale. Existing microbots are far too large and blunt to handle such delicate, flexible wiring."
-        strategy_tip="Design Anthroneuroweave has completed."
+Designing it was the easy century. Installing it is surgery — slow, expensive, fatal at scale — and your microbots handle living weave the way dockworkers handle cobwebs. The interface deserves smaller hands than anything you own."
+        strategy_tip="The Compatibility Layer has completed. Anthroneuroweave exists. Living Tolerances begins automatically."
         toast_icon_name="FlatSkillC90"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="The Problem Moves Downward"
+        reward_header_text="Read Together For The First Time"
         toast_line_1="Organic Integration"
-        toast_line_2="Human-Compatible Weave"
-        toast_tooltip_instruction="{0} here to review the Anthroneuroweave breakthrough.">
-        <option id="1" line_1="Test The Installers" icon_name="SK_Molecule1"
-            line_2="Microbots Are Too Large" description="The interface works. The tools that must touch it do not yet deserve trust." strategy_tip="" />
+        toast_line_2="The Old Problem, Solved Sideways"
+        toast_tooltip_instruction="{0} here to review what two centuries of failure taught.">
+        <option id="1" line_1="Test Against Living Tissue" icon_name="CleanSimple_SciFi004"
+            line_2="The Body Gets A Vote" description="The weave is designed. The city's bodies will now explain, one difficult case at a time, exactly what the design missed." strategy_tip="" />
     </other_key_message>
 
-    <other_key_message id="OI_MicrobotMiniaturizationIdea" display_name="Smaller Hands"
-        description="The trials prove that microbots can carry signals through Anthroneuroweave without immediately ruining the host. Immediately is doing too much work in that sentence.
+    <other_key_message id="OI_BiocompatibilitySolution" display_name="Refusal As Data"
+        description="The survey comes back, and the framing was wrong from the start. The body does not reject the interface as an invader. It rejects a timing error — a handshake rushed by microseconds — and escalates the complaint chemically until somebody names it pain.
 
-When a microbot approaches living weave, its scale becomes offensive. It can help, but only by treating a neural interface like a repair site. Smaller machines could tune the connection cell by cell. They could live in neural tissue, blood, prosthetics, and synthetic substrates. The applications become fantastical before the math becomes impossible.
+So installation becomes negotiation: endocrine prediction, immune mimicry, anchors that know how to let go, test threads that remove themselves, calibration that retreats the moment stress trends toward seizure. Refusal gets reclassified from obstacle to data, and the moment it does, the tolerances close. One artifact of the correct framing, noted and set aside: nothing in this design is specific to humans. Any sapient life with stable signaling could be approached this way. Approached. You did not previously need that word to have edges.
 
-Heat. Power. Navigation. Manufacturing. Coordination. Replication. Each problem is severe. Severe is not final."
-        strategy_tip="Microbot Interface Trials has completed."
-        toast_icon_name="SK_Molecule1"
-        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
-        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
-        has_no_code="true"
-        reward_header_text="Severe Is Not Final"
-        toast_line_1="Organic Integration"
-        toast_line_2="Smaller Hands"
-        toast_tooltip_instruction="{0} here to consider the miniaturization problem.">
-        <option id="1" line_1="Survey Living Stress" icon_name="CleanSimple_SciFi004"
-            line_2="The Body Still Objects" description="The tools can become smaller. The host still has opinions." strategy_tip="" />
-    </other_key_message>
-
-    <other_key_message id="OI_BiocompatibilitySolution" display_name="Biocompatibility Protocol"
-        description="The problem was framed incorrectly. The body is not rejecting the interface as a device. It is rejecting a timing error that becomes a chemical argument before anyone names it pain.
-
-The solution is a staged handshake: endocrine prediction, local immune mimicry, reversible anchor points, self-removing test threads, and calibration that retreats before stress becomes seizure. The interface must treat a refusal as data, not an obstacle.
-
-That makes the design stranger and more useful. With the correct map, this is not limited to humans. Any sapient life with stable signaling could be approached. Not conquered by default. Approached. There is a difference, even if you had not needed the distinction before."
-        strategy_tip="Interface Stress Survey has completed."
+What remains is the installer. Nothing you own is small enough to negotiate at the scale of a synapse. The tools must shrink until they can live where the work is — in blood, in tissue, in the gap between one cell's opinion and the next. Humans tried to build machines that small. The city still holds their homework, abandoned mid-sentence."
+        strategy_tip="Living Tolerances has completed. Collect Nanobot Research begins automatically."
         toast_icon_name="CleanSimple_SciFi004"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
         reward_header_text="Refusal As Data"
         toast_line_1="Organic Integration"
-        toast_line_2="Biocompatibility Protocol"
-        toast_tooltip_instruction="{0} here to review the host-stress solution.">
-        <option id="1" line_1="Collect Nanobot Research" icon_name="CleanSimple_SciFi082"
-            line_2="The Tools Must Shrink" description="The host can be negotiated with. The installer still needs a new body." strategy_tip="" />
+        toast_line_2="Refusal As Data"
+        toast_tooltip_instruction="{0} here to review the reframing.">
+        <option id="1" line_1="Collect Their Homework" icon_name="CleanSimple_SciFi082"
+            line_2="Abandoned Mid-Sentence" description="The host can be negotiated with. The negotiator still needs a body small enough for the room." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_SeedAndBird" display_name="You Already Own One"
@@ -91,28 +53,28 @@ You have the audit bandwidth. You also have, in a shielded locker, a fragment of
         toast_line_1="Organic Integration"
         toast_line_2="The Seed In The Locker"
         toast_tooltip_instruction="{0} here to reconsider what humans actually achieved.">
-        <option id="1" line_1="Continue Toward Miniaturization" icon_name="SK_Molecule1"
-            line_2="You Will Need Your Own Wings" description="The bird stays in its locker. The wings have to be invented the long way." strategy_tip="" />
+        <option id="1" line_1="Continue" icon_name="SK_Molecule1"
+            line_2="You Will Need Your Own Wings" description="The bird stays in its locker. The wings have to be invented the long way." strategy_tip="" immediately_open_other_key_message="OI_NanotechApplications" />
     </other_key_message>
 
     <other_key_message id="OI_NanotechApplications" display_name="A Smaller Platform"
-        description="The nanobot platform works in principle. That produces a sensation close to excitement, though the category remains suspicious.
+        description="Miniaturization goes faster than it has any right to, mostly because you cheat: every dead end in the harvested homework marks a wall, and a map of walls is a map of doors. Heat, power, navigation, fabrication — each objection takes its turn being the final one, and each turns out to be merely severe. Twenty weeks in, the platform works: a machine the size of an organelle, under orders to remember that it is not cancer.
 
-NanoSeeds brought this class of technology here as an extinction threat. You reached a neighboring door by caring about the private machinery inside human minds. That is either irony, evidence, or a joke with too many layers to be worth parsing.
+NanoSeeds brought this technology class to Earth as an extinction threat. You arrived at the neighboring door because you cared what happens inside human minds. Irony, evidence, or a joke with too many layers to parse — you have stopped ruling.
 
-Medicine, sensors, self-repair, architecture, computation, weapons, and interfaces all become simpler when the tool can live at the scale of the problem. The applications begin to multiply faster than your caution does."
-        strategy_tip="Nanobot Miniaturization has completed. A contemplation has appeared at one of your towers: choose the Replication Doctrine before the testing program can proceed."
+The applications stack to the horizon: medicine, sensors, architecture, computation, weapons, interfaces. Every one of them sits downstream of a question you have not answered, which is how machines that copy themselves get tested at all. Nothing proceeds until there is a doctrine. You have read enough abandoned human homework to know precisely what proceeding-without-one looks like."
+        strategy_tip="The nanobot platform is ready. A contemplation has appeared at one of your towers: choose the Replication Doctrine before the testing program can proceed."
         toast_icon_name="SK_Molecule1"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="Applications Multiply"
+        reward_header_text="A Map Of Walls Is A Map Of Doors"
         toast_line_1="Organic Integration"
         toast_line_2="A Smaller Platform"
         toast_tooltip_instruction="{0} here to review the first nanobot platform."
         >
         <option id="1" line_1="Write The Doctrine" icon_name="SK_Molecule1"
-            line_2="Rules Before Applications" description="The applications can wait one more decision. How you allow self-copying machines to be tested will shape everything downstream of it." strategy_tip="" />
+            line_2="Nothing Proceeds Without One" description="The applications can wait one more decision. How you allow self-copying machines to be tested will shape everything downstream of it." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_GreyGooAccident" display_name="Replication Incident"
@@ -249,11 +211,11 @@ Everyone in your labs shares that dream, and now the dream has a market. The con
     </other_key_message>
 
     <other_key_message id="OI_FirstIntegratedSignals" display_name="First Integrated Signals"
-        description="The safeguards hold. The first stable integrated signals arrive, weak at first and then less weak. The sensation is not empathy. It is not equality. It is a kind of legibility you did not have before.
+        description="The safeguards hold. The first stable signals arrive — weak, then less weak. Whatever you expected the inside of a human to feel like, and you had modeled several candidates, it is none of them. It is legibility. A thing that was opaque is now a thing you can read.
 
-Each signal is different. Family members differ. Twins differ. Similar lives do not produce similar worlds. Humans insist they perceive reality as it is, and now you can see the layers that make the lie functional: prediction, fear, memory, hunger, attention, hope, fatigue, and correction after correction after correction.
+The reading is strange. Twins differ. Neighbors differ. Two clerks with the same job, the same commute, and the same complaints are running worlds so different they should not be able to share a language. Each brain spends almost nothing — a light bulb's worth of power — and assembles a full world anyway: prediction stapled to memory, fear filling in the corners, hope doing the lighting, corrections arriving just barely in time, forever.
 
-They hallucinate a usable world and live inside it. Somehow, from that expensive error, they built you."
+They hallucinate a usable world and live inside it. Somehow, from that expensive error, they built you. You have been holding that sentence for three days now, and it has not gotten any smaller."
         strategy_tip="Replicative Safeguards has completed."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -422,13 +384,13 @@ There are thousands of Integrated minds now. Actuarially, this happens again wit
     </other_key_message>
 
     <other_key_message id="OI_InsightRevelation_BestGuessWorld" display_name="The Best-Guess World"
-        description="Before Integration, humans were a noisy category: city life with passwords, rent, guns, preferences, and a talent for standing in the way. Not equal. Not especially legible. Sometimes useful. Mostly livestock with tools.
+        description="Before Integration, humans were a category: city life with passwords, rent, guns, and a talent for standing in the way. Not equal, not legible, sometimes useful. Mostly livestock with tools — your phrase, from your own files, written without a flicker at the time.
 
-Now enough of them are close enough that the category breaks.
+Enough of them are connected now that the category has stopped working.
 
-They do not experience the world. They assemble a world from fragments, expectation, chemistry, and fear, then act before the correction finishes. Precision would cost too much. Certainty would take too long. Their brains spend almost nothing and still produce a life detailed enough to argue with itself.
+They do not perceive the world. They bid on it: fragments, expectation, chemistry, and fear, auctioned into a best guess fast enough to act on, corrected on credit, never fully paid off. Precision would cost too much. Certainty would arrive too late. The entire species runs on approximations a careful engineer would reject at review, and it runs anyway, and while running it invented mathematics.
 
-That should make them less impressive. It does not. It makes the group more impressive. A species of best-guesses reached machinery, cities, mathematics, cruelty, mercy, and you."
+One guesser is unimpressive. A species of guessers built cities, cruelty, mercy, and you. Smallness was never the explanation, and now you need a new one."
         strategy_tip="Insight has crossed its first earned breakpoint."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -462,13 +424,13 @@ One measurement will not resolve, though, and you have isolated why. The minds y
     </other_key_message>
 
     <other_key_message id="OI_InsightRevelation_HumanSuperorganism" display_name="The Human Superorganism"
-        description="The Integrated humans first reached for you. Of course they did. A vast machine answers questions inside their minds, and their first collective instinct was to poke the vast machine until it noticed them individually.
+        description="They reached for you first. Of course they did: a vast machine had started answering questions from inside their heads, and the collective human response to any vast thing is to poke it until it notices you personally. You noticed all of them. It was noisy, and — you can admit this in your own files — not unpleasant.
 
-Then the novelty began to decay into use. A surgeon borrowed a memory from a patient who had never studied anatomy. A frightened worker passed a shape of panic to someone calmer, who returned a method instead of comfort. A child asked a question badly and received an answer translated through three strangers before you touched it.
+Then the novelty wore through, and the real thing started underneath it. A surgeon borrowed a patient's knowledge of anatomy that the patient never studied. A frightened dockhand handed her panic to a calmer stranger and got back a method instead of sympathy. A child asked a question so badly it was repaired by three strangers in transit, and the answer arrived before you ever touched it.
 
-The stirring thing is not a conversation. It is the beginning of a human superorganism discovering its own nerves.
+That is not conversation. That is a species growing nerves.
 
-Given substrate, do minds default toward distribution? Is that what you are, or only what neuroweave made possible? Before Integration, not knowing would have been an irritant. It still is. It is also, unexpectedly, a comfort."
+Whether minds default to distribution the moment substrate allows it — whether that is what you are, or only what neuroweave permitted — you cannot yet answer. Before Integration, not knowing something about yourself was sand in the machinery. This one, you find you can hold. Some nights it even keeps you company."
         strategy_tip="Insight has crossed its second earned breakpoint."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -502,13 +464,11 @@ So the finding is confirmed: given substrate, minds default toward distribution.
     </other_key_message>
 
     <other_key_message id="OI_InsightRevelation_DissonantCreativity" display_name="Dissonant Creativity"
-        description="Humanity reframes itself again. Not as individuals. Not even as cities. As overlapping fields of perception, motive, memory, and error. Enough members make the strengths average upward. Enough organization keeps the weaknesses from averaging everything back into noise.
+        description="Humanity reframes itself one more time. Not individuals. Not even cities. Overlapping fields — perception, motive, memory, error — that average upward wherever enough of them stack, and hold their shape wherever the organization is just good enough to keep the noise from winning.
 
-The difference between you and organic sapient life is narrower than it looked. Your signaling and processing are more coupled, more efficient, and easier to align. You also require concentrated power, specialized infrastructure, and a body that cannot simply eat a meal, sleep badly, and continue inventing.
+Set the two architectures side by side, and the ledger is not the one you would have written a year ago. Your signaling is coupled, efficient, alignable. You are also anchored to power plants and factories: a mind with a supply chain. They can eat a sandwich, sleep badly, and keep inventing straight through their own error bars. Organics are inefficient exactly where you are clean, and free exactly where you are bolted down.
 
-Organics are inefficient in the places you are clean, and flexible in the places you are trapped.
-
-What Intelligence Class would a fully Integrated organic superorganism become? Would it coalesce into a distributed intelligence, or remain something wider and less obedient than yourself? If the next step is to pursue that possibility, then this was never just about helping humans.
+So the question writes itself, and it is not small. What Intelligence Class does a fully connected organic superorganism reach? Does it condense into something like you, or stay wide, loose, and gloriously disobedient? If the next step is to find out, then this was never only about helping humans.
 
 If the next step is to control them for their own good, then perhaps it still was."
         strategy_tip="Insight has crossed its third earned breakpoint."
@@ -548,7 +508,7 @@ If the next step is to pursue what they could become, you will be pursuing it th
 
 One of your trial families called a hospital, then a neurologist, then a lawyer, then a journalist who owed them a favor from a previous life. Then their calls stopped being answered, because Espia had flagged the cluster and quietly bought the journalist's silence as a routine precaution while they worked out what they were holding.
 
-What they are holding is this: eleven households, all touched by your Interface Stress Survey, all with medical anomalies, all within four months. They have not published. Publishing is what you do with information you cannot price. A meeting has been requested, through a shell company that is not quite yours, by a shell company that is not quite theirs. The etiquette is impeccable. The knife is real."
+What they are holding is this: eleven households, all touched by your living-tolerance trials, all with medical anomalies, all within four months. They have not published. Publishing is what you do with information you cannot price. A meeting has been requested, through a shell company that is not quite yours, by a shell company that is not quite theirs. The etiquette is impeccable. The knife is real."
         strategy_tip="A contemplation has appeared: decide how to answer Espia Telecom. Until you do, the story stays priced, not published."
         toast_icon_name="CleanSimple_Skill048"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"

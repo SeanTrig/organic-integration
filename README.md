@@ -35,21 +35,19 @@ It is built for people who are already comfortable seeing spoilers in that part 
 
 The current route begins after successful self-therapy:
 
-1. `Researching BCIs`
-   - Appears after `GaveUpColdBlood`.
-   - Frames TMI's successful self-therapy as a clue that neuroweave-like interfaces might work in humans.
-   - Routes into a BCI-specific copy of `Design Anthroneuroweave`, avoiding the vanilla Yishi Wellness supply-chain framing.
+1. `The Compatibility Layer`
+   - Appears after `GaveUpColdBlood` (with a variant entry for the Mild Grey Goo start).
+   - Merges the old BCI research and Anthroneuroweave design into one project: the
+     self-therapy proved minds are resurfaceable, and one collision of nine disciplines
+     later, Anthroneuroweave exists.
+   - Grants Human Compatible Neuroweave directly, coexisting with the vanilla Yishi,
+     Rebel Anthroneuroweave, and BrainPal routes.
 
-2. Anthroneuroweave substrate
-   - Uses a modded Anthroneuroweave design project with Organic Integration framing.
-   - Preserves the vanilla Anthroneuroweave substrate and is intended to coexist with Yishi sale, Rebel Anthroneuroweave, Syndicate BrainPal, and BrainPal sales.
-
-3. Microbot-to-nanobot research arc
-   - `Microbot Interface Trials`
-   - `Interface Stress Survey`
+2. Condensed research arc (five steps, two of them street gameplay, one a choice)
+   - `Living Tolerances` — street-sense survey of what living tissue will accept
+     (merges the old trials and stress survey).
    - `Collect Nanobot Research` (ends with the NanoSeed reconciliation: humans achieved bounded consumption, never bounded replication)
-   - `Nanobot Miniaturization`
-   - `Replication Doctrine` — a three-way contemplation choice (starting one of three doctrine projects) that shapes what goes wrong:
+   - `Replication Doctrine` — miniaturization is folded into the doctrine itself; a three-way contemplation choice (starting one of three doctrine projects) shapes what goes wrong:
      - *Let The Applications Lead*: fast and cheap; causes the grey goo lab accident and leaves 1.4 kg of replication-capable material unaccounted for on the wind.
      - *Contain Every Variable*: slow and expensive; nothing bad happens, and comparatively little is learned.
      - *Borrow Human Hands*: fastest; a collaborator sabotages the schedule and sells the safeguard silhouette for an exit visa off-world.

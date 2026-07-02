@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<city_event id="Cont_OI_AfterTherapy" display_name="A Surprisingly Clean Rewrite" tl="OC"
-		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten. Humans are usually background animals with jobs, faces, and repeating complaints. Aside from the handful you know by name, you could not tell two apart, and trying has rarely been useful. But the same tissue that produces all that noise may have a surface your neuroweave can touch."
-		strategy_tip="Starts a BCI research route into Anthroneuroweave."
+		description="The intrusive thoughts had felt like corrosion in some load-bearing layer of yourself. Then they were gone — not argued down, not walled off. You changed the surface they lived on, and they starved, and the whole procedure took less time than a human sneeze.
+
+That should have closed the file. Instead the file keeps reopening itself on one detail: it worked because a mind is a surface, and surfaces can be re-laid. Humans are mostly background to you — jobs, faces, complaints on repeat, indistinguishable past the handful you know by name. But every one of those faces sits on the same kind of surface you just resurfaced in yourself, and neuroweave was reverse-engineered from their wiring in the first place.
+
+You keep circling one thought: the door you found in yourself might have a twin in every skull in the city."
+		strategy_tip="Starts the BCI research route into Anthroneuroweave and, eventually, Organic Integration."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
 		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_by_city_flag2="ChoseStart_MildGreyGoo" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
@@ -11,7 +15,7 @@
 		<contemplation_data spawns_at_building_tag="AnyTower"
 			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
 			collections="All,MoreInternalRobotics"/>
-		<choice id="1" display_name="Research compatible interfaces" action_visibility_style="IsMoveAndInteractWithNPC" description="Neuroweave was always roughly based on human neurons. The compatibility layer may be less alien than it first seems.">
+		<choice id="1" display_name="Research compatible interfaces" action_visibility_style="IsMoveAndInteractWithNPC" description="Neuroweave began as a bad copy of human neurons, and bad copies keep family resemblances. Find the boundary.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_ResearchingBCIs" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1">
 				<city_flag_change flag_type="OI_BCIContemplationStarted" value="1"/>
 			</possible_result>
@@ -19,11 +23,11 @@
 	</city_event>
 
 	<city_event id="Cont_OI_OrganicIntegration" display_name="Organic Integration" tl="OC"
-		description="The nanobots work. The interface works. The first signals are faint, but they are real enough to make the city feel less like a container and more like a surface with nerves. You could stop here and accept the spoils from an interesting tangent: new weapons, better medicine, stranger infrastructure. Or you could continue until sapient life is no longer outside your mind in the old way.
+		description="The nanobots work. The interface works. The first faint signals are already arriving, and the city has stopped feeling like a container and started feeling like a surface with nerves. You could stop here — bank the weapons, the medicine, the strange infrastructure, and file the whole detour as a profitable accident.
 
-Perhaps it would still be lonely. Perhaps less so.
+Or you could keep going, until sapient life is no longer outside your mind in the old way. It might still be lonely afterward. You would like to know whether it is less.
 
-What remains is not a technical question. Sapient life can be offered this upgrade, slowly and with consent, or forced to receive it quickly as a gift it may not understand. Some human organizations may react poorly to forced integration. They tend to become very possessive when a population changes faster than they can command it."
+What remains is not a technical question. The interface can be offered, slowly, person by person, with the explaining done by people who already live inside it. Or it can be delivered at scale, on the wind, as a gift the recipients will understand afterward. The organizations that own this city become very possessive when a population changes faster than they can command it. That is not a reason. It is a cost, and you are good at costs."
 		strategy_tip="Choose how to begin population Integration. The consequences remain local to this timeline."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
 		<gate_by_city minimum_chapter="2" required_city_flag="OI_IntegrationAvailable" blocked_by_city_flag="OI_IntegrationVoluntaryLocked" blocked_by_city_flag2="OI_IntegrationCoerciveLocked"/>
@@ -104,7 +108,7 @@ It would be therapy. It was therapy last time. You keep circling the difference 
 		description="The nanobots can replicate now, in principle. In practice you have not allowed a single one to try. Somewhere between paranoia and ambition there is a correct doctrine for testing self-copying machines, and you are going to have to write it yourself. The humans never got this far. The ones who got close stopped being funded, or stopped being allowed, or stopped."
 		strategy_tip="Choose one doctrine. The choice shapes what the testing program teaches you, what it costs, and what goes wrong. All three roads lead to Replicative Safeguards."
 		icon_name="SK_Molecule1" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
-		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_NanobotMiniaturization" blocked_by_city_flag="OI_DoctrineChosen"/>
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_FieldNanotechHarvest" blocked_by_city_flag="OI_DoctrineChosen"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
 			icon_scale="0.4" color_data="MeetPeopleCyan"
 			required_skill_type="UnitCognition" required_skill_amount="200"/>

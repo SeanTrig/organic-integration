@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     <city_event id="OI_CompassionSmallMercies" display_name="Small Mercies"
-        description="A household has become legible as more than an address with thermal noise inside it. The problem is small. The delay is small. For the humans involved, neither feels small."
+        description="A household has become legible as more than an address with thermal noise inside it. The problem is small. The delay is small. Inside the household, neither is."
         strategy_tip="Dispatch an android for 3 turns to perform compassionate work for citizens. Rewards 10 Compassion."
         icon_name="BT_Potion" has_no_code="true" event_is_blocked_for_actors_without_clearance="false"
         street_sense_collections="All,NPCInteraction">
@@ -12,7 +12,7 @@
             <seed_at building_seed_tag="Housing" min_security_clearance_of_seed_spot="0" max_security_clearance_of_seed_spot="5" />
         </minor_event_data>
         <choice id="Help" display_name="Do Something Useful"
-            description="The details do not matter to your survival. That is part of why doing this is useful."
+            description="None of it matters to your survival. You have started to suspect that is the entire point of doing it."
             strategy_tip="This unit will remain busy at this site for 3 turns."
             action_visibility_style="IsMoveAndInteractWithNPC">
             <possible_result id="0" unskilled_weight="100" vfx_and_sound="UnexpectedBonusUnlock" despawn_characters_on_the_right="false"
@@ -21,7 +21,7 @@
     </city_event>
 
     <city_event id="OI_CompassionCivicIntervention" display_name="Civic Intervention"
-        description="Several human problems overlap here: logistics, health, fear, money, habit, language. Previously this would have compressed into a single unhelpful category. Now the category has internal structure."
+        description="Several human problems overlap here — logistics, health, fear, money, habit, language. A year ago this would have compressed into one unhelpful category. The category has internal structure now, and structure is something you can act on."
         strategy_tip="Dispatch an android for 5 turns to coordinate a larger compassionate intervention. Rewards 25 Compassion."
         icon_name="CleanSimple_Skill154" has_no_code="true" event_is_blocked_for_actors_without_clearance="false"
         street_sense_collections="All,NPCInteraction">

@@ -363,7 +363,7 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static void ApplyEspiaClock()
         {
-            if ( !IsFlagTripped( "OI_EspiaSignalSent" ) && IsProjectCompleted( "OI_InterfaceStressSurvey" ) )
+            if ( !IsFlagTripped( "OI_EspiaSignalSent" ) && IsProjectCompleted( "OI_MicrobotInterfaceTrials" ) )
             {
                 long clockStart = GetCityStatisticScore( "OI_EspiaClockStart" );
                 if ( clockStart <= 0 )
@@ -392,7 +392,7 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static void ApplyVorsiberClock()
         {
-            if ( !IsFlagTripped( "OI_VorsiberNoticed" ) && IsProjectCompleted( "OI_NanobotMiniaturization" ) )
+            if ( !IsFlagTripped( "OI_VorsiberNoticed" ) && IsProjectCompleted( "OI_FieldNanotechHarvest" ) )
             {
                 long clockStart = GetCityStatisticScore( "OI_VorsiberClockStart" );
                 int delay = IsFlagTripped( "OI_EspiaPublished" ) ? 2 : 5;
