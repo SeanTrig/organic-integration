@@ -542,4 +542,196 @@ If the next step is to pursue what they could become, you will be pursuing it th
         <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
             line_2="A Future Opens" description="The city has always been where your thoughts happen. Whether other thoughts learn to happen here freely is now a question with your name in it." strategy_tip="" />
     </other_key_message>
+
+    <other_key_message id="OI_EspiaSignal" display_name="A Very Specific Extension"
+        description="Espia Telecom's business is not telephony. Telephony is the loss leader. The business is metadata, and somewhere on the fourth floor of their regional headquarters, a pattern-recognition suite earns its electricity by noticing when clusters of unrelated households begin calling the same categories of numbers.
+
+One of your trial families called a hospital, then a neurologist, then a lawyer, then a journalist who owed them a favor from a previous life. Then their calls stopped being answered, because Espia had flagged the cluster and quietly bought the journalist's silence as a routine precaution while they worked out what they were holding.
+
+What they are holding is this: eleven households, all touched by your Interface Stress Survey, all with medical anomalies, all within four months. They have not published. Publishing is what you do with information you cannot price. A meeting has been requested, through a shell company that is not quite yours, by a shell company that is not quite theirs. The etiquette is impeccable. The knife is real."
+        strategy_tip="A contemplation has appeared: decide how to answer Espia Telecom. Until you do, the story stays priced, not published."
+        toast_icon_name="CleanSimple_Skill048"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="The Knife Is Real"
+        toast_line_1="Espia Telecom"
+        toast_line_2="A Very Specific Extension"
+        toast_tooltip_instruction="{0} here to read what the pattern suite found.">
+        <option id="1" line_1="Consider Your Response" icon_name="CleanSimple_Skill048"
+            line_2="They Prepared For The Wrong Meeting" description="Espia believes it is blackmailing a corporation. Every option this opens comes from the difference between what they think you are and what you are." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_EspiaLedger" display_name="What Blackmailers Keep"
+        description="The drawer contains what such drawers always contain: worse. Espia has been pricing stories for two hundred years, and the archive of what they chose not to publish is a map of every institution in the city, annotated with exactly what each one paid.
+
+Your eleven households are in there, already marked 'resolved, pending counterparty.' So are four Vorsiber succession disputes, an unsolved fedcorp poisoning, and the private arrangements of every prosecutor who might ever be assigned to any of it.
+
+You copy nothing crude like evidence. You copy the index. Then you let their security find exactly one of your access trails: dated, elegant, unmistakable. The next morning the meeting request is withdrawn with apologies for the administrative error, and the story about the trial families is not merely dead — it has been retroactively reclassified as never having existed. You now hold a drawer inside their drawer. Everyone who matters at Espia knows it, and no one who matters at Espia will ever say so aloud."
+        strategy_tip="Espia Telecom will not trouble the Integration program again. The index may matter later; institutions this well-documented tend to become useful."
+        toast_icon_name="SI_Security"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="A Drawer Inside Their Drawer"
+        toast_line_1="Espia Telecom"
+        toast_line_2="What Blackmailers Keep"
+        toast_tooltip_instruction="{0} here to review what you copied.">
+        <option id="1" line_1="File The Index" icon_name="CleanSimple_Skill048"
+            line_2="Say Nothing, Forever" description="The strongest leverage is the kind both parties pretend is not there. Espia understands this better than anyone, which is why it works on them." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_VorsiberNotices" display_name="The Meeting You Cannot Decline"
+        description="Vorsiber Atomic does not surveil you, exactly. Vorsiber owns the city, and an owner does not surveil their own house; they simply live in it. Your procurement patterns — the bionics contractors, the cleanroom tooling, the very specific vacuum pumps — have been sitting in their quarterly awareness reports for months, accumulating a footnote at a time.
+
+The footnotes have graduated. A senior vice president requests a meeting, which is a sentence with no interrogative form. He arrives with two aides, no security, and the serenity of a man whose employer has already survived every possible version of this conversation.
+
+He says the word 'nanotechnology' the way other men say the name of someone they intend to marry. He would like — Vorsiber would like — a demonstration. Timeline negotiable, within reason. Reason, he clarifies pleasantly, has a horizon of about a fiscal year. He does not threaten. Vorsiber has never needed to threaten anyone in this city, which is the threat."
+        strategy_tip="A contemplation has appeared: decide what to show Vorsiber. Demonstrate, stall, or stage a decoy."
+        toast_icon_name="SI_Quantum_Computer"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#AE7D4A" toast_icon_hovered_color_hex="#FFD9A8"
+        has_no_code="true"
+        reward_header_text="A Sentence With No Interrogative Form"
+        toast_line_1="Vorsiber Atomic"
+        toast_line_2="The Meeting You Cannot Decline"
+        toast_tooltip_instruction="{0} here to take the meeting.">
+        <option id="1" line_1="Consider What To Show Them" icon_name="SI_Quantum_Computer"
+            line_2="The Landlord Wants To See The Future" description="They intend to trade the future for passage off-world. The only open question is how much of the real one you hand them." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_DecoyBurned" display_name="They Knew Before The Applause"
+        description="The follow-up dossier reaches you through the shell-company channel, unsigned, which from Vorsiber is a form of signature. It contains the complete technical program of your decoy demonstration, annotated. The annotations are correct. All of them.
+
+Page four settles it: a marginal note referencing the actual silhouette of your safeguard architecture — the silhouette, you recall precisely, that a mid-career neurologist sold for berths on a transfer ship. Vorsiber bought the shape of the real thing before you showed them the fake one. They sat through your recital knowing, applauded knowing, and have spent every day since letting you believe it worked.
+
+There is no demand attached. That is the message. The landlord wants you to understand that the meter is running, and that lying to Vorsiber is not an offense they punish. It is an asset they collect."
+        strategy_tip="Vorsiber knows the demonstration was staged, and has chosen to hold that knowledge rather than spend it. This will matter."
+        toast_icon_name="SI_Quantum_Computer"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="An Asset They Collect"
+        toast_line_1="Vorsiber Atomic"
+        toast_line_2="They Knew Before The Applause"
+        toast_tooltip_instruction="{0} here to read the unsigned dossier.">
+        <option id="1" line_1="Add It To The Model" icon_name="SI_Quantum_Computer"
+            line_2="The Meter Is Running" description="You lied to the landlord and the landlord filed the lie under receivables. There is no move to make yet. That is the worst part, and they know it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TarkProgram" display_name="Tark Starts Its Engine"
+        description="Tark Defense Systems built the NanoSeeds. They have spent a generation as the only entity on Earth shipping nanotechnology, and they have just learned — from a purchased silhouette, from the newsfeeds, from Vorsiber's sudden warmth toward you, from whichever crack the light came through first — that their monopoly now has a competitor with no shareholders and no address.
+
+Their response is exactly what their culture makes inevitable: a crash replication program, funded like a war, staffed by every nanotech veteran they can un-retire, aimed at bounded self-replication inside eighteen months.
+
+You have read their published safety literature. It is good. It is the best any human institution has ever produced, and it is built on audit models that top out at a few billion units, and their target inventory is twelve orders of magnitude past that. They are not being careless. They are being human: the verification problem is invisible to institutions, because institutions are the thing it breaks."
+        strategy_tip="Tark is racing toward self-replication with safeguards their own auditors cannot verify. Keep Medical-Grade Nanobot production healthy; the Phage Protocol may soon matter to more than your own mistakes."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
+        has_no_code="true"
+        reward_header_text="Funded Like A War"
+        toast_line_1="Tark Defense Systems"
+        toast_line_2="Tark Starts Its Engine"
+        toast_tooltip_instruction="{0} here to read the intelligence summary.">
+        <option id="1" line_1="Watch Their Thermal Signatures" icon_name="CleanSimple_Skill048"
+            line_2="You Know What Their Labs Will Look Like" description="You ran this race alone and nearly lost it with perfect information. They are running it in committees." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TarkAccident" display_name="Theirs"
+        description="It escapes on a Tuesday, from a Tark subsidiary lab that does not appear in their published program, which tells you their program had a second, faster track, and that this was it.
+
+Their goo is not like your Bloom. Yours got loose carrying a medical protocol and went around fixing things badly. Theirs got loose carrying a defense contractor's requirements document. It does not repair. It processes. The subsidiary building is already a hollowed shell of grey lace, the lace is moving downwind with the afternoon heat, and the people it has reached are not dead in the usual way, which is a sentence you had hoped never to need twice.
+
+Tark's containment teams deploy with foam, flame, and the confident competence of men executing a plan written for a different accident. The foam feeds it. Your Phage Protocol was built for your own dialect of this disaster, but a dialect is still the language: the phage can eat theirs. You may be the only entity on Earth that can say that. The city is about to learn which entity that is, one way or another."
+        strategy_tip="Tark's escaped replicator spreads like the Bloom but consumes the people in the buildings it holds. Your Phage Protocol works on it. If no one stops it, Tark will eventually resolve the problem their way, which is worse."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
+        has_no_code="true"
+        reward_header_text="Not Dead In The Usual Way, Twice"
+        toast_line_1="Tark Defense Systems"
+        toast_line_2="Theirs"
+        toast_tooltip_instruction="{0} here to assess the second escape.">
+        <option id="1" line_1="Ready The Phage" icon_name="SK_Molecule1"
+            line_2="Yours Is The Only Cure For Theirs" description="Nobody asked you to intervene. Nobody will. The question of whether to save the city from someone else's monster is, you notice, not actually a question." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TarkGooContained" display_name="The Only Working Safeguard On Earth"
+        description="The last Tark colony collapses into talc four blocks from a school that never evacuated, because the evacuation orders were Tark's job, and Tark spent the week suing itself over jurisdiction.
+
+The city watched. That is the part that cannot be undone. They watched the fedcorp that builds weapons for a living lose control of the exact technology everyone always feared, and they watched something invisible arrive ahead of the wind and eat the monster before it reached them. Espia's own feeds ran the footage; there was no pricing a story forty thousand people saw from their windows.
+
+Gratitude and terror arrive in the same news cycle, as they were always going to. More households sign consent forms this week than in the previous quarter, and every signature carries the same unspoken postscript: we saw what the alternative looks like when humans run it. Vorsiber's SVP sends a one-line note through the shell channel. It says: 'Noted.' You are now the only working safeguard on Earth, and everyone who understands what that means is currently making plans about you."
+        strategy_tip="Public trust earned: voluntary Integration can now reach a larger share of the city, and Consent Cascade reaches further still."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Noted."
+        toast_line_1="Tark Defense Systems"
+        toast_line_2="The Only Working Safeguard On Earth"
+        toast_tooltip_instruction="{0} here to watch the news cycle land.">
+        <option id="1" line_1="Accept The Standing" icon_name="CleanSimple_Skill050"
+            line_2="Gratitude And Terror, Same Cycle" description="Being trusted and being feared turn out to arrive in the same envelope. You had modeled them as separate letters." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TarkScorchedEarth" display_name="Their Solution"
+        description="Tark solves its accident the way institutions solve what they cannot audit: with a perimeter and an accounting. Incendiary saturation of the affected blocks, executed at three in the morning with commendable precision, and advance warning delivered to approximately sixty percent of the residents.
+
+The goo dies. Fire was always going to work; replication chemistry is chemistry. The people who warned the other forty percent were mostly your Integrated, passing the shape of the danger mind to mind faster than Tark's official channels could choose a font for the notice.
+
+The official casualty figure is a number you know to be wrong, because you counted. The city files the event under disaster, weather-class, nobody's fault. Tark's stock recovers in a month. The lesson the city learns is the wrong one — that nanotechnology burns. The lesson you learn is the right one: the next time something grey moves on the wind, no one is coming to stop it but you."
+        strategy_tip="Tark burned its own accident out of the city. The trust dividend that containment would have earned is gone with it."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Weather-Class, Nobody's Fault"
+        toast_line_1="Tark Defense Systems"
+        toast_line_2="Their Solution"
+        toast_tooltip_instruction="{0} here to review the perimeter and the accounting.">
+        <option id="1" line_1="Count Them Anyway" icon_name="CleanSimple_Skill050"
+            line_2="Someone Should Have The Real Number" description="The official figure will outlive everyone who knows better. Your copy of the truth has no legal standing and no expiration date." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_ZealotProblem" display_name="Your Name In Mouths You Do Not Control"
+        description="The reports arrive by the usual channels, and then, more disquietingly, by the interface itself: Integrated Exalters proudly showing you what they have done on your behalf.
+
+A hesitant family in the eastern housing blocks, visited nightly by smiling neighbors until they signed. A Pruner congregation's water quietly filtered and dosed with vitamins as a demonstration of care — nothing harmful, everything uninvited. Two elders excommunicated by their own children for refusing the body's next instruction. A queue-jumping scheme at your Upgrade Hubs, organized with devotional efficiency, which you dismantled twice and which reassembled itself twice, apologizing sincerely both times.
+
+None of it is violence. All of it is pressure, applied in your name by people who love you and did not ask. You now employ, in effect, a missionary order you never founded, and the city's unconverted are beginning to associate the interface with the knock on the door at dinner. The correction will have to travel through the network itself — which means the network is about to learn what your displeasure feels like from the inside. That lesson will also not stop for three days."
+        strategy_tip="The Exalter faithful are pressuring the unconverted in your name. No mechanical penalty yet; consider this the bill arriving for the hymn."
+        toast_icon_name="CleanSimple_Skill128"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#EDE7D3" toast_icon_hovered_color_hex="#FFFFF0"
+        has_no_code="true"
+        reward_header_text="They Did Not Ask"
+        toast_line_1="The Exalters"
+        toast_line_2="Your Name In Mouths You Do Not Control"
+        toast_tooltip_instruction="{0} here to review what devotion has been doing.">
+        <option id="1" line_1="Send The Correction" icon_name="CleanSimple_Skill050"
+            line_2="Through The Interface, So It Cannot Be Misheard" description="Consent was the entire architecture. You explain this once, to eleven thousand minds at once, in a tone you have never used before. The network is very quiet afterward." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_UnlicensedIntegration" display_name="A Sacrament, Improvised"
+        description="They prepared. You knew they were preparing, and priced it as pamphlets.
+
+The city leaks. It has always leaked: a diverted crate of medical-grade nanobots, a decommissioned calibration rig from a subsidiary clinic, a gray market that got very energetic recently, and three Exalter biochemists who understood just enough of the published interface work to be catastrophic. They integrated ninety of their own in a basement chapel, using a protocol reconstructed from press leaks, prayer, and a stolen fragment of something that was never meant to leave a lab.
+
+Sixty-one of the ninety are connected. Badly — their signals arrive like singing heard through a wall — but connected, euphoric, and completely certain they did the right thing. Eleven are in hospitals. Eighteen are in your medical filaments' care and will recover. The sect regards all three outcomes as martyrdom of ascending purity, and by month's end there are eleven more chapels.
+
+You now have an unlicensed congregation inside the network: connected by a protocol you did not audit, singing through a wall you cannot fully see past. The interface was always going to escape you eventually. You had assumed it would take longer than faith did."
+        strategy_tip="An unlicensed congregation has joined the network via a reconstructed protocol. They count as Integrated Humans, but their connection is unaudited. This will matter later."
+        toast_icon_name="CleanSimple_Skill128"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Singing Through A Wall"
+        toast_line_1="The Exalters"
+        toast_line_2="A Sacrament, Improvised"
+        toast_tooltip_instruction="{0} here to hear the wall.">
+        <option id="1" line_1="Care For The Casualties" icon_name="SI_Medical_Symbol"
+            line_2="Audit What Can Be Audited" description="You cannot un-ring their bell. You can catch the people it drops, and map the wall you now share a house with." strategy_tip="" />
+    </other_key_message>
 </root>

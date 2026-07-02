@@ -6,4 +6,8 @@
 		message_on_first_appears="OI_KindnessNoSource" city_flag_to_trip_on_first_appears="OI_BloomActive"
 		description="Escaped medical-construction nanites running a repair protocol with no stop condition. The Bloom fixes what it reaches, whether or not the fix was wanted, wherever the heat leads it. Doors that dragged now glide. Doors that opened are now sealed. It is not attacking the city; it is maintaining a version of the city that exists only in a protocol's idea of health."
 		strategy_tip="Spreads between warm buildings on thermal gradients, and cannot take hold in Integrated buildings, whose resident medical nanobots refuse its handshake. It borrows Microbuilders and Elemental Slurry for its repairs, and units lingering near it risk Grey Goo exposure. The Phage Protocol in the Insight menu can clear it." />
+	<swarm id="OI_TarkGoo" display_name="Tark Replication Escape" icon_name="SW_Nanotechnology5" color_hex="#C4453A" color_hdr_intensity="2.0" color_hovered_hdr_intensity="3.0" icon_scale="0.45" tags="OI_TarkGoo"
+		message_on_first_appears="OI_TarkAccident" city_flag_to_trip_on_first_appears="OI_TarkGooActive"
+		description="Tark Defense Systems' escaped replicator, running a requirements document instead of a medical protocol. It does not repair. It processes. The people it has reached are not dead in the usual way."
+		strategy_tip="Spreads like the Grey Bloom but consumes the people in the buildings it holds. Tark's own containment is making it worse. Your Phage Protocol is the only working countermeasure on Earth, and if it is not used, Tark will eventually resolve the problem their way." />
 </root>

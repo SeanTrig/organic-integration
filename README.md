@@ -98,6 +98,35 @@ for Medical-Grade Nanobots and Mental Energy. Containment leaves a dormant resid
 the city, which future content builds on. Escalation beats fire at 12 buildings
 (spread), first player-structure repair (handshake), and 25 buildings (mutation drift).
 
+### The Faction Dash
+
+Once the research arc is visible, the city's powers converge on it, each in their own
+dialect:
+
+- **Espia Telecom** flags the Interface Stress Survey's trial families through call
+  metadata and prices the story. Pay the subscription (150M Wealth, recurring in
+  spirit), open their own ledgers (an infiltration project ending in permanent quiet
+  leverage), or let them publish (voluntary Integration recruitment halved for ~20
+  turns while the city decides what it believes).
+- **Vorsiber Atomic** notices your procurement patterns after Nanobot Miniaturization
+  and requests a demonstration, which is not a request. Demonstrate (become defended
+  inventory, +100M grant), stall (a season of fog, bought with appendices), or stage
+  a decoy — which is only safe if nobody sold Vorsiber the real silhouette. If the
+  collaborative doctrine's saboteur did, the decoy is burned, and Vorsiber files your
+  lie under receivables.
+- **Tark Defense Systems** launches a crash replication program once the secret is
+  loose (or eventually regardless). Ten turns later their second-track lab loses
+  containment: the Tark goo spreads like the Bloom but eats the people in the
+  buildings it holds. Only your Phage Protocol works. Contain it in public and earn a
+  permanent trust dividend (+7% voluntary Integration cap); let it run 25 turns and
+  Tark firebombs its own accident at 3 a.m., with warnings for sixty percent.
+- **The Exalters** arrive once Integration is chosen and 20,000 are connected:
+  eleven thousand faithful requesting the interface as a sacrament. Accept them
+  (+8,000 Integrated and, ten turns later, the zealot problem — pressure applied in
+  your name by people who love you and did not ask) or decline gently (twelve turns
+  later, ninety people integrate themselves in a basement chapel with a reconstructed
+  protocol, and the network gains an unlicensed congregation you cannot fully audit).
+
 ### Applications Cascade And Coordination Bandwidth
 
 Completing Replicative Safeguards now also delivers the immediate applications: the

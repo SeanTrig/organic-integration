@@ -40,6 +40,11 @@ namespace Arcen.HotM.OrganicIntegration
                             OutcomeOrNoneYet.GetSingleIntByID( "DesignPointGoal", 32 ), BufferOrNull, ref CanBeCompletedNow );
                         break;
 
+                    case "OI_EspiaLeverage":
+                        HandleStatisticProgress( Logic, OutcomeOrNoneYet, "OI_EspiaLeveragePoints",
+                            OutcomeOrNoneYet.GetSingleIntByID( "DesignPointGoal", 18 ), BufferOrNull, ref CanBeCompletedNow );
+                        break;
+
                     case "OI_DesignHumanCompatibleNeuroweave":
                     case "OI_ReplicativeSafeguards":
                     case "OI_ReplicationDoctrine":

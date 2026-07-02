@@ -158,8 +158,247 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyFirstDeathTimer();
             ApplyFeltDeathsMentalLoad();
             ApplyGreyBloomLifecycle( RandForThisTurn );
+            ApplyTarkGooLifecycle( RandForThisTurn );
+            ApplyPhageProtocol();
             ApplyNaniteMaintenance();
+            ApplyFactionClocks( RandForThisTurn );
         }
+
+        #region Faction Clocks
+        private static void ApplyFactionClocks( SquirrelRand Rand )
+        {
+            bool voluntaryLocked = IsFlagTripped( "OI_IntegrationVoluntaryLocked" );
+            bool coerciveLocked = IsFlagTripped( "OI_IntegrationCoerciveLocked" );
+            if ( (voluntaryLocked || coerciveLocked) && !IsFlagTripped( "OI_IntegrationChosen" ) )
+                TripFlag( "OI_IntegrationChosen" );
+
+            if ( IsFlagTripped( "OI_IntegrationAvailable" ) && GetCityStatisticScore( "OI_IntegrationAvailableTurn" ) <= 0 )
+                GStatisticTable.SetScore_UserBeware( "OI_IntegrationAvailableTurn", SimCommon.Turn );
+
+            ApplyEspiaClock();
+            ApplyVorsiberClock();
+            ApplyTarkClock();
+            ApplyExalterClock();
+        }
+
+        private static bool IsProjectCompleted( string projectID )
+        {
+            MachineProject project = MachineProjectTable.Instance.GetRowByIDOrNullIfNotFound( projectID );
+            return project?.DGD?.Completed_AnyOutcome ?? false;
+        }
+
+        private static void ApplyEspiaClock()
+        {
+            if ( !IsFlagTripped( "OI_EspiaSignalSent" ) && IsProjectCompleted( "OI_InterfaceStressSurvey" ) )
+            {
+                long clockStart = GetCityStatisticScore( "OI_EspiaClockStart" );
+                if ( clockStart <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_EspiaClockStart", SimCommon.Turn );
+                else if ( SimCommon.Turn - clockStart >= 6 )
+                {
+                    TripFlag( "OI_EspiaSignalSent" );
+                    FireKeyMessage( "OI_EspiaSignal" );
+                }
+            }
+
+            if ( IsFlagTripped( "OI_EspiaPaid" ) && !IsFlagTripped( "OI_EspiaPaidCharged" ) )
+            {
+                TripFlag( "OI_EspiaPaidCharged" );
+                ResourceType wealth = GetResource( "Wealth" );
+                if ( wealth != null && wealth.Current > 0 )
+                {
+                    long charge = Math.Min( wealth.Current, 150000000L );
+                    wealth.AlterCurrent_Named( -charge, "Expense_OI_EspiaSubscription", ResourceAddRule.IgnoreUntilTurnChange );
+                }
+            }
+
+            if ( IsFlagTripped( "OI_EspiaPublished" ) && GetCityStatisticScore( "OI_PublicScandalUntilTurn" ) <= 0 )
+                GStatisticTable.SetScore_UserBeware( "OI_PublicScandalUntilTurn", SimCommon.Turn + 20 );
+        }
+
+        private static void ApplyVorsiberClock()
+        {
+            if ( !IsFlagTripped( "OI_VorsiberNoticed" ) && IsProjectCompleted( "OI_NanobotMiniaturization" ) )
+            {
+                long clockStart = GetCityStatisticScore( "OI_VorsiberClockStart" );
+                int delay = IsFlagTripped( "OI_EspiaPublished" ) ? 2 : 5;
+                if ( clockStart <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_VorsiberClockStart", SimCommon.Turn );
+                else if ( SimCommon.Turn - clockStart >= delay )
+                {
+                    TripFlag( "OI_VorsiberNoticed" );
+                    FireKeyMessage( "OI_VorsiberNotices" );
+                }
+            }
+
+            if ( IsFlagTripped( "OI_VorsiberDemonstrated" ) && !IsFlagTripped( "OI_VorsiberGrantGiven" ) )
+            {
+                TripFlag( "OI_VorsiberGrantGiven" );
+                ResourceType wealth = GetResource( "Wealth" );
+                wealth?.AlterCurrent_Named( 100000000L, "Income_OI_VorsiberGrant", ResourceAddRule.BlockExcess );
+            }
+
+            if ( IsFlagTripped( "OI_VorsiberDecoyed" ) && !IsFlagTripped( "OI_VorsiberKnowsYouLied" ) && IsFlagTripped( "OI_SabotageDiscovered" ) )
+            {
+                long decoyTurn = GetCityStatisticScore( "OI_VorsiberDecoyTurn" );
+                if ( decoyTurn <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_VorsiberDecoyTurn", SimCommon.Turn );
+                else if ( SimCommon.Turn - decoyTurn >= 8 )
+                {
+                    TripFlag( "OI_VorsiberKnowsYouLied" );
+                    FireKeyMessage( "OI_DecoyBurned" );
+                }
+            }
+        }
+
+        private static void ApplyTarkClock()
+        {
+            if ( !IsFlagTripped( "OI_IntegrationAvailable" ) )
+                return;
+
+            if ( !IsFlagTripped( "OI_TarkProgramStarted" ) )
+            {
+                bool leaked = IsFlagTripped( "OI_SabotageDiscovered" ) || IsFlagTripped( "OI_EspiaPublished" ) || IsFlagTripped( "OI_VorsiberDemonstrated" );
+                long availableTurn = GetCityStatisticScore( "OI_IntegrationAvailableTurn" );
+                bool timerExpired = availableTurn > 0 && SimCommon.Turn - availableTurn >= 30;
+                if ( leaked || timerExpired )
+                {
+                    TripFlag( "OI_TarkProgramStarted" );
+                    GStatisticTable.SetScore_UserBeware( "OI_TarkProgramTurn", SimCommon.Turn );
+                    FireKeyMessage( "OI_TarkProgram" );
+                }
+                return;
+            }
+
+            if ( IsFlagTripped( "OI_TarkGooActive" ) || IsFlagTripped( "OI_TarkGooContained" ) || IsFlagTripped( "OI_TarkScorchedDistrict" ) )
+                return;
+
+            long programTurn = GetCityStatisticScore( "OI_TarkProgramTurn" );
+            if ( programTurn <= 0 || SimCommon.Turn - programTurn < 10 )
+                return;
+
+            Swarm tarkGoo = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( "OI_TarkGoo" );
+            if ( tarkGoo == null )
+                return;
+
+            BaseBuilding seedTarget = PickBloomTarget( null, Engine_Universal.PermanentQualityRandom );
+            if ( seedTarget == null )
+                return;
+
+            seedTarget.SwarmSpread = tarkGoo;
+            seedTarget.SetSwarmSpreadCount( BloomSeedCount + 20 );
+            GStatisticTable.SetScore_UserBeware( "OI_TarkGooStartTurn", SimCommon.Turn );
+            SimCommon.NeedsBuildingListRecalculation = true;
+        }
+
+        private static void ApplyExalterClock()
+        {
+            ResourceType upgraded = GetResource( UpgradedResource );
+
+            if ( !IsFlagTripped( "OI_ExalterConditions" ) && IsFlagTripped( "OI_IntegrationChosen" )
+                && (upgraded?.Current ?? 0L) >= 20000L )
+                TripFlag( "OI_ExalterConditions" );
+
+            if ( IsFlagTripped( "OI_ExaltersAccepted" ) )
+            {
+                if ( !IsFlagTripped( "OI_ExalterPopGranted" ) )
+                {
+                    TripFlag( "OI_ExalterPopGranted" );
+                    GStatisticTable.SetScore_UserBeware( "OI_ExalterAcceptTurn", SimCommon.Turn );
+                    if ( upgraded != null )
+                    {
+                        upgraded.AlterCurrent_Named( 8000L, "Income_OI_ExalterFaithful", ResourceAddRule.IgnoreUntilTurnChange );
+                        GStatisticTable.AlterScore( "OI_UpgradedPopulation", 8000 );
+                    }
+                }
+                else if ( !IsFlagTripped( "OI_ZealotProblemShown" ) )
+                {
+                    long acceptTurn = GetCityStatisticScore( "OI_ExalterAcceptTurn" );
+                    if ( acceptTurn > 0 && SimCommon.Turn - acceptTurn >= 10 )
+                    {
+                        TripFlag( "OI_ZealotProblemShown" );
+                        FireKeyMessage( "OI_ZealotProblem" );
+                    }
+                }
+            }
+
+            if ( IsFlagTripped( "OI_ExaltersRebuffed" ) && !IsFlagTripped( "OI_UnlicensedCell" ) )
+            {
+                long rebuffTurn = GetCityStatisticScore( "OI_ExalterRebuffTurn" );
+                if ( rebuffTurn <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_ExalterRebuffTurn", SimCommon.Turn );
+                else if ( SimCommon.Turn - rebuffTurn >= 12 )
+                {
+                    TripFlag( "OI_UnlicensedCell" );
+                    FireKeyMessage( "OI_UnlicensedIntegration" );
+                    if ( !IsFlagTripped( "OI_UnlicensedPopGranted" ) && upgraded != null )
+                    {
+                        TripFlag( "OI_UnlicensedPopGranted" );
+                        upgraded.AlterCurrent_Named( 2000L, "Income_OI_UnlicensedIntegration", ResourceAddRule.IgnoreUntilTurnChange );
+                        GStatisticTable.AlterScore( "OI_UpgradedPopulation", 2000 );
+                    }
+                }
+            }
+        }
+
+        private static void ApplyTarkGooLifecycle( SquirrelRand Rand )
+        {
+            if ( !IsFlagTripped( "OI_TarkGooActive" ) )
+                return;
+
+            Swarm tarkGoo = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( "OI_TarkGoo" );
+            if ( tarkGoo == null )
+                return;
+
+            System.Collections.Generic.List<BaseBuilding> held = GetBloomedBuildings( tarkGoo );
+
+            if ( held.Count == 0 )
+            {
+                if ( !IsFlagTripped( "OI_TarkGooContained" ) && !IsFlagTripped( "OI_TarkScorchedDistrict" ) )
+                {
+                    TripFlag( "OI_TarkGooContained" );
+                    TripFlag( "OI_PublicTrustEarned" );
+                    FireKeyMessage( "OI_TarkGooContained" );
+                }
+                return;
+            }
+
+            long startTurn = GetCityStatisticScore( "OI_TarkGooStartTurn" );
+            if ( startTurn > 0 && SimCommon.Turn - startTurn >= 25 )
+            {
+                foreach ( BaseBuilding building in held )
+                {
+                    building.KillRandomHere( building.GetTotalResidentCount() / 4, Rand, false, string.Empty );
+                    building.AlterSwarmSpreadCount( -building.SwarmSpreadCount );
+                    building.SwarmSpread = null;
+                }
+                TripFlag( "OI_TarkScorchedDistrict" );
+                FireKeyMessage( "OI_TarkScorchedEarth" );
+                SimCommon.NeedsBuildingListRecalculation = true;
+                return;
+            }
+
+            foreach ( BaseBuilding building in held )
+            {
+                int count = building.SwarmSpreadCount;
+                building.AlterSwarmSpreadCount( Math.Max( 4, count / 10 ) );
+
+                int peopleHere = building.GetTotalResidentCount() + building.GetTotalWorkerCount();
+                if ( peopleHere > 0 )
+                {
+                    int toKill = Math.Min( peopleHere, Math.Max( 1, Math.Min( 8, count / 400 ) ) );
+                    building.KillRandomHere( toKill, Rand, false, string.Empty );
+                }
+            }
+
+            if ( held.Count < 30 )
+                SpreadGreyBloom( tarkGoo, held, 3, Rand );
+
+            held = GetBloomedBuildings( tarkGoo );
+            foreach ( BaseBuilding building in held )
+                BloomPositionsCache.Add( building.GetEffectiveWorldLocationForContainedUnit() );
+        }
+        #endregion
 
         #region Grey Bloom
         private static void ApplyGreyBloomLifecycle( SquirrelRand Rand )
@@ -203,7 +442,6 @@ namespace Arcen.HotM.OrganicIntegration
 
             SiphonBloomMaterials( bloomed.Count );
             ApplyBloomUnwantedHelp( bloomed );
-            ApplyPhageProtocol( bloom, bloomed );
 
             bloomed = GetBloomedBuildings( bloom );
             GStatisticTable.SetScore_UserBeware( "OI_BloomBuildings", bloomed.Count );
@@ -424,12 +662,28 @@ namespace Arcen.HotM.OrganicIntegration
             }
         }
 
-        private static void ApplyPhageProtocol( Swarm bloom, System.Collections.Generic.List<BaseBuilding> bloomed )
+        private static void ApplyPhageProtocol()
         {
             MachineVRModeAction action = GetVRAction( PhageProtocolAction );
             if ( action == null || !action.DGD.IsActiveNow )
                 return;
-            if ( bloomed.Count == 0 )
+
+            Swarm bloom = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( GreyBloomSwarm );
+            Swarm tarkGoo = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( "OI_TarkGoo" );
+
+            System.Collections.Generic.List<BaseBuilding> targets = new System.Collections.Generic.List<BaseBuilding>( 64 );
+            System.Collections.Generic.HashSet<int> tarkIDs = new System.Collections.Generic.HashSet<int>();
+            if ( bloom != null )
+                targets.AddRange( GetBloomedBuildings( bloom ) );
+            if ( tarkGoo != null )
+            {
+                foreach ( BaseBuilding building in GetBloomedBuildings( tarkGoo ) )
+                {
+                    targets.Add( building );
+                    tarkIDs.Add( building.GetHashCode() );
+                }
+            }
+            if ( targets.Count == 0 )
                 return;
 
             ResourceType nanobots = GetResource( MedicalNanobotsResource );
@@ -443,9 +697,17 @@ namespace Arcen.HotM.OrganicIntegration
             nanobots.AlterCurrent_Named( -PhageNanobotsPerTurn, "Expense_OI_PhageProtocol", ResourceAddRule.IgnoreUntilTurnChange );
             mentalEnergy.AlterCurrent_Named( -1L, "Expense_OI_PhageProtocol", ResourceAddRule.IgnoreUntilTurnChange );
 
-            bloomed.Sort( ( a, b ) => a.SwarmSpreadCount.CompareTo( b.SwarmSpreadCount ) );
+            targets.Sort( ( a, b ) =>
+            {
+                bool aTark = tarkIDs.Contains( a.GetHashCode() );
+                bool bTark = tarkIDs.Contains( b.GetHashCode() );
+                if ( aTark != bTark )
+                    return aTark ? -1 : 1;
+                return a.SwarmSpreadCount.CompareTo( b.SwarmSpreadCount );
+            } );
+
             int cleared = 0;
-            foreach ( BaseBuilding building in bloomed )
+            foreach ( BaseBuilding building in targets )
             {
                 if ( cleared >= PhageBuildingsPerTurn )
                     break;
@@ -1515,15 +1777,23 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static int GetVoluntaryPopulationCapPercent()
         {
-            return IsVRActionActive( ConsentCascadeAction ) ? VoluntaryConsentCascadeCapPercent : VoluntaryPopulationCapPercent;
+            bool cascade = IsVRActionActive( ConsentCascadeAction );
+            int percent = cascade ? VoluntaryConsentCascadeCapPercent : VoluntaryPopulationCapPercent;
+            if ( IsFlagTripped( "OI_PublicTrustEarned" ) )
+                percent += cascade ? 5 : 7;
+            return percent;
         }
 
         private static int GetVoluntaryConversionPercent()
         {
-            int percent = IsVRActionActive( ConsentCascadeAction ) ? VoluntaryConsentCascadeCapPercent : VoluntaryPopulationCapPercent;
+            int percent = GetVoluntaryPopulationCapPercent();
 
             if ( IsVRActionActive( OrganicQuantizationAction ) )
                 percent = Math.Max( 1, (percent + 1) / 2 );
+
+            long scandalUntil = GetCityStatisticScore( "OI_PublicScandalUntilTurn" );
+            if ( scandalUntil > 0 && SimCommon.Turn < scandalUntil )
+                percent = Math.Max( 1, percent / 2 );
             return percent;
         }
 

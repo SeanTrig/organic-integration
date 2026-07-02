@@ -95,4 +95,104 @@ It would be therapy. It was therapy last time. You keep circling the difference 
 			</possible_result>
 		</choice>
 	</city_event>
+
+	<city_event id="Cont_OI_EspiaResponse" display_name="The Price Of Eleven Households" tl="OC"
+		description="Espia's negotiators do not mention the families even once. They talk about content risk, narrative exposure, and mutually beneficial information hygiene, and the longer they talk the clearer the offer becomes. They believe they are blackmailing a corporation. They have prepared, meticulously, for the wrong meeting.
+
+You could pay. Corporations pay; it would read as dull and true. You could go through their ledgers instead — a company that sells everyone's secrets has spent generations assuming no one could do the same to them at scale. Or you could decline the meeting and let them publish, which is the one move their models genuinely do not contain."
+		strategy_tip="Answer Espia Telecom. Paying costs up to 150,000,000 Wealth. Publishing slows voluntary Integration recruitment for a while. Opening their ledgers starts an infiltration project."
+		icon_name="CleanSimple_Skill048" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_EspiaSignalSent" blocked_by_city_flag="OI_EspiaAnswered" blocked_if_project_ever_started_1="OI_EspiaLeverage"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="180"/>
+		<contemplation_data spawns_at_building_tag="AnySkyscraper"
+			icon_scale="0.5" color_hex="#5E8592" color_hdr_intensity="2.0" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Pay The Subscription" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="150,000,000 Wealth, structured as a content-licensing agreement. It is not a purchase; nothing here is ever sold once. It is a subscription, and both parties know it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The story dies in a drawer. The invoice will arrive quarterly, metaphorically speaking. Espia's negotiators leave believing they have won, which is a data point you file for later.">
+				<city_flag_change flag_type="OI_EspiaAnswered" value="1"/>
+				<city_flag_change flag_type="OI_EspiaPaid" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Open Their Ledgers" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Espia has spent two centuries assuming that the entity reading everyone's mail could never have its own mail read. Send androids into their data centers and find out what a blackmailer keeps in its own locked drawer.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_EspiaLeverage">
+				<city_flag_change flag_type="OI_EspiaAnswered" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="3" display_name="Let Them Publish" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Decline the meeting. The story runs: the machine under the city is experimenting on human brains. It has the disadvantage of being true, which the city's residents will notice before Espia does.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The story runs for weeks. Recruitment for voluntary Integration slows while the city decides what it believes. Espia keeps a line open for your counteroffer. It never comes, and that unsettles them more than any threat you could have priced.">
+				<city_flag_change flag_type="OI_EspiaAnswered" value="1"/>
+				<city_flag_change flag_type="OI_EspiaPublished" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_VorsiberDemand" display_name="What To Show The Landlord" tl="OC"
+		description="Vorsiber wants to see the future, because they intend to trade it for passage off-world before the mineral rights run dry. The senior vice president's patience is corporate: vast in principle, quarterly in practice.
+
+You have three honest options, one of which is a lie."
+		strategy_tip="Answer Vorsiber's demonstration request. Each answer shapes how the landlord treats you for the rest of the timeline."
+		icon_name="SI_Quantum_Computer" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_VorsiberNoticed" blocked_by_city_flag="OI_VorsiberAnswered"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="200"/>
+		<contemplation_data spawns_at_building_tag="AnySkyscraper"
+			icon_scale="0.5" color_hex="#AE7D4A" color_hdr_intensity="2.2" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Demonstrate" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="A controlled showing: medical filaments knitting a lab animal, a microstructure growing to spec, nothing that replicates outside the chamber. Give the landlord a real look at the smallest true thing. They will want more, forever. They will also start protecting you the way they protect anything they intend to sell.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The SVP watches the filament work in silence, and afterward shakes the android's hand, which people in this city do not do. Vorsiber's patrols in your districts develop a new thoroughness within the week. You have become inventory, and inventory is defended. A research support grant arrives without a cover letter.">
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberDemonstrated" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Stall" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Committees. Safety reviews. A joint-oversight framework proposal with nine appendices. Vorsiber invented this language; they will recognize every move, and the recognition itself buys time. Slow-walking is the one negotiating posture they consider legitimate.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Determination" resource_added_amount_1="10" result_message="The SVP accepts the appendices with professional grace and an expression you file under 'seen through, tolerated.' You have bought a season of fog. Vorsiber's patience is generational, but the SVP's bosses are not the generational kind. They are the dying kind, and dying men audit faster.">
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberStalled" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="3" display_name="Stage A Decoy" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Show them last year's microbots wearing next year's clothes: a demonstration full of real engineering and empty of the one thing that matters. The most dangerous option, because it is the only one that is a lie.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Creativity" resource_added_amount_1="8" result_message="The demonstration is flawless. The SVP applauds, briefly, the way one applauds a school recital. You count the micro-expressions on his aides and get an inconclusive number. It is done. Either they believed it, or you have just discovered what Vorsiber does with liars, on a delay.">
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberDecoyed" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_ExalterOffer" display_name="The Delegation Wears White" tl="OC"
+		description="Nurturism's mainline sects preach flourishing within the body's given meaning: prune what grows wrong, nurture what grows well, and leave the design to holier engineers than man. The Exalters were expelled from that consensus generations ago for the heresy of impatience. They believe the next humanity is a project, not a prophecy — and that declining to build it is the only actual sin.
+
+Their delegation arrives washed, rehearsed, and terrifyingly happy. They have read everything public about Integration and inferred an alarming fraction of what is not. To them you are not a machine, a landlord, or a risk. You are the answer arriving exactly on schedule, and they would like to be first in line, all eleven thousand of them, today, as a sacrament.
+
+They will never threaten you. That is not the problem, and you know it is not the problem."
+		strategy_tip="Accepting grants a large immediate wave of Integrated Humans, with consequences. Declining redirects their faith rather than extinguishing it, also with consequences."
+		icon_name="CleanSimple_Skill128" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_ExalterConditions" blocked_by_city_flag="OI_ExaltersAccepted" blocked_by_city_flag2="OI_ExaltersRebuffed"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.45" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="220"/>
+		<contemplation_data spawns_at_building_tag="Housing"
+			icon_scale="0.5" color_hex="#EDE7D3" color_hdr_intensity="1.6" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Accept The Faithful" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Eleven thousand volunteers with total conviction and zero hesitation. The interface does not care why consent is given, and their consent is more informed than most. Their fervor is a resource. Their fervor is also a payload you will be delivering into every conversation they ever have with the unconverted.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The intake takes weeks even at your pace, because you insist on the same explanations, calibrations, and cooling-off intervals as everyone else, and they endure the delays like a bride enduring rehearsal. Their first collective act on the network is a hymn. It has no melody, being made of gratitude, and it does not stop for three days.">
+				<city_flag_change flag_type="OI_ExaltersAccepted" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Decline, Gently" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Zeal is exactly the kind of consent that should be slept on. Offer them the standard path: the Sledges, the waiting lists, the explanations, one person at a time like everyone else. It is the correct answer. Correct answers redirect faith. They do not extinguish it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="8" result_message="The delegation receives your answer as a test of worthiness, which was the one interpretation you did not price. They thank you — radiantly — and leave in better order than they arrived. Faith that has been told to wait does not wait. It prepares.">
+				<city_flag_change flag_type="OI_ExaltersRebuffed" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
 </root>

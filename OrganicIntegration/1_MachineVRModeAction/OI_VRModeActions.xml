@@ -111,8 +111,8 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_PhageProtocol" display_name="Phage Protocol" sort_order="1250"
-        description="Counter-replicators that eat exactly one thing: the Grey Bloom's binding sites. They cannot reproduce past their payload, cannot survive without their prey, and were designed by the only entity on Earth that can audit both claims."
-        strategy_tip="Only useful while the Grey Bloom is loose. Toggle on to spend 1 Mental Energy and 120,000 Medical-Grade Nanobots per turn, clearing up to 3 Bloom-held buildings per turn, smallest infestations first. Exempt from coordination bandwidth; emergencies are reflexes, not coordination."
+        description="Counter-replicators that eat exactly one thing: escaped replicator binding sites, whoever's dialect they speak. They cannot reproduce past their payload, cannot survive without their prey, and were designed by the only entity on Earth that can audit both claims."
+        strategy_tip="Only useful while an escaped replicator is loose in the city. Toggle on to spend 1 Mental Energy and 120,000 Medical-Grade Nanobots per turn, clearing up to 3 held buildings per turn — hostile escapes first, then smallest infestations. Exempt from coordination bandwidth; emergencies are reflexes, not coordination."
         icon_name="SK_Molecule1" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"

@@ -62,7 +62,7 @@ namespace Arcen.HotM.OrganicIntegration
                             Cost( MedicalNanobotsResource, 15000L ) );
                     case "OI_PhageProtocol":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "While the Grey Bloom is loose: clears up to 3 Bloom-held buildings per turn, smallest infestations first. Costs nothing on turns with no Bloom present.",
+                            "While any escaped replicator is loose: clears up to 3 held buildings per turn, hostile escapes first. Costs nothing on turns with nothing to clear.",
                             Cost( MedicalNanobotsResource, 120000L ), Cost( MentalEnergyResource, 1L ) );
                 }
             }

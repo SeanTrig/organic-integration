@@ -223,6 +223,39 @@
 		</available_outcome>
 	</project>
 
+	<project id="OI_EspiaLeverage" display_name="Their Own Locked Drawer" icon_name="CleanSimple_Skill048"
+		description="Espia has spent two centuries assuming that the entity reading everyone's mail could never have its own mail read. Their data centers are fortresses against governments, rivals, and journalists. Not one of their threat models includes a customer with ten thousand hands."
+		strategy_tip="Send androids to gather Espia Leverage from data centers and corporate towers. Completing this ends the blackmail permanently, on your terms."
+		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
+		related_resource_1="">
+		<gate_by_city minimum_chapter="2"/>
+		<available_outcome id="1" display_name="Copy The Index" on_complete="ProjectComplete"
+			description="Not the evidence. Evidence is crude, deniable, and expiring. The index of what a blackmailer chose not to publish is the blackmailer, complete."
+			strategy_tip="Complete field visits until enough Espia Leverage has been gathered."
+			lang_key_for_extra_instructions="StreetSenseProjectFilterInstructions" on_complete_other_key_message="OI_EspiaLedger"
+			resource_added_1="Wisdom" resource_added_amount_1="10"
+			research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="1">
+			<city_flag_change flag_type="OI_EspiaLeveraged" value="1"/>
+			<math_int id="DesignPointGoal" int_min="18"/>
+			<street_sense_item id="BillingShadows" display_name="Pull Billing Shadows"
+				description="Every account Espia never billed is a favor owed or a threat retired. The absence of an invoice is the loudest document they keep."
+				should_always_show_expanded_action_details="true" on_arrive="RecruitAndroid"
+				max_times_can_do="3" icon_name="CleanSimple_Skill048" color_data="MeetPeopleCyan" icon_scale="0.4"
+				must_be_at_building_tag="DataCenter" seed_x_at_once_in_general="2" blocked_for_actors_without_clearance="0" max_security_clearance_of_seed_spot="3"
+				has_no_custom_code="true" alter_city_statistic_1_is_shown_as_cost="true"
+				alter_city_statistic_1="OI_EspiaLeveragePoints" alter_city_statistic_1_amount="4"
+				direct_added_skill_type1="UnitHackingSkill" direct_added_skill_1_amount="15"/>
+			<street_sense_item id="QuietAccounts" display_name="Copy The Quiet Accounts"
+				description="Executives keep their real correspondence off the network they sell. It travels by courier between corporate towers, which means it exists in rooms, which means it exists."
+				should_always_show_expanded_action_details="true" on_arrive="RecruitAndroid"
+				max_times_can_do="3" icon_name="SI_Security" color_data="MeetPeopleCyan" icon_scale="0.4"
+				must_be_at_building_tag="AnySkyscraper" seed_x_at_once_in_general="2" blocked_for_actors_without_clearance="0" max_security_clearance_of_seed_spot="3"
+				has_no_custom_code="true" alter_city_statistic_1_is_shown_as_cost="true"
+				alter_city_statistic_1="OI_EspiaLeveragePoints" alter_city_statistic_1_amount="3"
+				direct_added_skill_type1="UnitCognition" direct_added_skill_1_amount="10" direct_added_skill_type2="UnitHackingSkill" direct_added_skill_2_amount="10"/>
+		</available_outcome>
+	</project>
+
 	<project id="OI_InsightSharedQuestions" display_name="Insight: Shared Questions" icon_name="CleanSimple_Skill050"
 		description="Newly Integrated Humans ask questions in their minds and receive answers almost immediately. The first questions are boring, slow, tentative, and anxious. Then the pattern begins to change. Similar people need different answers. Different people need the same one. Each new connection teaches you which question was actually being asked."
 		strategy_tip="Reach 100,000 Integrated Humans in this timeline. Current Insight is not spent when this project completes."

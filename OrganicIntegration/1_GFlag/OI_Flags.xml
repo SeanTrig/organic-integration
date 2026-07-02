@@ -21,4 +21,30 @@
 	<city_flag id="OI_BloomContainedOnce" display_name="The Grey Bloom was contained" has_no_code="true"/>
 	<city_flag id="OI_BloomResidueDormant" display_name="Grey Bloom residue remains, dormant" has_no_code="true"/>
 	<city_flag id="OI_BandwidthNoticeShown" display_name="Coordination bandwidth explained" has_no_code="true"/>
+	<city_flag id="OI_EspiaSignalSent" display_name="Espia Telecom priced the story" has_no_code="true"/>
+	<city_flag id="OI_EspiaAnswered" display_name="Espia Telecom has been answered" has_no_code="true"/>
+	<city_flag id="OI_EspiaPaid" display_name="Espia subscription paid" has_no_code="true"/>
+	<city_flag id="OI_EspiaPaidCharged" display_name="Espia subscription charged" has_no_code="true"/>
+	<city_flag id="OI_EspiaLeveraged" display_name="Espia's own ledgers copied" has_no_code="true"/>
+	<city_flag id="OI_EspiaPublished" display_name="Espia published the trial story" has_no_code="true"/>
+	<city_flag id="OI_VorsiberNoticed" display_name="Vorsiber requested a demonstration" has_no_code="true"/>
+	<city_flag id="OI_VorsiberAnswered" display_name="Vorsiber has been answered" has_no_code="true"/>
+	<city_flag id="OI_VorsiberDemonstrated" display_name="Vorsiber saw a real demonstration" has_no_code="true"/>
+	<city_flag id="OI_VorsiberGrantGiven" display_name="Vorsiber research grant received" has_no_code="true"/>
+	<city_flag id="OI_VorsiberStalled" display_name="Vorsiber was stalled with appendices" has_no_code="true"/>
+	<city_flag id="OI_VorsiberDecoyed" display_name="Vorsiber was shown a decoy" has_no_code="true"/>
+	<city_flag id="OI_VorsiberKnowsYouLied" display_name="Vorsiber knew the decoy was a decoy" has_no_code="true"/>
+	<city_flag id="OI_TarkProgramStarted" display_name="Tark crash replication program running" has_no_code="true"/>
+	<city_flag id="OI_TarkGooActive" display_name="Tark's replicator has escaped" has_no_code="true"/>
+	<city_flag id="OI_TarkGooContained" display_name="Tark's escape contained by the Phage" has_no_code="true"/>
+	<city_flag id="OI_PublicTrustEarned" display_name="The city watched you stop Tark's goo" has_no_code="true"/>
+	<city_flag id="OI_TarkScorchedDistrict" display_name="Tark burned its own accident" has_no_code="true"/>
+	<city_flag id="OI_IntegrationChosen" display_name="An Integration path is locked" has_no_code="true"/>
+	<city_flag id="OI_ExalterConditions" display_name="The Exalters have taken notice" has_no_code="true"/>
+	<city_flag id="OI_ExaltersAccepted" display_name="The Exalter faithful were accepted" has_no_code="true"/>
+	<city_flag id="OI_ExalterPopGranted" display_name="Exalter intake completed" has_no_code="true"/>
+	<city_flag id="OI_ExaltersRebuffed" display_name="The Exalters were gently declined" has_no_code="true"/>
+	<city_flag id="OI_ZealotProblemShown" display_name="The zealot problem surfaced" has_no_code="true"/>
+	<city_flag id="OI_UnlicensedCell" display_name="An unlicensed congregation is on the network" has_no_code="true"/>
+	<city_flag id="OI_UnlicensedPopGranted" display_name="Unlicensed integration counted" has_no_code="true"/>
 </root>

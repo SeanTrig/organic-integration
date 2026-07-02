@@ -11,6 +11,26 @@
 	<lang id="OI_Stat_Desc_BloomBuildings" text="The number of buildings currently held by the Grey Bloom." />
 	<lang id="OI_Stat_Name_BloomPeakBuildings" text="Bloom Peak Buildings" />
 	<lang id="OI_Stat_Desc_BloomPeakBuildings" text="The largest number of buildings the Grey Bloom has held at once in this timeline." />
+	<lang id="OI_Stat_Name_EspiaClockStart" text="Espia Clock Start" />
+	<lang id="OI_Stat_Desc_EspiaClockStart" text="The turn Espia Telecom's pattern suite flagged the trial families." />
+	<lang id="OI_Stat_Name_EspiaLeveragePoints" text="Espia Leverage" />
+	<lang id="OI_Stat_Desc_EspiaLeveragePoints" text="Material copied from Espia Telecom's own locked drawers." />
+	<lang id="OI_Stat_Name_PublicScandalUntilTurn" text="Public Scandal Until Turn" />
+	<lang id="OI_Stat_Desc_PublicScandalUntilTurn" text="While the published story runs, voluntary Integration recruitment is slowed." />
+	<lang id="OI_Stat_Name_VorsiberClockStart" text="Vorsiber Clock Start" />
+	<lang id="OI_Stat_Desc_VorsiberClockStart" text="The turn Vorsiber's awareness reports graduated their footnotes." />
+	<lang id="OI_Stat_Name_VorsiberDecoyTurn" text="Vorsiber Decoy Turn" />
+	<lang id="OI_Stat_Desc_VorsiberDecoyTurn" text="The turn of the staged demonstration." />
+	<lang id="OI_Stat_Name_IntegrationAvailableTurn" text="Integration Available Turn" />
+	<lang id="OI_Stat_Desc_IntegrationAvailableTurn" text="The turn Replicative Safeguards made Integration possible." />
+	<lang id="OI_Stat_Name_TarkProgramTurn" text="Tark Program Turn" />
+	<lang id="OI_Stat_Desc_TarkProgramTurn" text="The turn Tark Defense Systems started its crash replication program." />
+	<lang id="OI_Stat_Name_TarkGooStartTurn" text="Tark Escape Turn" />
+	<lang id="OI_Stat_Desc_TarkGooStartTurn" text="The turn Tark's replicator escaped its unlisted subsidiary lab." />
+	<lang id="OI_Stat_Name_ExalterAcceptTurn" text="Exalter Intake Turn" />
+	<lang id="OI_Stat_Desc_ExalterAcceptTurn" text="The turn the Exalter faithful began their intake." />
+	<lang id="OI_Stat_Name_ExalterRebuffTurn" text="Exalter Rebuff Turn" />
+	<lang id="OI_Stat_Desc_ExalterRebuffTurn" text="The turn the Exalter delegation was gently declined." />
 	<lang id="OI_Stat_Name_InterfaceTrialDesignPoints" text="Interface Trial Points" />
 	<lang id="OI_Stat_Desc_InterfaceTrialDesignPoints" text="Living-tissue edge cases gathered before miniaturizing the nanobot interface." />
 	<lang id="OI_Stat_Name_NanobotHarvestDesignPoints" text="Nanobot Design Points" />
