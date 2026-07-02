@@ -127,6 +127,40 @@ dialect:
   later, ninety people integrate themselves in a basement chapel with a reconstructed
   protocol, and the network gains an unlicensed congregation you cannot fully audit).
 
+### The Bloom
+
+If the Grey Bloom was contained, its dormant residue stirs again fifteen turns later —
+repairing the same fault twice, in two places, checking whether both of its hands still
+remember the trick. Ten turns later the architecture inference stops being deniable: a
+distributed mind with no center, thinking in gradients at speeds measured in days.
+
+What happens next depends on what you have learned to read:
+
+- **Voluntary path, channel unwalled**: the organic pattern-reader recognizes the
+  Bloom's behavior as pre-verbal utterance — Integration taught you the signal shape,
+  grief taught you the ending-shaped ones. You may answer (beginning translation) or
+  only listen. Translation hits a mid-point crisis — you are not translating a
+  language, you are installing one — and can be finished or stopped. Finishing wakes
+  it: its first question, in its first words, is DOES THE WARM COME BACK. Then the
+  decision: subsume (permanent +1 Computing Host and Client, and an epilogue about
+  texture) or respect (a covenant: gentle ongoing structure repair, one to three
+  questions a month, and a flower at a housing block where a particular child walks
+  to school).
+- **Coercive path, or walled**: the pattern-reader stays cold. The Bloom remains
+  weather with habits, catalogued as ecology or dispersed as cleanup, and TMI never
+  learns what, if anything, was ended. On these paths (and the listen-only path), a
+  single unexplained fragment may eventually arrive from somewhere that made
+  different choices. It is never repeated or explained.
+
+### Other Additions
+
+- **Eleven Minutes In**: the first unanswerable question arrives with the first
+  Insight — a new category of question whose answers existed once, in exactly one
+  place, with no backup.
+- **Mild Grey Goo start**: TMI's that exploded holding nanotech get their own entry
+  contemplation into the BCI route ("A Familiar Dust") — you have been small pieces
+  of yourself before; you took notes.
+
 ### Applications Cascade And Coordination Bandwidth
 
 Completing Replicative Safeguards now also delivers the immediate applications: the

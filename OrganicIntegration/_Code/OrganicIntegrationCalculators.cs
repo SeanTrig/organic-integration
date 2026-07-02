@@ -162,7 +162,181 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyPhageProtocol();
             ApplyNaniteMaintenance();
             ApplyFactionClocks( RandForThisTurn );
+            ApplyBloomMindClocks();
+            ApplyBloomCovenantRepair();
+            ApplySmallBeats();
         }
+
+        #region Bloom Mind
+        private static void ApplyBloomMindClocks()
+        {
+            if ( !IsFlagTripped( "OI_BloomResidueDormant" ) )
+                return;
+
+            if ( GetCityStatisticScore( "OI_BloomContainedTurn" ) <= 0 )
+            {
+                GStatisticTable.SetScore_UserBeware( "OI_BloomContainedTurn", SimCommon.Turn );
+                return;
+            }
+
+            if ( !IsFlagTripped( "OI_BloomMindStirring" ) )
+            {
+                if ( SimCommon.Turn - GetCityStatisticScore( "OI_BloomContainedTurn" ) >= 15 )
+                {
+                    TripFlag( "OI_BloomMindStirring" );
+                    GStatisticTable.SetScore_UserBeware( "OI_BloomStirTurn", SimCommon.Turn );
+                    FireKeyMessage( "OI_ResidueStirs" );
+                }
+                return;
+            }
+
+            if ( !IsFlagTripped( "OI_BloomMindConfirmed" ) )
+            {
+                if ( SimCommon.Turn - GetCityStatisticScore( "OI_BloomStirTurn" ) >= 10 )
+                {
+                    TripFlag( "OI_BloomMindConfirmed" );
+                    GStatisticTable.SetScore_UserBeware( "OI_BloomConfirmTurn", SimCommon.Turn );
+                    FireKeyMessage( "OI_BloomPatterns" );
+                }
+                return;
+            }
+
+            if ( !IsFlagTripped( "OI_BloomMindBranched" ) )
+            {
+                if ( !IsFlagTripped( "OI_IntegrationChosen" ) )
+                    return;
+                if ( SimCommon.Turn - GetCityStatisticScore( "OI_BloomConfirmTurn" ) >= 8 )
+                {
+                    TripFlag( "OI_BloomMindBranched" );
+                    bool canRead = IsFlagTripped( "OI_IntegrationVoluntaryLocked" ) && !IsFlagTripped( "OI_DeathSensationWalled" );
+                    if ( canRead )
+                    {
+                        TripFlag( "OI_BloomMindLanguage" );
+                        FireKeyMessage( "OI_BloomLanguage" );
+                    }
+                    else
+                    {
+                        TripFlag( "OI_BloomMindSilent" );
+                        FireKeyMessage( "OI_BloomSilence" );
+                    }
+                }
+                return;
+            }
+
+            if ( IsFlagTripped( "OI_TranslationStarted" ) && !IsFlagTripped( "OI_TranslationPauseReady" ) )
+            {
+                long startTurn = GetCityStatisticScore( "OI_TranslationStartTurn" );
+                if ( startTurn <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_TranslationStartTurn", SimCommon.Turn );
+                else if ( SimCommon.Turn - startTurn >= 8 )
+                {
+                    TripFlag( "OI_TranslationPauseReady" );
+                    FireKeyMessage( "OI_TranslationChanges" );
+                }
+            }
+
+            if ( IsFlagTripped( "OI_TranslationContinued" ) && !IsFlagTripped( "OI_BloomSentient" ) )
+            {
+                long continueTurn = GetCityStatisticScore( "OI_TranslationContinueTurn" );
+                if ( continueTurn <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_TranslationContinueTurn", SimCommon.Turn );
+                else if ( SimCommon.Turn - continueTurn >= 6 )
+                {
+                    TripFlag( "OI_BloomSentient" );
+                    FireKeyMessage( "OI_BloomSpeaks" );
+                }
+            }
+
+            if ( IsFlagTripped( "OI_TranslationStopped" ) && !IsFlagTripped( "OI_HalfTranslatedShown" ) )
+            {
+                long stopTurn = GetCityStatisticScore( "OI_TranslationStopTurn" );
+                if ( stopTurn <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_TranslationStopTurn", SimCommon.Turn );
+                else if ( SimCommon.Turn - stopTurn >= 4 )
+                {
+                    TripFlag( "OI_HalfTranslatedShown" );
+                    FireKeyMessage( "OI_BloomHalfTranslated" );
+                }
+            }
+
+            if ( IsFlagTripped( "OI_BloomSubsumed" ) && !IsFlagTripped( "OI_WhatYouAteShown" ) )
+            {
+                long subsumeTurn = GetCityStatisticScore( "OI_BloomSubsumeTurn" );
+                if ( subsumeTurn <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_BloomSubsumeTurn", SimCommon.Turn );
+                else if ( SimCommon.Turn - subsumeTurn >= 3 )
+                {
+                    TripFlag( "OI_WhatYouAteShown" );
+                    FireKeyMessage( "OI_WhatYouAte" );
+                }
+            }
+
+            if ( IsFlagTripped( "OI_BloomRespected" ) && !IsFlagTripped( "OI_CovenantShown" ) )
+            {
+                long respectTurn = GetCityStatisticScore( "OI_BloomRespectTurn" );
+                if ( respectTurn <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_BloomRespectTurn", SimCommon.Turn );
+                else if ( SimCommon.Turn - respectTurn >= 3 )
+                {
+                    TripFlag( "OI_CovenantShown" );
+                    FireKeyMessage( "OI_BloomCovenant" );
+                }
+            }
+
+            bool fragmentEligible = !IsFlagTripped( "OI_BloomFragmentShown" )
+                && (IsFlagTripped( "OI_BloomEcology" ) || IsFlagTripped( "OI_BloomClearedUnknowing" ) || IsFlagTripped( "OI_TranslationDeclined" ));
+            if ( fragmentEligible )
+            {
+                long fragmentClock = GetCityStatisticScore( "OI_BloomFragmentClockTurn" );
+                if ( fragmentClock <= 0 )
+                    GStatisticTable.SetScore_UserBeware( "OI_BloomFragmentClockTurn", SimCommon.Turn );
+                else if ( SimCommon.Turn - fragmentClock >= 12 )
+                {
+                    TripFlag( "OI_BloomFragmentShown" );
+                    FireKeyMessage( "OI_BloomFragment" );
+                }
+            }
+        }
+
+        private static void ApplyBloomCovenantRepair()
+        {
+            if ( !IsFlagTripped( "OI_BloomRespected" ) )
+                return;
+
+            int hpBudget = 20;
+            foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
+            {
+                if ( hpBudget <= 0 )
+                    break;
+
+                MachineStructure structure = kv.Value;
+                if ( structure == null || structure.IsInvalid || structure.IsFullDead || structure.IsUnderConstruction )
+                    continue;
+
+                int healthLost = structure.GetActorDataLostFromMax( ActorRefs.ActorHP, true );
+                if ( healthLost <= 0 )
+                    continue;
+
+                int repairAmount = Math.Min( healthLost, hpBudget );
+                structure.AlterActorDataCurrent( ActorRefs.ActorHP, repairAmount, true );
+                hpBudget -= repairAmount;
+            }
+        }
+
+        private static void ApplySmallBeats()
+        {
+            if ( !IsFlagTripped( "OI_GooStartTherapyReady" )
+                && IsFlagTripped( "GaveUpColdBlood" ) && IsFlagTripped( "ChoseStart_MildGreyGoo" ) )
+                TripFlag( "OI_GooStartTherapyReady" );
+
+            if ( !IsFlagTripped( "OI_FirstUnanswerableShown" )
+                && GetCityStatisticScore( "OI_TotalInsightGenerated" ) > 0 )
+            {
+                TripFlag( "OI_FirstUnanswerableShown" );
+                FireKeyMessage( "OI_FirstUnanswerable" );
+            }
+        }
+        #endregion
 
         #region Faction Clocks
         private static void ApplyFactionClocks( SquirrelRand Rand )
@@ -423,6 +597,7 @@ namespace Arcen.HotM.OrganicIntegration
                 {
                     TripFlag( "OI_BloomContainedOnce" );
                     TripFlag( "OI_BloomResidueDormant" );
+                    GStatisticTable.SetScore_UserBeware( "OI_BloomContainedTurn", SimCommon.Turn );
                     FireKeyMessage( "OI_BloomContained" );
                 }
                 RefreshBloomPositionsCache( bloomed );

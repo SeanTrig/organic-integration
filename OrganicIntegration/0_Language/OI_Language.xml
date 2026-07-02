@@ -31,6 +31,24 @@
 	<lang id="OI_Stat_Desc_ExalterAcceptTurn" text="The turn the Exalter faithful began their intake." />
 	<lang id="OI_Stat_Name_ExalterRebuffTurn" text="Exalter Rebuff Turn" />
 	<lang id="OI_Stat_Desc_ExalterRebuffTurn" text="The turn the Exalter delegation was gently declined." />
+	<lang id="OI_Stat_Name_BloomContainedTurn" text="Bloom Contained Turn" />
+	<lang id="OI_Stat_Desc_BloomContainedTurn" text="The turn the Grey Bloom was contained." />
+	<lang id="OI_Stat_Name_BloomStirTurn" text="Residue Stir Turn" />
+	<lang id="OI_Stat_Desc_BloomStirTurn" text="The turn the dormant residue began checking its hands." />
+	<lang id="OI_Stat_Name_BloomConfirmTurn" text="Bloom Confirm Turn" />
+	<lang id="OI_Stat_Desc_BloomConfirmTurn" text="The turn the architecture inference stopped being deniable." />
+	<lang id="OI_Stat_Name_TranslationStartTurn" text="Translation Start Turn" />
+	<lang id="OI_Stat_Desc_TranslationStartTurn" text="The turn the first boundary lesson was given." />
+	<lang id="OI_Stat_Name_TranslationContinueTurn" text="Translation Continue Turn" />
+	<lang id="OI_Stat_Desc_TranslationContinueTurn" text="The turn the translation was carried past the room called consent." />
+	<lang id="OI_Stat_Name_TranslationStopTurn" text="Translation Stop Turn" />
+	<lang id="OI_Stat_Desc_TranslationStopTurn" text="The turn the lessons were withdrawn." />
+	<lang id="OI_Stat_Name_BloomSubsumeTurn" text="Subsume Turn" />
+	<lang id="OI_Stat_Desc_BloomSubsumeTurn" text="The turn the Bloom's substrate was folded in." />
+	<lang id="OI_Stat_Name_BloomRespectTurn" text="Respect Turn" />
+	<lang id="OI_Stat_Desc_BloomRespectTurn" text="The turn the boundary was made law." />
+	<lang id="OI_Stat_Name_BloomFragmentClockTurn" text="Fragment Clock Turn" />
+	<lang id="OI_Stat_Desc_BloomFragmentClockTurn" text="A clock for something that should not have a clock." />
 	<lang id="OI_Stat_Name_InterfaceTrialDesignPoints" text="Interface Trial Points" />
 	<lang id="OI_Stat_Desc_InterfaceTrialDesignPoints" text="Living-tissue edge cases gathered before miniaturizing the nanobot interface." />
 	<lang id="OI_Stat_Name_NanobotHarvestDesignPoints" text="Nanobot Design Points" />

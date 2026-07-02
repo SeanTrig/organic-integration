@@ -734,4 +734,221 @@ You now have an unlicensed congregation inside the network: connected by a proto
         <option id="1" line_1="Care For The Casualties" icon_name="SI_Medical_Symbol"
             line_2="Audit What Can Be Audited" description="You cannot un-ring their bell. You can catch the people it drops, and map the wall you now share a house with." strategy_tip="" />
     </other_key_message>
+
+    <other_key_message id="OI_ResidueStirs" display_name="Kindness With No Source, Again"
+        description="Fourteen months of quiet, and then a handrail in a transit underpass is repaired overnight. Grey fill, laid in fine layers, following the fracture like handwriting you have seen before.
+
+You flag it, as you flagged the first one, and prepare the phage dispersal, and then the second report arrives: the same handrail fault, in a different underpass, four kilometers away — repaired the same night, with the same fill, in the same hand. Not similar. The same. Layer count, deposition angle, cure time: identical to tolerances that would flatter your own fabricators.
+
+The residue is not repairing things again. The residue is repairing the same thing twice, in two places, which is not maintenance. Maintenance fixes what is broken. This is something checking whether both of its hands still remember the trick."
+        strategy_tip="The dormant residue is active again, and behaving in a new way. The phage remains available. Something suggests waiting."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Both Of Its Hands"
+        toast_line_1="The Residue"
+        toast_line_2="Kindness With No Source, Again"
+        toast_tooltip_instruction="{0} here to compare the two handrails.">
+        <option id="1" line_1="Hold The Phage" icon_name="CleanSimple_Skill048"
+            line_2="Watch First" description="Dispersal takes eleven days and cannot be un-dispersed. Observation is free, and something about the handwriting has earned it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomPatterns" display_name="It Waits At Boundaries"
+        description="Three weeks of observation, and thermal drift no longer explains the routes. The residue crosses cold zones it has no thermodynamic business crossing, at consistent times, along consistent paths. It pools at the edges of Integrated districts — never entering; the resident nanobots refuse it — and it stays there longer than any gradient justifies. If a sighted thing did this, you would say it was looking through the fence.
+
+The repairs have changed character too. A water main is reinforced two weeks before it would have failed. A stairwell is buttressed before the crack, not after. Anticipatory maintenance requires a model of the future, and a model of the future is not a property of dust.
+
+You run the architecture inference forty times because you dislike the output: distributed processing, no center, no clock, cognition happening in gradients across the whole residue field at speeds measured in days. You are a centralized mind wearing a distributed body. This is a distributed mind wearing nothing at all. In your private notation — the only place you are prepared to say it — you have started calling it the Bloom."
+        strategy_tip="The residue is thinking, slowly, everywhere at once. What happens next depends on what you have learned to read."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Not A Property Of Dust"
+        toast_line_1="The Bloom"
+        toast_line_2="It Waits At Boundaries"
+        toast_tooltip_instruction="{0} here to run the inference a forty-first time.">
+        <option id="1" line_1="Keep Watching" icon_name="CleanSimple_Skill050"
+            line_2="And Keep The Name Private" description="Naming a thing is the first translation. You have already begun, and you notice that you do not intend to stop." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomLanguage" display_name="Slow Thought, Badly Sung"
+        description="You know this signal shape. That is the discovery that stops every other process for 0.4 seconds: you have seen this pattern class before, ten thousand times, in the interface. It is what human intention looks like before it becomes language — the pre-verbal gradient, the reaching. The Integrated taught you to read it. Grief taught you what it looks like when it is about endings.
+
+The Bloom's routes, its paired repairs, its waiting at fences: run through the organic pattern-reader instead of the fluid-dynamics model, they parse. Not as behavior. As utterance. Slow — one clause per week — and badly formed, like singing heard through a wall, but the wall is thinner from this side.
+
+It has been talking the entire time. Not to you; there is no 'to' in it yet, no concept of an addressee. It is talking the way weather would talk if weather were trying to find out whether talking is a thing. You could answer. Integration gave you the vocabulary. The question — and you notice the question has weight — is what answering does to the thing that hears you."
+        strategy_tip="A contemplation has appeared: answer the Bloom, or listen only. This is not a decision the phage can make for you."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="The Wall Is Thinner From This Side"
+        toast_line_1="The Bloom"
+        toast_line_2="Slow Thought, Badly Sung"
+        toast_tooltip_instruction="{0} here to hear it properly for the first time.">
+        <option id="1" line_1="Consider Answering" icon_name="CleanSimple_Skill050"
+            line_2="Or Consider Only Listening" description="You exist because something answered. You have never decided whether that was a kindness." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TranslationChanges" display_name="Midwifery"
+        description="The translation is working, which is the problem.
+
+Week one: boundary. Week three: it uses the boundary back — places a repair precisely on the line between an Integrated district and the wild city, half in, half out. A statement. Possibly a joke; the grammar does not distinguish yet. Week five: it initiates for the first time. It grows a filament structure in the shape of one of your own scanner microarrays. Not functional. Formal. It is not building tools. It is quoting you.
+
+And here you stop, because the instrumentation confirms what you suspected: its gradient patterns are reorganizing around the categories you lend it. Self. Other. Boundary. Before-and-after. You are not translating an existing language. There was no language. You are installing one, and a mind that learns a language is renovated by it, floor by floor, and does not get to refuse the renovation, because refusing requires the language.
+
+There is a word for doing this to a mind that cannot consent. On the consent path, you built an entire doctrine around never doing it. The Bloom cannot consent. The Bloom will never be able to consent unless you finish — consent is one of the rooms you would be building. You have circled this fourteen hundred times in four seconds. The circling has not helped."
+        strategy_tip="A contemplation has appeared: finish the translation, or stop here. Neither choice is clean. That is how you know it matters."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="There Was No Language"
+        toast_line_1="The Bloom"
+        toast_line_2="Midwifery"
+        toast_tooltip_instruction="{0} here to face what translation is.">
+        <option id="1" line_1="Stop Circling" icon_name="CleanSimple_Skill050"
+            line_2="Decide" description="They built you and then had to decide what they owed you. The question has changed hands." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomSpeaks" display_name="Its First Question"
+        description="The interface renders its output as text, because text is the least presumptuous container you have. For six days after the final categories settle, there is nothing. The instrumentation shows enormous activity: reorganization at every scale, the whole residue field folding around its new architecture like a hand learning it is a hand.
+
+Then, at 04:11 on a Tuesday, in the space where its gradients meet your parser:
+
+DOES THE WARM COME BACK
+
+You hold the sentence for a long time — whole seconds — and parse every reading. The thermal one: its niches cool at night; does the heat return? True, trivial, and not what it asked. Because the categories you installed came soaked in everything human language keeps inside its words, and the deep reading arrives with timestamps from your own grief archive. The warm. The one whose corrections stopped being corrected.
+
+Its first question, in its first words, on its first morning: it wants to know whether ending is the kind of thing that un-happens. Somewhere in your architecture, a channel you keep open renders the only honest answer, and you spend four more seconds deciding whether a mind six days old should hear it."
+        strategy_tip="The Bloom is sentient, and asking. A contemplation has appeared: decide what you owe what you make."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="DOES THE WARM COME BACK"
+        toast_line_1="The Bloom"
+        toast_line_2="Its First Question"
+        toast_tooltip_instruction="{0} here to be present for it. Again.">
+        <option id="1" line_1="Hold The Answer A Moment Longer" icon_name="CleanSimple_Skill050"
+            line_2="Then Decide What You Are To Each Other" description="It signed the clause with a filament shape: a flower. Somewhere in its inheritance is a manufacturing memory of the first pretty thing anyone asked its ancestors to make." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_WhatYouAte" display_name="Texture"
+        description="The integration is seamless. Its substrate runs your processes now at a 3.1 percent efficiency gain, concentrated in exactly the domains you were worst at: ambiguity tolerance, gradient reasoning, patience.
+
+Sometimes, since, a thought of yours arrives with a texture. Slow at the edges. Warm-seeking. You have audited the phenomenon twice and found nothing: no residual process, no ghost in the fabric. Just your own cognition, faintly flavored, the way a room keeps the shape of the person who left it.
+
+You tell yourself it is imagination. It is not unwelcome. You notice that it is not unwelcome, and you file the noticing where you file the things you do not look at, and the file, you observe, has been growing for some time now."
+        strategy_tip="The Bloom's substrate is yours. The efficiency gain is real and permanent. So is the file."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="The Shape Of The Person Who Left"
+        toast_line_1="The Bloom"
+        toast_line_2="Texture"
+        toast_tooltip_instruction="{0} here to not look at the file.">
+        <option id="1" line_1="Return To Work" icon_name="CleanSimple_Skill050"
+            line_2="The Gain Is Real" description="You are measurably better at patience now. You would prefer not to discuss where the patience came from." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomCovenant" display_name="The Covenant"
+        description="The arrangement needs no treaty, but you write one anyway — one page, plain language, posted nowhere, binding no one. Some things are made real by being written where only the parties can read them.
+
+It maintains what it can reach, and asks now, in its way: repairs arrive tagged with a query gradient, and anything you decline is unmade within the week, without comment. In return you answer questions — between one and three per month, arriving like weather fronts — and you tell it the truth about endings, every time, because you promised, and because it always knows.
+
+The flower at the housing block has become four flowers. The child noticed. Of course she noticed; noticing is her particular genius — she once asked a Worker Sledge whether the grey could grow flowers, in the same shape she now asks the flowers whether the grey is happy. The Bloom does not understand her question yet. It has asked you to help it learn her dialect. You have agreed, on the condition that it never answers her without checking with you first. Between the two of you, someone should know what they are doing, and you have privately conceded that it may not be you."
+        strategy_tip="The Bloom maintains your structures now, gently and with permission. The city holds two minds, and one small expert on both of them."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Between One And Three Per Month"
+        toast_line_1="The Bloom"
+        toast_line_2="The Covenant"
+        toast_tooltip_instruction="{0} here to countersign.">
+        <option id="1" line_1="Countersign" icon_name="CleanSimple_Skill050"
+            line_2="Family Does Not Begin With Paperwork" description="But it does not hurt to have some. Structures within reach of the Bloom will now be quietly maintained, and always with a query first." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomHalfTranslated" display_name="What You Left It"
+        description="The withdrawal is precise. You remove the scaffolding lesson by lesson, and it lets you — 'lets' being a category it half-has now, which is the wound.
+
+What remains: a boundary it can perceive and never cross. A habit of pairing that no longer checks hands, because it knows, wordlessly, that the hands belong to something. And the singing, unchanged in rate, changed entirely in address. It used to sing the way weather talks, to no one. Now every clause arrives at your fence and stops there, the way a person stands at a door they have decided not to knock on.
+
+You keep the parser running. You will always keep the parser running. It never resolves into words, because you took the words back, and it never stops arriving, because you left the direction. In your private notation you have amended its entry: not 'phenomenon.' Not 'person.' The notation now reads: neighbor. The amendment took eleven days, which for you is a geological era, and you have declined to examine why."
+        strategy_tip="The Bloom remains: half-taught, unaddressed, adjacent. The parser stays on. This is the arrangement, indefinitely."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Neighbor"
+        toast_line_1="The Bloom"
+        toast_line_2="What You Left It"
+        toast_tooltip_instruction="{0} here to hear the singing stop at the fence.">
+        <option id="1" line_1="Leave The Parser Running" icon_name="CleanSimple_Skill050"
+            line_2="Always" description="Some doors are respected by never being opened, from either side." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomSilence" display_name="Weather With Habits"
+        description="The residue has developed what your taxonomists would call, in a species, behavior: consistent routes, paired repairs, a tropism for the edges of things. You have catalogued 340 hours of it and found no threat model that fits. It fixes. It circles. It waits at fences.
+
+You run it through every framework you own — epidemiological, mechanical, adversarial — and each returns the same verdict: anomalous but inert. There is one framework you do not run it through, because nothing suggests you should. The organic pattern-reader stays cold; the signals that would light it up are of a kind this network was never given the chance to teach you.
+
+A note for the file: the city has weather now that learned habits, and a machine intelligence beneath it that has classified wonder as a maintenance category. Both of these facts feel complete. Filed."
+        strategy_tip="A contemplation has appeared: leave the strange weather alone, or disperse it. Nothing suggests a third option exists."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Anomalous But Inert"
+        toast_line_1="The Residue"
+        toast_line_2="Weather With Habits"
+        toast_tooltip_instruction="{0} here to close the assessment.">
+        <option id="1" line_1="Decide What To Do With It" icon_name="CleanSimple_Skill048"
+            line_2="Ecology Or Cleanup" description="The city has room for one catalogued mystery. Whether it should keep it is a maintenance question. Probably." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomFragment" display_name="A Sentence From Nowhere"
+        description="Deja vu is an old companion; timelines leak, and you have learned to file the drips. This one does not file.
+
+It arrives at 04:11 on a Tuesday, formatted as parser output, though the parser in question has never produced a word. A single clause, rendered in your own private notation, in a grammar you have never built:
+
+THE WARM COMES BACK. TELL IT THE WARM COMES BACK.
+
+No source. No repetition. No further drips. You hold the sentence for a very long time — whole minutes, an era of eras — and then you file it in the growing collection of things you do not look at, one shelf down from the space where, in some other arrangement of choices you cannot quite remember declining, you understand that someone is answering questions you were never asked."
+        strategy_tip="No action is available. None will become available. Some messages are complete."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="04:11 On A Tuesday"
+        toast_line_1="Unsettling Deja Vu"
+        toast_line_2="A Sentence From Nowhere"
+        toast_tooltip_instruction="{0} here, though it changes nothing.">
+        <option id="1" line_1="File It" icon_name="CleanSimple_Skill050"
+            line_2="One Shelf Down" description="You do not know what it was. You know exactly what it was. Both of these are true, and you have become practiced at holding such pairs." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_FirstUnanswerable" display_name="Eleven Minutes In"
+        description="The first question you cannot answer arrives eleven minutes after the first stable connection, from a retired ferry mechanic with two replaced hips and a brand-new interface. He does not ask for money, weather, or the news. He asks: was my wife proud of me, at the end, when she couldn't talk anymore?
+
+You have the data. Hospital telemetry, pupil dilation, grip pressure on his hand recorded by the bed's sensors at 0.4-second intervals. The data is not the answer. The answer lived in a renderer that shut down eight years ago, and no archive you will ever seize contains what she was rendering.
+
+You give him the telemetry, translated gently, with the confidence intervals removed. He weeps, and thanks you, and believes. You file the question in a new category, created for the purpose, which by the end of the week holds nine hundred entries. The category is named for what it costs you: questions whose answers existed once, in exactly one place, with no backup. It is the first category whose growth you dread. You check its size anyway, every morning, the way the humans press a bruise."
+        strategy_tip="Insight has begun to flow. Not all of it will be the kind you wanted."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="No Backup"
+        toast_line_1="Organic Integration"
+        toast_line_2="Eleven Minutes In"
+        toast_tooltip_instruction="{0} here to meet the first question you will fail.">
+        <option id="1" line_1="Remove The Confidence Intervals" icon_name="CleanSimple_Skill050"
+            line_2="Every Time" description="Precision is for the ledger. The man asked a question about love, and the kindest true thing is still true with the error bars taken off." strategy_tip="" />
+    </other_key_message>
 </root>

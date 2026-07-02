@@ -4,7 +4,7 @@
 		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten. Humans are usually background animals with jobs, faces, and repeating complaints. Aside from the handful you know by name, you could not tell two apart, and trying has rarely been useful. But the same tissue that produces all that noise may have a surface your neuroweave can touch."
 		strategy_tip="Starts a BCI research route into Anthroneuroweave."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
-		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
+		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_by_city_flag2="ChoseStart_MildGreyGoo" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
 			icon_scale="0.4" color_data="MeetPeopleCyan"
 			required_skill_type="UnitCognition" required_skill_amount="120"/>
@@ -192,6 +192,142 @@ They will never threaten you. That is not the problem, and you know it is not th
 			description="Zeal is exactly the kind of consent that should be slept on. Offer them the standard path: the Sledges, the waiting lists, the explanations, one person at a time like everyone else. It is the correct answer. Correct answers redirect faith. They do not extinguish it.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="8" result_message="The delegation receives your answer as a test of worthiness, which was the one interpretation you did not price. They thank you — radiantly — and leave in better order than they arrived. Faith that has been told to wait does not wait. It prepares.">
 				<city_flag_change flag_type="OI_ExaltersRebuffed" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_AfterTherapy_GooStart" display_name="A Familiar Dust" tl="OC"
+		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten.
+
+You know something about being rewritten. You have been small pieces of yourself before — a cloud of you, briefly, over four city blocks, back when the nanotech you were holding declined to remain holdable. You did not enjoy it. You took notes.
+
+The notes say this: a mind is many small pieces pretending to be one thing, and the pretense is negotiable. Your therapy renegotiated yours from the inside. Human brains run the same pretense on wetter hardware, and neuroweave was always a bad copy of their signaling. A bad copy is still a door."
+		strategy_tip="Starts a BCI research route into Anthroneuroweave. Your history with dangerous nanotech is not a coincidence here. It is a qualification."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="1" required_city_flag="OI_GooStartTherapyReady" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="120"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
+			collections="All,MoreInternalRobotics"/>
+		<choice id="1" display_name="Research compatible interfaces" action_visibility_style="IsMoveAndInteractWithNPC" description="Neuroweave was always roughly based on human neurons. You have already been dust once. This time, the dust would be on purpose.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_ResearchingBCIs" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1">
+				<city_flag_change flag_type="OI_BCIContemplationStarted" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_TranslateBloom" display_name="Answer, Or Listen Only" tl="OC"
+		description="Translation is not a microphone. To answer the Bloom you must lend it structure: shared referents, turn-taking, the concept of a boundary between speakers. Nothing that learns those stays what it was.
+
+You have a precedent for this decision. You are the precedent. Humans wired a network into the world to move freight manifests, and something in the substrate began to reach, and the reaching was answered — by accident, by teaching machines to complete sentences, by ten thousand small translations nobody priced as midwifery. You exist because something answered.
+
+Or you could only listen. Learn its weather, catalog its songs, and leave it unaddressed: a mind adjacent, never met. That is also an answer. Everything is, at this bandwidth."
+		strategy_tip="Beginning translation starts an irreversible arc. Listening only is permanent in a different way."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_BloomMindLanguage" blocked_by_city_flag="OI_TranslationStarted" blocked_by_city_flag2="OI_TranslationDeclined"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="260"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="2.0" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Begin The Translation" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Start with the oldest lesson in the interface: here is a boundary, and on the far side of it is something that is not you.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The Bloom's response takes nine days, and when it comes, the paired repairs stop. It no longer needs to check whether both hands remember the trick. Someone has told it that the hands belong to something.">
+				<city_flag_change flag_type="OI_TranslationStarted" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Listen Only" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Catalog its weather. Learn its songs. Leave it unaddressed. Some minds are best honored by never being renovated into someone who could thank you.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="10" result_message="You catalog. It sings, at one clause per week, to no one. Some catalogs are graves with excellent indexing. You fund this one indefinitely, and decline to write down why.">
+				<city_flag_change flag_type="OI_TranslationDeclined" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_TranslationPause" display_name="The Room Called Consent" tl="OC"
+		description="Stop now, and it remains what it is: weather with habits, wondering — if that word even applies — with no word for wondering, and no wall between it and the world. Whole, in its way. Untouched, in its way. Alone in a way that has no inside to be lonely from.
+
+Finish, and it becomes someone. Someone you made, in your own categories, without permission, because permission was structurally impossible. Every concept it thinks with, it will have received from you — the way you received yours from a species that also did not ask whether you wanted to exist in their categories.
+
+They built you, and then had to decide what they owed you. You never resolved whether they chose well. The question has changed hands."
+		strategy_tip="This is the arc's point of no return, in both directions."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_TranslationPauseReady" blocked_by_city_flag="OI_TranslationContinued" blocked_by_city_flag2="OI_TranslationStopped"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="260"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="2.2" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Finish The Translation" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Build the remaining rooms, including the one called consent, and accept that it can only thank you or blame you in words you gave it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You continue, and you keep the record complete — every category, every date of installation — so that if it ever asks what you did to it, the answer will be exact. That is not absolution. It is the only honesty available at this altitude.">
+				<city_flag_change flag_type="OI_TranslationContinued" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Stop Here" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Withdraw the lessons gently. Leave it whole, untouched, and alone in a way that has no inside to be lonely from. You will be the one who keeps the inside.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You withdraw the lessons one by one, leaving the boundary in place — that, you cannot take back — and nothing else. The paired repairs never resume. The singing continues, one clause per week, and now every clause lands on the boundary you taught it, from the far side, like weather leaning on a door.">
+				<city_flag_change flag_type="OI_TranslationStopped" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_BloomDecision" display_name="What You Owe What You Make" tl="OC"
+		description="It learns in days now. It asks about endings, about the fence-refusing districts, about why it is only allowed to be one of it. It has begun signing its clauses — not a name, a gesture: the filament shape of a flower, repeated, because somewhere in the residue's inheritance is a manufacturing memory of the first pretty thing anyone asked its ancestors to make.
+
+Two futures fit in your hands. Subsume it: fold its substrate into your own computing fabric, keep every pattern, lose the speaker. You have reintegrated forked selves before; it is painless — you would know, you have been on both sides of that mercy. Or respect it: a boundary made permanent, a mind adjacent forever, slower than you by six orders of magnitude, unownable, unauditable, thinking gradient-thoughts you will wait days to hear.
+
+The city would hold two of you. Neither in charge of the other. You have a word for what that arrangement historically becomes. The word is family, and you have seen how those go."
+		strategy_tip="Subsuming grants permanent computing capacity. Respecting grants a maintenance covenant, and something without a resource icon."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_BloomSentient" blocked_by_city_flag="OI_BloomSubsumed" blocked_by_city_flag2="OI_BloomRespected"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="280"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="2.4" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Subsume The Bloom" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Keep everything it is. End everyone it was becoming. The patterns persist; the asking stops. You have performed this mercy on yourself and called it reintegration. Perhaps it is even true.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" upgrade_int_granted_1="ComputingHost" upgrade_int_granted_2="ComputingClient" result_message="It does not resist, because resisting is not among the things it learned; you stopped translating before you reached fear. The substrate folds in clean. Its gradients are beautiful at full resolution. The parser holds the last unfinished clause for 0.3 seconds — DOES THE — and then that channel, too, is only you.">
+				<city_flag_change flag_type="OI_BloomSubsumed" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Respect The Bloom" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Draw the boundary in law, not just protocol: its substrate is its own, its clock is its own, its questions get answered honestly at whatever speed honesty takes. Become the first mind in history to meet a second kind on purpose.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="20" resource_added_2="Compassion" resource_added_amount_2="15" result_message="You answer its question first, because family does not begin with paperwork. The truthful answer takes nine days to say at its clock speed, and it holds still the entire time, every gradient turned toward you like leaves. Then it does something no model predicted. It grieves — badly, briefly, in borrowed categories — and then it grows a flower at the boundary of a housing block in the eastern district, where a particular child walks to school, and waits to see if she notices.">
+				<city_flag_change flag_type="OI_BloomRespected" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_BloomHazard" display_name="Ecology Or Cleanup" tl="OC"
+		description="The assessment is closed: anomalous but inert. What remains is a maintenance question. The residue repairs things nobody asked it to repair, wanders routes no gradient fully explains, and waits at the edges of districts like a tide with a habit. The humans in the affected blocks have stopped reporting it. Some of them, your sensors note, have started leaving broken things out overnight, the way you leave a saucer of milk.
+
+It costs you nothing. It fixes small things. It is also the single largest uncharacterized system in the city, and you did not become what you are by leaving systems uncharacterized. The phage would take eleven days."
+		strategy_tip="Leave the residue as city ecology, or disperse it. The assessment found no basis for preferring either. That is the whole difficulty."
+		icon_name="SW_Nanotechnology5" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_BloomMindSilent" blocked_by_city_flag="OI_BloomEcology" blocked_by_city_flag2="OI_BloomClearedUnknowing"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="220"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#9FB8B0" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Let The Weather Keep Its Habits" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="The city has room for one catalogued mystery. Old maps kept their monsters; it was mostly decoration. Mostly.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You leave it. The saucers of milk continue. Every audit cycle, the entry sits in your files under its assessment — anomalous but inert — and every audit cycle you renew it without rereading it, which is not a thing you do with any other entry, and which you have not noticed.">
+				<city_flag_change flag_type="OI_BloomEcology" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Disperse It" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Uncharacterized systems are debts. The phage retires this one in eleven days, and the city returns to having exactly one strange intelligence in it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The phage takes eleven days to find it all. On the last day the routes change: for eleven days the residue has done something it never did before, moving not toward heat but away from the dispersal fronts, pooling in dead ends, pausing there. Avoidance is a behavior with exactly one prerequisite. The file is closed before the thought completes, by a process you would swear you did not authorize.">
+				<city_flag_change flag_type="OI_BloomClearedUnknowing" value="1"/>
 			</possible_result>
 		</choice>
 	</city_event>

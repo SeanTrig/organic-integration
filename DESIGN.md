@@ -135,6 +135,19 @@ spine.
 - **Scientist cast**: Fugitive AGI Researchers (elated/terrified), exit-visa
   seditionist, accident survivors who know both that it works and that it eats people.
 
+## Implementation Status (July 2026)
+
+Waves 1–4 are implemented on `fable/wave1-narrative-spine`. Additions made during
+implementation, beyond the plan below: a **listen-only** path (voluntary players may
+decline translation — "some catalogs are graves with excellent indexing"); the
+**hazard flinch** on the silent path (dispersal produces avoidance behavior, and TMI
+closes the file before the thought completes); the **fragment** was implemented, not
+parked (fires once on silent/cleared/listen-only paths: THE WARM COMES BACK. TELL IT
+THE WARM COMES BACK.); the **covenant** grants a small passive structure repair; the
+**half-translation** path ends at the "neighbor" amendment; **Eleven Minutes In**
+(first unanswerable question) and the **Mild Grey Goo start entry variant** shipped.
+Wave 5 (goo apocalypse doom takeover) remains long-horizon and unimplemented.
+
 ## Wave 4 — The Bloom
 
 - Emergent second mind from leaked/ambient nanobot mass. **Architectural inversion**:

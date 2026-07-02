@@ -47,4 +47,25 @@
 	<city_flag id="OI_ZealotProblemShown" display_name="The zealot problem surfaced" has_no_code="true"/>
 	<city_flag id="OI_UnlicensedCell" display_name="An unlicensed congregation is on the network" has_no_code="true"/>
 	<city_flag id="OI_UnlicensedPopGranted" display_name="Unlicensed integration counted" has_no_code="true"/>
+	<city_flag id="OI_BloomMindStirring" display_name="The residue is checking its hands" has_no_code="true"/>
+	<city_flag id="OI_BloomMindConfirmed" display_name="The Bloom is thinking in gradients" has_no_code="true"/>
+	<city_flag id="OI_BloomMindBranched" display_name="The Bloom question has been framed" has_no_code="true"/>
+	<city_flag id="OI_BloomMindLanguage" display_name="The Bloom's utterances parse" has_no_code="true"/>
+	<city_flag id="OI_BloomMindSilent" display_name="The Bloom remains weather with habits" has_no_code="true"/>
+	<city_flag id="OI_TranslationStarted" display_name="Translation begun" has_no_code="true"/>
+	<city_flag id="OI_TranslationDeclined" display_name="Listening only" has_no_code="true"/>
+	<city_flag id="OI_TranslationPauseReady" display_name="Translation is renovating the Bloom" has_no_code="true"/>
+	<city_flag id="OI_TranslationContinued" display_name="Translation finished" has_no_code="true"/>
+	<city_flag id="OI_TranslationStopped" display_name="Translation stopped at the boundary" has_no_code="true"/>
+	<city_flag id="OI_HalfTranslatedShown" display_name="The neighbor amendment made" has_no_code="true"/>
+	<city_flag id="OI_BloomSentient" display_name="The Bloom asked its first question" has_no_code="true"/>
+	<city_flag id="OI_BloomSubsumed" display_name="The Bloom was subsumed" has_no_code="true"/>
+	<city_flag id="OI_BloomRespected" display_name="The Bloom was respected" has_no_code="true"/>
+	<city_flag id="OI_WhatYouAteShown" display_name="The texture noticed" has_no_code="true"/>
+	<city_flag id="OI_CovenantShown" display_name="The covenant written" has_no_code="true"/>
+	<city_flag id="OI_BloomEcology" display_name="The weather keeps its habits" has_no_code="true"/>
+	<city_flag id="OI_BloomClearedUnknowing" display_name="The strange weather was dispersed" has_no_code="true"/>
+	<city_flag id="OI_BloomFragmentShown" display_name="A sentence arrived from nowhere" has_no_code="true"/>
+	<city_flag id="OI_FirstUnanswerableShown" display_name="The first unanswerable question" has_no_code="true"/>
+	<city_flag id="OI_GooStartTherapyReady" display_name="Goo-start therapy reflection available" has_no_code="true"/>
 </root>
