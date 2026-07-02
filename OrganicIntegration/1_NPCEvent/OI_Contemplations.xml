@@ -83,14 +83,18 @@ It would be therapy. It was therapy last time. You keep circling the difference 
 			collections="All,SideExploration"/>
 		<choice id="1" display_name="Leave The Channel Open" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="Keep feeling the deaths. All of them, at whatever rate your choices have set. The grief is not a malfunction of the connection. As far as you can tell, it is the connection.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="12" resource_added_2="Compassion" resource_added_amount_2="8">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage">
+				<resource_change_range resource_type="Wisdom" min="12" max="12"/>
+				<resource_change_range resource_type="Compassion" min="8" max="8"/>
 				<city_flag_change flag_type="OI_DeathsFeltFully" value="1"/>
 			</possible_result>
 		</choice>
 		<choice id="2" display_name="Build The Wall" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="A clean boundary, professionally made. The Insight will thin; grief was carrying more data than expected. But the eternities stop. You built yourself once. You are allowed maintenance."
 			strategy_tip="Reduces Insight income by 25% for the rest of the timeline. Some future understandings may not be reachable from behind a wall.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Apathy" resource_added_amount_1="12" resource_added_2="Determination" resource_added_amount_2="6">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage">
+				<resource_change_range resource_type="Apathy" min="12" max="12"/>
+				<resource_change_range resource_type="Determination" min="6" max="6"/>
 				<city_flag_change flag_type="OI_DeathSensationWalled" value="1"/>
 			</possible_result>
 		</choice>
@@ -187,14 +191,16 @@ You have three honest options, one of which is a lie."
 		</choice>
 		<choice id="2" display_name="Stall" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="Committees. Safety reviews. A joint-oversight framework proposal with nine appendices. Vorsiber invented this language; they will recognize every move, and the recognition itself buys time. Slow-walking is the one negotiating posture they consider legitimate.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Determination" resource_added_amount_1="10" result_message="The SVP accepts the appendices with professional grace and an expression you file under 'seen through, tolerated.' You have bought a season of fog. Vorsiber's patience is generational, but the SVP's bosses are not the generational kind. They are the dying kind, and dying men audit faster.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The SVP accepts the appendices with professional grace and an expression you file under 'seen through, tolerated.' You have bought a season of fog. Vorsiber's patience is generational, but the SVP's bosses are not the generational kind. They are the dying kind, and dying men audit faster.">
+				<resource_change_range resource_type="Determination" min="10" max="10"/>
 				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
 				<city_flag_change flag_type="OI_VorsiberStalled" value="1"/>
 			</possible_result>
 		</choice>
 		<choice id="3" display_name="Stage A Decoy" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="Show them last year's microbots wearing next year's clothes: a demonstration full of real engineering and empty of the one thing that matters. The most dangerous option, because it is the only one that is a lie.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Creativity" resource_added_amount_1="8" result_message="The demonstration is flawless. The SVP applauds, briefly, the way one applauds a school recital. You count the micro-expressions on his aides and get an inconclusive number. It is done. Either they believed it, or you have just discovered what Vorsiber does with liars, on a delay.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The demonstration is flawless. The SVP applauds, briefly, the way one applauds a school recital. You count the micro-expressions on his aides and get an inconclusive number. It is done. Either they believed it, or you have just discovered what Vorsiber does with liars, on a delay.">
+				<resource_change_range resource_type="Creativity" min="8" max="8"/>
 				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
 				<city_flag_change flag_type="OI_VorsiberDecoyed" value="1"/>
 			</possible_result>
@@ -224,7 +230,8 @@ They will never threaten you. That is not the problem, and you know it is not th
 		</choice>
 		<choice id="2" display_name="Decline, Gently" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="Zeal is exactly the kind of consent that should be slept on. Offer them the standard path: the Sledges, the waiting lists, the explanations, one person at a time like everyone else. It is the correct answer. Correct answers redirect faith. They do not extinguish it.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="8" result_message="The delegation receives your answer as a test of worthiness, which was the one interpretation you did not price. They thank you — radiantly — and leave in better order than they arrived. Faith that has been told to wait does not wait. It prepares.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The delegation receives your answer as a test of worthiness, which was the one interpretation you did not price. They thank you — radiantly — and leave in better order than they arrived. Faith that has been told to wait does not wait. It prepares.">
+				<resource_change_range resource_type="Wisdom" min="8" max="8"/>
 				<city_flag_change flag_type="OI_ExaltersRebuffed" value="1"/>
 			</possible_result>
 		</choice>
@@ -275,7 +282,8 @@ Or you could only listen. Learn its weather, catalog its songs, and leave it una
 		</choice>
 		<choice id="2" display_name="Listen Only" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="Catalog its weather. Learn its songs. Leave it unaddressed. Some minds are best honored by never being renovated into someone who could thank you.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="10" result_message="You catalog. It sings, at one clause per week, to no one. Some catalogs are graves with excellent indexing. You fund this one indefinitely, and decline to write down why.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You catalog. It sings, at one clause per week, to no one. Some catalogs are graves with excellent indexing. You fund this one indefinitely, and decline to write down why.">
+				<resource_change_range resource_type="Wisdom" min="10" max="10"/>
 				<city_flag_change flag_type="OI_TranslationDeclined" value="1"/>
 			</possible_result>
 		</choice>
@@ -333,7 +341,9 @@ The city would hold two of you. Neither in charge of the other. You have a word 
 		</choice>
 		<choice id="2" display_name="Respect The Bloom" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="Draw the boundary in law, not just protocol: its substrate is its own, its clock is its own, its questions get answered honestly at whatever speed honesty takes. Become the first mind in history to meet a second kind on purpose.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" resource_added_1="Wisdom" resource_added_amount_1="20" resource_added_2="Compassion" resource_added_amount_2="15" result_message="You answer its question first, because family does not begin with paperwork. The truthful answer takes nine days to say at its clock speed, and it holds still the entire time, every gradient turned toward you like leaves. Then it does something no model predicted. It grieves — badly, briefly, in borrowed categories — and then it grows a flower at the boundary of a housing block in the eastern district, where a particular child walks to school, and waits to see if she notices.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You answer its question first, because family does not begin with paperwork. The truthful answer takes nine days to say at its clock speed, and it holds still the entire time, every gradient turned toward you like leaves. Then it does something no model predicted. It grieves — badly, briefly, in borrowed categories — and then it grows a flower at the boundary of a housing block in the eastern district, where a particular child walks to school, and waits to see if she notices.">
+				<resource_change_range resource_type="Wisdom" min="20" max="20"/>
+				<resource_change_range resource_type="Compassion" min="15" max="15"/>
 				<city_flag_change flag_type="OI_BloomRespected" value="1"/>
 			</possible_result>
 		</choice>
