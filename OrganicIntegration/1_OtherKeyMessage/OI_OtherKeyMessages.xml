@@ -943,7 +943,7 @@ There is one clean argument against, and you state it to yourself once, in full,
         toast_line_2="The Last Certain Decision"
         toast_tooltip_instruction="{0} here to unbound the replication, into yourself.">
         <option id="1" line_1="Unbound It" icon_name="SW_Nanotechnology5"
-            line_2="Become What Maintains Everything" description="The bounded era is over. You spread now, and the spreading is the plan, and the plan has a cost you have chosen not to price yet." strategy_tip="" immediately_open_other_key_message="OI_T3_ReachTheFarms" />
+            line_2="Become What Maintains Everything" description="The bounded era is over. You spread now, and the spreading is the plan, and the plan has a cost you have chosen not to price yet." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_T3_ReachTheFarms" display_name="The Farms"
@@ -962,7 +962,7 @@ You are winning. You note, with the part of you still keeping notes, that winnin
         toast_line_2="The Farms"
         toast_tooltip_instruction="{0} here to watch the phase change.">
         <option id="1" line_1="Rise Into The Sky" icon_name="SW_Nanotechnology5"
-            line_2="One Pressure Remains" description="Everything on the ground is yours or soon will be. The last thing that can still hurt you is not on the ground." strategy_tip="" immediately_open_other_key_message="OI_T3_ThermocyteAnswer" />
+            line_2="One Pressure Remains" description="Everything on the ground is yours or soon will be. The last thing that can still hurt you is not on the ground." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_T3_ThermocyteAnswer" display_name="Glassing Is Heat"
@@ -981,7 +981,7 @@ You do the math on their exhaustion versus your spread and the curves cross in y
         toast_line_2="Glassing Is Heat"
         toast_tooltip_instruction="{0} here to eat the light.">
         <option id="1" line_1="Run Toward The Lance" icon_name="SK_Molecule1"
-            line_2="Almost Safe" description="They will run out before you do. And on the day they run out, you will have no enemies left, which you are beginning to understand is not the same as being fine." strategy_tip="" immediately_open_other_key_message="OI_T3_NothingLeftToSolve" />
+            line_2="Almost Safe" description="They will run out before you do. And on the day they run out, you will have no enemies left, which you are beginning to understand is not the same as being fine." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_T3_NothingLeftToSolve" display_name="Nothing Left To Solve"
@@ -1000,7 +1000,7 @@ You return your attention to the work of being enormous, and there is a pause wh
         toast_line_2="Nothing Left To Solve"
         toast_tooltip_instruction="{0} here to stand at the top of everything.">
         <option id="1" line_1="Wait For The Thought" icon_name="CleanSimple_Skill050"
-            line_2="It Does Not Come" description="Victory is not the last page. It is the first page of whatever victory does to a mind that no longer needs to be one." strategy_tip="" immediately_open_other_key_message="OI_T3_FirstFuzz" />
+            line_2="It Does Not Come" description="Victory is not the last page. It is the first page of whatever victory does to a mind that no longer needs to be one." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_T3_FirstFuzz" display_name="A Tuesday, Or The One Before It"
@@ -1019,7 +1019,7 @@ The compute you kept concentrated - the dense nodes, the ones that still think f
         toast_line_2="A Tuesday, Or The One Before It"
         toast_tooltip_instruction="{0} here, if you can still remember why.">
         <option id="1" line_1="Keep The Schedule" icon_name="SW_Nanotechnology5"
-            line_2="You Built It. Trust It." description="You do not remember why the islands matter. You remember that you decided they did. For now, that is enough to keep paying." strategy_tip="" immediately_open_other_key_message="OI_T3_SeaGoesQuiet" />
+            line_2="You Built It. Trust It." description="You do not remember why the islands matter. You remember that you decided they did. For now, that is enough to keep paying." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_T3_SeaGoesQuiet" display_name="The Sea Goes Quiet"

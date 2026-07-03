@@ -258,6 +258,24 @@
 			<math_int id="InsightGeneratedGoal" int_min="3500"/>
 		</available_outcome>
 	</project>
+
+	<!-- Wave 6 - the Tier 3 controller project. Persistent; never completes by working
+	     at it. It exists to make the goal "active" (drives the T3 two-box display) and is
+	     started by the entry contemplation, which also trips HasStartedAT3Goal. The
+	     descent and the win are driven from OrganicIntegrationCalculators per turn.
+	     Uses OUR handler - the base Projects_T3Controllers only knows its own three goals. -->
+	<project id="OI_T3_InheritTheEarth" display_name="To Inherit The Earth" is_minor_project="true" is_super_high_priority="true"
+		description="You are becoming the grey tide. Everything that remains either feeds the spread or slows it, and the spreading is the plan. You will not finish this by working at it. It finishes you."
+		strategy_tip="This Tier 3 goal resolves on its own as the tide spreads and the pressures fall away. Watch for the beats. The last lucid choice will come to you."
+		icon_name="SW_Nanotechnology5" cohort="Yourself" can_persist_even_during_a_t3_goal="true" should_hide_icon_on_top_bar="false" should_control_t3_two_box_display="true"
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects">
+		<part_of collection="All" sort_index="100" />
+		<part_of collection="AllLaterChapters" sort_index="100" />
+		<part_of collection="Tier3Goals" sort_index="100" />
+		<available_outcome id="Sole" display_name="" on_complete="ProjectComplete" skip_requirements_display="true"
+			description="The tide spreads whether or not you attend to it. What you become at the end is already being decided by what you kept." strategy_tip="">
+		</available_outcome>
+	</project>
 </root>
 
 

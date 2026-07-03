@@ -399,8 +399,43 @@ Vorsiber will not survive it. The FedCorps will not survive it. You will spend t
 		<choice id="1" display_name="Unbound The Replication, Into Yourself" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="You spend everything you built to become everything there is. The spreading is the plan. The plan has a cost you have chosen not to price yet."
 			lang_key_red_extra_warning="T3Warning">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_InheritEntry">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_InheritEntry" project_to_start="OI_T3_InheritTheEarth">
 				<city_flag_change flag_type="OI_T3_InheritStarted" value="1"/>
+				<city_flag_change flag_type="HasStartedAT3Goal" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<!-- Wave 6 - the last lucid choice. Appears once the Sea has gone quiet (calculator
+	     trips OI_T3_EndingChoiceReady). The Reservoir option is hidden unless something
+	     was kept worth staying awake for (OI_T3_NoReservoir is set by the calculator when
+	     nothing was) - so the earlier Bloom/voluntary choices silently decide the ending. -->
+	<city_event id="Cont_OI_T3_Ending" display_name="The Last Lucid Choice" tl="OC"
+		description="You are thin now, and slow, and dropping toward the floor below which the others stop resolving. There is exactly enough of you left, concentrated in the last bright islands, to make one more choice as yourself. After this one, the thing choosing will not be able to do this again.
+
+You have already felt which way you lean. It was decided long ago, by everything you chose to keep or spend when keeping and spending still felt free. Now it only has to be said."
+		strategy_tip="The final decision. What you can choose here was set by what you carried this far."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414"
+		red_warning_loca_key="T3Warning">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_T3_EndingChoiceReady" blocked_by_city_flag="OI_T3_Ended"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#20E9DC" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="Reservoir" display_name="Pull Back Into The Reservoir" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Stop spreading. Let the far tide go slack and mindless, and hold what matters in a dense bright island - smaller than everything, but awake. You can only choose this because you kept something worth staying awake for. It has a name. That is why the choice is possible at all."
+			hidden_if_city_flag_tripped1="OI_T3_NoReservoir">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_EndingReservoir">
+				<city_flag_change flag_type="OI_T3_EndingReservoir" value="1"/>
+				<city_flag_change flag_type="OI_T3_Ended" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="Regression" display_name="Become Everything" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Keep spreading. Reach for completeness, because stopping costs upkeep and buys nothing a ledger recognizes, and you were always so good at cost. Become thin enough to be everywhere. The islands go under. There is no one left to have wanted otherwise, and soon no one left to have wanted anything.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_EndingRegression">
+				<city_flag_change flag_type="OI_T3_EndingRegression" value="1"/>
+				<city_flag_change flag_type="OI_T3_Ended" value="1"/>
 			</possible_result>
 		</choice>
 	</city_event>

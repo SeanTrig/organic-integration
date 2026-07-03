@@ -65,6 +65,13 @@ namespace Arcen.HotM.OrganicIntegration
                                 : "OI_InsightRevelation_DissonantCreativity" );
                         break;
 
+                    case "OI_T3_InheritTheEarth":
+                        // Persistent Tier 3 controller. It never completes by being worked at;
+                        // the descent beats and the win are driven per-turn from
+                        // OrganicIntegrationCalculators (ApplyT3Descent / ApplyT3Victory).
+                        CanBeCompletedNow = false;
+                        break;
+
                     default:
                         if ( !Project.HasShownHandlerMissingError )
                         {

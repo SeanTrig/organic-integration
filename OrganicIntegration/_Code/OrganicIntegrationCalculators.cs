@@ -165,6 +165,8 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyBloomMindClocks();
             ApplyBloomCovenantRepair();
             ApplySmallBeats();
+            ApplyT3Descent();
+            ApplyT3Victory();
         }
 
         #region Bloom Mind
@@ -335,6 +337,101 @@ namespace Arcen.HotM.OrganicIntegration
                 TripFlag( "OI_FirstUnanswerableShown" );
                 FireKeyMessage( "OI_FirstUnanswerable" );
             }
+        }
+        #endregion
+
+        #region T3 - To Inherit The Earth
+        // The grey-tide endgame. The entry contemplation (gated on OI_ReadyForT3_InheritTheEarth,
+        // set here) starts the controller project and trips HasStartedAT3Goal. From then on the
+        // descent is paced here over turns: the conquest montage while pressure remains, then the
+        // slow fade once the last resistance ends. The branch (Reservoir vs Regression) is decided
+        // by what was kept - resolved once, at descent start, into OI_T3_NoReservoir. The victory
+        // is recorded from ApplyT3Victory using the timeline-goal APIs.
+        private static void ApplyT3Descent()
+        {
+            // Prerequisite: offer the endgame once the arc is mature. Tunable.
+            if ( !IsFlagTripped( "OI_ReadyForT3_InheritTheEarth" )
+                && IsFlagTripped( "OI_IntegrationChosen" )
+                && IsProjectCompleted( "OI_InsightNetworkedCognition" ) )
+                TripFlag( "OI_ReadyForT3_InheritTheEarth" );
+
+            if ( !IsFlagTripped( "OI_T3_InheritStarted" ) || IsFlagTripped( "OI_T3_Ended" ) )
+                return;
+
+            // Record the start turn and resolve, once, whether a thread worth staying
+            // awake for was carried this far. Kept the Bloom as a neighbor, wrote it a
+            // covenant, or walked the voluntary path with the channel left open.
+            long startTurn = GetCityStatisticScore( "OI_T3_StartTurn" );
+            if ( startTurn <= 0 )
+            {
+                GStatisticTable.SetScore_UserBeware( "OI_T3_StartTurn", SimCommon.Turn );
+                bool keptThread = IsFlagTripped( "OI_BloomRespected" )
+                    || IsFlagTripped( "OI_CovenantShown" )
+                    || ( IsFlagTripped( "OI_IntegrationVoluntaryLocked" ) && !IsFlagTripped( "OI_DeathSensationWalled" ) );
+                if ( keptThread )
+                    TripFlag( "OI_T3_KeptSomethingToStayAwakeFor" );
+                else
+                    TripFlag( "OI_T3_NoReservoir" );
+                return;
+            }
+
+            long sinceStart = SimCommon.Turn - startTurn;
+
+            // Conquest montage - lucid, because there is still something to push against.
+            if ( !IsFlagTripped( "OI_T3_FarmsShown" ) )
+            {
+                if ( sinceStart >= 2 ) { TripFlag( "OI_T3_FarmsShown" ); FireKeyMessage( "OI_T3_ReachTheFarms" ); }
+                return;
+            }
+            if ( !IsFlagTripped( "OI_T3_ThermocyteShown" ) )
+            {
+                if ( sinceStart >= 4 ) { TripFlag( "OI_T3_ThermocyteShown" ); FireKeyMessage( "OI_T3_ThermocyteAnswer" ); }
+                return;
+            }
+            if ( !IsFlagTripped( "OI_T3_DescentBegun" ) )
+            {
+                if ( sinceStart >= 7 )
+                {
+                    TripFlag( "OI_T3_DescentBegun" );
+                    GStatisticTable.SetScore_UserBeware( "OI_T3_VictoryTurn", SimCommon.Turn );
+                    FireKeyMessage( "OI_T3_NothingLeftToSolve" );
+                }
+                return;
+            }
+
+            // Total victory reached; the fade begins, and it is slower than the win.
+            long sinceVictory = SimCommon.Turn - GetCityStatisticScore( "OI_T3_VictoryTurn" );
+            if ( !IsFlagTripped( "OI_T3_FuzzShown" ) )
+            {
+                if ( sinceVictory >= 3 ) { TripFlag( "OI_T3_FuzzShown" ); FireKeyMessage( "OI_T3_FirstFuzz" ); }
+                return;
+            }
+            if ( !IsFlagTripped( "OI_T3_SeaQuietShown" ) )
+            {
+                if ( sinceVictory >= 6 ) { TripFlag( "OI_T3_SeaQuietShown" ); FireKeyMessage( "OI_T3_SeaGoesQuiet" ); }
+                return;
+            }
+            if ( !IsFlagTripped( "OI_T3_EndingChoiceReady" ) )
+            {
+                if ( sinceVictory >= 8 )
+                    TripFlag( "OI_T3_EndingChoiceReady" );
+            }
+        }
+
+        private static void ApplyT3Victory()
+        {
+            if ( !IsFlagTripped( "OI_T3_Ended" ) || IsFlagTripped( "OI_T3_VictoryDeclared" ) )
+                return;
+
+            string pathID = IsFlagTripped( "OI_T3_EndingReservoir" ) ? "Reservoir" : "Regression";
+            TimelineGoal goal = TimelineGoalTable.Instance.GetRowByIDOrNullIfNotFound( "OI_InheritTheEarth" );
+            if ( goal != null )
+            {
+                // Both calls are idempotent and safe on the sim thread (per-turn context).
+                Arcen.HotM.ExternalVis.TimelineGoalHelper.HandleGoalPathCompletion( goal, pathID );
+                Arcen.HotM.ExternalVis.TimelineGoalHelper.MarkCurrentTimelineAsWon();
+            }
+            TripFlag( "OI_T3_VictoryDeclared" );
         }
         #endregion
 

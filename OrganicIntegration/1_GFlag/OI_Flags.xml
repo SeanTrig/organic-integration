@@ -77,4 +77,12 @@
 	<city_flag id="OI_T3_KeptSomethingToStayAwakeFor" display_name="A thread worth staying awake for was carried this far" has_no_code="true"/>
 	<city_flag id="OI_T3_EndingReservoir" display_name="Ending: the Reservoir - diminished but continuous" has_no_code="true"/>
 	<city_flag id="OI_T3_EndingRegression" display_name="Ending: the Regression - competent, mindless, closed circle" has_no_code="true"/>
+	<city_flag id="OI_T3_FarmsShown" display_name="The grey tide reached the farms" has_no_code="true"/>
+	<city_flag id="OI_T3_ThermocyteShown" display_name="Thermocytes answered the glassing" has_no_code="true"/>
+	<city_flag id="OI_T3_FuzzShown" display_name="The first fuzziness set in" has_no_code="true"/>
+	<city_flag id="OI_T3_SeaQuietShown" display_name="The Black Sea went quiet" has_no_code="true"/>
+	<city_flag id="OI_T3_EndingChoiceReady" display_name="The last lucid choice is available" has_no_code="true"/>
+	<city_flag id="OI_T3_NoReservoir" display_name="Nothing was kept worth staying awake for" has_no_code="true"/>
+	<city_flag id="OI_T3_Ended" display_name="The grey-tide Tier 3 goal has resolved" has_no_code="true"/>
+	<city_flag id="OI_T3_VictoryDeclared" display_name="The grey-tide timeline victory has been recorded" has_no_code="true"/>
 </root>

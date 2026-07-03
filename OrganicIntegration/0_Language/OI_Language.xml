@@ -49,6 +49,10 @@
 	<lang id="OI_Stat_Desc_BloomRespectTurn" text="The turn the boundary was made law." />
 	<lang id="OI_Stat_Name_BloomFragmentClockTurn" text="Fragment Clock Turn" />
 	<lang id="OI_Stat_Desc_BloomFragmentClockTurn" text="A clock for something that should not have a clock." />
+	<lang id="OI_Stat_Name_T3StartTurn" text="Grey Tide Start Turn" />
+	<lang id="OI_Stat_Desc_T3StartTurn" text="The turn you unbound the replication into yourself." />
+	<lang id="OI_Stat_Name_T3VictoryTurn" text="Grey Tide Victory Turn" />
+	<lang id="OI_Stat_Desc_T3VictoryTurn" text="The turn the last pressure ended, and the descent began." />
 	<lang id="OI_Stat_Name_InterfaceTrialDesignPoints" text="Interface Trial Points" />
 	<lang id="OI_Stat_Desc_InterfaceTrialDesignPoints" text="Living-tissue edge cases gathered before miniaturizing the nanobot interface." />
 	<lang id="OI_Stat_Name_NanobotHarvestDesignPoints" text="Nanobot Design Points" />

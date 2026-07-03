@@ -298,13 +298,36 @@ Everything routes through patterns the mod already uses — **no unhandleable bl
   Floor-enforcement precedent: projects `Ch1_MIN_IntelligenceClass3` w/ `<math_int id="Goal"
   int_min="3"/>`. UpgradeInt mirror `IntelligenceClass` (`IUP_Basics.xml`, cap 17).
 
-### Build order (spine-first, as every prior wave)
-1. DESIGN capture (this section). 2. Flags + the degrading descent **message chain** (pure
-content, cannot break the loader). 3. Minimal loadable mechanical shell: `OI_ReadyForT3_*`
-flag, entry contemplation, a `1_TimelineGoal` row + goal paths, a small controller project
-chain that fires the descent and completes a goal path via `primary_path_for_goals`.
-4. Later waves: grey-goo internal robotics, the region DataCalculator sim, the Space-Nations
-doom type + thermocytes, the IC-floor DataCalculator. Validate/deploy/commit each slice.
+### Build status (July 2026 — playable end to end)
+**BUILT and deployed:** the full narrative arc + a working, winnable Tier-3 goal.
+- Entry: `Cont_OI_T3Start_InheritTheEarth`, gated on `OI_ReadyForT3_InheritTheEarth`, which
+  the calculator sets once `OI_IntegrationChosen` && `OI_InsightNetworkedCognition` is
+  complete (tunable). Its choice starts controller project `OI_T3_InheritTheEarth`
+  (`Tier3Goals` collection, our handler, `should_control_t3_two_box_display`) and trips
+  `HasStartedAT3Goal`.
+- Goal: `1_TimelineGoal/OI_TimelineGoals.xml` → `OI_InheritTheEarth`, `goal_tier="3"`,
+  paths `Reservoir` / `Regression`. Won from `OrganicIntegrationCalculators.ApplyT3Victory`
+  via `TimelineGoalHelper.HandleGoalPathCompletion(goal, pathID)` + `MarkCurrentTimelineAsWon()`
+  (both idempotent, sim-thread).
+- Descent: `ApplyT3Descent` paces the beats over turns (conquest montage while pressure
+  remains: farms +2, thermocytes +4, victory +7; then the slow fade: fuzz victory+3,
+  Sea-goes-quiet victory+6, the last choice victory+8). The branch is resolved once at
+  descent start into `OI_T3_NoReservoir` from the kept-thread test (`OI_BloomRespected` ||
+  `OI_CovenantShown` || voluntary-and-unwalled). The ending contemplation `Cont_OI_T3_Ending`
+  hides the Reservoir option unless a thread was kept, so earlier choices silently decide it.
+- Intelligence Class is **read-only** (`SimMetagame.IntelligenceClass`); the floor / Sea-going-
+  quiet is modeled narratively + via our own flags, never by writing IC.
+
+**Modeled abstractly (deliberate, for a robust first playtest — not literal-region surgery):**
+the conquest is narrative beats, not a live `RegionalMapCentral` takeover; the glassing/thermocyte
+answer is flavor, not a custom `CityTimelineDoomType`; the density↔sentience dial is expressed as
+the kept-thread branch + the paced fade rather than a per-turn spread/hold economy. These are the
+verifiable, save-safe forms. The literal versions (region-map sim reading/writing
+`RegionalMapCentral`, a real Space-Nations doom type, the grey-goo internal-robotics conversion via
+a new `JobInternalRobotics` `upgrade_int`, a live spread/hold lever with compute-temples) are the
+**next tweak layer**, to add based on playtest feel — each is a known, scoped hook (see technical
+map above), intentionally deferred because they can't be runtime-verified without play and could
+otherwise risk a save.
 
 ## Long Horizon / Parking Lot
 
