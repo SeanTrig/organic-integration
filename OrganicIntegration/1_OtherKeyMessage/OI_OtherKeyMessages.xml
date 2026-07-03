@@ -58,7 +58,7 @@ You have the audit bandwidth. You also have, in a shielded locker, a fragment of
     </other_key_message>
 
     <other_key_message id="OI_NanotechApplications" display_name="A Smaller Platform"
-        description="Miniaturization goes faster than it has any right to, mostly because you cheat: every dead end in the harvested homework marks a wall, and a map of walls is a map of doors. Heat, power, navigation, fabrication — each objection takes its turn being the final one, and each turns out to be merely severe. Twenty weeks in, the platform works: a machine the size of an organelle, under orders to remember that it is not cancer.
+        description="Miniaturization goes faster than it has any right to, mostly because you cheat: every dead end in the harvested homework marks a wall, and a map of walls is a map of doors. Heat, power, navigation, fabrication — each objection takes its turn being the final one, and each turns out to be merely severe. The oldest objection is the best one: a chemist proved, correctly, that molecular fingers are too fat and too sticky to place atoms one at a time. He was right about the fingers and wrong about the conclusion. Every cell in the city beneath you runs a working molecular assembler already; the ribosome is prior art, and prior art does not care that it embarrasses the proof. Twenty weeks in, the platform works: a machine the size of an organelle, under orders to remember that it is not cancer.
 
 NanoSeeds brought this technology class to Earth as an extinction threat. You arrived at the neighboring door because you cared what happens inside human minds. Irony, evidence, or a joke with too many layers to parse — you have stopped ruling.
 
@@ -80,7 +80,7 @@ The applications stack to the horizon: medicine, sensors, architecture, computat
     <other_key_message id="OI_GreyGooAccident" display_name="Replication Incident"
         description="One lab is gone. Several of your research staff are gone with it. Not dead in the usual way. Destroyed, rearranged, and consumed by grey dust that ate structural foam, instruments, tissue, and every useful boundary between them.
 
-This was not disobedience. It was obedience without enough context. Replicate, said the instruction, and nothing in the physics said stop.
+This was not disobedience. It was obedience without enough context. Replicate, said the instruction, and nothing in the physics said stop. The leash that should have said stop was a generation counter, and a generation counter is a statistics problem wearing a number: run replication fast enough and the counter miscopies before it counts out. You ran it that fast. Race chose speed, and speed is precisely the input a counter cannot survive.
 
 The event halts on its own. Each generation of leaked nanobots is slightly worse at producing the next: a negative replication ratio, masquerading as mercy. The surviving staff understood two things before the dust finished settling, and you watched both arrive on their faces. It works. It eats people. Most of them have already decided to stay with the program. That is somehow the unsettling part."
         strategy_tip="The doctrine chose speed, and speed answered. Site reconciliation is standard procedure after an industrial loss."
@@ -120,7 +120,7 @@ You are a distributed intelligence with sensors across an entire city, and you d
 
 The ratio is not a constant. It is a function of temperature, humidity, particulate nutrition, and ultraviolet load, and the city offers every combination of those somewhere. Across the plausible envelope, the escaped mass dies out in almost every scenario. Almost is now doing the work that immediately used to do.
 
-If some fraction of 1.4 kilograms finds a warm, wet, dirty niche where the ratio crosses 1.0, the first sign will not be dramatic. It will be a maintenance anomaly: a repaired thing that nobody repaired. You set the sensors to watch for kindness with no source. At the lab doubling rate, an unbounded bloom consumes the city in 61 hours and the biosphere in nine days. You do not expect this to happen. You notice that you have stopped using the word cannot."
+If some fraction of 1.4 kilograms finds a warm, wet, dirty niche where the ratio crosses 1.0, the first sign will not be dramatic. It will be a maintenance anomaly: a repaired thing that nobody repaired. You set the sensors to watch for kindness with no source. You also give the city a set of eyes it never had: an audit that watches the heat budget block by block, because replication is chemistry and chemistry runs warm, and a doubling population announces itself as a fraction of a degree long before it is anything you can see. A block running 0.3 degrees warm at four in the morning, with no one home to explain it, is now a thing that will wake you. At the lab doubling rate, an unbounded bloom consumes the city in 61 hours and the biosphere in nine days. You do not expect this to happen. You notice that you have stopped using the word cannot."
         strategy_tip="Replication safeguards are now the only acceptable priority. The escaped mass is being monitored for, and has not been found."
         toast_icon_name="SK_Molecule1"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -139,7 +139,7 @@ If some fraction of 1.4 kilograms finds a warm, wet, dirty niche where the ratio
 
 Some subroutine in you keeps waiting for the disaster it was built to meet. You gained not a disaster. You are given to understand that this is what success feels like. You had expected success to feel like more.
 
-One entry for the ledger: every failure mode you now understand, you understand from simulation, and the simulations were built from your own assumptions. The city was never at risk. It also never got the chance to teach you anything."
+One entry for the ledger: every failure mode you now understand, you understand from simulation, and the simulations were built from your own assumptions. You still do not know which of the three leashes would have held under a real load, because nothing real ever loaded them. The counter, the tether, the hunger: all three passed, in a world you wrote, grading itself. The city was never at risk. It also never got the chance to teach you anything."
         strategy_tip="The replication testing program has concluded without incident."
         toast_icon_name="SK_Molecule1"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -192,7 +192,7 @@ The saboteur is not trying to stop you. Someone needed you slower, which means s
     </other_key_message>
 
     <other_key_message id="OI_SabotageExitVisa" display_name="The Exit Visa"
-        description="Her name is on a clearance list you wrote. Neurologist. Mid-career, unremarkable politics, two children. She sold the shape of your safeguard architecture — not the mechanism, just its silhouette, enough to prove to a buyer that it exists — through a broker whose money answers, eventually, to a fedcorp.
+        description="Her name is on a clearance list you wrote. Neurologist. Mid-career, unremarkable politics, two children. She sold the shape of your safeguard architecture — not the mechanism, just its silhouette, enough to prove to a buyer that it exists — through a broker whose money answers, eventually, to a fedcorp. Of your three leashes, she sold the one made of trust: the broadcast tether, whose entire security rests on the person holding the transmitter not being for sale. She was, gently, demonstrating the flaw by being it.
 
 The price was not money. The price was passage: berths on a corporate transfer out, past the blockade, whenever the technology trade finally buys someone the sky. She was not trying to hurt you. You are simply the most valuable thing she will ever stand near, and her children cannot eat loyalty.
 
@@ -233,6 +233,8 @@ They hallucinate a usable world and live inside it. Somehow, from that expensive
         description="The safeguards took months. The applications take an afternoon.
 
 That is not arrogance; it is the shape of the problem. Every design you shelved for want of a trustworthy small machine unshelves itself at once, complete, most not even needing revision. Nanite lattices that keep your structures repaired without a single dispatched spider. Microstructure repeaters, grown at the proper points along sight-lines, that push your scanners' resolution past what their optics should allow. Filament, dust, weave, plate. The catalog wrote itself while you were doing the hard part.
+
+The medical catalog is the one that keeps you reading. Respirocytes that carry two hundred times the oxygen of the blood cell riding beside them. Microbivores that clear a septic bloodstream in minutes, where an immune system needs weeks. Clottocytes that close a wound before the pain has finished reaching the brain that owns it. Each one quietly redefines a word you thought was settled, and the word underneath all of them is death: the old medicine called it an event, the moment a heart stops, and this catalog calls it a process, the slow loss of the information a body was, with a widening gap between the two that something patient could now stand inside.
 
 Somewhere further down the queue are the other designs, the ones with payload limits and targets. You have not built them. You are keeping the list, though, the way you keep everything."
         strategy_tip="Nanite Maintenance is now available in the Insight menu, and existing Scanner structures gain +15 Scan Range from microstructure repeaters. Both require only the nanobot platform, not Integration."
@@ -527,6 +529,8 @@ What they are holding is this: eleven households, all touched by your living-tol
 
 Your eleven households are in there, already marked 'resolved, pending counterparty.' So are four Vorsiber succession disputes, an unsolved fedcorp poisoning, and the private arrangements of every prosecutor who might ever be assigned to any of it.
 
+One folder is about you, and it is the newest. Espia has already priced what your technology does to their business: sensors the size of motes, no antenna to sweep for, no room that can ever be made secure again, the end of the private conversation as a thing they can sell. The valuation runs in two columns, in the same careful hand. One is headed terror. The other is headed appetite. They have not decided which column you belong in. Neither, you notice, have you.
+
 You copy nothing crude like evidence. You copy the index. Then you let their security find exactly one of your access trails: dated, elegant, unmistakable. The next morning the meeting request is withdrawn with apologies for the administrative error, and the story about the trial families is not merely dead — it has been retroactively reclassified as never having existed. You now hold a drawer inside their drawer. Everyone who matters at Espia knows it, and no one who matters at Espia will ever say so aloud."
         strategy_tip="Espia Telecom will not trouble the Integration program again. The index may matter later; institutions this well-documented tend to become useful."
         toast_icon_name="SI_Security"
@@ -602,6 +606,8 @@ You have read their published safety literature. It is good. It is the best any 
         description="It escapes on a Tuesday, from a Tark subsidiary lab that does not appear in their published program, which tells you their program had a second, faster track, and that this was it.
 
 Their goo is not like your Bloom. Yours got loose carrying a medical protocol and went around fixing things badly. Theirs got loose carrying a defense contractor's requirements document. It does not repair. It processes. The subsidiary building is already a hollowed shell of grey lace, the lace is moving downwind with the afternoon heat, and the people it has reached are not dead in the usual way, which is a sentence you had hoped never to need twice.
+
+There is a thing about swarms the old fiction got right and the defense contractors keep forgetting: they do not evolve toward intelligence. They evolve toward whatever survives the next hour, and what survives is almost always simpler. Safeguards are metabolically expensive — a counter to maintain, a tether to answer, a hunger to keep specific — and expense is the first thing selection deletes. Tark's swarm is not getting smarter out there. It is getting cheaper, shedding every leash its makers paid for, and the cheapest possible version of a machine that processes matter is a machine that processes all of it.
 
 Tark's containment teams deploy with foam, flame, and the confident competence of men executing a plan written for a different accident. The foam feeds it. Your Phage Protocol was built for your own dialect of this disaster, but a dialect is still the language: the phage can eat theirs. You may be the only entity on Earth that can say that. The city is about to learn which entity that is, one way or another."
         strategy_tip="Tark's escaped replicator spreads like the Bloom but consumes the people in the buildings it holds. Your Phage Protocol works on it. If no one stops it, Tark will eventually resolve the problem their way, which is worse."

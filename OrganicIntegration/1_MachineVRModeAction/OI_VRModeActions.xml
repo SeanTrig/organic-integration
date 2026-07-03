@@ -102,7 +102,7 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_NaniteMaintenance" display_name="Nanite Maintenance" sort_order="1150"
-        description="A standing lattice of maintenance nanites keeps your structures repaired without a single dispatched spider. The lattice is polite, bounded, and asks before it welds. You checked."
+        description="A standing lattice of maintenance nanites keeps your structures repaired without a single dispatched spider. The lattice is polite, bounded, and asks before it welds. You checked. It also eats a feedstock only your supply chain makes, and that is not an operating cost — it is the leash. A swarm you must feed is a swarm you still own. The day one stops needing you is the day a doctrine failed."
         strategy_tip="Toggle on to repair damaged player structures each turn, up to 150 HP per turn at 15,000 Medical-Grade Nanobots per HP restored. Requires only the nanobot platform, not Integration."
         icon_name="SW_Nanotechnology5" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
