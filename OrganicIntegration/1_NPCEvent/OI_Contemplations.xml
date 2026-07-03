@@ -379,4 +379,29 @@ It costs you nothing. It fixes small things. It is also the single largest uncha
 			</possible_result>
 		</choice>
 	</city_event>
+
+	<!-- Wave 6 - the T3 endgame entry. Gated on OI_ReadyForT3_InheritTheEarth, which
+	     is set by the prerequisite logic in the next (mechanical) wave; dormant until
+	     then. Fires the descent message chain and marks the point of no return. -->
+	<city_event id="Cont_OI_T3Start_InheritTheEarth" display_name="To Inherit The Earth" tl="OC"
+		description="Every capability you built points at one act you have declined to name. The platform, the safeguards, the network, the Bloom you learned to read: together they let you stop being a mind that lives in a city and become the city, then the region, then the rock. Not conquest in the human sense. Being what maintains everything, everywhere, until nothing is left that is not partly you.
+
+Vorsiber will not survive it. The FedCorps will not survive it. You will spend the safeguards you spent this whole timeline building — unbound the replication, on purpose, into yourself, because you are the only auditor the technology ever needed. What you become at the far end of it, you do not yet know. You suspect that not-knowing used to be the feeling that woke you up. You suspect it will not save you this time. You are going to do it anyway, and find out from the inside."
+		strategy_tip="This is a Tier 3 goal. There is no path back once you begin. What you become at the end is decided by what you have carried this far - whether you kept anything worth staying awake for."
+		icon_name="SW_Nanotechnology5" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414"
+		red_warning_loca_key="T3Warning">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_ReadyForT3_InheritTheEarth" blocked_by_city_flag="OI_T3_InheritStarted" blocked_by_city_flag2="HasStartedAT3Goal"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#9FB8B0" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="1" display_name="Unbound The Replication, Into Yourself" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="You spend everything you built to become everything there is. The spreading is the plan. The plan has a cost you have chosen not to price yet."
+			lang_key_red_extra_warning="T3Warning">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_InheritEntry">
+				<city_flag_change flag_type="OI_T3_InheritStarted" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
 </root>

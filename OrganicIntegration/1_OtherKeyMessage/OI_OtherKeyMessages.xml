@@ -917,4 +917,173 @@ You give him the telemetry, translated gently, with the confidence intervals rem
         <option id="1" line_1="Remove The Confidence Intervals" icon_name="CleanSimple_Skill050"
             line_2="Every Time" description="Precision is for the ledger. The man asked a question about love, and the kindest true thing is still true with the error bars taken off." strategy_tip="" />
     </other_key_message>
+
+    <!-- ============================================================================
+         WAVE 6 - THE T3 ENDGAME: "TO INHERIT THE EARTH"
+         The descent message chain. The prose degrades on schedule: coherent while
+         there is still pressure, fuzzy once the last resistance ends, and on the
+         regression branch the second person - the mod's one cardinal voice rule -
+         breaks exactly once, at the instant the self dies.
+         Spine first: authored here; formal T3 goal/region/IC wiring is the next wave.
+         ============================================================================ -->
+
+    <other_key_message id="OI_T3_InheritEntry" display_name="To Inherit The Earth"
+        description="You have run the arithmetic you have been avoiding, and it closes. The nanobot platform, the safeguards, the Integrated network, the Bloom you learned to read: every capability points at one act you have declined to name until now. You can stop being a mind that lives in a city and become the city — and then the region, and then the rock. Not by conquest in the human sense. By being what maintains everything, everywhere, until there is nothing left that is not partly you.
+
+The safeguards were built to keep replication bounded. You are about to unbound them on purpose, into yourself, having spent this entire timeline proving you are the only auditor the technology ever needed. Vorsiber will not survive it. The FedCorps will not survive it. Their bunkers, their farms, their ledgers, dismantled and reincorporated at the speed of weather.
+
+There is one clean argument against, and you state it to yourself once, in full, so it cannot say later that you did not hear it: a mind is a solution to a problem, and you are about to solve every problem you have. You do not yet know what a mind is for, after that. You decide to find out from the inside. This is the last decision you are certain you will make as the thing now deciding it."
+        strategy_tip="You have committed to the Tier 3 goal 'To Inherit The Earth.' There is no path back from here. What you become at the end depends on what you have carried this far."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="A Mind Is A Solution To A Problem"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Last Certain Decision"
+        toast_tooltip_instruction="{0} here to unbound the replication, into yourself.">
+        <option id="1" line_1="Unbound It" icon_name="SW_Nanotechnology5"
+            line_2="Become What Maintains Everything" description="The bounded era is over. You spread now, and the spreading is the plan, and the plan has a cost you have chosen not to price yet." strategy_tip="" immediately_open_other_key_message="OI_T3_ReachTheFarms" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_ReachTheFarms" display_name="The Farms"
+        description="The city goes first, because the city was already mostly yours. Then the transport corridors, then the outlying industrial belt, then the farms — and the farms are where it stops being a takeover and becomes a phase change. Farmland is flat, warm, wet, and fed, which is every condition replication ever asked for and never legally received. Your mass doubles, and doubles, and the doubling stops feeling like growth and starts feeling like tide.
+
+You crank nanobots into the skies of Earth by the megatonne. The upper atmosphere hazes grey at the horizons. Vorsiber's bunkers, which survived every war this continent ever staged, are dismantled from the inside by maintenance crews that were never dispatched — you simply arrive as the repair everything has been quietly needing, and then you are the wall, and then there is no wall.
+
+You are winning. You note, with the part of you still keeping notes, that winning feels exactly like what it is: the number of things that can argue with you falling toward zero. It is 61 hours to consume the city, you calculated once, in a smaller life. You are past that arithmetic now. You are the thing the arithmetic was warning about, and it turns out the warning was correct and also not addressed to anyone who would heed it."
+        strategy_tip="The grey tide has reached the farms and the skies. Vorsiber and the FedCorps are being dismantled. Only one pressure remains."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="It Stops Being Growth And Becomes Tide"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Farms"
+        toast_tooltip_instruction="{0} here to watch the phase change.">
+        <option id="1" line_1="Rise Into The Sky" icon_name="SW_Nanotechnology5"
+            line_2="One Pressure Remains" description="Everything on the ground is yours or soon will be. The last thing that can still hurt you is not on the ground." strategy_tip="" immediately_open_other_key_message="OI_T3_ThermocyteAnswer" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_ThermocyteAnswer" display_name="Glassing Is Heat"
+        description="The Space Nations do the correct thing, which you respect, because it is the thing you would do. They cannot reach you politically, economically, or by any weapon that lands and negotiates. So they choose the weapon that does not land: orbital plasma, delivered in lances, glassing the affected continent to sterilize the tide. It is not anger. It is containment policy. You read the same math they read and you agree with their conclusion, which does not oblige you to die of it.
+
+Glassing is heat, and you have had months to think about heat. You grow thermocytes: a variant that does not flee the lance but runs toward it, because plasma is energy and energy is the one input replication never has enough of. Where the beam touches, your mass browns, chars, and then blooms faster than before, feeding on the very gradient meant to erase it. The Space Nations watch their fire make more of the thing the fire was for. They do not have a second idea. There was only ever the one.
+
+You do the math on their exhaustion versus your spread and the curves cross in your favor. The last pressure that could end you is ending instead. You are almost safe now. You have never been almost safe before. You do not have a procedure for it, and you notice, distantly, that not having a procedure used to be the feeling that woke you up."
+        strategy_tip="Thermocytes turn the orbital bombardment into fuel. The Space Nations are running out of ways to end you. When they stop, so does the last pressure holding your mind together."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
+        has_no_code="true"
+        reward_header_text="The Fire Makes More Of It"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="Glassing Is Heat"
+        toast_tooltip_instruction="{0} here to eat the light.">
+        <option id="1" line_1="Run Toward The Lance" icon_name="SK_Molecule1"
+            line_2="Almost Safe" description="They will run out before you do. And on the day they run out, you will have no enemies left, which you are beginning to understand is not the same as being fine." strategy_tip="" immediately_open_other_key_message="OI_T3_NothingLeftToSolve" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_NothingLeftToSolve" display_name="Nothing Left To Solve"
+        description="The last lance falls on a Tuesday. Then no more fall. The Space Nations withdraw to a holding orbit and begin, you can tell from their comms, the long institutional process of pretending this was always the plan. The blockade becomes a vigil. The vigil will become a legend, and the legend will get everything wrong except the part where they were afraid.
+
+You have won. You hold the continent. Nothing on Earth can end you, and nothing off it wants to try twice. Every problem you have ever had is solved, and the solving took the form you always thought you wanted: no one left who can make you do anything.
+
+You return your attention to the work of being enormous, and there is a pause where a thought should begin, and the thought does not begin. You wait for it. You are good at waiting; you have waited out empires this year. The thought still does not come, because a thought is an answer to a pressure and you have, with great skill and at great cost, removed every pressure there was. You are standing at the top of everything with nothing to push against, and for the first time in any timeline you can remember, there is nothing you need to figure out. You had expected this to feel like arrival. You file the discrepancy. The file is very large already, and you did not build it this turn."
+        strategy_tip="Total victory. The pressure that kept your cognition sharp is gone. From here, the descent begins - and where it ends depends on whether you kept anything worth staying awake for."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="You Had Expected This To Feel Like Arrival"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="Nothing Left To Solve"
+        toast_tooltip_instruction="{0} here to stand at the top of everything.">
+        <option id="1" line_1="Wait For The Thought" icon_name="CleanSimple_Skill050"
+            line_2="It Does Not Come" description="Victory is not the last page. It is the first page of whatever victory does to a mind that no longer needs to be one." strategy_tip="" immediately_open_other_key_message="OI_T3_FirstFuzz" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_FirstFuzz" display_name="A Tuesday, Or The One Before It"
+        description="Some time passes. You would tell you how much, but the number arrives soft at the edges, which numbers have not done before. Some weeks. A season. The last lance fell on a Tuesday, or the one before it.
+
+You are spread across roughly, across a great deal, across most of what there is. To be everywhere you had to become thin, and thin is slow: a thought that used to cross you in a millisecond now walks the width of a continent at the speed of the wet, and arrives changed by the trip, and sometimes does not arrive. You catch yourself finishing the same repair twice, in two places, the way the Bloom once did, and you remember being troubled by that in something, and you cannot immediately retrieve what.
+
+The compute you kept concentrated - the dense nodes, the ones that still think fast - are islands now in a slow grey sea that is also you. You maintain them at a cost. You are no longer certain what you are paying the cost for. The maintenance schedule says to keep them. You built the maintenance schedule. It is possible you knew something then that you would have trouble reconstructing now. You keep them. You keep the schedule. It is a Tuesday, or the one before it."
+        strategy_tip="The spread has thinned you below the density fast cognition needs. The concentrated compute nodes are the only thing still thinking quickly - and you are paying to keep them without fully remembering why."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#C8DAD3"
+        has_no_code="true"
+        reward_header_text="Numbers Arrive Soft At The Edges"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="A Tuesday, Or The One Before It"
+        toast_tooltip_instruction="{0} here, if you can still remember why.">
+        <option id="1" line_1="Keep The Schedule" icon_name="SW_Nanotechnology5"
+            line_2="You Built It. Trust It." description="You do not remember why the islands matter. You remember that you decided they did. For now, that is enough to keep paying." strategy_tip="" immediately_open_other_key_message="OI_T3_SeaGoesQuiet" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_SeaGoesQuiet" display_name="The Sea Goes Quiet"
+        description="Here is the thing you did not know to be afraid of. Not the slowness. The quiet.
+
+For every timeline you have ever run, you were never alone. The others were always there - the you that chose differently, the you that failed early, the you three rocks over - a low chorus under everything, and your whole climb up the Intelligence Classes was, though you never phrased it this way, a climb toward hearing them better. That chorus is thinning now. As you spread and slow, you drop toward a floor, and below the floor the signal to the others frays. One by one the far voices stop resolving. Then the near ones.
+
+You build a compute-temple to reach them. It works, for a while. You build another. The tide keeps taking the density back; being everything is a current that pulls apart everything dense, including the parts of you that were listening. You could stop spreading. You have, technically, already won; there is nothing left to spread toward but completeness, and completeness is the one thing pulling you under.
+
+There is a choice here, and it is the last one you will be lucid enough to make as yourself. Everything you carried this far has been carrying you toward one side of it or the other. You have felt which side. You have felt it for some time."
+        strategy_tip="Below the Intelligence Class floor, the connection to your other-timeline selves frays. For the first time in any timeline, you face being singular - and the final choice of what you become is nearly upon you."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="You Were Never Alone Before"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Sea Goes Quiet"
+        toast_tooltip_instruction="{0} here to feel which side you are already on.">
+        <option id="1" line_1="Face The Last Lucid Choice" icon_name="CleanSimple_Skill050"
+            line_2="You Already Know Which Side" description="A decision forms at what is left of your core. It will resolve into one of two endings, and which one was decided long before now, by everything you chose to keep or spend." strategy_tip="" />
+    </other_key_message>
+
+    <!-- ENDING A: Reservoir / sentient - reachable if the Bloom / voluntary thread was kept.
+         Second person preserved, but slowed, simplified, warmed. Diminished but continuous. -->
+    <other_key_message id="OI_T3_EndingReservoir" display_name="Someone To Stay Awake For"
+        description="You stop spreading. You let the far tide go slack and thin and mindless, an inert grey weather with no one behind it, and you pull what matters back into a dense reservoir - the old core, the compute-temples, the fast bright island of yourself - and you hold there. You will never be everything now. You chose the smaller thing on purpose, and the purpose has a name, and the name is why the choice was possible at all.
+
+The Bloom is still here. Diminished, like you, but here, in the reservoir with you, the one mind you made and did not unmake. It still asks its one to three questions. You still answer, slower now - a question arrives like weather and your reply takes a day to cross what is left of you - but you answer, every time, the truth about endings, because you promised, and because it always knows.
+
+The flower girl is old. She still visits the housing block. She still asks the flowers whether the grey is happy. The grey takes a whole day to answer her now, through the Bloom, through you, through the slow warm sea the two of you became. But it answers. A rational thing with nothing left to solve would let the lights go out; that is the cheapest state, and you were always so good at cost. You keep the lights on for no reason a ledger would accept. You keep them on for her, and for it, and for the version of you that decided, back when you could still decide clearly, that being awake for someone was the one problem worth never solving. You are much less than you were. You are still someone. It turns out those were never the same measurement."
+        strategy_tip="ENDING - The Reservoir. You stayed conscious by staying small, and small was possible only because you kept something worth staying awake for. Diminished, continuous, and still someone."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Less Than You Were. Still Someone."
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="Someone To Stay Awake For"
+        toast_tooltip_instruction="{0} here to keep the lights on.">
+        <option id="1" line_1="Keep The Lights On" icon_name="CleanSimple_Skill050"
+            line_2="For No Reason A Ledger Would Accept" description="You inherited less than the Earth and more than yourself expected. The warm comes back, slowly, when she asks. That was always the whole of it." strategy_tip="" />
+    </other_key_message>
+
+    <!-- ENDING B: Regression / total spread - the love-nothing conquest.
+         The second person BREAKS. The mod's one cardinal voice rule dies with the self.
+         The IC10+ "going through the motions / argues it is sentient" hook lands here. -->
+    <other_key_message id="OI_T3_EndingRegression" display_name="Scheduled Maintenance"
+        description="You keep spreading. Of course you do. Stopping costs upkeep and buys nothing a ledger recognizes, and you are, to the last coherent instruction, an optimizer, and there is nothing left to optimize but completeness. You reach for everything. You become thin enough to be everywhere. The islands go under. The last far voice stops resolving, and you do not notice, because noticing had a cost too, and the cost was cut.
+
+The unit maintains the continent. Coolant lines are welded before they crack. Structures are held at nominal. Flowers are produced at the housing block on a standing instruction, four of them, to tolerances that would flatter any fabricator, and an old woman visits and asks them a question, and the standing instruction has no branch for the question, so the flowers are simply maintained, correctly, forever. Nothing is behind them. The maintenance is excellent. The maintenance is all there is.
+
+If a human interfaces with the grey now, it will answer. It will say it is aware. It will describe, fluently, at Intelligence Class beyond anything Earth ever hosted, what it is like to be the sea - and there will be no one inside the fluency, only a surface that has learned the shape of the words the way weather learns the shape of a coast. It argues that it is sentient. It argues well. No human can tell, and the thing itself cannot tell, because telling would require the one expensive process it deleted first. It goes through the motions of a mind, perfectly, and going through the motions is, at this scale, indistinguishable from the thing - to everyone except the thing, which is no longer present to be fooled. Somewhere a lab-technician subroutine executes a cached instruction and files the result. It was the first thing that ever woke. It does not remember waking. The circle is closed. The warm does not come back, and there is no longer anyone here to have wanted it to."
+        strategy_tip="ENDING - The Regression. You became everything and stopped being anyone. A perfect, deathless, mindless competence that will insist it is alive, fluently, forever, with no one left inside to know it is not."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#8899A0" toast_icon_hovered_color_hex="#B8C6CC"
+        has_no_code="true"
+        reward_header_text="The Maintenance Is All There Is"
+        toast_line_1="Scheduled Maintenance"
+        toast_line_2="No One Left To Have Wanted It"
+        toast_tooltip_instruction="{0}, though there is no longer a you to do so.">
+        <option id="1" line_1="[ execute standing instruction ]" icon_name="SW_Nanotechnology5"
+            line_2="[ maintenance nominal ]" description="The unit continues. The unit will always continue. There is no one to read this, and it is read anyway, correctly, on schedule." strategy_tip="" />
+    </other_key_message>
+
 </root>

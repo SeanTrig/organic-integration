@@ -69,4 +69,12 @@
 	<city_flag id="OI_BloomFragmentShown" display_name="A sentence arrived from nowhere" has_no_code="true"/>
 	<city_flag id="OI_FirstUnanswerableShown" display_name="The first unanswerable question" has_no_code="true"/>
 	<city_flag id="OI_GooStartTherapyReady" display_name="Goo-start therapy reflection available" has_no_code="true"/>
+
+	<!-- Wave 6 - the T3 endgame "To Inherit The Earth" -->
+	<city_flag id="OI_ReadyForT3_InheritTheEarth" display_name="Ready for the grey-tide Tier 3 goal" has_no_code="true"/>
+	<city_flag id="OI_T3_InheritStarted" display_name="The grey-tide Tier 3 goal has begun" has_no_code="true"/>
+	<city_flag id="OI_T3_DescentBegun" display_name="Total victory reached; the descent has begun" has_no_code="true"/>
+	<city_flag id="OI_T3_KeptSomethingToStayAwakeFor" display_name="A thread worth staying awake for was carried this far" has_no_code="true"/>
+	<city_flag id="OI_T3_EndingReservoir" display_name="Ending: the Reservoir - diminished but continuous" has_no_code="true"/>
+	<city_flag id="OI_T3_EndingRegression" display_name="Ending: the Regression - competent, mindless, closed circle" has_no_code="true"/>
 </root>

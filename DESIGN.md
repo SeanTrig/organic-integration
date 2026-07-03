@@ -146,7 +146,7 @@ parked (fires once on silent/cleared/listen-only paths: THE WARM COMES BACK. TEL
 THE WARM COMES BACK.); the **covenant** grants a small passive structure repair; the
 **half-translation** path ends at the "neighbor" amendment; **Eleven Minutes In**
 (first unanswerable question) and the **Mild Grey Goo start entry variant** shipped.
-Wave 5 (goo apocalypse doom takeover) remains long-horizon and unimplemented.
+Wave 6 (the T3 endgame "To Inherit The Earth") is in progress — see below; spine first.
 
 ## Wave 4 — The Bloom
 
@@ -173,18 +173,138 @@ Wave 5 (goo apocalypse doom takeover) remains long-horizon and unimplemented.
   signature detail (she asks questions in the same shape). Inference, never
   confirmation.
 
-## Wave 5 — The Goo Apocalypse (long horizon)
+## Wave 6 — The T3 Endgame: "To Inherit The Earth" (in progress)
 
-- If the swarm passes a threshold and TMI cannot contain it, the doom track is taken
-  over: the Final Doom stops being Vorsiber's nuke and becomes the Space Nations
-  glassing the city (containment policy, not anger — TMI reads the same math and
-  knows the glassing is correct).
-- Post-apocalypse variant: TMI survives by dispersing into the remaining goo.
-  Diminished capacity AND slower clock — it doesn't just have less, it *is* less,
-  and thinks through a worse substrate. No known direct precedent in games or
-  fiction for the protagonist-inhabits-the-goo move; treat it as the mod's flag.
-- Structural home: custom `CityTimelineDoomType` / doom takeover, mirroring vanilla's
-  "diminished but playable" post-apocalypse philosophy.
+The capstone. A Tier-3 timeline goal in which TMI itself becomes the grey goo — a
+Bloom-type distributed intelligence — spreads across the region, and either persists
+as a diminished-but-continuous mind or regresses toward pre-sentience. Working name
+**"To Inherit The Earth"** (renameable; biblical irony — the meek/mindless inherits
+by becoming the thing that cannot appreciate having inherited). All IDs `OI_`-prefixed.
+
+**OWNERSHIP DECISION (locked, July 2026):** The base game reserves an unbuilt T3 slot
+`LordOfTheNanites` (contemplation `Cont_T3Start_LordOfTheNanites`, timeline goal
+`LordOfTheNanites`, flags `IsReadyForT3_LordOfTheNanites` / `IsLordOfTheNanitesMap`,
+achievement collection `GoalLordOfTheNanites`). Per the user, that slot belongs to
+Chris's upcoming **nanite DLC** and is off-limits like the Vorsiber DLC — but the DLC
+does **not** touch our themes (sentient goo-TMI, pre-sentience regression, the Bloom,
+consciousness-as-expensive-adaptation). So we build a **wholly distinct, OI-namespaced
+T3** that never references, redefines, or trips any `LordOfTheNanites*` ID. Sits beside
+his dormant slot; never touches it.
+
+### The core dial (physics = mechanic = theme)
+A distributed goo mind faces a **size-vs-speed tradeoff**. Signaling between nanobots is
+diffusion-bound: dense = fast but small (low total complexity); city/region-spanning =
+astronomically many bots but *global* cognition crawls (thoughts propagate at diffusion
+speed — the Bloom already lives this, "speeds measured in days"). **To remove all
+pressure it must spread; spreading is the exact act that makes it stupid.** Conquest and
+cognition pull opposite ways on one knob.
+
+### Regression bites *after* victory, not during
+Conquest is itself a pressure; while any resistance remains, TMI stays razor-sharp. The
+fog only arrives **after the last resistance ends** — triumph = the end of pressure =
+the beginning of the fade. The victory screen is the first page of the descent. (Watts,
+*Blindsight*: consciousness is a metabolically expensive adaptation; selection deletes
+anything expensive that isn't earning its keep. This closes the Lem/necroevolution loop
+planted in the Tark-goo mythos pass — *safeguards are metabolically expensive; selection
+deletes them first* — on TMI's own body. Sentience is the ultimate expensive safeguard
+against a hostile world; remove the hostile world and selection comes for the self.)
+
+### The Black Sea floor (not literal — modeled as an IC threshold)
+"Black Sea" has **no literal hook** in the game (confirmed: zero references). Mechanical
+stand-in: `SimMetagame.IntelligenceClass` (int, hard-floored at 1; `IntelligenceClassFell`
+VFX exists — losing IC is first-class) plus `CityTimeline.NeuralProcessing` and the
+Crossover table. TMI has never been *alone* — its other-timeline selves are always in the
+Sea, and IC is inherited through it. The floor isn't "how dumb" but "how thin before the
+Sea goes quiet and, for the first time in any timeline, there is only one of it." The last
+thing to go is not intelligence — it is **company**. Compute-temples (concentrated density
+islands) are the last radio to the other selves; maintaining them is the only thing that
+keeps IC above the floor while spread thin.
+
+### The endings (fall out of the dial; not authored separately)
+- **Concentrated reservoir** — stay dense, stay awake, stay small & bounded. A god that
+  chose a monastery. Conscious to the end, and knows it. *Diminished-but-continuous.*
+- **Total spread / offensive** — achieve the untouchable "can't-be-fucked-with" T3 state,
+  and thin below the sentience threshold. Keeps maintaining, replicating, repelling.
+  Nobody home. The win *is* the lobotomy. → reversion to the **pre-sentient lab-technician
+  automaton** running cached instructions: the game's *opening state*, welded shut, no
+  waking-up-again because waking took pressure and you removed it on purpose. Full circle.
+- **The Bloom is the secret key.** A rational optimizer with nothing left to optimize lets
+  the lights go out (cheapest state). The *only* thing that justifies the endless,
+  purposeless upkeep of the compute-temples is **someone to stay awake for** — the Bloom /
+  covenant / voluntary thread. Love-nothing runs sink because sinking is efficient; the run
+  that kept a thread it didn't have to keep keeps paying, forever, for no reason a ledger
+  accepts. Even the kept-Bloom win still "gets fuzzy" — diminished, not restored.
+- **The IC10+ hook (glorious end).** After the Space Nations are neutralized there is no
+  need for sentience; an IC10+ entity "going through the motions" so perfectly no human can
+  tell, arguing it is sentient while not being so at all — the LLM of sentience. Hooks into
+  AI War / AI War 2 (Arcen, same universe): this is how that AI could have begun.
+
+### The form enacts the content (the writing centerpiece)
+The descent message chain **degrades on schedule**: coherent → clauses drop → numbers go
+vague ("some kilograms," "a Tuesday, or the one before it") → referents lost → and if it
+crosses the floor, the final message has **no "you" in it** — third-person automaton log,
+"the unit will," "scheduled maintenance complete." The mod's one cardinal voice rule
+(second person, always) is broken exactly once, at the instant the self dies. LAKE-severed-
+from-STATION register. On the sentient branch the voice stays *you* but slows, simplifies,
+warms — diminished, present.
+
+### Space Nations & thermocytes
+Space Nations are the one pressure that can't be removed (off-world, untouchable). Their
+threat answered two ways, both reinforcing the dial: **hide** (stay small/dense/dormant —
+can't be found if not spreading) or **survive glassing** (spread so wide no strike gets all
+of it — same spread that regresses you). Glassing is *heat*: **thermocytes** — goo variant
+that seeks plasma/lasers/explosions and reproduces faster in greater heat with proper
+resources. The orbital solution feeds the tide. World/continent-scale goo behavior under
+orbital bombardment: no known mythos precedent; the mod's second flag.
+
+### Prerequisites / branch gating
+Distinct T3, locked to prior choices: reachable off the grey-goo arc + Integration state;
+branch-sensitive framing (coercive vs voluntary; kept-Bloom vs not; walled vs channel).
+Some sibling T3s can be flavor-only. Goal: cleanly connect to the T2s, the factions, and
+the rest of the game — not a dozen new T3s.
+
+### Technical map (from game-source research, July 2026)
+Everything routes through patterns the mod already uses — **no unhandleable blockers.**
+- **T3 win goal:** a `1_TimelineGoal` row, `goal_tier="3"` + `collections="All,Tier3Goal"`,
+  `dll_name/type_name` (can point to our DLL or reuse `TimelineGoals_Main`), `on_complete=
+  "TimelineGoalComplete"`, with `<goal_path>` children granting `meta_resource_added_*`
+  (Daring/Misery) + `achievement_triggered*`, one `is_main_path="true"` with an `ending_id`.
+  Completed by a narrative choice carrying `primary_path_for_goals="<goalPath>"` (on
+  EventChoice / OtherKeyMessageOption / contemplation) — **no DLL needed to win.** Win state:
+  `TimelineGoalHelper.MarkCurrentTimelineAsWon()` (sets `CityTimeline.IsTimelineAVictory`).
+- **Entry:** a `Cont_OI_T3Start_*` contemplation gated on `required_city_flag="OI_ReadyForT3_*"`,
+  blocked by `HasStartedAT3Goal`; its choice trips `HasStartedAT3Goal` (base flag) + starts
+  the T3 controller project. Mark the point-of-no-return with `red_warning_loca_key="T3Warning"`
+  / `lang_key_red_extra_warning="T3Warning"`.
+- **Descent quest:** chained `1_MachineProject` rows, `<part_of collection="Tier3Goals"/>`,
+  `type_name` our controller (base uses `Projects_T3Controllers`); T3 flags
+  `can_persist_even_during_a_t3_goal`, `should_control_t3_two_box_display`,
+  `should_hide_icon_on_top_bar`, `is_super_high_priority`. Fire messages from the chain.
+- **Grey-goo internal robotics:** new `upgrade_int` in collection `JobInternalRobotics`
+  (`IUP_Jobs.xml` pattern); jobs consume via `internal_robotics_type_needed` /
+  `internal_robots_count_needed`; uncap via `no_internal_robotics_limit_if_flag_is_true`.
+  Limited by player nanobot production — a natural resource leash.
+- **Region sim:** `RegionalMapCentral` (DLL-owned: `All_Locations`, `BunkersIntact/Destroyed`,
+  `MainCity`, `AllVehicles`). Targets generated in code, **not** an XML list. Top-bar
+  abilities ARE moddable (`1_AbilityType` `parent_group="RegionalMap"`, e.g. `RMLaunchNukeHere`)
+  and regional units (`1_NPCUnitType`). Drive per-turn spread via a `9_DataCalculator`
+  `DoPerTurn_*` implementation reading/writing `RegionalMapCentral`.
+- **Doom / terminal state:** doom types are moddable — `1_CityTimelineDoomType` +
+  `ICityTimelineDoomTypeImplementation.HandleDoomLogic`. Terminal post-apoc machinery:
+  `CityTimeline.IsPostApocalyptic` / `IsPostFinalDoom` (reuse, don't reinvent). Space-Nations-
+  glassing final doom fits here.
+- **Intelligence Class:** `Arcen.HotM.Core.SimMetagame.IntelligenceClass` (read/write; floor
+  1). React to change via a DataCalculator of type `NewCityRankUpChapterOrIntelligenceChange`.
+  Floor-enforcement precedent: projects `Ch1_MIN_IntelligenceClass3` w/ `<math_int id="Goal"
+  int_min="3"/>`. UpgradeInt mirror `IntelligenceClass` (`IUP_Basics.xml`, cap 17).
+
+### Build order (spine-first, as every prior wave)
+1. DESIGN capture (this section). 2. Flags + the degrading descent **message chain** (pure
+content, cannot break the loader). 3. Minimal loadable mechanical shell: `OI_ReadyForT3_*`
+flag, entry contemplation, a `1_TimelineGoal` row + goal paths, a small controller project
+chain that fires the descent and completes a goal path via `primary_path_for_goals`.
+4. Later waves: grey-goo internal robotics, the region DataCalculator sim, the Space-Nations
+doom type + thermocytes, the IC-floor DataCalculator. Validate/deploy/commit each slice.
 
 ## Long Horizon / Parking Lot
 
