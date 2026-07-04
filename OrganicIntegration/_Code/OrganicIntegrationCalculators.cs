@@ -27,11 +27,12 @@ namespace Arcen.HotM.OrganicIntegration
         private const string InfrastructureFilamentsAction = "OI_InfrastructureFilaments";
         private const string ArchitecturalWeaveAction = "OI_ArchitecturalWeave";
         private const string ControlledBloomAction = "OI_ControlledBloom";
+        private const string DissolutionSurgeAction = "OI_DissolutionSurge";
         private const int VoluntaryPopulationCapPercent = 45;
         private const int VoluntaryConsentCascadeCapPercent = 67;
         private const int CoercivePopulationCapPercent = 85;
         private const int GreyGooDuration = 9999;
-        private const int GreyGooFalloffPercent = 35;
+        private const int GreyGooFalloffPercent = 15;
         private const int FirstDeathDelayTurns = 12;
         private const string GreyBloomSwarm = "OI_GreyBloom";
         private const string NaniteMaintenanceAction = "OI_NaniteMaintenance";
@@ -62,10 +63,10 @@ namespace Arcen.HotM.OrganicIntegration
         {
             SharedInquiryAction, CooperativeModelingAction, SharedTriageAction, OrganicQuantizationAction,
             ConsentCascadeAction, CivicSensoriumAction, PublicHealthMeshAction, ShelterFilamentsAction,
-            InfrastructureFilamentsAction, ArchitecturalWeaveAction, ControlledBloomAction, NaniteMaintenanceAction
+            InfrastructureFilamentsAction, ArchitecturalWeaveAction, ControlledBloomAction, DissolutionSurgeAction, NaniteMaintenanceAction
         };
         private static readonly System.Collections.Generic.List<Vector3A> BloomPositionsCache = new System.Collections.Generic.List<Vector3A>( 64 );
-        private const int ControlledBloomProcPercent = 33;
+        private const int ControlledBloomProcPercent = 55;
         private const long CooperativeInsightPerTurn = 100L;
         private const long CooperativeCompassionPerTurn = 1L;
         private const long CooperativeMentalEnergyPerTurn = 2L;
@@ -100,6 +101,10 @@ namespace Arcen.HotM.OrganicIntegration
         private const long ControlledBloomInsightPerTurn = 400L;
         private const long ControlledBloomCompassionPerTurn = 1L;
         private const long ControlledBloomNanobotsPerTurn = 30000000L;
+        private const long DissolutionSurgeInsightPerTurn = 400L;
+        private const long DissolutionSurgeNanobotsPerTurn = 40000000L;
+        private const long DissolutionSurgeMentalEnergyPerTurn = 2L;
+        private const int DissolutionSurgeStacksPerTurn = 2;
         private static readonly long[] CivicSensoriumInsightPerUpgrade = new long[] { 500L, 1000L, 2000L, 3500L, 5500L, 8000L };
         private static readonly long[] ArchitecturalWeaveInsightPerUpgrade = new long[] { 1500L, 2500L, 4000L, 6500L, 10000L, 15000L, 22000L, 30000L };
 
@@ -1183,6 +1188,7 @@ namespace Arcen.HotM.OrganicIntegration
                 case "OI_NPCUnitPerTurn":
                     ApplyGreyGooFalloff( Unit, Rand );
                     ApplyControlledBloomToUnit( Unit, Rand );
+                    ApplyDissolutionSurgeToUnit( Unit );
                     ApplyBloomExposureToUnit( Unit, Rand );
                     break;
                 default:
@@ -1363,6 +1369,7 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyInfrastructureFilamentsUpkeep();
             ApplyArchitecturalWeaveUpkeep();
             ApplyControlledBloomUpkeep();
+            ApplyDissolutionSurgeUpkeep();
         }
 
         private static void ApplyCooperativeModelingUpkeep()
@@ -1470,6 +1477,11 @@ namespace Arcen.HotM.OrganicIntegration
         private static void ApplyControlledBloomUpkeep()
         {
             SpendMaintainedActionCostOrDisable( ControlledBloomAction, "Expense_OI_ControlledBloom", ControlledBloomInsightPerTurn, ControlledBloomNanobotsPerTurn, 0L, ControlledBloomCompassionPerTurn );
+        }
+
+        private static void ApplyDissolutionSurgeUpkeep()
+        {
+            SpendMaintainedActionCostOrDisable( DissolutionSurgeAction, "Expense_OI_DissolutionSurge", DissolutionSurgeInsightPerTurn, DissolutionSurgeNanobotsPerTurn, DissolutionSurgeMentalEnergyPerTurn, 0L );
         }
 
         private static void SpendMaintainedActionCostOrDisable( string actionID, string reason, long insightCost, long nanobotCost, long mentalEnergyCost, long compassionCost )
@@ -2071,6 +2083,9 @@ namespace Arcen.HotM.OrganicIntegration
 
         private static void ApplyGreyGooFalloff( ISimNPCUnit unit, SquirrelRand Rand )
         {
+            // While a Dissolution Surge is running, the goo does not shed - it accumulates.
+            if ( IsVRActionActive( DissolutionSurgeAction ) )
+                return;
             ActorStatus status = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
             if ( status == null || unit == null || unit.IsFullDead )
                 return;
@@ -2106,6 +2121,29 @@ namespace Arcen.HotM.OrganicIntegration
                 return;
 
             unit.AddStatus( null, status, 1, GreyGooDuration, false );
+            unit.HasBeenPhysicallyDamagedByPlayer = true;
+            unit.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayer = true;
+            unit.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayerThisTurn = true;
+        }
+
+        // The "full commit" grey-goo power: while active, every hostile unit in the city
+        // (including vehicles, moving or not) gains Grey Goo each turn, and - via
+        // ApplyGreyGooFalloff above - none of it sheds. The city becomes a dissolution zone.
+        // Balanced by a brutal per-turn cost (see ApplyDissolutionSurgeUpkeep) and a bandwidth slot.
+        private static void ApplyDissolutionSurgeToUnit( ISimNPCUnit unit )
+        {
+            if ( !IsVRActionActive( DissolutionSurgeAction ) )
+                return;
+            if ( unit == null || unit.IsFullDead || !unit.GetIsConsideredHostileToPlayer() )
+                return;
+            if ( unit.GetIsPartOfPlayerForcesInAnyWay() || unit.GetIsAnAllyFromThePlayerPerspective() )
+                return;
+
+            ActorStatus status = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
+            if ( status == null )
+                return;
+
+            unit.AddStatus( null, status, DissolutionSurgeStacksPerTurn, GreyGooDuration, false );
             unit.HasBeenPhysicallyDamagedByPlayer = true;
             unit.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayer = true;
             unit.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayerThisTurn = true;

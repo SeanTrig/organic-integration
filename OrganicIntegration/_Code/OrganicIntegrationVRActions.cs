@@ -54,8 +54,12 @@ namespace Arcen.HotM.OrganicIntegration
                         return HandleArchitecturalWeave( Action, BufferOrNull, Logic );
                     case "OI_ControlledBloom":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "Hostile infantry and mechs that move through the city have a 33% chance to gain 1 Grey Goo. Vehicles are unaffected.",
+                            "Hostile infantry and mechs that move through the city have a 55% chance to gain 1 Grey Goo each turn. Grey Goo now also strips armor, and stacks rarely shed, so exposure adds up. Vehicles are unaffected.",
                             Cost( InsightResource, 400L ), Cost( MedicalNanobotsResource, 30000000L ), Cost( CompassionResource, 1L ) );
+                    case "OI_DissolutionSurge":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Every hostile unit in the city - infantry, mechs, and vehicles, moving or not - gains 2 Grey Goo every turn, and while this is active no Grey Goo sheds anywhere. Stacks run away, armor dissolves, and formations rot in place. This is the full commitment: it will consume most of your nanobot output and a coordination slot for as long as it runs.",
+                            Cost( InsightResource, 400L ), Cost( MedicalNanobotsResource, 40000000L ), Cost( MentalEnergyResource, 2L ) );
                     case "OI_NaniteMaintenance":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
                             "Repairs damaged player structures each turn, up to 150 HP per turn. Nanobots are spent only when HP is restored, at 15,000 per HP.",

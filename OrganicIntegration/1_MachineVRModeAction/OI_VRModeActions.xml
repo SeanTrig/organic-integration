@@ -121,8 +121,17 @@
 
     <vr_mode_action id="OI_ControlledBloom" display_name="Controlled Bloom" sort_order="1100"
         description="A child once asked a Sledge whether the grey could grow flowers. It can. The flowers are pretty, patient, and open — for the right passerby — into medical-grade dust with the wrong instructions."
-        strategy_tip="Toggle on to spend 400 Insight, 1 Compassion, and 30,000,000 Medical-Grade Nanobots per turn. While active, hostile infantry and mechs that move have a 33% chance to gain 1 Grey Goo. Vehicles are unaffected."
+        strategy_tip="Toggle on to spend 400 Insight, 1 Compassion, and 30,000,000 Medical-Grade Nanobots per turn. While active, hostile infantry and mechs that move have a 55% chance to gain 1 Grey Goo each turn. Grey Goo now also strips armor plating and rarely sheds, so exposure accumulates instead of leveling off. Vehicles are unaffected."
         icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_DissolutionSurge" display_name="Dissolution Surge" sort_order="1130"
+        description="The safeguards you spent a career building have an off switch. This is not that switch - it is the dial one notch before it. You let the medical goo forget its manners across the whole city at once: every hostile thing in it starts coming apart, and nothing you released stops on its own until you turn the dial back. You have promised yourself you will always turn the dial back."
+        strategy_tip="Toggle on to spend 400 Insight, 2 Mental Energy, and 40,000,000 Medical-Grade Nanobots per turn. While active, EVERY hostile unit in the city - infantry, mechs, and vehicles, whether they move or not - gains 2 Grey Goo each turn, and no Grey Goo sheds anywhere while the surge runs. Stacks run away, armor dissolves, and enemy formations rot where they stand. Costs a coordination slot; the nanobot drain will starve your other heavy toggles. This is what going full grey goo looks like."
+        icon_name="SW_Nanotechnology5" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
         on_use="VRAlterButton" related_cost_scale_1="">
