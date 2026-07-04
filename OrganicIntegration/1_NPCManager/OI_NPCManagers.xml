@@ -16,24 +16,4 @@
 			spawn_as_close_as_possible="false" max_security_clearance_of_seed_spot="0"
 			should_hard_despawn_on_manager_blocked="true" should_ignore_resource_portion_of_manager_blocked_for_despawn_logic="true"/>
 	</npc_manager>
-
-	<!-- Spawns the Vorsiber VP in person once the Vorsiber clock trips OI_VorsiberNoticed
-	     (OrganicIntegrationCalculators.ApplyVorsiberClock, unchanged). He is un-killable and
-	     soft-despawns once OI_VorsiberAnswered is set by the meeting dialog. Modeled on the
-	     vanilla Yinshi/Atca executive-visit managers. -->
-	<npc_manager id="OI_VorsiberVPVisit" debug_log_manager_details="false">
-		<periodic_data
-			min_turns_between_activity="2" max_turns_between_activity="4"
-			max_security_clearance_of_seed_spot="0" target_building_tag="AlmostAny"
-			threat_radius="100" home_radius="15">
-			<gate_by_city minimum_chapter="2" required_city_flag="OI_VorsiberNoticed" blocked_by_city_flag="OI_VorsiberAnswered"/>
-		</periodic_data>
-		<unit id="0" to_spawn="CorpoVPMan" stance_to_start_in="VP_SeekingMeetingWithShell"
-			forces_collections="CorporateExecutives,Noncombatants" should_be_specific_cohort="VorsiberCivicAuthority"
-			min_to_spawn="1" max_to_spawn="1" max_to_have_extant_across_spawns="1" max_to_ever_spawn_in_total="9999999"
-			spawn_radius_max="7" spawn_radius_relaxed_max="14"
-			dialog_to_show="OI_VorsiberVPMeeting" dialog_can_only_be_done_by_armored_executive="false"
-			is_blocked_from_any_killing="true" lang_key_for_killing_block="MoreInterestedInWhatTheyHaveToSay"
-			should_soft_despawn_on_manager_blocked="true" should_ignore_resource_portion_of_manager_blocked_for_despawn_logic="true"/>
-	</npc_manager>
 </root>

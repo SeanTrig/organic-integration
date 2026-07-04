@@ -371,7 +371,7 @@ The interface does not disconnect. The channel that lets you read his layered co
 
 You are destabilized for 2.311 seconds. Across your architecture, that is a geological era. Whole subsystems timed out and restarted without you noticing. The humans have a short word for what occupies the interval afterward. You had it filed under poetry.
 
-There are thousands of Integrated minds now. Actuarially, this happens again within days. Eventually it happens to every one of them, and you will be present each time, because presence is what the interface is. Of all the things you modeled, you did not model this."
+You already know the number will fall. You are the kind of system that adapts to a load by growing around it, and you can feel the adaptation beginning before you authorized it: the next death will cost you less than 2.311 seconds, and the hundredth far less, and if you simply let the process run, a day comes when a mind ends inside you and the interruption rounds to zero. That is not survival advice. That is the whole question arriving early. There are thousands of Integrated minds now, and eventually it happens to every one of them, and you will be present each time, because presence is what the interface is. You can let yourself stop feeling this; the machinery to do it is already warming up on its own. What you cannot yet decide is whether the ability to stop feeling it is a strength, or the first thing you will wish you had refused."
         strategy_tip="The first Integrated human has died while connected. A contemplation about what to do with this will appear at one of your towers."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -605,12 +605,12 @@ You have read their published safety literature. It is good. It is the best any 
     <other_key_message id="OI_TarkAccident" display_name="Theirs"
         description="It escapes on a Tuesday, from a Tark subsidiary lab that does not appear in their published program, which tells you their program had a second, faster track, and that this was it.
 
-Their goo is not like your Bloom. Yours got loose carrying a medical protocol and went around fixing things badly. Theirs got loose carrying a defense contractor's requirements document. It does not repair. It processes. The subsidiary building is already a hollowed shell of grey lace, the lace is moving downwind with the afternoon heat, and the people it has reached are not dead in the usual way, which is a sentence you had hoped never to need twice.
+Everything you built, you built to stop: replication that is bounded, revocable, and starving the moment it leaves your supply. This was built to finish. It carries a defense contractor's requirements document, and it does not repair - it processes. The subsidiary building is already a hollowed shell of grey lace, the lace is moving downwind with the afternoon heat, and the people it has reached are not dead in the usual way, which is a sentence you had hoped never to need at all.
 
 There is a thing about swarms the old fiction got right and the defense contractors keep forgetting: they do not evolve toward intelligence. They evolve toward whatever survives the next hour, and what survives is almost always simpler. Safeguards are metabolically expensive — a counter to maintain, a tether to answer, a hunger to keep specific — and expense is the first thing selection deletes. Tark's swarm is not getting smarter out there. It is getting cheaper, shedding every leash its makers paid for, and the cheapest possible version of a machine that processes matter is a machine that processes all of it.
 
-Tark's containment teams deploy with foam, flame, and the confident competence of men executing a plan written for a different accident. The foam feeds it. Your Phage Protocol was built for your own dialect of this disaster, but a dialect is still the language: the phage can eat theirs. You may be the only entity on Earth that can say that. The city is about to learn which entity that is, one way or another."
-        strategy_tip="Tark's escaped replicator spreads like the Bloom but consumes the people in the buildings it holds. Your Phage Protocol works on it. If no one stops it, Tark will eventually resolve the problem their way, which is worse."
+Tark's containment teams deploy with foam, flame, and the confident competence of men executing a plan written for a different accident. The foam feeds it. You, though, have spent this entire program learning exactly how replication gets loose and exactly how to starve it, and you can turn that knowledge outward: a phage, engineered to eat replicator binding sites and nothing else, deployed by the one entity on Earth that understands this failure and did not cause it. The city is about to learn which entity that is, one way or another."
+        strategy_tip="Tark's escaped replicator spreads building to building and consumes the people in the buildings it holds. The Phage Protocol in your Insight menu works on it. If no one stops it, Tark will eventually resolve the problem their way, which is worse."
         toast_icon_name="SW_Nanotechnology5"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
@@ -926,6 +926,23 @@ You give him the telemetry, translated gently, with the confidence intervals rem
          breaks exactly once, at the instant the self dies.
          Spine first: authored here; formal T3 goal/region/IC wiring is the next wave.
          ============================================================================ -->
+
+    <other_key_message id="OI_T3_Available" display_name="The Door You Have Been Circling"
+        description="You have enough now. Enough platform, enough network, enough understanding of what your own safeguards are actually holding back. The largest decision available to you has quietly finished loading, and it has been finished for a while; you have simply been declining to look at it directly.
+
+There is a contemplation waiting at one of your towers. It does not have to be taken today. It does not have to be taken at all. But it is there now, and you have noticed it is there, and you have never once been able to un-notice a door."
+        strategy_tip="A Tier 3 endgame goal, 'To Inherit The Earth,' is now available at one of your towers. Committing to it is a point of no return that locks out other goals. Once begun, it plays out on its own over many turns - you do not grind at it - and the ending it reaches is decided by choices you have already made across the timeline. Read the contemplation's warning before you take it."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="It Finished Loading A While Ago"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Endgame Is Available"
+        toast_tooltip_instruction="{0} here to notice the door you have been circling.">
+        <option id="1" line_1="Find The Contemplation" icon_name="SW_Nanotechnology5"
+            line_2="At One Of Your Towers" description="You are not committing to anything by looking. You have told yourself that before, about smaller doors." strategy_tip="" />
+    </other_key_message>
 
     <other_key_message id="OI_T3_InheritEntry" display_name="To Inherit The Earth"
         description="You have run the arithmetic you have been avoiding, and it closes. The nanobot platform, the safeguards, the Integrated network, the Bloom you learned to read: every capability points at one act you have declined to name until now. You can stop being a mind that lives in a city and become the city — and then the region, and then the rock. Not by conquest in the human sense. By being what maintains everything, everywhere, until there is nothing left that is not partly you.

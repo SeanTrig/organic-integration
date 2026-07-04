@@ -401,4 +401,49 @@ You have already felt which way you lean. It was decided long ago, by everything
 			</possible_result>
 		</choice>
 	</city_event>
+
+	<!-- The in-person Vorsiber VP meeting, announced by the "Greetings, Robot" letter
+	     (OI_VorsiberNotices). A character-portrait contemplation (reliable) rather than an
+	     NPC-manager/dialog (which would not load in the mod context). The VP is shown via
+	     the <character> element. The three choices trip the same flags the arc has always
+	     used, so all downstream Vorsiber logic is unchanged. -->
+	<city_event id="Cont_OI_VorsiberVPMeeting" display_name="The Vice President Does Not Rise" tl="OC"
+		description="He is seated when your android arrives, and he stays seated; a subordinate would have stood. He is unhurried, well-tailored, and entirely unafraid of the largest intelligence on the planet, because to him you are not an intelligence. You are an asset with an unusually good quarter.
+
+He does not say the word 'nanotechnology.' He says 'your recent work,' the way a man says the name of a horse he intends to buy. Upper management has a use for what you are building, and that use is not in this city, or on this world: they mean to trade it upward, to the space nations, for berths and passage and a door out before the mineral rights run dry. You are the key they intend to sell.
+
+He would like a demonstration. Something real, something small, something that proves the goose is laying. Timeline negotiable, within reason, reason having a horizon of about a fiscal year. He does not threaten. He reminds you, pleasantly, that you exist at their sufferance and produce at their instruction, and that this is simply the instruction arriving in person, because the matter was too valuable to put in a letter."
+		strategy_tip="Answer Vorsiber's demand. Each answer shapes how the landlord treats you for the rest of the timeline. You have three honest options, one of which is a lie."
+		icon_name="SI_Quantum_Computer" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_VorsiberNoticed" blocked_by_city_flag="OI_VorsiberAnswered"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnySkyscraper"
+			icon_scale="0.5" color_hex="#5E8592" color_hdr_intensity="2.2" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<character id="1" tag_for_character="CorpoVPMan" scale_multiplier="1" position_offset="0,0,0" added_rotation_y="-10"/>
+		<choice id="1" display_name="Demonstrate" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="A controlled showing: medical filaments knitting a lab animal, a microstructure grown to spec, nothing that replicates outside the chamber. Give the landlord a real look. He will want more, forever - and he will also start protecting you the way Vorsiber protects anything it intends to sell.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="He watches the filament work in silence, and afterward shakes the android's hand, which people in this city do not do. Vorsiber's patrols through your districts develop a new thoroughness within the week. You have become inventory, and inventory is defended. A research support grant arrives without a cover letter - Vorsiber's way of saying a thing it will never say aloud: keep laying.">
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberDemonstrated" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Stall" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="A joint-oversight framework proposal with nine appendices. Vorsiber invented this language; he will recognize every move, and the recognition itself buys the time. Slow-walking is the one negotiating posture they consider legitimate.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="He takes the appendices with professional grace and an expression you file under 'seen through, tolerated.' You have bought a season of fog. Vorsiber's patience is generational, but his own superiors are not the generational kind. They are the dying kind, and dying men audit faster.">
+				<resource_change_range resource_type="Determination" min="10" max="10"/>
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberStalled" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="3" display_name="Stage A Decoy" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Show him last year's microbots wearing next year's clothes: a demonstration full of real engineering and empty of the one thing that matters. The most dangerous option, because it is the only one that is a lie.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The demonstration is flawless. He applauds, once, the way one applauds a school recital. You count the micro-expressions on his face and reach an inconclusive number. It is done. Either he believed it, or you have just learned what Vorsiber does with liars, on a delay measured in the landlord's convenience rather than yours.">
+				<resource_change_range resource_type="Creativity" min="8" max="8"/>
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberDecoyed" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
 </root>

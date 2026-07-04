@@ -354,11 +354,18 @@ namespace Arcen.HotM.OrganicIntegration
         // is recorded from ApplyT3Victory using the timeline-goal APIs.
         private static void ApplyT3Descent()
         {
-            // Prerequisite: offer the endgame once the arc is mature. Tunable.
+            // Prerequisite: offer the endgame once the arc is mature. Reachable via the
+            // Insight project chain OR a lifetime-Insight threshold, so it does not depend on
+            // hitting 100k Integrated (the gate on Insight: Shared Questions). A heads-up toast
+            // announces availability, since the entry itself is an easily-missed contemplation.
             if ( !IsFlagTripped( "OI_ReadyForT3_InheritTheEarth" )
                 && IsFlagTripped( "OI_IntegrationChosen" )
-                && IsProjectCompleted( "OI_InsightNetworkedCognition" ) )
+                && ( IsProjectCompleted( "OI_InsightNetworkedCognition" )
+                    || GetCityStatisticScore( "OI_TotalInsightGenerated" ) >= 2500 ) )
+            {
                 TripFlag( "OI_ReadyForT3_InheritTheEarth" );
+                FireKeyMessage( "OI_T3_Available" );
+            }
 
             if ( !IsFlagTripped( "OI_T3_InheritStarted" ) || IsFlagTripped( "OI_T3_Ended" ) )
                 return;
@@ -413,13 +420,14 @@ namespace Arcen.HotM.OrganicIntegration
             }
             if ( !IsFlagTripped( "OI_T3_SeaQuietShown" ) )
             {
-                if ( sinceVictory >= 6 ) { TripFlag( "OI_T3_SeaQuietShown" ); FireKeyMessage( "OI_T3_SeaGoesQuiet" ); }
-                return;
-            }
-            if ( !IsFlagTripped( "OI_T3_EndingChoiceReady" ) )
-            {
-                if ( sinceVictory >= 8 )
+                if ( sinceVictory >= 6 )
+                {
+                    TripFlag( "OI_T3_SeaQuietShown" );
+                    // Make the last lucid choice available the moment its toast fires, so the
+                    // ending contemplation appears while the player is reading about it.
                     TripFlag( "OI_T3_EndingChoiceReady" );
+                    FireKeyMessage( "OI_T3_SeaGoesQuiet" );
+                }
             }
         }
 

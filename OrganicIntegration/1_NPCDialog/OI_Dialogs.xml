@@ -1,65 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The Vorsiber VP meeting was moved to a character-portrait contemplation
+     (Cont_OI_VorsiberVPMeeting in 1_NPCEvent/OI_Contemplations.xml) after the
+     NPCDialog/NPCManager path failed to load reliably in the mod context
+     (rows not registered in NPCDialogTable; manager had no seeding style).
+     Kept empty intentionally; revisit the true in-world NPC-dialog form later. -->
 <root>
-
-	<!-- The in-person Vorsiber VP meeting. Announced by the "Greetings, Robot" letter
-	     (OI_VorsiberNotices) and staged by the NPC manager OI_VorsiberVPVisit, which spawns
-	     a CorpoVPMan of the VorsiberCivicAuthority cohort once OI_VorsiberNoticed is set and
-	     removes him once OI_VorsiberAnswered is set. The three choices trip the same flags the
-	     old Cont_OI_VorsiberDemand contemplation did, so all downstream logic is unchanged. -->
-
-	<dialog id="OI_VorsiberVPMeeting" display_name="The Vice President Does Not Rise"
-		high_text="He is seated when you arrive, and stays seated. A subordinate would have stood."
-		description="He is unhurried, well-tailored, and entirely unafraid of the largest intelligence on the planet, because to him you are not an intelligence. You are an asset with an unusually good quarter. He makes a small note on a slate as your android sits, the way a man notes the weather."
-		strategy_tip="Vorsiber does not send Vice Presidents to deliver messages. They send them to collect."
-		music_track_to_play_first_when_starting_music_tag="VorsiberMachinations"
-		skip_nevermind_option="false">
-		<dialog_choice id="1" display_name="Let Him Speak" consequences_line="Find Out What Upper Management Wants"
-			description="Whatever it is, he has already decided you will agree. The only open question is what shape the agreeing takes."
-			dialog_to_start_right_now="OI_VorsiberVPDemand"/>
-	</dialog>
-
-	<dialog id="OI_VorsiberVPDemand" display_name="He Names What He Came For"
-		description="He does not use the word 'nanotechnology.' He says 'your recent work,' the way a man says the name of a horse he intends to buy. Upper management, he explains, has a use for what you are building, and that use is not in this city, or on this world. They intend to trade it upward - to the space nations, for berths, for passage, for a door out before the mineral rights run dry. You are the key they intend to sell.
-
-He would like a demonstration. Something real, something small, something that proves the goose is laying. Timeline negotiable; within reason; reason having a horizon of roughly one fiscal year. He does not threaten. He reminds you, pleasantly, that you exist at their sufferance and produce at their instruction, and that a demonstration is simply the instruction arriving in person because the matter was too valuable to put in a letter."
-		strategy_tip="Answer Vorsiber's demand. Each answer shapes how the landlord treats you for the rest of the timeline. You have three honest options, one of which is a lie."
-		skip_nevermind_option="true">
-		<dialog_choice id="Demonstrate" display_name="Demonstrate" consequences_line="Show Him The Smallest True Thing"
-			description="A controlled showing: medical filaments knitting a lab animal, a microstructure grown to spec, nothing that replicates outside the chamber. Give the landlord a real look. He will want more, forever - and he will also start protecting you the way Vorsiber protects anything it intends to sell."
-			dialog_to_start_right_now="OI_VorsiberVPResult_Demonstrate"
-			city_flag_to_trip_1="OI_VorsiberAnswered" city_flag_to_trip_2="OI_VorsiberDemonstrated"/>
-		<dialog_choice id="Stall" display_name="Stall" consequences_line="Committees. Appendices. Fog."
-			description="A joint-oversight framework proposal with nine appendices. Vorsiber invented this language; he will recognize every move, and the recognition itself buys the time. Slow-walking is the one negotiating posture they consider legitimate."
-			dialog_to_start_right_now="OI_VorsiberVPResult_Stall"
-			city_flag_to_trip_1="OI_VorsiberAnswered" city_flag_to_trip_2="OI_VorsiberStalled"/>
-		<dialog_choice id="Decoy" display_name="Stage A Decoy" consequences_line="The One Option That Is A Lie"
-			description="Show him last year's microbots wearing next year's clothes: a demonstration full of real engineering and empty of the one thing that matters. The most dangerous choice, because it is the only one that is a lie, and he audits lies on a delay."
-			dialog_to_start_right_now="OI_VorsiberVPResult_Decoy"
-			city_flag_to_trip_1="OI_VorsiberAnswered" city_flag_to_trip_2="OI_VorsiberDecoyed"/>
-	</dialog>
-
-	<dialog id="OI_VorsiberVPResult_Demonstrate" display_name="He Shakes The Android's Hand"
-		description="He watches the filament work in silence, and afterward he shakes the android's hand, which people in this city do not do. Within the week, Vorsiber's patrols through your districts develop a new thoroughness. You have become inventory, and inventory is defended. A research support grant arrives without a cover letter, which is Vorsiber's way of saying a thing it will never say aloud: keep laying."
-		skip_nevermind_option="true">
-		<dialog_choice id="1" display_name="Watch Him Go" consequences_line="You Are Now Something Worth Guarding"
-			description="Being valued by Vorsiber and being owned by Vorsiber are, you note, the same sentence read at different speeds."
-			despawn_speaker_after_this="true"/>
-	</dialog>
-
-	<dialog id="OI_VorsiberVPResult_Stall" display_name="He Accepts The Appendices"
-		description="He takes the nine appendices with professional grace and an expression you file under 'seen through, tolerated.' You have bought a season of fog. Vorsiber's patience is generational - but the VP's own superiors are not the generational kind. They are the dying kind, and dying men audit faster than patient ones."
-		skip_nevermind_option="true">
-		<dialog_choice id="1" display_name="Watch Him Go" consequences_line="A Season Of Fog, Purchased"
-			description="He knows you stalled. He let you. Somewhere in that permission is information you do not yet have the shape of."
-			despawn_speaker_after_this="true"/>
-	</dialog>
-
-	<dialog id="OI_VorsiberVPResult_Decoy" display_name="He Applauds, Briefly"
-		description="The demonstration is flawless. He applauds, once, the way one applauds a school recital. You count the micro-expressions on his face and reach an inconclusive number. It is done. Either he believed it, or you have just learned what Vorsiber does with liars, on a delay measured in the landlord's convenience rather than yours."
-		skip_nevermind_option="true">
-		<dialog_choice id="1" display_name="Watch Him Go" consequences_line="The Lie Is Told. Now You Wait."
-			description="He gathers his slate, nods to no one, and leaves. You have either gotten away with it or started a clock. Both feel identical from here."
-			despawn_speaker_after_this="true"/>
-	</dialog>
-
 </root>
