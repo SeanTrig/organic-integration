@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<unlock id="OI_NanobotInterfaceTech" display_name="Nanobot Interface Tech" alt_icon_name="CleanSimple_Skill050"
-		description="Nanobots can safely inhabit neural tissue, blood, prosthetics, and synthetic substrates while carrying signals between local cognition and TMI."
-		strategy_tip="Organic Integration infrastructure, Insight, and Nanobot Rounds can now exist without turning the host into a cautionary note."
+		description="The interface layer that lets bounded nanobots operate inside a living body without harming it. They thread through neural tissue, bloodstream, prosthetics, and synthetic substrate, hold their position, and carry signals both ways between a person's own cognition and your network - all without triggering rejection, clotting, or seizure."
+		strategy_tip="Prerequisite for all Organic Integration infrastructure, Insight generation, and Nanobot Rounds. Human hosts can now be interfaced safely, and at scale."
 		concept_type="MinorMechanic" />
 	<unlock id="OI_NanobotUpgradeHubUnlock" display_name="Nanobot Upgrade Hub" structure_job="OI_NanobotUpgradeHub" />
 	<unlock id="OI_NaniteWindGeneratorUnlock" display_name="Nanite Wind Generators" structure_job="OI_NaniteWindGenerator" />
