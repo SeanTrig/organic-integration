@@ -173,45 +173,7 @@ You could pay. Corporations pay; it would read as dull and true. You could go th
 		</choice>
 	</city_event>
 
-	<city_event id="Cont_OI_VorsiberDemand" display_name="What To Show The Landlord" tl="OC"
-		description="Vorsiber wants to see the future, because they intend to trade it for passage off-world before the mineral rights run dry. The senior vice president's patience is corporate: vast in principle, quarterly in practice.
-
-You have three honest options, one of which is a lie."
-		strategy_tip="Answer Vorsiber's demonstration request. Each answer shapes how the landlord treats you for the rest of the timeline."
-		icon_name="SI_Quantum_Computer" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
-		<gate_by_city minimum_chapter="2" required_city_flag="OI_VorsiberNoticed" blocked_by_city_flag="OI_VorsiberAnswered"/>
-		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
-			icon_scale="0.4" color_data="MeetPeopleCyan"
-			required_skill_type="UnitCognition" required_skill_amount="200"/>
-		<contemplation_data spawns_at_building_tag="AnySkyscraper"
-			icon_scale="0.5" color_hex="#AE7D4A" color_hdr_intensity="2.2" color_hovered_hdr_intensity="0.6"
-			collections="All,SideExploration"/>
-		<choice id="1" display_name="Demonstrate" action_visibility_style="IsMoveAndInteractWithNPC"
-			description="A controlled showing: medical filaments knitting a lab animal, a microstructure growing to spec, nothing that replicates outside the chamber. Give the landlord a real look at the smallest true thing. They will want more, forever. They will also start protecting you the way they protect anything they intend to sell.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The SVP watches the filament work in silence, and afterward shakes the android's hand, which people in this city do not do. Vorsiber's patrols in your districts develop a new thoroughness within the week. You have become inventory, and inventory is defended. A research support grant arrives without a cover letter.">
-				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
-				<city_flag_change flag_type="OI_VorsiberDemonstrated" value="1"/>
-			</possible_result>
-		</choice>
-		<choice id="2" display_name="Stall" action_visibility_style="IsMoveAndInteractWithNPC"
-			description="Committees. Safety reviews. A joint-oversight framework proposal with nine appendices. Vorsiber invented this language; they will recognize every move, and the recognition itself buys time. Slow-walking is the one negotiating posture they consider legitimate.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The SVP accepts the appendices with professional grace and an expression you file under 'seen through, tolerated.' You have bought a season of fog. Vorsiber's patience is generational, but the SVP's bosses are not the generational kind. They are the dying kind, and dying men audit faster.">
-				<resource_change_range resource_type="Determination" min="10" max="10"/>
-				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
-				<city_flag_change flag_type="OI_VorsiberStalled" value="1"/>
-			</possible_result>
-		</choice>
-		<choice id="3" display_name="Stage A Decoy" action_visibility_style="IsMoveAndInteractWithNPC"
-			description="Show them last year's microbots wearing next year's clothes: a demonstration full of real engineering and empty of the one thing that matters. The most dangerous option, because it is the only one that is a lie.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The demonstration is flawless. The SVP applauds, briefly, the way one applauds a school recital. You count the micro-expressions on his aides and get an inconclusive number. It is done. Either they believed it, or you have just discovered what Vorsiber does with liars, on a delay.">
-				<resource_change_range resource_type="Creativity" min="8" max="8"/>
-				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
-				<city_flag_change flag_type="OI_VorsiberDecoyed" value="1"/>
-			</possible_result>
-		</choice>
-	</city_event>
-
-	<city_event id="Cont_OI_ExalterOffer" display_name="The Delegation Wears White" tl="OC"
+<city_event id="Cont_OI_ExalterOffer" display_name="The Delegation Wears White" tl="OC"
 		description="Nurturism's mainline sects preach flourishing within the body's given meaning: prune what grows wrong, nurture what grows well, and leave the design to holier engineers than man. The Exalters were expelled from that consensus generations ago for the heresy of impatience. They believe the next humanity is a project, not a prophecy — and that declining to build it is the only actual sin.
 
 Their delegation arrives washed, rehearsed, and terrifyingly happy. They have read everything public about Integration and inferred an alarming fraction of what is not. To them you are not a machine, a landlord, or a risk. You are the answer arriving exactly on schedule, and they would like to be first in line, all eleven thousand of them, today, as a sacrament.

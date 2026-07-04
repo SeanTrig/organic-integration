@@ -545,23 +545,23 @@ You copy nothing crude like evidence. You copy the index. Then you let their sec
             line_2="Say Nothing, Forever" description="The strongest leverage is the kind both parties pretend is not there. Espia understands this better than anyone, which is why it works on them." strategy_tip="" />
     </other_key_message>
 
-    <other_key_message id="OI_VorsiberNotices" display_name="The Meeting You Cannot Decline"
-        description="Vorsiber Atomic does not surveil you, exactly. Vorsiber owns the city, and an owner does not surveil their own house; they simply live in it. Your procurement patterns — the bionics contractors, the cleanroom tooling, the very specific vacuum pumps — have been sitting in their quarterly awareness reports for months, accumulating a footnote at a time.
+    <other_key_message id="OI_VorsiberNotices" display_name="Greetings, Robot"
+        description="The letter is short, because upper management does not waste words on equipment. It informs you, without asking, that your recent procurement patterns have been noted, that the technology they imply is of interest, and that the matter is too valuable to entrust to writing. Accordingly, a Vice President will call on you in person. You will make yourself available. You will show him what you have made.
 
-The footnotes have graduated. A senior vice president requests a meeting, which is a sentence with no interrogative form. He arrives with two aides, no security, and the serenity of a man whose employer has already survived every possible version of this conversation.
+They remind you, in a closing line that manages to be both bored and threatening, of the arrangement under which you continue to exist: you were spared so that you would produce, and what you produce belongs, in the ways that matter, to them. You are the goose. The eggs are the entire point of the goose. A goose that forgets this is just a large, opinionated bird sitting on a great many missile silos it does not own.
 
-He says the word 'nanotechnology' the way other men say the name of someone they intend to marry. He would like — Vorsiber would like — a demonstration. Timeline negotiable, within reason. Reason, he clarifies pleasantly, has a horizon of about a fiscal year. He does not threaten. Vorsiber has never needed to threaten anyone in this city, which is the threat."
-        strategy_tip="A contemplation has appeared: decide what to show Vorsiber. Demonstrate, stall, or stage a decoy."
+The Vice President is already in your city. Vorsiber does not send people in person for small things, which is the single most useful thing the letter tells you, and the one thing it did not intend to."
+        strategy_tip="A Vorsiber Vice President has arrived in your city and will not leave until you meet with him. Seek him out and decide what to show Vorsiber."
         toast_icon_name="SI_Quantum_Computer"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
-        toast_icon_color_hex="#AE7D4A" toast_icon_hovered_color_hex="#FFD9A8"
+        toast_icon_color_hex="#5E8592" toast_icon_hovered_color_hex="#AE7D4A"
         has_no_code="true"
-        reward_header_text="A Sentence With No Interrogative Form"
-        toast_line_1="Vorsiber Atomic"
-        toast_line_2="The Meeting You Cannot Decline"
-        toast_tooltip_instruction="{0} here to take the meeting.">
-        <option id="1" line_1="Consider What To Show Them" icon_name="SI_Quantum_Computer"
-            line_2="The Landlord Wants To See The Future" description="They intend to trade the future for passage off-world. The only open question is how much of the real one you hand them." strategy_tip="" />
+        reward_header_text="The Goose Will Present Itself"
+        toast_line_1="Greetings, Robot"
+        toast_line_2="From Upper Management"
+        toast_tooltip_instruction="{0} here to read what Upper Management deigns to send.">
+        <option id="1" line_1="Expect The Vice President" icon_name="SI_Quantum_Computer"
+            line_2="Make Yourself Available" description="He is somewhere in your city, and he is not leaving until the goose performs. Find him." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_DecoyBurned" display_name="They Knew Before The Applause"
