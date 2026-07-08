@@ -53,6 +53,12 @@
 	<lang id="OI_Stat_Desc_T3StartTurn" text="The turn you unbound the replication into yourself." />
 	<lang id="OI_Stat_Name_T3VictoryTurn" text="Grey Tide Victory Turn" />
 	<lang id="OI_Stat_Desc_T3VictoryTurn" text="The turn the last pressure ended, and the descent began." />
+	<lang id="OI_Stat_Name_GooConvertedUnits" text="Mechs Subverted By Grey Goo" />
+	<lang id="OI_Stat_Desc_GooConvertedUnits" text="Enemy war machines the goo saturated, then turned, then kept." />
+	<lang id="OI_Stat_Name_ConsumedBuildings" text="Buildings Consumed By The Tide" />
+	<lang id="OI_Stat_Desc_ConsumedBuildings" text="Structures the descent took down to reclaimable mass." />
+	<lang id="OI_Stat_Name_RestoredBuildings" text="Plots Reclaimed" />
+	<lang id="OI_Stat_Desc_RestoredBuildings" text="Consumed plots the Reclamation Weave raised back into working structures." />
 	<lang id="OI_Stat_Name_InterfaceTrialDesignPoints" text="Interface Trial Points" />
 	<lang id="OI_Stat_Desc_InterfaceTrialDesignPoints" text="Living-tissue edge cases gathered before miniaturizing the nanobot interface." />
 	<lang id="OI_Stat_Name_NanobotHarvestDesignPoints" text="Nanobot Design Points" />

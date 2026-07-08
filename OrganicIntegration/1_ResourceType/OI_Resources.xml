@@ -28,4 +28,12 @@
         <part_of collection="Computing" sort_index="300" />
         <part_of collection="Integration" sort_index="300" />
     </resource>
+    <resource id="OI_ReclamationMass" display_name="Reclamation Mass" icon_name="SW_Nanotechnology5" icon_color="#9FB8B0"
+        description="What a consumed building becomes on the way back to being nothing: sorted rubble, salvaged framing, and enough directed nanomass to remember the shape a plot used to hold. The grey does not only take. Fed the right instructions, it can be made to put something back."
+        strategy_tip="Produced when the grey tide consumes a building during the descent. Spent by the Reclamation Weave to restore a consumed plot to a functioning structure."
+        base_storage_capacity="100000000" is_locked_before_unlock="OI_NanobotInterfaceTech"
+        lang_key_for_excess="ExcessResourceBasicNote" sort_order="1000" dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.ResourceTypes_Basic">
+        <part_of collection="All" sort_index="100" />
+        <part_of collection="Integration" sort_index="400" />
+    </resource>
 </root>

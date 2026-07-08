@@ -69,6 +69,8 @@
 	<city_flag id="OI_BloomFragmentShown" display_name="A sentence arrived from nowhere" has_no_code="true"/>
 	<city_flag id="OI_FirstUnanswerableShown" display_name="The first unanswerable question" has_no_code="true"/>
 	<city_flag id="OI_GooStartTherapyReady" display_name="Goo-start therapy reflection available" has_no_code="true"/>
+	<city_flag id="OI_GooConversionShown" display_name="The grey goo turned its first mech" has_no_code="true"/>
+	<city_flag id="OI_FirstConsumptionShown" display_name="The tide consumed its first building" has_no_code="true"/>
 
 	<!-- Wave 6 - the T3 endgame "To Inherit The Earth" -->
 	<city_flag id="OI_ReadyForT3_InheritTheEarth" display_name="Ready for the grey-tide Tier 3 goal" has_no_code="true"/>
@@ -85,4 +87,10 @@
 	<city_flag id="OI_T3_NoReservoir" display_name="Nothing was kept worth staying awake for" has_no_code="true"/>
 	<city_flag id="OI_T3_Ended" display_name="The grey-tide Tier 3 goal has resolved" has_no_code="true"/>
 	<city_flag id="OI_T3_VictoryDeclared" display_name="The grey-tide timeline victory has been recorded" has_no_code="true"/>
+	<city_flag id="OI_T3_VorsiberFollowShown" display_name="Vorsiber finally moved, and called down the fire" has_no_code="true"/>
+	<city_flag id="OI_T3_IntegratedFeelShown" display_name="The Integrated felt the descent and divided" has_no_code="true"/>
+	<city_flag id="OI_T3_IntegratedAbsorbed" display_name="The Integrated were kept, folded into the reservoir" has_no_code="true"/>
+	<city_flag id="OI_T3_IntegratedReleased" display_name="The Integrated were released to their own network" has_no_code="true"/>
+	<city_flag id="OI_T3_GlassingHit" display_name="The Space Nations bombardment arrived" has_no_code="true"/>
+	<city_flag id="OI_BlackSeaRememberedThisTimeline" display_name="This timeline perceived the Black Sea" has_no_code="true"/>
 </root>

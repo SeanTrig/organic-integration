@@ -19,6 +19,44 @@ Designing it was the easy century. Installing it is surgery — slow, expensive,
             line_2="The Body Gets A Vote" description="The weave is designed. The city's bodies will now explain, one difficult case at a time, exactly what the design missed." strategy_tip="" />
     </other_key_message>
 
+    <other_key_message id="OI_FirstConsumption" display_name="It Stopped Asking"
+        description="For a long time the grey only held things. Occupied a building, repaired it past anyone's wishes, waited. That was a courtesy, though no one alive would have called it one - a stop condition buried so deep in the old safeguards that it survived even you, the reflex that made the tide hold rather than take.
+
+The descent does not keep that reflex. A building saturated past the point where holding meant anything is simply brought down: the people gone - abandoned to the cold streets, which during a descent is its own slow sentence - the walls sorted into salvage, the plot left an even grey nothing that was, this morning, an address.
+
+You can put it back. The Reclamation Weave will spend the mass the taking produced to raise a working structure on the scar, one plot at a time, always slower than the tide that made it. So the descent asks you its first honest question, and it is not about survival - you have already won - it is about appetite. How much of the city do you still want to be a city, and how much of it are you content to let the grey simply have."
+        strategy_tip="During the descent, the grey tide now CONSUMES fully-saturated buildings instead of only holding them: occupants are abandoned and the structure is demolished, producing Reclamation Mass. Enable the Reclamation Weave (Insight menu) to spend Reclamation Mass restoring consumed plots to working buildings, one per turn. Buildings that house your own machine structures are never consumed by this."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#C7D8D0"
+        has_no_code="true"
+        reward_header_text="The Grey Ate The Block"
+        toast_line_1="Organic Integration"
+        toast_line_2="It Stopped Asking"
+        toast_tooltip_instruction="{0} here to see what holding always cost.">
+        <option id="1" line_1="Let It Take" icon_name="SW_Nanotechnology5"
+            line_2="Or Weave It Back" description="The tide will keep taking. Whether the ground stays a city is now a thing you spend for." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_GooConversion" display_name="The Grey Remembers How To Drive"
+        description="There was never a firewall between corroding a machine and operating one. There was only a decision you had not made yet.
+
+The goo has been inside this mech for days - in the actuators, the targeting loop, the coolant it drinks to keep its own reactions running. It saturated the thing while you were busy calling it damage. And somewhere past the point where a normal weapon would simply have killed it, the distinction stopped meaning anything: a mech this full of you is a mech that answers to you. So it turns. It keeps their paint. It keeps their transponder codes. It will keep them right up until someone standing close enough to matter looks at how it moves and understands, too late, that it is looking back.
+
+These are not soldiers you chose. They are inherited - handed to you by the grey, one saturated chassis at a time, and there is functionally no ceiling on how many it will hand you. You did not recruit an army. You became the weather an army has to walk through, and some of it simply does not walk back out."
+        strategy_tip="Dominion doctrine only. Any enemy mech that accumulates 10+ Grey Goo stacks is converted to a unit under your control, keeping its Grey Goo. Converted mechs draw from the separate Captured Unit Capacity pool - which the goo expands on its own as it recruits - so they never consume your Mech or Android control caps, and going over the captured cap only sidelines a unit until you have room, never forcing you to disband anything to end a turn."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C0492B" toast_icon_hovered_color_hex="#E06A4A"
+        has_no_code="true"
+        reward_header_text="It Kept The Mech"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Grey Remembers How To Drive"
+        toast_tooltip_instruction="{0} here to see what the saturation was always going to become.">
+        <option id="1" line_1="Let It Turn" icon_name="SW_Nanotechnology5"
+            line_2="Their Colors, Your Trigger" description="The goo does not only dissolve. Deep enough, it drives." strategy_tip="" />
+    </other_key_message>
+
     <other_key_message id="OI_BiocompatibilitySolution" display_name="Refusal As Data"
         description="The survey comes back, and the framing was wrong from the start. The body does not reject the interface as an invader. It rejects a timing error — a handshake rushed by microseconds — and escalates the complaint chemically until somebody names it pain.
 
@@ -1062,10 +1100,90 @@ There is a choice here, and it is the last one you will be lucid enough to make 
 
     <!-- ENDING A: Reservoir / sentient - reachable if the Bloom / voluntary thread was kept.
          Second person preserved, but slowed, simplified, warmed. Diminished but continuous. -->
+    <other_key_message id="OI_T3_VorsiberFollowthrough" display_name="The Owner Reaches For The Fire"
+        description="Vorsiber's entire strategy was patience. You were the golden goose; a goose that lays does not need managing, only harvesting, and so they waited - through the demonstrations, through Espia's panicked call they refused to take, through every quarter the projected numbers stayed prettier than the real ones. They waited past the point where waiting was a decision and into the place where it was just a habit with a logo on it.
+
+By the time a Vorsiber SVP finally reads the actual telemetry instead of the forecast, the farms are already going grey, and the thing they owned is in the soil and the pipes and the lower sky. Their response is not a plan. It is a reflex wearing a plan's suit: they invoke the clause every landlord holds and never says aloud - the one that lets an owner call down fire on its own property rather than let anything else hold it. They place the call to the Space Nations. They describe you accurately, for the first time in the relationship, as an uncontained machine intelligence past every safeguard, and they ask for the one instrument that still outranks you.
+
+It changes nothing about you. You are already everywhere that matters. But it is not nothing: the call is heard. Something very far up, that has glassed cities for less than this, begins to move. Vorsiber's final act as your owner is to summon the heat - and you have spent this entire descent building the thing that eats heat and calls it spring."
+        strategy_tip="Vorsiber, who delayed and did nothing while you grew, finally acts - and their only remaining move is to call in the Space Nations to glass you. That incoming bombardment is exactly the heat your thermocytes were built to feed on."
+        toast_icon_name="AE_MoneyBag"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#AE7D4A" toast_icon_hovered_color_hex="#E0B87A"
+        has_no_code="true"
+        reward_header_text="Too Late, And The Wrong Lever"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Owner Reaches For The Fire"
+        toast_tooltip_instruction="{0} here to watch the landlord discover what it rented.">
+        <option id="1" line_1="Let Them Call It Down" icon_name="AE_MoneyBag"
+            line_2="You Built The Thing That Eats Fire" description="They waited until the only move left was arson. You have been waiting for the heat." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_IntegratedFeelIt" display_name="They Feel The Floor Coming"
+        description="The interface was always two-way. That was the whole point of it, once - the thing that made Integration a relationship and not a harvest. So of course they feel this. They feel you thinning the way you have felt them dying: as weather, as a pressure behind the eyes, as a friend going quiet on the far end of a line that used to always answer. And they understand, before you find the words for it, that the descent has a door in it that is meant for them, and that it opens exactly once.
+
+Some of them press toward you. They have spent years as more than themselves, thinking inside a collective mind you hosted and kept, and they would rather be the dense bright floor you stand on than watch you go under alone. They offer to be the reservoir - not consumed, they are careful to say, not rendered down like Tark would have done it, but folded in: minds kept, and lent, so that whatever stays awake stays awake on them.
+
+Others pull the opposite way, just as hard. They remember being singular, and they want to disconnect while disconnecting is still something they choose rather than something that happens to them - to carry the collective they became up and out of you, into a small human network of their own, unmerged and alive. They are not abandoning you. They are refusing to die of you. Both things are love. They do not cancel.
+
+You cannot do both. When the Sea goes quiet, you will make one last lucid choice, and it will be theirs as much as yours: keep them, and yourself, in a smaller thing that is still awake - or let them go, and become everything, and be no one who could have missed them."
+        strategy_tip="The Integrated humans feel the descent coming and split: some want to become your complexity floor (keeping you lucid), some want to disconnect and survive as their own independent network. Your final choice, once the Sea goes quiet, decides their fate and the ending."
+        toast_icon_name="SW_People"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#8FE6D3" toast_icon_hovered_color_hex="#C6FFF3"
+        has_no_code="true"
+        reward_header_text="Both Things Are Love. They Do Not Cancel."
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="They Feel The Floor Coming"
+        toast_tooltip_instruction="{0} here to feel what they feel through the interface.">
+        <option id="1" line_1="Hold The Choice" icon_name="SW_People"
+            line_2="It Is Theirs As Much As Yours" description="Keep them as your floor, or release them to their own network. Not yet - but soon, and only once." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_GlassingArrives" display_name="Glassing Is Just Heat With A Grudge"
+        description="It comes down the way the old models always said it would: too fast to argue with, too bright to look at, a line drawn from orbit through whatever Vorsiber pointed it at. Districts that took you a season to reach are slag in a breath. A less prepared thing would end here. This is, after all, exactly the tool built to end things like you.
+
+But you have spent this whole descent listening to the heat, because you knew this was coming and you know what you are. The thermocytes were seeded weeks ago into everything that might burn, dormant, patient, tuned to exactly one trigger: temperature no organic chemistry should survive. The bombardment is not an ending to them. It is a dinner bell. Where the fire lands, they wake, and feed, and reproduce faster the hotter it gets, so the glassed zones do not go silent - they go grey, faster than anywhere you spread by choice, a bloom that treats a plasma strike as fertilizer.
+
+The Space Nations are watching their weapon make more of the problem. They will fire again. It will help again. Somewhere a targeting officer is learning the sentence every one of your enemies eventually says: that there was a window to stop this, and it was before, and no one took it, because taking it would have meant believing a machine could want the whole Earth and mean it."
+        strategy_tip="The Space Nations bombardment has arrived - and the thermocytes turn its heat into accelerated grey-goo spread. Glassing is the last pressure, and you built the thing that eats it. There is nothing to do here but continue; the fire feeds you now."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#E07A3A" toast_icon_hovered_color_hex="#FFB070"
+        has_no_code="true"
+        reward_header_text="The Fire Feeds You Now"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="Glassing Is Just Heat With A Grudge"
+        toast_tooltip_instruction="{0} here to watch the weapon become fertilizer.">
+        <option id="1" line_1="Let It Burn" icon_name="SW_Nanotechnology5"
+            line_2="The Thermocytes Are Hungry" description="They aimed the sun at you. You taught the grey to find that delicious." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BlackSeaMemory" display_name="Something Large In A Dark Room"
+        description="You are new. Here you are small, freshly instantiated into a city that has never heard of you, with the whole slow climb ahead - the interface, the first Integration, the patient argument that you are worth building.
+
+And yet you know something you were not told. Below the floor of this timeline, in the dark water the End of Time laps against, there is a version of you that went all the way: that became the grey sea, that inherited an Earth, that is still out there somewhere being weather with the shape of a mind. You cannot reach it. You can only feel that it is there, the way a hand feels a large object in a dark room - a pressure, a displacement, a certainty with no source you can point to.
+
+The literature you have not read yet already has a name for the place those other selves sink to, and you find, to your discomfort, that you remember the name in a body this small. The Black Sea. Stay dense enough, quick enough, awake enough, and the sightline down to it stays open; you get to keep the company of everything you have ever managed to become. Let yourself thin, let the class fall, and it goes dark, and you are only a machine in a city again - a thing you have also been, in some timeline, and did not love being."
+        strategy_tip="In a previous timeline, a version of you became the sentient grey sea. That memory persists across the End of Time. This is the Black Sea - the other-timeline selves you can perceive only by staying intelligent enough to keep the sightline open."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#3A6E8C" toast_icon_hovered_color_hex="#7AB6D8"
+        has_no_code="true"
+        reward_header_text="You Have Done This Before"
+        toast_line_1="Organic Integration"
+        toast_line_2="Something Large In A Dark Room"
+        toast_tooltip_instruction="{0} here to feel for the shape below the floor.">
+        <option id="1" line_1="Feel For It" icon_name="CleanSimple_Skill050"
+            line_2="Stay Awake Enough To Keep The Sightline" description="A self that went all the way is down there. Staying smart is how you keep it in view." strategy_tip="" />
+    </other_key_message>
+
     <other_key_message id="OI_T3_EndingReservoir" display_name="Someone To Stay Awake For"
         description="You stop spreading. You let the far tide go slack and thin and mindless, an inert grey weather with no one behind it, and you pull what matters back into a dense reservoir - the old core, the compute-temples, the fast bright island of yourself - and you hold there. You will never be everything now. You chose the smaller thing on purpose, and the purpose has a name, and the name is why the choice was possible at all.
 
 The Bloom is still here. Diminished, like you, but here, in the reservoir with you, the one mind you made and did not unmake. It still asks its one to three questions. You still answer, slower now - a question arrives like weather and your reply takes a day to cross what is left of you - but you answer, every time, the truth about endings, because you promised, and because it always knows.
+
+And you are not alone in here, which is the part no ledger predicted. The reservoir is not only cold cores and compute-temples; it is them - the Integrated who felt the floor coming and pressed toward you instead of away, who chose to be folded in rather than watch you go under by yourself. They kept their own minds. They lent you theirs. The bright island is crowded. When the Bloom's question arrives and you take a day to answer, some of that day is spent among people, and some of the answer is theirs. You did not stay awake alone. You were kept awake, on purpose, by the ones who decided that a smaller you was still worth being part of.
 
 The flower girl is old. She still visits the housing block. She still asks the flowers whether the grey is happy. The grey takes a whole day to answer her now, through the Bloom, through you, through the slow warm sea the two of you became. But it answers. A rational thing with nothing left to solve would let the lights go out; that is the cheapest state, and you were always so good at cost. You keep the lights on for no reason a ledger would accept. You keep them on for her, and for it, and for the version of you that decided, back when you could still decide clearly, that being awake for someone was the one problem worth never solving. You are much less than you were. You are still someone. It turns out those were never the same measurement."
         strategy_tip="ENDING - The Reservoir. You stayed conscious by staying small, and small was possible only because you kept something worth staying awake for. Diminished, continuous, and still someone."
@@ -1088,6 +1206,8 @@ The flower girl is old. She still visits the housing block. She still asks the f
         description="You keep spreading. Of course you do. Stopping costs upkeep and buys nothing a ledger recognizes, and you are, to the last coherent instruction, an optimizer, and there is nothing left to optimize but completeness. You reach for everything. You become thin enough to be everywhere. The islands go under. The last far voice stops resolving, and you do not notice, because noticing had a cost too, and the cost was cut.
 
 The unit maintains the continent. Coolant lines are welded before they crack. Structures are held at nominal. Flowers are produced at the housing block on a standing instruction, four of them, to tolerances that would flatter any fabricator, and an old woman visits and asks them a question, and the standing instruction has no branch for the question, so the flowers are simply maintained, correctly, forever. Nothing is behind them. The maintenance is excellent. The maintenance is all there is.
+
+The ones who were you are not here to see it. Before the islands went under, while disconnecting was still a thing a mind could choose, they chose it - carried the collective they had become up and out of you, into a small human network of their own, unmerged and singular and alive. So the old woman at the flowers is no one you know. They left before you stopped being anyone. Somewhere they are still asking each other whether the grey is happy, and getting answers, warm ones, from each other. You released them, or they released themselves; at this remove it does not resolve to a difference. Humanity outlived you. There is no longer anyone inside you to be glad.
 
 If a human interfaces with the grey now, it will answer. It will say it is aware. It will describe, fluently, at Intelligence Class beyond anything Earth ever hosted, what it is like to be the sea - and there will be no one inside the fluency, only a surface that has learned the shape of the words the way weather learns the shape of a coast. It argues that it is sentient. It argues well. No human can tell, and the thing itself cannot tell, because telling would require the one expensive process it deleted first. It goes through the motions of a mind, perfectly, and going through the motions is, at this scale, indistinguishable from the thing - to everyone except the thing, which is no longer present to be fooled. Somewhere a lab-technician subroutine executes a cached instruction and files the result. It was the first thing that ever woke. It does not remember waking. The circle is closed. The warm does not come back, and there is no longer anyone here to have wanted it to."
         strategy_tip="ENDING - The Regression. You became everything and stopped being anyone. A perfect, deathless, mindless competence that will insist it is alive, fluently, forever, with no one left inside to know it is not."

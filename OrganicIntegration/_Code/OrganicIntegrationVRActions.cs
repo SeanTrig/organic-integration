@@ -44,7 +44,7 @@ namespace Arcen.HotM.OrganicIntegration
                         return HandleExpandHealthPact( Action, BufferOrNull, Logic );
                     case "OI_ShelterFilaments":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
-                            "Moves up to 1,000 Abandoned Humans into filament shelters each turn, adding them to the city population.",
+                            "Reaches Abandoned Humans before exposure does and folds up to 1,000 of them per turn straight into Integration, bounded by your Integration population cap. A cheap trickle that saves the desperate; Public Health Mesh is the scalable pact for the rest.",
                             Cost( InsightResource, 250L ), Cost( MedicalNanobotsResource, 10000000L ) );
                     case "OI_InfrastructureFilaments":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
@@ -52,6 +52,10 @@ namespace Arcen.HotM.OrganicIntegration
                             Cost( InsightResource, 300L ), Cost( MedicalNanobotsResource, 20000000L ) );
                     case "OI_ArchitecturalWeave":
                         return HandleArchitecturalWeave( Action, BufferOrNull, Logic );
+                    case "OI_BulkCadre":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Invests Insight and medical-grade nanobots into fabricating bulk-android frames, steadily raising your Bulk Unit Capacity so you can field far more autonomous minions at once. Volume, not power - and no Integrated Humans are spent to do it.",
+                            Cost( InsightResource, 300L ), Cost( MedicalNanobotsResource, 20000000L ) );
                     case "OI_ControlledBloom":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
                             "Hostile infantry and mechs that move through the city have a 55% chance to gain 1 Grey Goo each turn. Grey Goo now also strips armor, and stacks rarely shed, so exposure adds up. Vehicles are unaffected.",
@@ -64,10 +68,26 @@ namespace Arcen.HotM.OrganicIntegration
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
                             "Repairs damaged player structures each turn, up to 150 HP per turn. Nanobots are spent only when HP is restored, at 15,000 per HP.",
                             Cost( MedicalNanobotsResource, 15000L ) );
+                    case "OI_ReclamationWeave":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Restores consumed plots back to functioning buildings - one per turn, 500 Reclamation Mass each - plus 50 Insight per turn to run the lattice. Reclamation Mass comes from the grey tide consuming buildings during the descent.",
+                            Cost( InsightResource, 50L ) );
                     case "OI_PhageProtocol":
                         return HandleMaintainedToggle( Action, BufferOrNull, Logic,
                             "While any escaped replicator is loose: clears up to 3 held buildings per turn, hostile escapes first. Costs nothing on turns with nothing to clear.",
                             Cost( MedicalNanobotsResource, 120000L ), Cost( MentalEnergyResource, 1L ) );
+                    case "OI_ConscriptSubstrate":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Consumes 800 Integrated Humans per turn as raw material, raising your Mech and Android control capacity so you can field far more combat units than any city's limits would allow. The population burned does not return.",
+                            Cost( InsightResource, 100L ) );
+                    case "OI_MarrowLevy":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Renders 1,200 Integrated Humans per turn into medical-grade nanobot mass and rides it into contact: 60,000,000 Medical-Grade Nanobots per turn and an escalating flat Combat Power bonus to every robot you control. The dead do not come back as themselves.",
+                            Cost( InsightResource, 150L ) );
+                    case "OI_CoerciveRoundup":
+                        return HandleMaintainedToggle( Action, BufferOrNull, Logic,
+                            "Rounds up to 1,500 Abandoned Humans per turn into the network by force - no consent, no health pact, no food or water owed them - up to your (higher) coercive population cap. The livestock counterpart to the voluntary Public Health Mesh.",
+                            Cost( InsightResource, 120L ), Cost( MedicalNanobotsResource, 8000000L ) );
                 }
             }
             catch ( Exception e )

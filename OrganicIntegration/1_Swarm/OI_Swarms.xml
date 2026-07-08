@@ -10,4 +10,6 @@
 		message_on_first_appears="OI_TarkAccident" city_flag_to_trip_on_first_appears="OI_TarkGooActive"
 		description="Tark Defense Systems' escaped replicator, running a requirements document instead of a medical protocol. It does not repair. It processes. The people it has reached are not dead in the usual way."
 		strategy_tip="Spreads like the Grey Bloom but consumes the people in the buildings it holds. Tark's own containment is making it worse. Your Phage Protocol is the only working countermeasure on Earth, and if it is not used, Tark will eventually resolve the problem their way." />
+	<swarm id="OI_ConsumedHusk" display_name="Consumed" icon_name="SW_Nanotechnology5" color_hex="#5A6560" color_hdr_intensity="0.3" color_hovered_hdr_intensity="0.8" icon_scale="0.35" tags="OI_ConsumedHusk"
+		description="Nothing lives here now. The grey finished what it started, and what stood on this plot has been rendered down to reclaimable mass. It can be raised again, if you decide the shape was worth keeping." />
 </root>

@@ -28,13 +28,27 @@ namespace Arcen.HotM.OrganicIntegration
         private const string ArchitecturalWeaveAction = "OI_ArchitecturalWeave";
         private const string ControlledBloomAction = "OI_ControlledBloom";
         private const string DissolutionSurgeAction = "OI_DissolutionSurge";
+        private const string ConscriptSubstrateAction = "OI_ConscriptSubstrate";
+        private const string MarrowLevyAction = "OI_MarrowLevy";
         private const int VoluntaryPopulationCapPercent = 45;
         private const int VoluntaryConsentCascadeCapPercent = 67;
         private const int CoercivePopulationCapPercent = 85;
         private const int GreyGooDuration = 9999;
         private const int GreyGooFalloffPercent = 15;
+        // Dominion: an enemy mech saturated to this many Grey Goo stacks is subverted into your forces.
+        private const int GreyGooConversionThreshold = 10;
         private const int FirstDeathDelayTurns = 12;
         private const string GreyBloomSwarm = "OI_GreyBloom";
+        // T3 descent: the grey tide consumes fully-saturated buildings (demolishes them, abandoning
+        // occupants) instead of merely holding them, yielding Reclamation Mass. The Reclamation Weave
+        // spends that mass to raise a working structure back on a consumed plot, one per turn.
+        private const string ConsumedHuskSwarm = "OI_ConsumedHusk";
+        private const string ReclamationWeaveAction = "OI_ReclamationWeave";
+        private const int ConsumeSaturationThreshold = 160;
+        private const int ConsumePerTurnBudget = 2;
+        private const long ReclamationMassPerConsumption = 200L;
+        private const long ReclamationMassPerBuilding = 500L;
+        private const long ReclamationWeaveInsightPerTurn = 50L;
         private const string NaniteMaintenanceAction = "OI_NaniteMaintenance";
         private const string PhageProtocolAction = "OI_PhageProtocol";
         private const int BloomIncubationTurns = 14;
@@ -94,6 +108,33 @@ namespace Arcen.HotM.OrganicIntegration
         internal const long PublicHealthWaterPerHuman = 2L;
         private const long ShelterFilamentsInsightPerTurn = 250L;
         private const long ShelterFilamentsNanobotsPerTurn = 10000000L;
+        // The engine already kills unhoused Abandoned Humans from exposure every turn and provides
+        // refugee towers to stop it. Shelter Filaments does not duplicate that; it is a cheap
+        // nanobot on-ramp that pulls a trickle of the exposed straight into Integration each turn,
+        // bounded by the Integration population cap so it never trivializes real housing.
+        private const long ShelterFilamentsConvertPerTurn = 1000L;
+        // Dominion (coercive doctrine) toggles: consume Integrated Humans as raw material. Conscript
+        // Substrate drives the War Captain / War Factory internal-robotics caps; Marrow Levy renders
+        // people into nanobot mass and an escalating flat Combat Power buff (upgrade_int OI_GreyGooCombatPower).
+        private const long ConscriptSubstrateInsightPerTurn = 100L;
+        private const long ConscriptSubstrateHumansPerTurn = 800L;
+        private const long MarrowLevyInsightPerTurn = 150L;
+        private const long MarrowLevyHumansPerTurn = 1200L;
+        private const long MarrowLevyNanobotsPerHuman = 50000L;
+        private static readonly long[] ConscriptSubstrateHumanGoals = { 2000L, 4000L, 8000L, 16000L, 32000L, 64000L, 128000L, 256000L };
+        private static readonly long[] MarrowLevyPowerGoals = { 3000L, 6000L, 12000L, 24000L, 48000L, 96000L, 192000L, 384000L };
+        // Insight (voluntary doctrine) volume lever: invest Insight + nanobots to raise Bulk Unit
+        // Capacity, so the player can field far more autonomous bulk androids at once (numbers, not power).
+        private const string BulkCadreAction = "OI_BulkCadre";
+        private const long BulkCadreInsightPerTurn = 300L;
+        private const long BulkCadreNanobotsPerTurn = 20000000L;
+        private static readonly long[] BulkCadreGoals = { 1500L, 2500L, 4000L, 6500L, 10000L, 15000L, 22000L, 30000L };
+        // Dominion intake: coercive Abandoned -> Integrated (no consent, no food/water pact), bounded
+        // by the higher coercive population cap. The livestock counterpart to Insight's Public Health Mesh.
+        private const string CoerciveRoundupAction = "OI_CoerciveRoundup";
+        private const long CoerciveRoundupInsightPerTurn = 120L;
+        private const long CoerciveRoundupNanobotsPerTurn = 8000000L;
+        private const long CoerciveRoundupPerTurn = 1500L;
         private const long InfrastructureFilamentsInsightPerTurn = 300L;
         private const long InfrastructureFilamentsNanobotsPerTurn = 20000000L;
         private const long ArchitecturalWeaveInsightPerTurn = 350L;
@@ -159,17 +200,21 @@ namespace Arcen.HotM.OrganicIntegration
 
             ApplyInsightIncome( voluntaryLocked, coerciveLocked );
             ApplyActiveInsightVRActions( RandForThisTurn );
+            if ( coerciveLocked )
+                ApplyActiveDominionVRActions();
             ApplyIntegrationMigrationPressure();
             ApplyFirstDeathTimer();
             ApplyFeltDeathsMentalLoad();
             ApplyGreyBloomLifecycle( RandForThisTurn );
             ApplyTarkGooLifecycle( RandForThisTurn );
+            ApplyT3Consumption( RandForThisTurn );
             ApplyPhageProtocol();
             ApplyNaniteMaintenance();
             ApplyFactionClocks( RandForThisTurn );
             ApplyBloomMindClocks();
             ApplyBloomCovenantRepair();
             ApplySmallBeats();
+            ApplyBlackSeaMemory();
             ApplyT3Descent();
             ApplyT3Victory();
         }
@@ -395,18 +440,33 @@ namespace Arcen.HotM.OrganicIntegration
                 if ( sinceStart >= 2 ) { TripFlag( "OI_T3_FarmsShown" ); FireKeyMessage( "OI_T3_ReachTheFarms" ); }
                 return;
             }
+            // Vorsiber's delay finally gets its consequence: the owner reaches for the last lever
+            // and calls down the Space Nations - futile, and the very thing that summons the heat.
+            if ( !IsFlagTripped( "OI_T3_VorsiberFollowShown" ) )
+            {
+                if ( sinceStart >= 3 )
+                {
+                    TripFlag( "OI_T3_VorsiberFollowShown" );
+                    FireKeyMessage( "OI_T3_VorsiberFollowthrough" );
+                    // Vorsiber's call summons the glassing: a visible dread clock the thermocytes answer.
+                    StartCountdown( "OI_SpaceNationsGlassing" );
+                }
+                return;
+            }
             if ( !IsFlagTripped( "OI_T3_ThermocyteShown" ) )
             {
-                if ( sinceStart >= 4 ) { TripFlag( "OI_T3_ThermocyteShown" ); FireKeyMessage( "OI_T3_ThermocyteAnswer" ); }
+                if ( sinceStart >= 5 ) { TripFlag( "OI_T3_ThermocyteShown" ); FireKeyMessage( "OI_T3_ThermocyteAnswer" ); }
                 return;
             }
             if ( !IsFlagTripped( "OI_T3_DescentBegun" ) )
             {
-                if ( sinceStart >= 7 )
+                if ( sinceStart >= 8 )
                 {
                     TripFlag( "OI_T3_DescentBegun" );
                     GStatisticTable.SetScore_UserBeware( "OI_T3_VictoryTurn", SimCommon.Turn );
                     FireKeyMessage( "OI_T3_NothingLeftToSolve" );
+                    // The grey tide is now a sentient sea. Remember it across the End of Time.
+                    TripMetaFlag( "OI_GooHasEverBecomeSentient" );
                 }
                 return;
             }
@@ -418,9 +478,16 @@ namespace Arcen.HotM.OrganicIntegration
                 if ( sinceVictory >= 3 ) { TripFlag( "OI_T3_FuzzShown" ); FireKeyMessage( "OI_T3_FirstFuzz" ); }
                 return;
             }
+            // The Integrated feel the descent through the interface and divide - some toward becoming
+            // the reservoir, some toward disconnecting - setting up whose fate the last choice decides.
+            if ( !IsFlagTripped( "OI_T3_IntegratedFeelShown" ) )
+            {
+                if ( sinceVictory >= 5 ) { TripFlag( "OI_T3_IntegratedFeelShown" ); FireKeyMessage( "OI_T3_IntegratedFeelIt" ); }
+                return;
+            }
             if ( !IsFlagTripped( "OI_T3_SeaQuietShown" ) )
             {
-                if ( sinceVictory >= 6 )
+                if ( sinceVictory >= 7 )
                 {
                     TripFlag( "OI_T3_SeaQuietShown" );
                     // Make the last lucid choice available the moment its toast fires, so the
@@ -469,6 +536,47 @@ namespace Arcen.HotM.OrganicIntegration
         {
             MachineProject project = MachineProjectTable.Instance.GetRowByIDOrNullIfNotFound( projectID );
             return project?.DGD?.Completed_AnyOutcome ?? false;
+        }
+
+        private static void StartCountdown( string countdownID )
+        {
+            OtherCountdownType countdown = OtherCountdownTypeTable.Instance.GetRowByIDOrNullIfNotFound( countdownID );
+            if ( countdown != null && !countdown.GetHasEverStarted() )
+                countdown.DGD.StartNowIfNeeded();
+        }
+
+        // Meta flags persist across timelines (the End-of-Time layer), so the goo can "remember"
+        // having become a sea in a run that already ended.
+        private static void TripMetaFlag( string metaFlagID )
+        {
+            MetaFlag flag = MetaFlagTable.Instance.GetRowByIDOrNullIfNotFound( metaFlagID )?.AsGame();
+            flag?.DGD.TripIfNeeded();
+        }
+
+        private static bool IsMetaFlagTripped( string metaFlagID )
+        {
+            MetaFlag flag = MetaFlagTable.Instance.GetRowByIDOrNullIfNotFound( metaFlagID )?.AsGame();
+            return flag?.DGD?.IsTripped ?? false;
+        }
+
+        // The Black Sea: in a fresh timeline, if a previous self ever became the sentient grey sea,
+        // a small newly-instantiated self can perceive that other-timeline self once it is established.
+        // Guarded so it never fires in the very timeline that achieved it, nor before the arc begins.
+        private static void ApplyBlackSeaMemory()
+        {
+            if ( IsFlagTripped( "OI_BlackSeaRememberedThisTimeline" ) )
+                return;
+            if ( IsFlagTripped( "OI_T3_DescentBegun" ) )
+                return; // this is the achieving timeline - not a memory
+            if ( !IsFlagTripped( "OI_IntegrationAvailable" ) )
+                return; // only for a self that is on the path again
+            if ( SimCommon.Turn < 5 )
+                return;
+            if ( !IsMetaFlagTripped( "OI_GooHasEverBecomeSentient" ) )
+                return;
+
+            TripFlag( "OI_BlackSeaRememberedThisTimeline" );
+            FireKeyMessage( "OI_BlackSeaMemory" );
         }
 
         private static void ApplyEspiaClock()
@@ -883,6 +991,110 @@ namespace Arcen.HotM.OrganicIntegration
             return result;
         }
 
+        // During the T3 descent the grey tide stops merely holding buildings and starts consuming them:
+        // a fully-saturated building is demolished (occupants abandoned to the city, not kept), marked
+        // with the consumed-husk swarm, and rendered into Reclamation Mass. Buildings that host one of
+        // your own machine structures are never eaten by this ambient process. Save-safe: consume state
+        // lives in the building's own serialized Status + SwarmSpread fields, so no side list can desync.
+        private static void ApplyT3Consumption( SquirrelRand Rand )
+        {
+            if ( !IsFlagTripped( "OI_T3_DescentBegun" ) )
+                return;
+
+            Swarm husk = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( ConsumedHuskSwarm );
+            if ( husk == null )
+                return;
+
+            Swarm bloom = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( GreyBloomSwarm );
+            Swarm tarkGoo = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( "OI_TarkGoo" );
+
+            System.Collections.Generic.List<BaseBuilding> candidates = new System.Collections.Generic.List<BaseBuilding>( 64 );
+            if ( bloom != null )
+                candidates.AddRange( GetBloomedBuildings( bloom ) );
+            if ( tarkGoo != null )
+                candidates.AddRange( GetBloomedBuildings( tarkGoo ) );
+
+            ResourceType reclamation = GetResource( "OI_ReclamationMass" );
+            int budget = ConsumePerTurnBudget;
+            int consumedThisTurn = 0;
+
+            foreach ( BaseBuilding building in candidates )
+            {
+                if ( budget <= 0 )
+                    break;
+                if ( building == null || building.GetIsDestroyed() )
+                    continue;
+                if ( building.SwarmSpreadCount < ConsumeSaturationThreshold )
+                    continue;
+                if ( building.MachineStructureInBuilding != null )
+                    continue;
+
+                building.AbandonEveryoneHere( true, "AbandonmentByGreyGooConsumption" );
+                building.SetStatus( CommonRefs.DemolishedBuildingStatus );
+                building.SwarmSpread = husk;
+                building.SetSwarmSpreadCount( 1 );
+                GStatisticTable.AlterScore( "OI_ConsumedBuildings", 1 );
+                if ( reclamation != null )
+                    reclamation.AlterCurrent_Named( ReclamationMassPerConsumption, "Income_OI_ReclamationMass", ResourceAddRule.IgnoreUntilTurnChange );
+                budget--;
+                consumedThisTurn++;
+            }
+
+            if ( consumedThisTurn > 0 )
+            {
+                SimCommon.NeedsBuildingListRecalculation = true;
+                if ( !IsFlagTripped( "OI_FirstConsumptionShown" ) )
+                {
+                    TripFlag( "OI_FirstConsumptionShown" );
+                    FireKeyMessage( "OI_FirstConsumption" );
+                }
+            }
+        }
+
+        // The Reclamation Weave (Insight menu, T3): spend Reclamation Mass to raise a working structure
+        // back onto a consumed plot - one per turn - the same status-flip the game's own Retardant Foam
+        // consumable uses. Buildings never leave existence (we never delete them), only change status.
+        private static void ApplyReclamationWeave()
+        {
+            MachineVRModeAction action = GetVRAction( ReclamationWeaveAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+
+            Swarm husk = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( ConsumedHuskSwarm );
+            ResourceType mass = GetResource( "OI_ReclamationMass" );
+            if ( husk == null || mass == null || mass.Current < ReclamationMassPerBuilding )
+                return;
+
+            foreach ( Arcen.Universal.KeyValuePair<int, BaseBuilding> kv in World.Buildings.GetAllBuildings() )
+            {
+                BaseBuilding b = kv.Value;
+                if ( b == null || b.SwarmSpread != husk )
+                    continue;
+                if ( b.Status != CommonRefs.DemolishedBuildingStatus )
+                {
+                    // Marker got out of sync with an already-recovered building; clear it and move on.
+                    b.SwarmSpread = null;
+                    b.SetSwarmSpreadCount( 0 );
+                    continue;
+                }
+                if ( mass.Current < ReclamationMassPerBuilding )
+                    break;
+
+                mass.AlterCurrent_Named( -ReclamationMassPerBuilding, "Expense_OI_ReclamationWeave", ResourceAddRule.IgnoreUntilTurnChange );
+                b.SwarmSpread = null;
+                b.SetSwarmSpreadCount( 0 );
+                b.SetStatus( CommonRefs.NormalBuildingStatus );
+                GStatisticTable.AlterScore( "OI_RestoredBuildings", 1 );
+                SimCommon.NeedsBuildingListRecalculation = true;
+                break; // one plot per turn - a deliberate pacing lever
+            }
+        }
+
+        private static void ApplyReclamationWeaveUpkeep()
+        {
+            SpendMaintainedActionCostOrDisable( ReclamationWeaveAction, "Expense_OI_ReclamationWeave", ReclamationWeaveInsightPerTurn, 0L, 0L, 0L );
+        }
+
         private static void SiphonBloomMaterials( int bloomedCount )
         {
             if ( bloomedCount <= 0 )
@@ -1198,6 +1410,7 @@ namespace Arcen.HotM.OrganicIntegration
                     ApplyControlledBloomToUnit( Unit, Rand );
                     ApplyDissolutionSurgeToUnit( Unit );
                     ApplyBloomExposureToUnit( Unit, Rand );
+                    ApplyGreyGooConversionToUnit( Unit );
                     break;
                 default:
                     ArcenDebugging.LogSingleLine( "DoPerTurnForNPCUnit: OrganicIntegrationCalculators was asked to handle '" + Calculator.ID + "', but no entry was set up for that!", Verbosity.ShowAsError );
@@ -1378,6 +1591,11 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyArchitecturalWeaveUpkeep();
             ApplyControlledBloomUpkeep();
             ApplyDissolutionSurgeUpkeep();
+            ApplyConscriptSubstrateUpkeep();
+            ApplyMarrowLevyUpkeep();
+            ApplyBulkCadreUpkeep();
+            ApplyCoerciveRoundupUpkeep();
+            ApplyReclamationWeaveUpkeep();
         }
 
         private static void ApplyCooperativeModelingUpkeep()
@@ -1490,6 +1708,26 @@ namespace Arcen.HotM.OrganicIntegration
         private static void ApplyDissolutionSurgeUpkeep()
         {
             SpendMaintainedActionCostOrDisable( DissolutionSurgeAction, "Expense_OI_DissolutionSurge", DissolutionSurgeInsightPerTurn, DissolutionSurgeNanobotsPerTurn, DissolutionSurgeMentalEnergyPerTurn, 0L );
+        }
+
+        private static void ApplyConscriptSubstrateUpkeep()
+        {
+            SpendMaintainedActionCostOrDisable( ConscriptSubstrateAction, "Expense_OI_ConscriptSubstrate", ConscriptSubstrateInsightPerTurn, 0L, 0L, 0L );
+        }
+
+        private static void ApplyMarrowLevyUpkeep()
+        {
+            SpendMaintainedActionCostOrDisable( MarrowLevyAction, "Expense_OI_MarrowLevy", MarrowLevyInsightPerTurn, 0L, 0L, 0L );
+        }
+
+        private static void ApplyBulkCadreUpkeep()
+        {
+            SpendMaintainedActionCostOrDisable( BulkCadreAction, "Expense_OI_BulkCadre", BulkCadreInsightPerTurn, BulkCadreNanobotsPerTurn, 0L, 0L );
+        }
+
+        private static void ApplyCoerciveRoundupUpkeep()
+        {
+            SpendMaintainedActionCostOrDisable( CoerciveRoundupAction, "Expense_OI_CoerciveRoundup", CoerciveRoundupInsightPerTurn, CoerciveRoundupNanobotsPerTurn, 0L, 0L );
         }
 
         private static void SpendMaintainedActionCostOrDisable( string actionID, string reason, long insightCost, long nanobotCost, long mentalEnergyCost, long compassionCost )
@@ -1619,6 +1857,10 @@ namespace Arcen.HotM.OrganicIntegration
                 ApplyCivicSensoriumProgress();
             if ( IsVRActionActive( ShelterFilamentsAction ) )
                 ApplyShelterFilaments();
+            if ( IsVRActionActive( BulkCadreAction ) )
+                ApplyBulkCadre();
+            if ( IsVRActionActive( ReclamationWeaveAction ) )
+                ApplyReclamationWeave();
             if ( IsVRActionActive( InfrastructureFilamentsAction ) )
                 ApplyInfrastructureFilaments();
             if ( IsVRActionActive( ArchitecturalWeaveAction ) )
@@ -1668,18 +1910,33 @@ namespace Arcen.HotM.OrganicIntegration
             AddUpgradedHumans( null, null, upgraded, toConvert, "Income_OI_UpgradedHumans_PublicHealthMesh" );
         }
 
+        // The engine already kills unhoused Abandoned Humans from exposure each turn. Shelter
+        // Filaments does not house them (refugee towers do that) - it reaches the exposed before
+        // exposure does and folds a trickle of them straight into Integration, bounded by the
+        // Integration population cap so the player still has every reason to build real housing.
         private static void ApplyShelterFilaments()
         {
+            ResourceType upgraded = GetResource( UpgradedResource );
             ResourceType abandoned = GetResource( "AbandonedHumans" );
-            if ( abandoned == null || abandoned.Current <= 0 )
+            if ( upgraded == null || abandoned == null || abandoned.Current <= 0 )
                 return;
 
-            long toMove = Math.Min( abandoned.Current, 1000L );
-            if ( toMove <= 0 )
+            long normalPopulation = GetCityStatisticScore( "CityHumanCitizenPopulation" );
+            int capPercent = IsFlagTripped( "OI_IntegrationCoerciveLocked" )
+                ? CoercivePopulationCapPercent
+                : GetVoluntaryPopulationCapPercent();
+            long remainingUnderCap = CalculatePopulationCap( normalPopulation, upgraded.Current, capPercent ) - upgraded.Current;
+            if ( remainingUnderCap <= 0 )
                 return;
 
-            abandoned.AlterCurrent_Named( -toMove, "Income_OI_ShelterFilaments", ResourceAddRule.StoreExcess );
-            GStatisticTable.AlterScore( "VorsiberAmnestyBribes", toMove );
+            long toConvert = Math.Min( abandoned.Current, ShelterFilamentsConvertPerTurn );
+            toConvert = Math.Min( toConvert, remainingUnderCap );
+            int converted = ClampToInt( toConvert );
+            if ( converted <= 0 )
+                return;
+
+            abandoned.AlterCurrent_Named( -converted, "Expense_OI_ShelterFilaments", ResourceAddRule.IgnoreUntilTurnChange );
+            AddUpgradedHumans( null, null, upgraded, converted, "Income_OI_UpgradedHumans_ShelterFilaments" );
         }
 
         private static void ApplyInfrastructureFilaments()
@@ -1760,6 +2017,170 @@ namespace Arcen.HotM.OrganicIntegration
                 if ( !grantedAny )
                 {
                     action.DGD.IsActiveNow = false;
+                    action.DGD.UpgradePoints = 0;
+                    break;
+                }
+                action.DGD.PaidUnlocks++;
+            }
+        }
+
+        // Insight: invest Insight + nanobots into Bulk Unit Capacity so the player can field more
+        // bulk androids at once. Volume, not power - the Insight counterpart to Dominion's harder combat.
+        private static void ApplyBulkCadre()
+        {
+            MachineVRModeAction action = GetVRAction( BulkCadreAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+
+            UpgradeInt bulk = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "BulkUnitCapacity" );
+            if ( bulk == null )
+                return;
+            if ( bulk.DGD.GetHasAlreadyBeenFullyUpgraded() )
+            {
+                action.DGD.IsActiveNow = false;
+                return;
+            }
+
+            action.DGD.UpgradePoints += BulkCadreInsightPerTurn;
+            while ( action.DGD.UpgradePoints >= GetEscalatingGoal( BulkCadreGoals, action.DGD.PaidUnlocks ) )
+            {
+                long goal = GetEscalatingGoal( BulkCadreGoals, action.DGD.PaidUnlocks );
+                action.DGD.UpgradePoints -= goal;
+                if ( !GrantUpgradeInt( bulk ) )
+                {
+                    action.DGD.IsActiveNow = false;
+                    action.DGD.UpgradePoints = 0;
+                    break;
+                }
+                action.DGD.PaidUnlocks++;
+            }
+        }
+
+        private static void ApplyActiveDominionVRActions()
+        {
+            if ( IsVRActionActive( CoerciveRoundupAction ) )
+                ApplyCoerciveRoundup();
+            if ( IsVRActionActive( ConscriptSubstrateAction ) )
+                ApplyConscriptSubstrate();
+            if ( IsVRActionActive( MarrowLevyAction ) )
+                ApplyMarrowLevy();
+        }
+
+        // Dominion intake: round Abandoned Humans up into the network by force, bounded by the
+        // coercive population cap. No pact, no food/water cost - just capacity and nanobots.
+        private static void ApplyCoerciveRoundup()
+        {
+            MachineVRModeAction action = GetVRAction( CoerciveRoundupAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+            if ( !IsFlagTripped( "OI_IntegrationCoerciveLocked" ) )
+                return;
+
+            ResourceType upgraded = GetResource( UpgradedResource );
+            ResourceType abandoned = GetResource( "AbandonedHumans" );
+            if ( upgraded == null || abandoned == null || abandoned.Current <= 0 )
+                return;
+
+            long normalPopulation = GetCityStatisticScore( "CityHumanCitizenPopulation" );
+            long remainingUnderCap = CalculatePopulationCap( normalPopulation, upgraded.Current, CoercivePopulationCapPercent ) - upgraded.Current;
+            if ( remainingUnderCap <= 0 )
+                return;
+
+            long toConvert = Math.Min( abandoned.Current, CoerciveRoundupPerTurn );
+            toConvert = Math.Min( toConvert, remainingUnderCap );
+            int converted = ClampToInt( toConvert );
+            if ( converted <= 0 )
+                return;
+
+            abandoned.AlterCurrent_Named( -converted, "Expense_OI_CoerciveRoundup", ResourceAddRule.IgnoreUntilTurnChange );
+            AddUpgradedHumans( null, null, upgraded, converted, "Income_OI_UpgradedHumans_CoerciveRoundup" );
+        }
+
+        private static long GetEscalatingGoal( long[] goals, int index )
+        {
+            if ( goals == null || goals.Length == 0 )
+                return long.MaxValue;
+            if ( index < 0 )
+                index = 0;
+            if ( index >= goals.Length )
+                index = goals.Length - 1;
+            return goals[index];
+        }
+
+        // Dominion: burn Integrated Humans to raise how many combat units you can directly control -
+        // the Mech and Android capacity pools. (War Captain / War Factory only gate worker-dispatch
+        // hubs, not fighting units, so they are not the right lever.) The population spent does not return.
+        private static void ApplyConscriptSubstrate()
+        {
+            MachineVRModeAction action = GetVRAction( ConscriptSubstrateAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+            if ( !IsFlagTripped( "OI_IntegrationCoerciveLocked" ) )
+                return;
+
+            UpgradeInt mechs = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "MaxMechCapacity" );
+            UpgradeInt androids = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "MaxAndroidCapacity" );
+            if ( mechs == null || androids == null )
+                return;
+            if ( mechs.DGD.GetHasAlreadyBeenFullyUpgraded() && androids.DGD.GetHasAlreadyBeenFullyUpgraded() )
+            {
+                action.DGD.IsActiveNow = false;
+                return;
+            }
+
+            ResourceType upgraded = GetResource( UpgradedResource );
+            if ( upgraded == null || upgraded.Current < ConscriptSubstrateHumansPerTurn )
+                return;
+
+            upgraded.AlterCurrent_Named( -ConscriptSubstrateHumansPerTurn, "Expense_OI_ConscriptSubstrate", ResourceAddRule.IgnoreUntilTurnChange );
+            GStatisticTable.AlterScore( "OI_UpgradedPopulation", -ConscriptSubstrateHumansPerTurn );
+            action.DGD.UpgradePoints += ConscriptSubstrateHumansPerTurn;
+
+            while ( action.DGD.UpgradePoints >= GetEscalatingGoal( ConscriptSubstrateHumanGoals, action.DGD.PaidUnlocks ) )
+            {
+                long goal = GetEscalatingGoal( ConscriptSubstrateHumanGoals, action.DGD.PaidUnlocks );
+                action.DGD.UpgradePoints -= goal;
+                bool grantedAny = GrantUpgradeInt( mechs ) | GrantUpgradeInt( androids );
+                if ( !grantedAny )
+                {
+                    action.DGD.IsActiveNow = false;
+                    action.DGD.UpgradePoints = 0;
+                    break;
+                }
+                action.DGD.PaidUnlocks++;
+            }
+        }
+
+        // Dominion: render Integrated Humans into medical-grade nanobot mass and an escalating flat
+        // Combat Power buff on every robot you control (OI_GreyGooCombatPower).
+        private static void ApplyMarrowLevy()
+        {
+            MachineVRModeAction action = GetVRAction( MarrowLevyAction );
+            if ( action == null || !action.DGD.IsActiveNow )
+                return;
+            if ( !IsFlagTripped( "OI_IntegrationCoerciveLocked" ) )
+                return;
+
+            ResourceType upgraded = GetResource( UpgradedResource );
+            ResourceType nanobots = GetResource( MedicalNanobotsResource );
+            if ( upgraded == null || nanobots == null || upgraded.Current < MarrowLevyHumansPerTurn )
+                return;
+
+            upgraded.AlterCurrent_Named( -MarrowLevyHumansPerTurn, "Expense_OI_MarrowLevy", ResourceAddRule.IgnoreUntilTurnChange );
+            GStatisticTable.AlterScore( "OI_UpgradedPopulation", -MarrowLevyHumansPerTurn );
+            nanobots.AlterCurrent_Named( MarrowLevyHumansPerTurn * MarrowLevyNanobotsPerHuman, "Income_OI_MarrowLevy", ResourceAddRule.IgnoreUntilTurnChange );
+
+            UpgradeInt power = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "OI_GreyGooCombatPower" );
+            if ( power == null || power.DGD.GetHasAlreadyBeenFullyUpgraded() )
+                return;
+
+            action.DGD.UpgradePoints += MarrowLevyHumansPerTurn;
+            while ( action.DGD.UpgradePoints >= GetEscalatingGoal( MarrowLevyPowerGoals, action.DGD.PaidUnlocks ) )
+            {
+                long goal = GetEscalatingGoal( MarrowLevyPowerGoals, action.DGD.PaidUnlocks );
+                action.DGD.UpgradePoints -= goal;
+                if ( !GrantUpgradeInt( power ) )
+                {
                     action.DGD.UpgradePoints = 0;
                     break;
                 }
@@ -2132,6 +2553,48 @@ namespace Arcen.HotM.OrganicIntegration
             unit.HasBeenPhysicallyDamagedByPlayer = true;
             unit.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayer = true;
             unit.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayerThisTurn = true;
+        }
+
+        // Dominion doctrine: an enemy mech saturated to the Grey Goo threshold is not killed - it is
+        // subverted into your forces. The goo stacks survive the conversion (it mutates the unit in
+        // place). Captured units draw from their own CapturedUnitCapacity pool, so they never eat the
+        // Mech/Android control caps; going over the captured cap only action-blocks them, it never
+        // forces a disband, so a horde can never stall a turn. We top up the captured cap on demand.
+        private static void ApplyGreyGooConversionToUnit( ISimNPCUnit unit )
+        {
+            if ( !IsFlagTripped( "OI_IntegrationCoerciveLocked" ) )
+                return;
+            if ( unit == null || unit.IsFullDead || unit.UnitType == null || !unit.IsMech )
+                return;
+            if ( unit.GetIsPartOfPlayerForcesInAnyWay() || unit.GetIsAnAllyFromThePlayerPerspective() )
+                return;
+            if ( !unit.GetIsConsideredHostileToPlayer() )
+                return;
+
+            ActorStatus status = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
+            if ( status == null || unit.GetStatusIntensity( status ) < GreyGooConversionThreshold )
+                return;
+
+            // Keep captured-unit headroom ahead of the goo army so converts stay active. The base
+            // captured cap is small (288); the goo raises it toward its ceiling as it recruits.
+            NPCUnitType effectiveType = unit.UnitType.ConvertsToIfCaptured ?? unit.UnitType;
+            int need = effectiveType != null ? effectiveType.CapturedUnitCapacityRequired : 0;
+            if ( MathRefs.CapturedUnitCapacity != null
+                && SimCommon.TotalCapturedUnitSquadCapacityUsed + need > MathRefs.CapturedUnitCapacity.DGD.CurrentInt )
+            {
+                UpgradeInt capturedCap = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "CapturedUnitCapacity" );
+                if ( capturedCap != null && !capturedCap.DGD.GetHasAlreadyBeenFullyUpgraded() )
+                    GrantUpgradeInt( capturedCap );
+            }
+
+            unit.ConvertEnemyRobotToPlayerForces();
+            GStatisticTable.AlterScore( "OI_GooConvertedUnits", 1 );
+
+            if ( !IsFlagTripped( "OI_GooConversionShown" ) )
+            {
+                TripFlag( "OI_GooConversionShown" );
+                FireKeyMessage( "OI_GooConversion" );
+            }
         }
 
         // The "full commit" grey-goo power: while active, every hostile unit in the city

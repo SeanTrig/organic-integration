@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- Persists BETWEEN timelines (End-of-Time layer). Tripped the moment the grey tide becomes a
+	     sentient sea; read in later timelines so a freshly-instantiated small self can perceive that
+	     one of its other-timeline selves went all the way down. This is the Black Sea. We deliberately
+	     OMIT does_not_reverse_merge_into_saves_from_profile_central so it survives reverse-merges. -->
+	<meta_flag id="OI_GooHasEverBecomeSentient" display_name="A grey sea, in some timeline, woke" has_no_code="true" />
+</root>

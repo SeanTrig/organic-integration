@@ -7,4 +7,12 @@
         is_disabled_until_unlocked="OI_NanobotInterfaceTech"
         show_strategic_resources="true">
     </vr_mode_category>
+
+    <vr_mode_category id="OI_Dominance" display_name="Dominion" short_name="Dominion"
+        description="Where Insight asks, Dominion takes. The livestock is raw material: conscripted mass rendered into internal robotics, nanobot swarms, and combat power far past anything the Insight menu will give you. The population you spend does not come back."
+        strategy_tip="Only meaningful once you have committed to coercive Integration; its actions consume Integrated Humans as fuel and are invisible on the voluntary path. Combat and Grey Goo scale harder here than in the Insight menu, at the cost of the herd."
+        icon_name="CleanSimple_Skill128"
+        is_disabled_until_unlocked="OI_NaniteWindGeneratorUnlock"
+        show_strategic_resources="true">
+    </vr_mode_category>
 </root>

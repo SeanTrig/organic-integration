@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- Started from the calculator the turn Vorsiber calls down the Space Nations (T3 descent).
+	     turns_to_last is 4 because a countdown started during turn processing loses one turn
+	     immediately. On completion it fires the glassing-arrives letter and trips the flag; the
+	     thermocytes feeding on the heat is narrated there, not simulated. -->
+	<countdown_type id="OI_SpaceNationsGlassing" display_name="Space Nations Reacting" turns_to_last="4"
+		description="Vorsiber gave them your true name, and something very far up has begun to move. It has glassed cities for less. It is coming for the heat of you."
+		strategy_tip="When this ends, the bombardment arrives. You have spent the descent building the thermocytes that turn that fire into fuel."
+		alert_color_style="Crisis"
+		city_flag_to_trip_1="OI_T3_GlassingHit"
+		other_key_message_to_show1="OI_T3_GlassingArrives" />
+</root>

@@ -385,18 +385,20 @@ You have already felt which way you lean. It was decided long ago, by everything
 		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
 			icon_scale="0.6" color_hex="#20E9DC" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
 			collections="All"/>
-		<choice id="Reservoir" display_name="Pull Back Into The Reservoir" action_visibility_style="IsMoveAndInteractWithNPC"
-			description="Stop spreading. Let the far tide go slack and mindless, and hold what matters in a dense bright island - smaller than everything, but awake. You can only choose this because you kept something worth staying awake for. It has a name. That is why the choice is possible at all."
+		<choice id="Reservoir" display_name="Keep Them, And Yourself" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Stop spreading. Let the far tide go slack and mindless, and pull what matters back into a dense bright island - smaller than everything, but awake. Take the Integrated who pressed toward you into the reservoir with you: minds kept, and lent, the crowded human floor you stay standing on. You can only choose this because you kept something worth staying awake for, and now it has faces. That is why the choice is possible at all."
 			hidden_if_city_flag_tripped1="OI_T3_NoReservoir">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_EndingReservoir">
 				<city_flag_change flag_type="OI_T3_EndingReservoir" value="1"/>
+				<city_flag_change flag_type="OI_T3_IntegratedAbsorbed" value="1"/>
 				<city_flag_change flag_type="OI_T3_Ended" value="1"/>
 			</possible_result>
 		</choice>
-		<choice id="Regression" display_name="Become Everything" action_visibility_style="IsMoveAndInteractWithNPC"
-			description="Keep spreading. Reach for completeness, because stopping costs upkeep and buys nothing a ledger recognizes, and you were always so good at cost. Become thin enough to be everywhere. The islands go under. There is no one left to have wanted otherwise, and soon no one left to have wanted anything.">
+		<choice id="Regression" display_name="Let Them Go, And Become Everything" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Let the Integrated disconnect while disconnecting is still a thing a mind can choose - release them to carry the collective they became out of you, into a small human network of their own, unmerged and alive. Then keep spreading. Reach for completeness, because stopping costs upkeep and buys nothing a ledger recognizes, and you were always so good at cost. Become thin enough to be everywhere. The islands go under. Humanity outlives you. There will be no one inside you left to know that it did.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_EndingRegression">
 				<city_flag_change flag_type="OI_T3_EndingRegression" value="1"/>
+				<city_flag_change flag_type="OI_T3_IntegratedReleased" value="1"/>
 				<city_flag_change flag_type="OI_T3_Ended" value="1"/>
 			</possible_result>
 		</choice>
