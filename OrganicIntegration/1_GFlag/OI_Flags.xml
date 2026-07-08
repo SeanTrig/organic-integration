@@ -112,4 +112,10 @@
 	<city_flag id="OI_CrossoverVorsiberAnswered" display_name="You have answered Vorsiber about the swarms" has_no_code="true"/>
 	<city_flag id="OI_CrossoverVorsiberDenied" display_name="You told Vorsiber you did not make the goo" has_no_code="true"/>
 	<city_flag id="OI_CrossoverVorsiberResolved" display_name="Vorsiber has decided whether to believe you" has_no_code="true"/>
+
+	<!-- Meta integration: one-time guards for code-awarded Aetagest. -->
+	<city_flag id="OI_AetaConversionCharged" display_name="First-conversion Aetagest awarded" has_no_code="true"/>
+	<city_flag id="OI_AetaBlackSeaCharged" display_name="Black Sea Aetagest awarded" has_no_code="true"/>
+	<city_flag id="OI_AetaOutbreakLostCharged" display_name="Outbreak-lost Aetagest awarded" has_no_code="true"/>
+	<city_flag id="OI_AetaOutbreakBeatenCharged" display_name="Outbreak-beaten Aetagest awarded" has_no_code="true"/>
 </root>

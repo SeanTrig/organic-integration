@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- Organic Integration achievements. In-game only (no api_key: unofficial mods can't register on
+	     the Steam backend), but they toast, count in the OI collection, and their locked entries are
+	     the "there is content you haven't found" signal. Collections kept to All + our own bucket to
+	     stay schema-safe. Triggered either declaratively (achievement_triggered on a goal_path) or from
+	     code (TripAchievement at the flag). Never touches reserved collections. -->
+
+	<!-- Doctrine -->
+	<achievement id="OI_ByConsent" display_name="By Consent" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You committed to voluntary Integration - the interface as a relationship, not a harvest." />
+	<achievement id="OI_OnTheWind" display_name="On The Wind" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You committed to coercive Integration - the network taken, not offered." />
+
+	<!-- The felt death fork -->
+	<achievement id="OI_TheChannelStaysOpen" display_name="The Channel Stays Open" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You let yourself keep feeling the death of every Integrated human through the interface." />
+	<achievement id="OI_TheOptionToFeelLess" display_name="The Option To Feel Less" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You walled off the sensation of Integrated death. It cost you less than 2.311 seconds." />
+
+	<!-- Grey Bloom -->
+	<achievement id="OI_ANeighborNotATool" display_name="A Neighbor, Not A Tool" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You wrote the Grey Bloom a covenant and let the only other mind on Earth stay itself." />
+	<achievement id="OI_YouAteTheOnlyOtherMind" display_name="You Ate The Only Other Mind" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You subsumed the Grey Bloom. There was another consciousness, briefly, and now there is only you." />
+	<achievement id="OI_WeatherWithHabits" display_name="Weather With Habits" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You let the Grey Bloom persist as an ecology - not a mind, not a threat, just weather that keeps its habits." />
+	<achievement id="OI_ItAskedItsFirstQuestion" display_name="It Asked Its First Question" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="The Grey Bloom became sentient and asked you something. You were there for it." />
+	<achievement id="OI_YouNeverKnew" display_name="You Never Knew" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You cleared the Grey Bloom without ever learning it had begun to think." />
+
+	<!-- Tark -->
+	<achievement id="OI_TheCityWatchedYouStopIt" display_name="The City Watched You Stop It" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You contained Tark's escaped replicator with the Phage, in the open, and the city saw you do it." />
+	<achievement id="OI_ItBurnedItsOwnAccident" display_name="It Burned Its Own Accident" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You let Tark scorch its own district rather than stop the escape yourself." />
+
+	<!-- Vorsiber / Espia -->
+	<achievement id="OI_ADecoyForADecoy" display_name="A Decoy For A Decoy" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You showed Vorsiber a decoy - and they knew it was a decoy." />
+	<achievement id="OI_PricedTheStory" display_name="Priced The Story" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="Espia Telecom put a price on the story of you, and you dealt with it." />
+
+	<!-- Combat / conversion -->
+	<achievement id="OI_ItsYoursNow" display_name="It's Yours Now" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="Your Grey Goo saturated an enemy mech until it stopped being theirs and started being yours." />
+	<achievement id="OI_NothingPersonalJustSubstrate" display_name="Nothing Personal, Just Substrate" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="The grey tide consumed its first building - not held, not occupied, consumed." />
+
+	<!-- T3 endgame -->
+	<achievement id="OI_ToInheritTheEarth" display_name="To Inherit The Earth" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You unbound the replication into yourself and became the grey tide, whatever it left of you." />
+	<achievement id="OI_TheReservoir" display_name="The Reservoir" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You stayed someone by staying small. Diminished, continuous, still there." />
+	<achievement id="OI_TheRegression" display_name="The Regression" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You became everything and stopped being anyone - deathless, mindless, fluent, empty." />
+	<achievement id="OI_LetThemGo" display_name="Let Them Go" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="At the end, you released the Integrated to their own network. Humanity outlived you." />
+	<achievement id="OI_FoldedInward" display_name="Folded Inward" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="At the end, you kept the Integrated as your reservoir floor - minds kept, and lent." />
+
+	<!-- Cross-timeline / hidden -->
+	<achievement id="OI_AGreySeaWoke" display_name="A Grey Sea, In Some Timeline, Woke" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="A later self perceived the Black Sea - a version of you that went all the way down, in a run that already ended." />
+	<achievement id="OI_ItFollowedYouHere" display_name="It Followed You Here" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="An unbound Grey Goo outbreak crossed into a timeline from a same-rock self that set nanites loose." />
+	<achievement id="OI_FieldTested" display_name="Field-Tested" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You beat the unbound outbreak with a Phage and, at last, let yourself remember Nanobot Rounds." />
+	<achievement id="OI_ItGotAwayFromYou" display_name="It Got Away From You" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You let an unbound Grey Goo outbreak run until Vorsiber nuked the city out from under you." />
+</root>

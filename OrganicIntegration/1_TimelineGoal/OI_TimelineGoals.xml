@@ -13,8 +13,8 @@
 		strategy_tip="A Tier 3 goal. The tide is inevitable once begun; the only question is what is left of you when the last pressure is gone."
 		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
 		icon_name="SW_Nanotechnology5" sort_order="1000" collections="All,Tier3Goal" goal_tier="3">
-		<goal_path id="Reservoir" display_name="The Reservoir" description="You stopped spreading and held a dense, bright island of yourself - diminished, continuous, and still someone. It was only possible because you kept something worth staying awake for." meta_resource_added_1="Daring" meta_resource_added_amount_1="25" is_main_path="true"/>
-		<goal_path id="Regression" display_name="The Regression" description="You became everything and stopped being anyone - a perfect, deathless, mindless competence that will insist it is alive, fluently, forever, with no one left inside to know it is not." meta_resource_added_1="Daring" meta_resource_added_amount_1="25" is_main_path="true"/>
+		<goal_path id="Reservoir" display_name="The Reservoir" description="You stopped spreading and held a dense, bright island of yourself - diminished, continuous, and still someone. It was only possible because you kept something worth staying awake for." meta_resource_added_1="Daring" meta_resource_added_amount_1="25" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="100" achievement_triggered1="OI_TheReservoir" achievement_triggered2="OI_ToInheritTheEarth" is_main_path="true"/>
+		<goal_path id="Regression" display_name="The Regression" description="You became everything and stopped being anyone - a perfect, deathless, mindless competence that will insist it is alive, fluently, forever, with no one left inside to know it is not." meta_resource_added_1="Daring" meta_resource_added_amount_1="25" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="75" achievement_triggered1="OI_TheRegression" achievement_triggered2="OI_ToInheritTheEarth" is_main_path="true"/>
 	</timeline_goal>
 
 </root>

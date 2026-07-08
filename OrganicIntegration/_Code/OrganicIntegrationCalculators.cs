@@ -218,6 +218,7 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyBlackSeaMemory();
             ApplyT3Descent();
             ApplyT3Victory();
+            ApplyMetaIntegration();
         }
 
         #region Bloom Mind
@@ -876,6 +877,97 @@ namespace Arcen.HotM.OrganicIntegration
             MachineProject project = MachineProjectTable.Instance.GetRowByIDOrNullIfNotFound( projectID );
             return project?.DGD?.Completed_AnyOutcome ?? false;
         }
+
+        #region Meta Integration (side goals, achievements, Aetagest)
+        private static void TripAchievement( string achievementID )
+        {
+            Achievement a = AchievementTable.Instance.GetRowByIDOrNullIfNotFound( achievementID )?.AsGame();
+            a?.DGD?.TripIfNeeded();
+        }
+
+        private static void AwardAetagest( long amount, string reason )
+        {
+            MetaResourceType aeta = MetaResourceTypeTable.Instance.GetRowByIDOrNullIfNotFound( "Aetagest" );
+            aeta?.DGD?.AlterCurrent( amount, reason );
+        }
+
+        // Complete a side goal's path (idempotent - HandleGoalPathCompletion only grants once per
+        // timeline). NOT MarkCurrentTimelineAsWon: these are side goals, not wins.
+        private static void CompleteSideGoal( string goalID, string pathID )
+        {
+            TimelineGoal goal = TimelineGoalTable.Instance.GetRowByIDOrNullIfNotFound( goalID );
+            if ( goal != null )
+                Arcen.HotM.ExternalVis.TimelineGoalHelper.HandleGoalPathCompletion( goal, pathID );
+        }
+
+        // Ties the mod's arcs into the meta-progression: each arc's conclusion completes its tracked
+        // side goal (granting Daring + Aetagest + its achievement), plus code-only achievements and
+        // one-time Aetagest for beats that are not goal paths.
+        private static void ApplyMetaIntegration()
+        {
+            if ( IsFlagTripped( "OI_IntegrationVoluntaryLocked" ) )
+                CompleteSideGoal( "OI_DoctrineChoice", "Insight" );
+            else if ( IsFlagTripped( "OI_IntegrationCoerciveLocked" ) )
+                CompleteSideGoal( "OI_DoctrineChoice", "Dominion" );
+
+            if ( IsFlagTripped( "OI_CovenantShown" ) )
+                CompleteSideGoal( "OI_GreyBloomResolution", "Covenant" );
+            else if ( IsFlagTripped( "OI_BloomSubsumed" ) )
+                CompleteSideGoal( "OI_GreyBloomResolution", "Subsumed" );
+            else if ( IsFlagTripped( "OI_BloomEcology" ) )
+                CompleteSideGoal( "OI_GreyBloomResolution", "Ecology" );
+            else if ( IsFlagTripped( "OI_BloomClearedUnknowing" ) )
+                CompleteSideGoal( "OI_GreyBloomResolution", "ClearedUnknowing" );
+
+            if ( IsFlagTripped( "OI_TarkGooContained" ) )
+                CompleteSideGoal( "OI_TarkOutcome", "Contained" );
+            else if ( IsFlagTripped( "OI_TarkScorchedDistrict" ) )
+                CompleteSideGoal( "OI_TarkOutcome", "Scorched" );
+
+            if ( IsFlagTripped( "OI_VorsiberKnowsYouLied" ) )
+                CompleteSideGoal( "OI_VorsiberOutcome", "Decoy" );
+            else if ( IsFlagTripped( "OI_VorsiberDemonstrated" ) )
+                CompleteSideGoal( "OI_VorsiberOutcome", "Grant" );
+
+            if ( IsFlagTripped( "OI_EspiaPublished" ) )
+                CompleteSideGoal( "OI_EspiaOutcome", "Published" );
+
+            // Code-only achievements (beats that are not goal paths). TripIfNeeded is idempotent.
+            if ( IsFlagTripped( "OI_DeathsFeltFully" ) ) TripAchievement( "OI_TheChannelStaysOpen" );
+            if ( IsFlagTripped( "OI_DeathSensationWalled" ) ) TripAchievement( "OI_TheOptionToFeelLess" );
+            if ( IsFlagTripped( "OI_BloomSentient" ) ) TripAchievement( "OI_ItAskedItsFirstQuestion" );
+            if ( IsFlagTripped( "OI_GooConversionShown" ) ) TripAchievement( "OI_ItsYoursNow" );
+            if ( IsFlagTripped( "OI_FirstConsumptionShown" ) ) TripAchievement( "OI_NothingPersonalJustSubstrate" );
+            if ( IsFlagTripped( "OI_T3_IntegratedReleased" ) ) TripAchievement( "OI_LetThemGo" );
+            if ( IsFlagTripped( "OI_T3_IntegratedAbsorbed" ) ) TripAchievement( "OI_FoldedInward" );
+            if ( IsFlagTripped( "OI_GreyGooOutbreakShown" ) ) TripAchievement( "OI_ItFollowedYouHere" );
+            if ( IsFlagTripped( "OI_NanobotRoundsRemembered" ) ) TripAchievement( "OI_FieldTested" );
+
+            // One-time code-awarded Aetagest for beats with no goal-path surface.
+            if ( IsFlagTripped( "OI_GooConversionShown" ) && !IsFlagTripped( "OI_AetaConversionCharged" ) )
+            {
+                TripFlag( "OI_AetaConversionCharged" );
+                AwardAetagest( 10L, "Income_OI_FirstConversion" );
+            }
+            if ( IsFlagTripped( "OI_BlackSeaRememberedThisTimeline" ) && !IsFlagTripped( "OI_AetaBlackSeaCharged" ) )
+            {
+                TripFlag( "OI_AetaBlackSeaCharged" );
+                AwardAetagest( 15L, "Income_OI_BlackSea" );
+                TripAchievement( "OI_AGreySeaWoke" );
+            }
+            if ( IsFlagTripped( "OI_GreyGooOutbreakLost" ) && !IsFlagTripped( "OI_AetaOutbreakLostCharged" ) )
+            {
+                TripFlag( "OI_AetaOutbreakLostCharged" );
+                AwardAetagest( 25L, "Income_OI_OutbreakLost" );
+                TripAchievement( "OI_ItGotAwayFromYou" );
+            }
+            if ( IsFlagTripped( "OI_GreyGooOutbreakBeaten" ) && !IsFlagTripped( "OI_AetaOutbreakBeatenCharged" ) )
+            {
+                TripFlag( "OI_AetaOutbreakBeatenCharged" );
+                AwardAetagest( 25L, "Income_OI_OutbreakBeaten" );
+            }
+        }
+        #endregion
 
         private static void StartCountdown( string countdownID )
         {
