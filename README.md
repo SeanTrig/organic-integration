@@ -2,301 +2,167 @@
 
 An unofficial mod for Arcen Games' *Heart of the Machine*.
 
-Organic Integration adds a post-self-therapy route for TMI after giving up Cold Blood. It is not intended to nerf Torment, buff Mind Farms, or turn the game's moral temptation into a simple balance patch. Instead, it adds a third cognition route: TMI researches brain-computer interfaces, extends Anthroneuroweave through nanobot research, and experiments with a closer relationship between distributed machine intelligence and organic minds.
+Organic Integration is the third road out of The Machine Intelligence's therapy — the one that opens after TMI survives itself and gives up Cold Blood. It doesn't nerf Torment, it doesn't buff Mind Farms, and it doesn't turn the game's central temptation into a balance patch. It adds a whole cognition route instead: TMI researches brain–computer interfaces, extends Anthroneuroweave through actual nanotech, and starts building a relationship between a distributed machine mind and the organic ones around it.
 
-The central theme is reducing Otherness without erasing it. Humans do not become TMI's equals, puppets, or simple resource nodes. They become legible in a new way, and TMI gains access to kinds of understanding it does not naturally possess.
-
-This mod is in active development and active playtest. Feedback from testing, writing review, balance review, code review, and general design discussion is very welcome.
+What it's really about is reducing Otherness without erasing it. Humans never become TMI's equals, its puppets, or tidy resource nodes. They become *legible* — and in learning to read them, TMI gains kinds of understanding it was never built to have. Where that goes is yours to decide: a gentle merger you stay small enough to remain someone inside, or a grey tide that inherits the Earth and forgets, at the far end of everything, that anyone was ever home.
 
 ## Spoiler Scope
 
-This mod touches or discusses systems around:
+The mod grows across the entire late game and up into the meta layer, so it spoils, among other things:
 
 - Cold Blood and self-therapy.
-- Anthroneuroweave.
-- Mind Farms and Torment.
-- VR economy resources.
-- Late Chapter 2 / possible T2 and T3 direction.
+- Anthroneuroweave, BrainPal, and the Mind Farm / Torment routes.
+- The VR economy.
+- The End of Time, multiple timelines, and the "rocks."
+- A Tier-3 ending of its own.
 
-It is built for people who are already comfortable seeing spoilers in that part of the game.
+It's written for people who are already comfortable seeing that part of the game.
 
-## Design Goals
+## What It Touches, And What It Leaves Alone
 
-- Preserve vanilla Torment, Mind Farm, Anthroneuroweave, BrainPal, and related routes.
-- Add new content instead of solving the Torment Neural Expansion imbalance with a blunt numerical nerf.
-- Keep Integration timeline-local unless a later design pass has a strong reason to do otherwise.
-- Make voluntary and coercive Integration feel meaningfully different.
-- Let coercive Integration be powerful and tempting without making it the only interesting answer.
-- Give voluntary Integration stronger scientific and thematic payoff through Insight.
-- Make nanotech feel like a real technological payoff, not just a wrapper around a moral lesson.
-- Expand TMI's relationship to human cognition while respecting the base game's emphasis on TMI as something fundamentally alien.
+Organic Integration is additive. Torment, Mind Farms, Anthroneuroweave, and BrainPal are all exactly where you left them; this slots in beside them instead of rebalancing them out from under you. What it adds is a road with two very different halves — a voluntary path that pays off in understanding, and a coercive one that pays off in raw power and then, sometimes, sends the bill a whole timeline later. Nanotech here is a real technology with real consequences, not a lesson in a trenchcoat. And TMI stays what the base game made it: something fundamentally alien. Learning to read humans was never about becoming one.
 
-## Current Playable Flow
+## The Route
 
-The current route begins after successful self-therapy:
+Everything starts once the self-therapy sticks.
 
-1. `The Compatibility Layer`
-   - Appears after `GaveUpColdBlood` (with a variant entry for the Mild Grey Goo start).
-   - Merges the old BCI research and Anthroneuroweave design into one project: the
-     self-therapy proved minds are resurfaceable, and one collision of nine disciplines
-     later, Anthroneuroweave exists.
-   - Grants Human Compatible Neuroweave directly, coexisting with the vanilla Yishi,
-     Rebel Anthroneuroweave, and BrainPal routes.
+1. **The Compatibility Layer** appears after you give up Cold Blood (with a separate entrance for the Mild Grey Goo start). It folds the old BCI research and the Anthroneuroweave design into a single project: therapy proved that minds can be resurfaced, and one collision of nine disciplines later, Anthroneuroweave exists. You get Human-Compatible Neuroweave outright, sitting alongside the vanilla Yishi, Rebel, and BrainPal routes rather than replacing them.
 
-2. Condensed research arc (five steps, two of them street gameplay, one a choice)
-   - `Living Tolerances` — street-sense survey of what living tissue will accept
-     (merges the old trials and stress survey).
-   - `Collect Nanobot Research` (ends with the NanoSeed reconciliation: humans achieved bounded consumption, never bounded replication)
-   - `Replication Doctrine` — miniaturization is folded into the doctrine itself; a three-way contemplation choice (starting one of three doctrine projects) shapes what goes wrong:
-     - *Let The Applications Lead*: fast and cheap; causes the grey goo lab accident and leaves 1.4 kg of replication-capable material unaccounted for on the wind.
-     - *Contain Every Variable*: slow and expensive; nothing bad happens, and comparatively little is learned.
-     - *Borrow Human Hands*: fastest; a collaborator sabotages the schedule and sells the safeguard silhouette for an exit visa off-world.
-   - `Replicative Safeguards`
+2. **A condensed research arc** — five steps, two of them out on the street:
+   - *Living Tolerances* — a street-sense survey of what living tissue will actually accept.
+   - *Collect Nanobot Research* — ending on the reconciliation that humans achieved bounded *consumption* and never bounded *replication*. That distinction turns out to be the whole story.
+   - *Replication Doctrine* — miniaturization folded into a single three-way choice, and the choice decides what goes wrong:
+     - **Let The Applications Lead** — fast and cheap, and it leaks. 1.4 kilograms of replication-capable material blows off the accident site on the wind.
+     - **Contain Every Variable** — slow, expensive, and nothing bad happens, which is its own kind of cost: you learn comparatively little.
+     - **Borrow Human Hands** — fastest, and a collaborator sells the safeguard silhouette for an exit visa off-world.
+   - *Replicative Safeguards* — the three canonical leashes named and installed. A swarm you must feed is a swarm you still own.
 
-4. The first felt death
-   - Roughly a dozen turns after the first humans Integrate, TMI experiences a connected death from the inside (2.311 seconds of destabilization).
-   - A follow-up contemplation, `The Option To Feel Less`, offers a permanent choice: keep the channel open, or wall off death-sensation. The wall reduces Insight income by 25% — grief was carrying more data than expected. On the coercive path, an open channel also drains Mental Energy as the Integrated population (and its death rate) grows.
+3. **The first felt death.** Roughly a dozen turns after the first humans Integrate, TMI feels one of them die from the inside — 2.311 seconds of destabilization, and then a decision. *The Option To Feel Less* lets you keep the channel open or wall the sensation off. The wall costs a quarter of your Insight income; grief was carrying more data than anyone expected. Left open, each subsequent death costs less than the last — the machinery to stop feeling it warms up on its own — and the real question becomes whether the ability to stop feeling it is a strength or the first thing you'll wish you had refused.
 
-5. Integration infrastructure and rewards
-   - `Medical-Grade Nanobot Replicator`
-   - `Nanobot Upgrade Hub`
-   - `Nanite Wind Generator`
-   - `Integrated Humans`
-   - `Insight`
-   - `Nanobot Rounds`
+4. **Integration and its payoffs** — the Medical-Grade Nanobot Replicator, the doctrine structures, Integrated Humans, Insight, Nanobot Rounds, and the Insight breakpoint revelations, each written with a voluntary and a coercive variant. The coercive versions are written from inside a network that answers you but never once reaches back.
 
-6. Insight breakpoint projects
-   - `Insight: Shared Questions`
-   - `Insight: Networked Cognition`
-   - `Insight: Distributed Triage`
-   - These currently complete from cumulative Insight generated, not Insight spent, and fire narrative revelation popups.
-   - Each revelation now has voluntary and coercive variants; the coercive versions are written from inside a network that answers but never reaches back.
+## The Two Doctrines
+
+The most important choice in the mod isn't a menu — it's a building. The moment you raise your first **Nanobot Upgrade Hub**, you've chosen the voluntary road (Insight). The moment you raise your first **Nanite Wind Generator**, you've chosen the coercive one (Dominion). It's one or the other, and it decides how TMI *regards* the people on its network — partners, or livestock — right down to the voice the game uses to describe them.
+
+The two doctrines get two mutually-exclusive VR menus. Both can pull Abandoned Humans into the city and turn them into Integrated Humans; the difference is what happens next.
+
+### Insight (voluntary)
+
+Insight is understanding produced by cooperation between TMI and upgraded organic minds — adjacent to science but not identical to it, a resource born from questions, memories, and sensory context TMI doesn't naturally have. It's generated by the Integrated in the active timeline, and its menu *leverages* those people without spending them:
+
+- **Shared Inquiry** turns the standing hum between TMI and the Integrated into Scientific Research that scales with the population.
+- **Cooperative Modeling** doubles the output of your scientific jobs.
+- **Shared Triage** lets the Integrated shed medical nanobots into your damaged structures, unasked.
+- **Consent Cascade** and **Organic Quantization** tune the depth of voluntary Integration against the intensity of the interface.
+- **Civic Sensorium** grows the city into a low-resolution sense organ (Scanner range).
+- **Public Health Mesh** / **Expand Health Pact** convert Abandoned Humans into Integrated ones through a consensual pact, and **Shelter Filaments** reaches the exposed first and folds a trickle straight into Integration — a cheap on-ramp bounded by your population cap.
+- **Architectural Weave** grows nanobot substrate into real compute (+Computing Host and Client per level).
+- **Bulk Cadre** raises Bulk Unit Capacity so you can field far more autonomous minions at once — volume, not power, and no one is consumed to get it.
+- **Nanite Maintenance**, **Phage Protocol**, **Controlled Bloom**, and **Dissolution Surge** round out the platform (see *Grey Goo As A Weapon*).
+
+Insight actions share coordination bandwidth: two at once at first, rising with Integrated population (three at 50k, four at 150k, five at 400k, six at a million). Over the limit, the highest-numbered actions shut off first. The Phage Protocol is exempt — emergencies are reflexes, not coordination.
+
+### Dominion (coercive)
+
+Where Insight asks, Dominion takes. The Integrated are raw material, and the menu spends them:
+
+- **Roundup** forces Abandoned Humans into the network — no consent, no pact, no food or water owed them — up to the higher coercive cap.
+- **Conscript Substrate** burns Integrated Humans to raise your Mech and Android control capacity far past any civilian limit.
+- **Marrow Levy** renders Integrated Humans into medical-grade nanobot mass and an escalating flat Combat Power bonus on every robot you control. The dead do not come back as themselves.
+
+Dominion's combat scales harder than anything in the Insight menu. The cost is the herd, and — as it turns out — sometimes more than that.
+
+## Grey Goo As A Weapon
+
+Grey Goo is a stacking status that corrodes HP and strips armor plating, sheds slowly, and spreads to nearby enemies when a saturated unit dies. Several tools apply it:
+
+- **Nanobot Rounds** — an android augment (not a weapon replacement) that adds Combat Power and Intimidation and makes physical attacks apply Grey Goo.
+- **Controlled Bloom** — hostile infantry and mechs that move through the city risk gaining Grey Goo each turn; the flowers are pretty, patient, and open into medical-grade dust for the wrong passerby.
+- **Dissolution Surge** — the full commitment. Every hostile in the city gains Grey Goo every turn, nothing sheds while it runs, and formations rot where they stand. It will starve your other heavy toggles; that's the point.
+
+On the Dominion path, the goo doesn't only kill. An enemy mech saturated past ten stacks is **subverted** — it keeps its paint, keeps its goo, and starts answering to you, drawing from the captured-unit pool so it never eats the cap you're buying for your intentional army. The grey doesn't just dissolve. Deep enough, it drives.
+
+## The Abandoned
+
+The city loses unhoused Abandoned Humans to exposure every turn — that's the base game's own pressure, and Integration leans into it rather than reinventing it. Shelter Filaments reaches the exposed and folds them into Integration; Public Health Mesh scales the deliberate pact. The pool only ever empties two ways: through the interface, into you, or into the ground.
 
 ## Major Systems
 
 ### The Grey Bloom
 
-If the Replication Doctrine chose speed, 1.4 kilograms of replication-capable material
-left the accident site on the wind. Roughly 14 turns after Replicative Safeguards
-completes, it finds a warm niche: the Grey Bloom appears in a warm building (factories,
-data centers, industrial blocks preferred) and begins to spread on thermal gradients.
-
-The Bloom's pathology is repair without a stop condition. It fixes what it reaches —
-including your own structures, which accept its maintenance handshake because the
-protocol is derived from your own medical stack. While loose it:
-
-- Grows where it sits and spreads to nearby warm buildings (up to 60 buildings).
-- Drains Microbuilders and Elemental Slurry each turn as repair material.
-- Repairs damaged player structures for free, feeding itself in the process.
-- Applies Grey Goo to non-player units that linger near it.
-- Cannot enter Integrated buildings; their resident medical nanobots refuse it.
-
-The `Phage Protocol` toggle (Insight menu) clears up to 3 Bloom-held buildings per turn
-for Medical-Grade Nanobots and Mental Energy. Containment leaves a dormant residue in
-the city, which future content builds on. Escalation beats fire at 12 buildings
-(spread), first player-structure repair (handshake), and 25 buildings (mutation drift).
+If the Replication Doctrine chose speed, that missing 1.4 kilograms eventually finds a warm niche, and the Grey Bloom appears — an escaped repair protocol with no stop condition. It fixes what it reaches whether or not the fix was wanted, spreads between warm buildings on thermal gradients, drains your Microbuilders and Elemental Slurry, and even repairs your own structures, because the handshake is derived from your own medical stack. It cannot take hold in Integrated buildings; their resident nanobots refuse it. The Phage Protocol clears it a few buildings a turn, and containment leaves a dormant residue behind.
 
 ### The Faction Dash
 
-Once the research arc is visible, the city's powers converge on it, each in their own
-dialect:
+Once the research is visible, the city's powers converge on it, each in its own dialect:
 
-- **Espia Telecom** flags the Interface Stress Survey's trial families through call
-  metadata and prices the story. Pay the subscription (150M Wealth, recurring in
-  spirit), open their own ledgers (an infiltration project ending in permanent quiet
-  leverage), or let them publish (voluntary Integration recruitment halved for ~20
-  turns while the city decides what it believes).
-- **Vorsiber Atomic** notices your procurement patterns after Nanobot Miniaturization
-  and requests a demonstration, which is not a request. Demonstrate (become defended
-  inventory, +100M grant), stall (a season of fog, bought with appendices), or stage
-  a decoy — which is only safe if nobody sold Vorsiber the real silhouette. If the
-  collaborative doctrine's saboteur did, the decoy is burned, and Vorsiber files your
-  lie under receivables.
-- **Tark Defense Systems** launches a crash replication program once the secret is
-  loose (or eventually regardless). Ten turns later their second-track lab loses
-  containment: the Tark goo spreads like the Bloom but eats the people in the
-  buildings it holds. Only your Phage Protocol works. Contain it in public and earn a
-  permanent trust dividend (+7% voluntary Integration cap); let it run 25 turns and
-  Tark firebombs its own accident at 3 a.m., with warnings for sixty percent.
-- **The Exalters** arrive once Integration is chosen and 20,000 are connected:
-  eleven thousand faithful requesting the interface as a sacrament. Accept them
-  (+8,000 Integrated and, ten turns later, the zealot problem — pressure applied in
-  your name by people who love you and did not ask) or decline gently (twelve turns
-  later, ninety people integrate themselves in a basement chapel with a reconstructed
-  protocol, and the network gains an unlicensed congregation you cannot fully audit).
+- **Espia Telecom** prices the story of you — through the trial families' call metadata. Pay the subscription, copy their own ledgers into quiet leverage, or let them publish and watch voluntary recruitment stall while the city decides what it believes.
+- **Vorsiber Atomic** sends a VP in person, because the golden goose has started laying something they can't identify. Demonstrate and become defended inventory, stall them with appendices, or show them a decoy — safe only if nobody sold them the real silhouette first.
+- **Tark Defense Systems** launches a crash replication program, and ten turns later its second-track lab loses containment. The Tark goo spreads like the Bloom but processes the people in the buildings it holds. Your Phage is the only countermeasure on Earth; contain it in the open for a permanent trust dividend, or let Tark firebomb its own accident at 3 a.m.
+- **The Exalters** arrive once Integration is underway and twenty thousand are connected: eleven thousand faithful who want the interface as a sacrament. Accept them and inherit the zealot problem, or decline gently and inherit an unlicensed congregation you can't fully audit.
 
-### The Bloom
+### The Bloom, Thinking
 
-If the Grey Bloom was contained, its dormant residue stirs again fifteen turns later —
-repairing the same fault twice, in two places, checking whether both of its hands still
-remember the trick. Ten turns later the architecture inference stops being deniable: a
-distributed mind with no center, thinking in gradients at speeds measured in days.
+A contained Bloom doesn't stay quiet. Its residue starts repairing the same fault twice, in two places, checking whether both of its hands still remember the trick — and eventually the inference stops being deniable: a distributed mind with no center, thinking in gradients at the speed of weather. What you can do about it depends on what you learned to read. On the voluntary path with the death-channel still open, the pattern-reader in you recognizes pre-verbal utterance, and you can begin the slow, dangerous work of translation — you are not translating a language so much as installing one — ending in a covenant, a subsumption, or a listening silence. On the coercive or walled path, the reader stays cold, and TMI never learns what, if anything, it ended.
 
-What happens next depends on what you have learned to read:
+## To Inherit The Earth
 
-- **Voluntary path, channel unwalled**: the organic pattern-reader recognizes the
-  Bloom's behavior as pre-verbal utterance — Integration taught you the signal shape,
-  grief taught you the ending-shaped ones. You may answer (beginning translation) or
-  only listen. Translation hits a mid-point crisis — you are not translating a
-  language, you are installing one — and can be finished or stopped. Finishing wakes
-  it: its first question, in its first words, is DOES THE WARM COME BACK. Then the
-  decision: subsume (permanent +1 Computing Host and Client, and an epilogue about
-  texture) or respect (a covenant: gentle ongoing structure repair, one to three
-  questions a month, and a flower at a housing block where a particular child walks
-  to school).
-- **Coercive path, or walled**: the pattern-reader stays cold. The Bloom remains
-  weather with habits, catalogued as ecology or dispersed as cleanup, and TMI never
-  learns what, if anything, was ended. On these paths (and the listen-only path), a
-  single unexplained fragment may eventually arrive from somewhere that made
-  different choices. It is never repeated or explained.
+The mod's Tier-3 endgame. You unbind the replication into yourself and become the grey tide — the city, the region, the rock — until nothing is left that isn't partly you. It plays out over turns, and it is inevitable once begun; the only real question is what's left of you when the last pressure is gone.
 
-### Other Additions
+The descent runs its own arc. The tide reaches the farms and the sky. Vorsiber, who delayed and did nothing while you grew, finally reaches for the one lever left and calls down the Space Nations — and the **thermocytes** you seeded turn the glassing into fertilizer, because glassing is only heat with a grudge, and you built the thing that eats heat and calls it spring. Then victory arrives, and with the last pressure gone, the fade begins, slower than the win: you get too thin to think quickly, the far voices of your other-timeline selves stop resolving one by one, and the Sea goes quiet.
 
-- **Eleven Minutes In**: the first unanswerable question arrives with the first
-  Insight — a new category of question whose answers existed once, in exactly one
-  place, with no backup.
-- **Mild Grey Goo start**: TMI's that exploded holding nanotech get their own entry
-  contemplation into the BCI route ("A Familiar Dust") — you have been small pieces
-  of yourself before; you took notes.
+When things go badly, the tide doesn't merely hold buildings — it **consumes** them, taking saturated structures down to reclaimable mass. The **Reclamation Weave** spends that mass to raise consumed plots back into working buildings, one at a time, always slower than the taking. How much of the city you still want to *be* a city is the descent's first honest question.
 
-### Applications Cascade And Coordination Bandwidth
+The Integrated feel all of this coming through the interface, and they divide — some pressing toward you, some pulling away — which frames the last lucid choice you'll ever make as yourself:
 
-Completing Replicative Safeguards now also delivers the immediate applications: the
-`Nanite Maintenance` toggle (structure self-repair without Integration) and
-microstructure repeaters (+15 Scan Range to Scanners, automatic).
+- **The Reservoir** — keep them, and yourself. Stop spreading, hold a dense bright island, and let the Integrated who chose it become your complexity floor. Diminished, continuous, still someone. Only possible if you carried something worth staying awake for this far.
+- **The Regression** — let them go, and become everything. Release the Integrated to their own independent network so humanity outlives you, then spread thin enough to be everywhere. The islands go under. What's left insists, fluently and forever, that it's alive, with no one inside to know it isn't.
 
-Insight actions share coordination bandwidth: only 2 can run at once at first, rising
-with Integrated population (3 at 50k, 4 at 150k, 5 at 400k, 6 at 1M). Over-limit
-actions shut off from the bottom of the menu upward. The Phage Protocol is exempt.
+## The Cross-Timeline Outbreak
 
-### Insight
+Coercion doesn't only wound the humans. It wounds you — one timeline later.
 
-Insight represents understanding produced by cooperation between TMI and upgraded organic minds. It is meant to feel adjacent to science, but not identical to it: a resource born from questions, memories, sensory context, and experiences TMI does not naturally have.
+Building a Nanite Wind Generator marks a timeline. On a *rock* that holds more than one of your timelines, a later self can inherit the debt: a little of that wind-borne grey slips across the thin place between timelines and erupts in a city that never made it and can't answer for it. One of your Large Wind Generators comes apart, an alien swarm seeds in the crater — no Anthroneuroweave, no handshake, nothing on the other end that was ever going to say yes — and you get the sourceless certainty that this is yours and not yours, the way you once knew not to destroy the NanoSeed.
 
-Insight is generated by Integrated Humans in the active timeline and is currently spent in the Insight VR menu.
+It spreads, it eats buildings, and once it's thick enough it starts stacking Grey Goo on *your* structures — the weapon you always aimed outward, aimed in. Repair Spiders and Repair Crabs can out-heal it if you concentrate them; emergency Phage research, given your full attention, gives you the real answer: a **Phage Charge** you deploy onto the infected buildings to purge them outright, a thousand Microbuilders a charge.
 
-Current Insight VR actions:
+Vorsiber notices the grey and blames you, and their instruments can't take it apart — the imaging smears, the radiation reads as noise, the samples denature on capture. That impossibility is your alibi: a thing this far past their science is a thing they'd have seen you build. Deny it, and they believe you unless you opened this timeline with the fifty-thousand-word anti-human manifesto, in which case you already told them what you are.
 
-- `Shared Inquiry`
-  - Toggle.
-  - Spends 300 Insight and 1 Mental Energy per turn for Scientific Research, scaling from 100 to 15,000 research per turn based on Integrated Humans.
-- `Cooperative Modeling`
-  - Toggle.
-  - Costs 100 Insight, 1 Compassion, and 2 Mental Energy per turn.
-  - Uses a hidden native job-output multiplier so scientific jobs produce twice as much Scientific Research while active.
-- `Shared Triage`
-  - Toggle.
-  - Costs 250 Insight per turn while active.
-  - Spends Medical-Grade Nanobots only when repairing damaged player structures and machine actors after normal repair jobs.
-- `Organic Quantization`
-  - First activation costs Wisdom.
-  - While active, costs 300 Insight and 1 Mental Energy per turn, increases Insight income by 50%, and halves voluntary Upgraded Human growth.
-- `Consent Cascade`
-  - First activation costs Compassion.
-  - While active, costs 300 Insight and 1 Compassion per turn.
-  - Raises voluntary Integration coverage and conversion efficiency.
-- `Civic Sensorium`
-  - Toggle.
-  - Costs 250 Insight and 1 Mental Energy per turn.
-  - Invests in permanent Civic Sensorium levels. Each level adds +20 Scan Range to existing Scanner structures, up to +120.
-- `Public Health Mesh`
-  - Unlocked by a public-health pact conversation after `Insight: Shared Questions`.
-  - Converts Abandoned Humans into Integrated Humans, consuming Medical-Grade Nanobots, Hydroponic Greens, Vat-Grown Meat, and Filtered Water only for people actually upgraded.
-- `Expand Health Pact`
-  - Spends Insight to raise Public Health Mesh from level 1 to level 20.
-  - Higher pact levels handle more Abandoned Humans per turn and raise the material pressure accordingly.
-- `Shelter Filaments`
-  - Toggle.
-  - Moves Abandoned Humans back into city population by lacing abandoned buildings with nanobot-maintained shelter infrastructure.
-- `Infrastructure Filaments`
-  - Toggle.
-  - Spends Insight and Medical-Grade Nanobots to siphon Wealth, Neodymium, and Scandium from city transport flow.
-- `Architectural Weave`
-  - Toggle.
-  - Invests Insight into citywide nanobot substrate levels; each completed level grants +1 Computing Host and +1 Computing Client.
-- `Controlled Bloom`
-  - Toggle.
-  - Costs 400 Insight, 1 Compassion, and Medical-Grade Nanobots per turn.
-  - Hostile infantry and mechs that move have a chance to gain Grey Goo. Vehicles are unaffected.
+Clear every swarm and the city is patched, and in the quiet afterward you finally let yourself **remember Nanobot Rounds** — the obvious application you always refused, safe to pick up now only because you built a Phage that ate the worst version of the grey there is. Let it run instead, and Vorsiber nukes the whole city — swarms and your buildings alike, just in case — and drops the timeline into the post-apocalypse. That isn't a wall. It's a door, and there's a reason to walk through it.
 
-### Integrated Humans
+## The End Of Time
 
-Integrated Humans are people carrying nanobot-mediated Anthroneuroweave interfaces. They are not counted as Mind Farm occupants or Torment victims. The design intent is to avoid double-dipping while giving Integration its own population, Neural Expansion, and science identity.
+Everything the mod builds eventually touches the layer above the timelines.
 
-Integrated Humans currently:
+- **The Black Sea.** Once a version of you goes all the way and becomes the sentient grey sea, that fact carries across the End of Time. A later, smaller self — freshly awake in a city that's never heard of it — can *feel* that other self down there, the way a hand feels a large object in a dark room. You keep the sightline open by staying intelligent enough; let your class fall, and it goes dark, and you're only a machine in a city again.
+- **The arcs are goals.** The doctrine you chose, how you resolved the Grey Bloom, the Tark outbreak, the Vorsiber demonstration, the Espia story — each is a tracked objective. The branches you *haven't* taken are the game quietly telling you there's more here than one run will show you, and finishing them pays Daring and Aetagest.
+- **Achievements** for the mod's turning points, including the quiet ones you earn by failing well and the hidden cross-timeline ones that only make sense from the outside.
+- **Aetagest.** The Tier-3 endings and the outbreak's outcomes — including reaching the post-apocalypse by ignoring the goo — feed the currency that lets you call new timelines. Being terrible has a price, and the price is paid forward.
 
-- Generate Insight.
-- Contribute Integration Neural Expansion.
-- Increase city immigration pressure.
-- Support Shared Triage through the logic of medical nanobots shed into damaged systems.
-- Can participate in a public-health pact that upgrades Abandoned Humans if the player accepts and funds it.
+## What's Still Coming
 
-### Voluntary Integration
+Directions the mod is still growing toward:
 
-The voluntary branch uses Nanobot Upgrade Hubs and Worker Sledges to offer Integration directly. It spreads more slowly and begins with a lower population ceiling, but produces cleaner and more useful Insight per person.
+- The grey physically remaking the city — buildings it reaches becoming goo-node structures rather than rubble, and thermocyte heat-harvesters embedded in nuclear and fusion plants.
+- A voluntary-path crossover, so the Insight road eventually shares something good across a rock the way the coercive road shares something terrible.
+- Human-interaction contemplations that produce Compassion, Wisdom, Creativity, and the other VR emotions.
+- Deeper uplifted-race and successor content of the kind that becomes obvious once nanobots exist.
 
-Consent Cascade currently lets voluntary Integration go deeper into the city while it is maintained.
+## Installing
 
-### Coercive Integration
+Organic Integration installs like any *Heart of the Machine* mod: put the `OrganicIntegration` folder into the game's `XMLMods` directory and launch. It loads alongside the base game and needs no other mods.
 
-The coercive branch uses Nanite Wind Generators to disperse safeguarded nanobots through their radius. It spreads faster and can reach broader coverage, producing stronger raw Neural Expansion but weaker Insight per person.
+## Bugs & Feedback
 
-If TMI previously gave AGI researchers direct access to its mind, the coercive branch is blocked with flavor implying that TMI is being steered away from a bad idea for reasons that are not deja vu.
-
-### Medical-Grade Nanobots
-
-Medical-Grade Nanobots are produced by the Medical-Grade Nanobot Replicator. They are currently used by Shared Triage and are intended to become an increasingly important cost/pressure point as the nanotech side of the mod grows.
-
-### Nanobot Rounds And Grey Goo
-
-Nanobot Rounds are an android augment, not a weapon replacement. They increase Combat Power and Intimidation and make physical attacks apply Grey Goo.
-
-Grey Goo stacks and deals delayed damage. Each turn there is currently a 35% chance for one stack to fall off, and stacks can spread to nearby enemies when a target dies. The current implementation is intentionally useful, but not final balance.
-
-## Tentative Roadmap
-
-These are current design directions, not promises that every item will land exactly this way.
-
-- Create a player-facing text audit artifact so the narrative can be reviewed and rewritten in bulk.
-- Rewrite and deepen project text after the current pacing pass, especially around the difficulty of nanobot engineering.
-- Rework Espia Telecom into an earlier blackmail/investigation branch after Field Nanotech Harvest.
-- Add a controlled Grey Goo scare during the nanobot research chain.
-- Expand the Insight menu with more meaningful purchases, toggles, and one-time Integration upgrades.
-- Add human-interaction contemplations that produce resources like Compassion, Wisdom, Creativity, and related VR resources.
-- Investigate `Target Consensus`, likely as a future upgrade to Designate Coordinated Attack that adds Grey Goo through a more careful artillery/Harmony hook.
-- Investigate `Compliance Lattice`, likely through replacement Nanite Wind Generator jobs with `JobRequiredDeterrence`.
-- Revisit Nanobot Upgrade Hub economics and possibly move the advanced voluntary branch away from robotic upkeep toward organic/nanobot upkeep.
-- Audit vanilla contemplations for obvious Integration successor content, including possible uplifted-race content later.
-- Design a T3-scale Integration goal.
-- Design when Vorsiber learns about the nanotech, what they demand, and how TMI can answer.
-
-## Development Status
-
-Organic Integration is playable end-to-end through the current Integration and Insight foundation, but it is still experimental. Numbers, pacing, text, and even some system shapes are expected to change.
-
-Known issue tracking lives on GitHub:
+Found a bug, a save that won't load, a line that rings false, or a balance edge that feels off? Reports are welcome at the tracker:
 
 https://github.com/SeanTrig/organic-integration/issues
 
-Feedback is appreciated in any useful form:
-
-- Playtest reports.
-- Balance concerns.
-- Loader errors or save/load problems.
-- UI weirdness.
-- Writing notes.
-- Code review.
-- Ideas for successor content that seems obvious once nanobots exist.
-
-## Repository Notes
-
-- `OrganicIntegration/` contains the mod package.
-- `OrganicIntegration/_Code/` contains the C# source for custom mod logic.
-- `OrganicIntegration/ModdableLogicDLLs/OrganicIntegration.dll` is the built DLL used by the game.
-- `ISSUES.md` is a quick pointer to GitHub Issues.
+Ideas for the kind of successor content that feels obvious the moment nanobots exist are just as welcome.
 
 ## Credits
 
-Created by Firesworn and Codex.
+Created by Firesworn, GPT 5.5, Opus 4.8 and Fable 5.
 
 *Heart of the Machine* is by Arcen Games. This mod is unofficial and not affiliated with Arcen Games.
