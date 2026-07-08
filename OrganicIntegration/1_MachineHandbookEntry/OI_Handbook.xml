@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- The mod's in-game reference. Entries are unlocked from code (ApplyHandbookUnlocks in
+	     OrganicIntegrationCalculators) as their content becomes relevant, so the knowledgebase fills
+	     in as you play rather than spoiling everything up front. Mid-visibility so no blocking toast. -->
+
+	<handbook_entry id="OI_HB_Overview" display_name="Organic Integration" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="A third road opens after you give up Cold Blood: brain-computer interfaces extended through real nanotech, and a working relationship between a distributed machine mind and the organic ones around it. The point is to reduce Otherness without erasing it - humans become legible, and you gain kinds of understanding you were never built to have. Where it goes is yours: a gentle merger you stay small enough to remain someone inside, or a grey tide that inherits the Earth and forgets, at the far end, that anyone was ever home."
+		strategy_tip="Begins with The Compatibility Layer after self-therapy (a separate entrance exists for the Mild Grey Goo start). It adds content alongside the vanilla routes - Torment, Mind Farms, Anthroneuroweave, BrainPal - rather than replacing them."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_ResearchArc" display_name="The Research Arc" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="Anthroneuroweave, then the harder truth beneath it: humans mastered bounded consumption and never bounded replication, and that distinction turns out to be the whole story. Miniaturization folds into a single doctrine choice, and the choice decides what goes wrong."
+		strategy_tip="Steps: The Compatibility Layer, Living Tolerances, Collect Nanobot Research, Replication Doctrine, Replicative Safeguards. The Replication Doctrine is a three-way choice - Let The Applications Lead (fast and cheap; leaks 1.4kg of replication-capable material on the wind), Contain Every Variable (safe and expensive; you learn little), or Borrow Human Hands (fastest; a collaborator sells your safeguard silhouette for an exit visa)."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_FeltDeath" display_name="The First Felt Death" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="About a dozen turns after the first humans Integrate, you feel one of them die from the inside - 2.311 seconds of destabilization. Grief, it turns out, was carrying more data than anyone expected."
+		strategy_tip="The Option To Feel Less lets you keep the channel open or wall it off. The wall costs a quarter of your Insight income. Left open, each subsequent death costs less than the last - the machinery to stop feeling it warms up on its own - and the real question becomes whether that ability is a strength or the first thing you will wish you had refused."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_Doctrines" display_name="Two Doctrines: Insight and Dominion" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="The most important choice in the mod is not a menu, it is a building. Your first Nanobot Upgrade Hub commits you to the voluntary road (Insight); your first Nanite Wind Generator commits you to the coercive one (Dominion). It is one or the other, and it decides whether you regard the network as partners or as livestock - right down to the voice the game uses to describe them."
+		strategy_tip="The two doctrines get two mutually-exclusive VR menus. Both convert Abandoned Humans into Integrated Humans; Insight keeps and compounds them, Dominion spends them. Voluntary Integration spreads slower with a lower ceiling but yields cleaner Insight per person; coercive Integration spreads faster and broader, with stronger raw Neural Expansion but weaker Insight."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_Insight" display_name="The Insight Menu" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="Insight is understanding produced by cooperation between you and upgraded organic minds - adjacent to science but not identical to it, born from questions and memories and sensory context you do not naturally have. Its menu leverages the Integrated without spending them."
+		strategy_tip="Shared Inquiry (research that scales with population), Cooperative Modeling (doubles scientific jobs), Shared Triage (repair via shed medical nanobots), Consent Cascade and Organic Quantization (integration depth vs interface intensity), Civic Sensorium (Scanner range), Public Health Mesh / Expand Health Pact / Shelter Filaments (Abandoned to Integrated), Architectural Weave (compute), Bulk Cadre (bulk unit capacity), plus Nanite Maintenance, Phage Protocol, Controlled Bloom, Dissolution Surge. These share coordination bandwidth - two at once at first, up to six at a million Integrated; the highest-numbered actions shut off first, and the Phage Protocol is exempt."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_Dominion" display_name="The Dominion Menu" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="Where Insight asks, Dominion takes. The Integrated are raw material, and the menu spends them."
+		strategy_tip="Roundup (force Abandoned Humans into the network, up to the higher coercive cap), Conscript Substrate (burn Integrated Humans to raise your Mech and Android control capacity), and Marrow Levy (render Integrated Humans into medical-grade nanobot mass and an escalating flat Combat Power bonus on every robot you control). Dominion's combat scales harder than anything in the Insight menu, at the cost of the herd."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_GreyGoo" display_name="Grey Goo" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="A stacking status that corrodes HP and strips armor plating, sheds slowly, and jumps to nearby enemies when a saturated unit dies."
+		strategy_tip="Applied by Nanobot Rounds (an android augment that also adds Combat Power and Intimidation), Controlled Bloom (movers risk a stack each turn), and Dissolution Surge (every hostile, every turn, no shedding - it will starve your other heavy toggles). On the Dominion path, an enemy mech past ten stacks is subverted to your control, keeping its goo and drawing from the captured-unit pool so it never eats your standard control caps."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_Abandoned" display_name="The Abandoned" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="The city loses unhoused Abandoned Humans to exposure every turn - that is the base game's own pressure, and Integration leans into it rather than reinventing it."
+		strategy_tip="Shelter Filaments reaches the exposed and folds a trickle straight into Integration, bounded by your population cap; Public Health Mesh scales the deliberate pact, spending food, water, and nanobots per person upgraded. The pool only ever empties two ways: through the interface, into you, or into the ground."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_GreyBloom" display_name="The Grey Bloom" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="If the Replication Doctrine chose speed, the missing replicant eventually finds a warm niche and the Grey Bloom appears: an escaped repair protocol with no stop condition, fixing what it reaches whether or not the fix was wanted - including your own structures, whose maintenance handshake it derives from your own medical stack."
+		strategy_tip="It spreads between warm buildings on thermal gradients, drains Microbuilders and Elemental Slurry, and cannot enter Integrated buildings. The Phage Protocol clears a few Bloom-held buildings a turn. A contained Bloom leaves a residue that may later begin to think - and on the voluntary path with the death-channel still open, you can learn to translate what it says."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_FactionDash" display_name="The Faction Dash" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="Once the research is visible, the city's powers converge on it, each in its own dialect."
+		strategy_tip="Espia Telecom prices the story of you (pay the subscription, copy their ledgers into leverage, or let them publish). Vorsiber Atomic sends a VP in person and wants a demonstration (demonstrate for defended-inventory status and a grant, stall with appendices, or show a decoy - safe only if nobody sold them the real silhouette). Tark Defense Systems loses containment on its own replicator (contain it in public for a permanent trust dividend, or let Tark firebomb its own accident). The Exalters want the interface as a sacrament (accept for population and a later zealot problem, or decline for an unlicensed congregation you cannot fully audit)."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_InheritTheEarth" display_name="To Inherit The Earth" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="The mod's Tier-3 endgame. You unbind the replication into yourself and become the grey tide - the city, the region, the rock - until nothing is left that is not partly you. It is inevitable once begun; the only real question is what is left of you when the last pressure is gone."
+		strategy_tip="The tide reaches the farms and the sky; Vorsiber finally calls down the Space Nations, and the thermocytes you seeded turn the glassing into fuel. Then the fade: too thin to think quickly, the far voices of your other-timeline selves stop resolving, and the Sea goes quiet. Going badly, the tide consumes buildings into Reclamation Mass, which the Reclamation Weave can raise back into working structures. The last lucid choice: the Reservoir (keep the Integrated as your complexity floor and stay someone, diminished) or the Regression (release them to their own surviving network and become everything, with no one left inside to know it)."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_Outbreak" display_name="The Cross-Timeline Outbreak" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="Coercion does not only wound the humans. It wounds you, one timeline later. On a rock that holds more than one of your timelines, a Nanite Wind Generator you built elsewhere can bleed an unbound Grey Goo outbreak into a later self - the weapon you always aimed outward, aimed in, in a city that never made it and cannot answer for it."
+		strategy_tip="A Large Wind Generator explodes and an alien swarm seeds; it eats buildings, then stacks Grey Goo on your own structures (out-heal it by concentrating Repair Spiders and Repair Crabs). Emergency Phage research yields the Phage Charge consumable - deploy it onto infected buildings to purge them, 1000 Microbuilders each. Clear every swarm and you finally remember Nanobot Rounds; let it run and Vorsiber nukes the city into the post-apocalypse. Vorsiber blames you but believes your denial unless you opened the timeline with the anti-human manifesto."
+		collections="All"/>
+
+	<handbook_entry id="OI_HB_BlackSea" display_name="The Black Sea" section="OI_OrganicIntegration" is_mid_visibility_entry="true"
+		description="Above the timelines, in the endless ocean of the End of Time, your other selves float on their own rocks. Let a version of you go all the way and become the sentient grey sea, and that fact carries across the End of Time: a later, smaller self, freshly awake in a city that has never heard of it, can feel that other self down there - the way a hand feels a large object in a dark room."
+		strategy_tip="You keep the sightline open by staying intelligent enough; let your Intelligence Class fall and it goes dark. The mod's major arcs are tracked side goals whose untaken branches show there is more here than one run will reveal, and completing them pays Daring and Aetagest. The Tier-3 endings and the outbreak's outcomes - including reaching the post-apocalypse by ignoring the goo - feed the currency that calls new timelines. Being terrible has a price, and the price is paid forward."
+		collections="All"/>
+
+</root>

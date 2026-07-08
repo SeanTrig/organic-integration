@@ -219,6 +219,7 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyT3Descent();
             ApplyT3Victory();
             ApplyMetaIntegration();
+            ApplyHandbookUnlocks();
         }
 
         #region Bloom Mind
@@ -898,6 +899,42 @@ namespace Arcen.HotM.OrganicIntegration
             TimelineGoal goal = TimelineGoalTable.Instance.GetRowByIDOrNullIfNotFound( goalID );
             if ( goal != null )
                 Arcen.HotM.ExternalVis.TimelineGoalHelper.HandleGoalPathCompletion( goal, pathID );
+        }
+
+        // Reveals the mod's in-game handbook (knowledgebase) entries as their content becomes relevant,
+        // so the reference fills in as you play instead of spoiling everything up front.
+        private static void UnlockHandbook( string entryID )
+        {
+            MachineHandbookEntry entry = MachineHandbookEntryTable.Instance.GetRowByIDOrNullIfNotFound( entryID );
+            entry?.DGD?.UnlockIfNeeded( false );
+        }
+
+        private static void ApplyHandbookUnlocks()
+        {
+            if ( IsFlagTripped( "OI_BCIContemplationStarted" ) )
+            {
+                UnlockHandbook( "OI_HB_Overview" );
+                UnlockHandbook( "OI_HB_ResearchArc" );
+            }
+            if ( IsFlagTripped( "OI_FirstDeathFelt" ) )
+                UnlockHandbook( "OI_HB_FeltDeath" );
+            if ( IsFlagTripped( "OI_IntegrationChosen" ) )
+            {
+                UnlockHandbook( "OI_HB_Doctrines" );
+                UnlockHandbook( "OI_HB_Insight" );
+                UnlockHandbook( "OI_HB_Dominion" );
+                UnlockHandbook( "OI_HB_GreyGoo" );
+                UnlockHandbook( "OI_HB_Abandoned" );
+                UnlockHandbook( "OI_HB_FactionDash" );
+            }
+            if ( IsFlagTripped( "OI_BloomActive" ) )
+                UnlockHandbook( "OI_HB_GreyBloom" );
+            if ( IsFlagTripped( "OI_ReadyForT3_InheritTheEarth" ) || IsFlagTripped( "OI_T3_InheritStarted" ) )
+                UnlockHandbook( "OI_HB_InheritTheEarth" );
+            if ( IsFlagTripped( "OI_NaniteWindGeneratorBuilt" ) || IsFlagTripped( "OI_GreyGooOutbreakShown" ) )
+                UnlockHandbook( "OI_HB_Outbreak" );
+            if ( IsFlagTripped( "OI_T3_DescentBegun" ) || IsFlagTripped( "OI_BlackSeaRememberedThisTimeline" ) )
+                UnlockHandbook( "OI_HB_BlackSea" );
         }
 
         // Ties the mod's arcs into the meta-progression: each arc's conclusion completes its tracked
