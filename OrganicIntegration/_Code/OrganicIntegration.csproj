@@ -37,6 +37,7 @@
     <Compile Include="InitialSetupForDLL.cs" />
     <Compile Include="OrganicIntegrationProjects.cs" />
     <Compile Include="OrganicIntegrationCalculators.cs" />
+    <Compile Include="OrganicIntegrationConsumables.cs" />
     <Compile Include="OrganicIntegrationVRActions.cs" />
     <Compile Include="OrganicIntegrationFeats.cs" />
     <Compile Include="OrganicIntegrationObjectiveHandlers.cs" />

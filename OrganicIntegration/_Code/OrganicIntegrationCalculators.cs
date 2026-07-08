@@ -553,7 +553,7 @@ namespace Arcen.HotM.OrganicIntegration
 
             ApplyCrossoverGooLifecycle( goo, Rand );
             ApplyCrossoverPhageResearch();
-            ClearCrossoverGooWithPhage( goo );
+            // ClearCrossoverGooWithPhage( goo ); // replaced by the OI_PhageCharge player-deployed consumable
             ApplyCrossoverVorsiber();
             CheckCrossoverLoss();
             CheckCrossoverResolution( goo );

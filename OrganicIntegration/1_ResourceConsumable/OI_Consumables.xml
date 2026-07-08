@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<consumable_item id="OI_PhageCharge" display_name="Phage Charge"
+		description="A canister of engineered phages tuned to the cross-timeline Grey Goo. Deploy it onto an infected building to dissolve the swarm there completely."
+		strategy_tip="Select the infected buildings (highlighted) and right-click one within range to purge it. Move your unit to reach distant infections."
+		icon_name="SF2_Cloud" icon_color="#9EBFD4" always_show_strategic_tip="true"
+		consumable_intentionally_has_no_unlock="true" is_hidden_before_city_flag_1="OI_CrossoverPhageReady"
+		min_consumable_range="30"
+		sort_order="21000"
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationConsumables">
+		<consumable_cost resource_type="Microbuilders" required="1000" />
+		<direct_use_consumable_data targets_any_actor="true"
+			can_only_be_used_by_actors="AllAndroids"
+			on_direct_use="ConsumableWarPowerup"
+			is_considered_an_attack_if_thrown="false"
+			do_not_complain_about_seeming_lack_of_purpose="true" />
+	</consumable_item>
+</root>
