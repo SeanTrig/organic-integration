@@ -93,4 +93,23 @@
 	<city_flag id="OI_T3_IntegratedReleased" display_name="The Integrated were released to their own network" has_no_code="true"/>
 	<city_flag id="OI_T3_GlassingHit" display_name="The Space Nations bombardment arrived" has_no_code="true"/>
 	<city_flag id="OI_BlackSeaRememberedThisTimeline" display_name="This timeline perceived the Black Sea" has_no_code="true"/>
+
+	<!-- Cross-timeline Grey Goo outbreak (same-rock negative crossover). A timeline that built a
+	     Nanite Wind Generator publishes OI_NaniteWindGeneratorCrossover to the metagame via
+	     causes_crossover; same-rock siblings at Chapter 3+ get OI_GreyGooOutbreakIncoming tripped,
+	     and the calculator reacts. -->
+	<city_flag id="OI_NaniteWindGeneratorBuilt" display_name="This timeline set nanites loose on the wind" has_no_code="true" causes_crossover="OI_NaniteWindGeneratorCrossover"/>
+	<city_flag id="OI_GreyGooOutbreakIncoming" display_name="The wind carried something across the rock" has_no_code="true"/>
+	<city_flag id="OI_GreyGooOutbreakActive" display_name="An unbound Grey Goo outbreak is loose in the city" has_no_code="true"/>
+	<city_flag id="OI_GreyGooOutbreakShown" display_name="The outbreak announced itself" has_no_code="true"/>
+	<city_flag id="OI_CrossoverStacksShown" display_name="The unbound goo began eating your own structures" has_no_code="true"/>
+	<city_flag id="OI_CrossoverPhageResearching" display_name="Emergency Phage research underway" has_no_code="true"/>
+	<city_flag id="OI_CrossoverPhageReady" display_name="Emergency Phage is available" has_no_code="true"/>
+	<city_flag id="OI_GreyGooOutbreakBeaten" display_name="The unbound outbreak was cleared" has_no_code="true"/>
+	<city_flag id="OI_GreyGooOutbreakLost" display_name="The unbound outbreak was left to run" has_no_code="true"/>
+	<city_flag id="OI_NanobotRoundsRemembered" display_name="Nanobot Rounds recalled after mastering the Phage" has_no_code="true"/>
+	<city_flag id="OI_CrossoverVorsiberNoticed" display_name="Vorsiber noticed the unbound swarms" has_no_code="true"/>
+	<city_flag id="OI_CrossoverVorsiberAnswered" display_name="You have answered Vorsiber about the swarms" has_no_code="true"/>
+	<city_flag id="OI_CrossoverVorsiberDenied" display_name="You told Vorsiber you did not make the goo" has_no_code="true"/>
+	<city_flag id="OI_CrossoverVorsiberResolved" display_name="Vorsiber has decided whether to believe you" has_no_code="true"/>
 </root>

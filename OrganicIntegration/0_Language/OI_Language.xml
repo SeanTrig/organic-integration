@@ -59,6 +59,14 @@
 	<lang id="OI_Stat_Desc_ConsumedBuildings" text="Structures the descent took down to reclaimable mass." />
 	<lang id="OI_Stat_Name_RestoredBuildings" text="Plots Reclaimed" />
 	<lang id="OI_Stat_Desc_RestoredBuildings" text="Consumed plots the Reclamation Weave raised back into working structures." />
+	<lang id="OI_Stat_Name_CrossoverIncomingTurn" text="Outbreak Incoming Turn" />
+	<lang id="OI_Stat_Desc_CrossoverIncomingTurn" text="The turn the wind first carried the crossover across the rock." />
+	<lang id="OI_Stat_Name_CrossoverStartTurn" text="Outbreak Start Turn" />
+	<lang id="OI_Stat_Desc_CrossoverStartTurn" text="The turn the unbound goo erupted in your city." />
+	<lang id="OI_Stat_Name_CrossoverGooMass" text="Unbound Goo Mass" />
+	<lang id="OI_Stat_Desc_CrossoverGooMass" text="Total mass of the unbound crossover goo across the city." />
+	<lang id="OI_Stat_Name_CrossoverPhageProgress" text="Emergency Phage Progress" />
+	<lang id="OI_Stat_Desc_CrossoverPhageProgress" text="Research poured into a Phage that can eat something you did not design." />
 	<lang id="OI_Stat_Name_InterfaceTrialDesignPoints" text="Interface Trial Points" />
 	<lang id="OI_Stat_Desc_InterfaceTrialDesignPoints" text="Living-tissue edge cases gathered before miniaturizing the nanobot interface." />
 	<lang id="OI_Stat_Name_NanobotHarvestDesignPoints" text="Nanobot Design Points" />

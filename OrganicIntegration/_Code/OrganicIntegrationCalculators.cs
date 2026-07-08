@@ -208,6 +208,7 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyGreyBloomLifecycle( RandForThisTurn );
             ApplyTarkGooLifecycle( RandForThisTurn );
             ApplyT3Consumption( RandForThisTurn );
+            ApplyGreyGooCrossover( RandForThisTurn, coerciveStructures );
             ApplyPhageProtocol();
             ApplyNaniteMaintenance();
             ApplyFactionClocks( RandForThisTurn );
@@ -512,6 +513,344 @@ namespace Arcen.HotM.OrganicIntegration
                 Arcen.HotM.ExternalVis.TimelineGoalHelper.MarkCurrentTimelineAsWon();
             }
             TripFlag( "OI_T3_VictoryDeclared" );
+        }
+        #endregion
+
+        #region Cross-Timeline Grey Goo Outbreak
+        // A same-rock NEGATIVE crossover: a sibling timeline that built a Nanite Wind Generator bleeds
+        // an unbound Grey Goo outbreak into this one (via OI_GreyGooOutbreakIncoming). The goo is its
+        // own swarm - disconnected, no Anthroneuroweave - it eats buildings, then starts stacking Grey
+        // Goo on your own structures (repair-race vs Repair Spiders/Crabs). Emergency Phage research
+        // clears it; clearing it all "remembers" Nanobot Rounds. (Vorsiber trust arc + the nuke/post-
+        // apoc failure are Pass B; the Phage delivery is a stopgap auto-clear pending a real consumable.)
+        private const string CrossoverGooSwarm = "OI_CrossoverGoo";
+        private const int CrossoverBaseSeedCount = 30;
+        private const int CrossoverStackMassThreshold = 220;
+        private const long CrossoverPhageResearchNeeded = 1200L;
+        private const long CrossoverPhageResearchPerTurn = 500L;
+        private const long CrossoverLossThreshold = 4000L;
+
+        private static void ApplyGreyGooCrossover( SquirrelRand Rand, int coerciveStructures )
+        {
+            // Record the debt: building a Nanite Wind Generator publishes the crossover to same-rock
+            // siblings (the flag carries causes_crossover="OI_NaniteWindGeneratorCrossover").
+            if ( coerciveStructures > 0 && !IsFlagTripped( "OI_NaniteWindGeneratorBuilt" ) )
+                TripFlag( "OI_NaniteWindGeneratorBuilt" );
+
+            if ( IsFlagTripped( "OI_GreyGooOutbreakBeaten" ) || IsFlagTripped( "OI_GreyGooOutbreakLost" ) )
+                return;
+
+            Swarm goo = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( CrossoverGooSwarm );
+            if ( goo == null )
+                return;
+
+            if ( !IsFlagTripped( "OI_GreyGooOutbreakActive" ) )
+            {
+                MaybeStartCrossoverOutbreak( goo, Rand );
+                return;
+            }
+
+            ApplyCrossoverGooLifecycle( goo, Rand );
+            ApplyCrossoverPhageResearch();
+            ClearCrossoverGooWithPhage( goo );
+            ApplyCrossoverVorsiber();
+            CheckCrossoverLoss();
+            CheckCrossoverResolution( goo );
+        }
+
+        // Vorsiber notices the swarm and blames you; you can deny it (a contemplation trips
+        // OI_CrossoverVorsiberDenied). Vorsiber believes you unless you opened this timeline with the
+        // anti-human manifesto - otherwise the goo is too advanced to be yours undetected (its own
+        // sophistication is the alibi).
+        private static void ApplyCrossoverVorsiber()
+        {
+            long start = GetCityStatisticScore( "OI_CrossoverStartTurn" );
+            if ( start <= 0 )
+                return;
+
+            if ( !IsFlagTripped( "OI_CrossoverVorsiberNoticed" ) && SimCommon.Turn - start >= 4 )
+            {
+                TripFlag( "OI_CrossoverVorsiberNoticed" );
+                FireKeyMessage( "OI_CrossoverVorsiberBlame" );
+            }
+
+            if ( IsFlagTripped( "OI_CrossoverVorsiberDenied" ) && !IsFlagTripped( "OI_CrossoverVorsiberResolved" ) )
+            {
+                TripFlag( "OI_CrossoverVorsiberResolved" );
+                if ( !IsFlagTripped( "ChoseStart_HostileManifesto" ) )
+                    FireKeyMessage( "OI_CrossoverVorsiberBelieves" );
+                else
+                    FireKeyMessage( "OI_CrossoverVorsiberDoubts" );
+            }
+        }
+
+        // If the goo runs unchecked (no Phage, mass past the threshold) Vorsiber nukes the whole city -
+        // swarms and your buildings alike - and drops the timeline into the post-apocalypse. Not a
+        // soft-lock: the outs are destroy-the-timeline / reload / a new timeline, and reaching the
+        // post-apoc this way is itself rewarded (Aetagest, wired in Pass C).
+        private static void CheckCrossoverLoss()
+        {
+            if ( IsFlagTripped( "OI_GreyGooOutbreakLost" ) || IsFlagTripped( "OI_GreyGooOutbreakBeaten" ) )
+                return;
+            if ( IsFlagTripped( "OI_CrossoverPhageReady" ) )
+                return; // you have the counter now - you are not losing anymore
+            if ( GetCityStatisticScore( "OI_CrossoverGooMass" ) < CrossoverLossThreshold )
+                return;
+
+            TripFlag( "OI_GreyGooOutbreakLost" );
+            FireKeyMessage( "OI_CrossoverNuke" );
+            // Source-blessed one-liner the game itself uses from project logic. (Needs a live check
+            // that the post-apoc transition behaves cleanly when forced mid-turn from a mod.)
+            if ( SimCommon.CurrentTimeline != null )
+                SimCommon.CurrentTimeline.IsPostApocalyptic = true;
+        }
+
+        // Number of same-rock siblings that set nanites loose. Cross-visible via CrossoversOutput
+        // (a per-timeline serialized dict readable across siblings); plain GFlags are not cross-visible.
+        private static int CountSameRockNaniteSiblings()
+        {
+            CityTimeline me = SimCommon.CurrentTimeline;
+            if ( me == null )
+                return 0;
+            CityTimelineCrossover cross = CityTimelineCrossoverTable.Instance.GetRowByIDOrNullIfNotFound( "OI_NaniteWindGeneratorCrossover" );
+            if ( cross == null )
+                return 0;
+            int count = 0;
+            foreach ( Arcen.Universal.KeyValuePair<int, CityTimeline> kv in SimMetagame.AllTimelines )
+            {
+                CityTimeline other = kv.Value;
+                if ( other == null || other == me )
+                    continue;
+                if ( other.ChildOfEndOfTimeObjectWithID != me.ChildOfEndOfTimeObjectWithID )
+                    continue;
+                if ( other.CrossoversOutput == null || other.CrossoversOutput.IsYetToBeInitialized )
+                    continue;
+                if ( other.CrossoversOutput[cross] )
+                    count++;
+            }
+            return count;
+        }
+
+        private static void MaybeStartCrossoverOutbreak( Swarm goo, SquirrelRand Rand )
+        {
+            if ( !IsFlagTripped( "OI_GreyGooOutbreakIncoming" ) )
+                return;
+
+            int siblings = Math.Max( 1, CountSameRockNaniteSiblings() );
+            long firstSeen = GetCityStatisticScore( "OI_CrossoverIncomingTurn" );
+            if ( firstSeen <= 0 )
+            {
+                GStatisticTable.SetScore_UserBeware( "OI_CrossoverIncomingTurn", SimCommon.Turn );
+                return;
+            }
+            int delay = Math.Max( 2, 9 - (siblings * 2) ); // sooner the more coercive selves share the rock
+            if ( SimCommon.Turn - firstSeen < delay )
+                return;
+
+            FireCrossoverOutbreak( goo, siblings, Rand );
+        }
+
+        private static void FireCrossoverOutbreak( Swarm goo, int siblings, SquirrelRand Rand )
+        {
+            // Explode one of your power structures (a Large Wind Generator if any; else any structure)
+            // as the visible seed of the outbreak.
+            MachineStructure epicenter = PickCrossoverEpicenterStructure( Rand );
+            if ( epicenter != null )
+                epicenter.ScrapStructureNow( ScrapReason.CaughtInUnblockableExplosion, Rand );
+
+            int placed = 0;
+            int seeds = 2 + siblings;
+            for ( int i = 0; i < seeds; i++ )
+            {
+                BaseBuilding target = PickBloomTarget( null, Rand );
+                if ( target == null )
+                    break;
+                target.SwarmSpread = goo;
+                target.SetSwarmSpreadCount( CrossoverBaseSeedCount + siblings * 10 );
+                placed++;
+            }
+            if ( placed == 0 )
+                return; // nowhere to seed this turn; retry next turn
+
+            GStatisticTable.SetScore_UserBeware( "OI_CrossoverStartTurn", SimCommon.Turn );
+            TripFlag( "OI_GreyGooOutbreakActive" );
+            TripFlag( "OI_CrossoverPhageResearching" );
+            SimCommon.NeedsBuildingListRecalculation = true;
+            if ( !IsFlagTripped( "OI_GreyGooOutbreakShown" ) )
+            {
+                TripFlag( "OI_GreyGooOutbreakShown" );
+                FireKeyMessage( "OI_CrossoverOutbreak" );
+            }
+        }
+
+        private static MachineStructure PickCrossoverEpicenterStructure( SquirrelRand Rand )
+        {
+            System.Collections.Generic.List<MachineStructure> gens = GetFunctionalStructures( "LargeWindGenerator", "StealthLargeWindGenerator" );
+            if ( gens != null && gens.Count > 0 )
+                return gens[ Rand.Next( 0, gens.Count ) ];
+            foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
+            {
+                MachineStructure s = kv.Value;
+                if ( s == null || s.IsInvalid || s.IsFullDead || s.IsUnderConstruction )
+                    continue;
+                return s;
+            }
+            return null;
+        }
+
+        private static void ApplyCrossoverGooLifecycle( Swarm goo, SquirrelRand Rand )
+        {
+            System.Collections.Generic.List<BaseBuilding> held = GetBloomedBuildings( goo );
+            if ( held.Count == 0 )
+                return;
+
+            long total = 0;
+            foreach ( BaseBuilding b in held )
+            {
+                int count = b.SwarmSpreadCount;
+                b.AlterSwarmSpreadCount( Math.Max( 5, count / 8 ) ); // grows faster than the polite Bloom
+                total += b.SwarmSpreadCount;
+            }
+            SpreadGreyBloom( goo, held, 3, Rand );
+            ConsumeSaturatedCrossoverGoo( goo );
+
+            if ( total >= CrossoverStackMassThreshold )
+                StackGooOnStructures( total, Rand );
+
+            GStatisticTable.SetScore_UserBeware( "OI_CrossoverGooMass", total );
+            RefreshBloomPositionsCache( held );
+        }
+
+        private static void ConsumeSaturatedCrossoverGoo( Swarm goo )
+        {
+            Swarm husk = SwarmTable.Instance.GetRowByIDOrNullIfNotFound( ConsumedHuskSwarm );
+            if ( husk == null )
+                return;
+            int budget = 2;
+            foreach ( BaseBuilding b in GetBloomedBuildings( goo ) )
+            {
+                if ( budget <= 0 )
+                    break;
+                if ( b == null || b.GetIsDestroyed() )
+                    continue;
+                if ( b.SwarmSpreadCount < ConsumeSaturationThreshold )
+                    continue;
+                if ( b.MachineStructureInBuilding != null )
+                    continue;
+                b.AbandonEveryoneHere( true, "AbandonmentByUnboundGoo" );
+                b.SetStatus( CommonRefs.DemolishedBuildingStatus );
+                b.SwarmSpread = husk;
+                b.SetSwarmSpreadCount( 1 );
+                GStatisticTable.AlterScore( "OI_ConsumedBuildings", 1 );
+                budget--;
+            }
+            SimCommon.NeedsBuildingListRecalculation = true;
+        }
+
+        // Once the outbreak is thick citywide, it starts putting Grey Goo stacks on YOUR structures.
+        // The stacks DoT their HP (ActorStatus works on MachineStructure); Repair Spiders/Crabs heal
+        // the same HP pool - a repair-vs-spread race, since their repair caps are low.
+        private static void StackGooOnStructures( long mass, SquirrelRand Rand )
+        {
+            ActorStatus status = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
+            if ( status == null )
+                return;
+            if ( !IsFlagTripped( "OI_CrossoverStacksShown" ) )
+            {
+                TripFlag( "OI_CrossoverStacksShown" );
+                FireKeyMessage( "OI_CrossoverStacksBegin" );
+            }
+
+            int hits = (int)Math.Min( 6L, 1L + mass / 400L );
+            System.Collections.Generic.List<MachineStructure> pool = new System.Collections.Generic.List<MachineStructure>( 32 );
+            foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
+            {
+                MachineStructure s = kv.Value;
+                if ( s == null || s.IsInvalid || s.IsFullDead || s.IsUnderConstruction )
+                    continue;
+                pool.Add( s );
+            }
+            for ( int i = 0; i < hits && pool.Count > 0; i++ )
+            {
+                MachineStructure s = pool[ Rand.Next( 0, pool.Count ) ];
+                s.AddStatus( null, status, 1, GreyGooDuration, false );
+            }
+        }
+
+        private static void ApplyCrossoverPhageResearch()
+        {
+            if ( IsFlagTripped( "OI_CrossoverPhageReady" ) || !IsFlagTripped( "OI_CrossoverPhageResearching" ) )
+                return;
+            ResourceType research = GetResource( "ScientificResearch" );
+            if ( research == null || research.Current <= 0 )
+                return;
+
+            long take = Math.Min( research.Current, CrossoverPhageResearchPerTurn );
+            research.AlterCurrent_Named( -take, "Expense_OI_CrossoverPhage", ResourceAddRule.IgnoreUntilTurnChange );
+            long progress = GetCityStatisticScore( "OI_CrossoverPhageProgress" ) + take;
+            GStatisticTable.SetScore_UserBeware( "OI_CrossoverPhageProgress", progress );
+            if ( progress >= CrossoverPhageResearchNeeded )
+            {
+                TripFlag( "OI_CrossoverPhageReady" );
+                FireKeyMessage( "OI_CrossoverPhageDone" );
+            }
+        }
+
+        // STOPGAP: once Phage research is done, auto-clear the swarm a few buildings/turn. Pass A will
+        // replace this with a player-deployed Phage consumable (action-economy delivery).
+        private static void ClearCrossoverGooWithPhage( Swarm goo )
+        {
+            if ( !IsFlagTripped( "OI_CrossoverPhageReady" ) )
+                return;
+            int budget = 3;
+            foreach ( BaseBuilding b in GetBloomedBuildings( goo ) )
+            {
+                if ( budget <= 0 )
+                    break;
+                b.AlterSwarmSpreadCount( -b.SwarmSpreadCount );
+                b.SwarmSpread = null;
+                budget--;
+            }
+            SimCommon.NeedsBuildingListRecalculation = true;
+        }
+
+        private static void CheckCrossoverResolution( Swarm goo )
+        {
+            long start = GetCityStatisticScore( "OI_CrossoverStartTurn" );
+            if ( start <= 0 || SimCommon.Turn - start < 2 )
+                return;
+            if ( GetBloomedBuildings( goo ).Count > 0 )
+                return;
+
+            TripFlag( "OI_GreyGooOutbreakBeaten" );
+            FireKeyMessage( "OI_CrossoverBeaten" );
+            RepairAllPlayerStructures();
+            RememberNanobotRounds();
+        }
+
+        private static void RepairAllPlayerStructures()
+        {
+            ActorStatus goo = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
+            foreach ( Arcen.Universal.KeyValuePair<int, MachineStructure> kv in SimCommon.MachineStructuresByID )
+            {
+                MachineStructure s = kv.Value;
+                if ( s == null || s.IsInvalid || s.IsFullDead || s.IsUnderConstruction )
+                    continue;
+                if ( goo != null && s.GetStatusIntensity( goo ) > 0 )
+                    s.ClearStatus( goo );
+                int lost = s.GetActorDataLostFromMax( ActorRefs.ActorHP, true );
+                if ( lost > 0 )
+                    s.AlterActorDataCurrent( ActorRefs.ActorHP, lost, true );
+            }
+        }
+
+        private static void RememberNanobotRounds()
+        {
+            if ( IsFlagTripped( "OI_NanobotRoundsRemembered" ) )
+                return;
+            TripFlag( "OI_NanobotRoundsRemembered" );
+            Unlock rounds = UnlockTable.Instance.GetRowByIDOrNullIfNotFound( "OI_NanobotRoundsUnlock" );
+            rounds?.DGD?.InventIfNotAlreadyDone( CommonRefs.CrossoverFromRelatedTimelineInspiration, SimCommon.Turn > 1, false, false, false );
         }
         #endregion
 

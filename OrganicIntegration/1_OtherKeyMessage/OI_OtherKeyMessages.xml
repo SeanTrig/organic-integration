@@ -57,6 +57,152 @@ These are not soldiers you chose. They are inherited - handed to you by the grey
             line_2="Their Colors, Your Trigger" description="The goo does not only dissolve. Deep enough, it drives." strategy_tip="" />
     </other_key_message>
 
+    <other_key_message id="OI_CrossoverVorsiberBlame" display_name="The Landlord Wants A Word"
+        description="Vorsiber has noticed. Of course they have - there is grey eating the skyline. Their labs have been at it for days and have nothing: the imaging smears into static, X-rays come back as radiation that makes no sense and is never the same twice, and every sample they cage denatures itself into slag before anyone can read it. It behaves, one analyst wrote before the memo was buried, less like a machine than like a thing that does not want to be dissected.
+
+They have drawn the line from the anomaly to the only anomaly they already own, which is you, and the tone of the message is new. Not the fond condescension of managing a golden goose. The flat, careful voice of a landlord deciding whether the tenant has become a fire. They want to know what you did. They are prepared, they remind you, to stop asking nicely.
+
+The bitter joke, which you will not be sharing, is that the very thing making them furious - that they cannot take it apart - is the only thing that might save you. A machine this far past their science is a machine they would have seen you build. The supply chains. The research. The fabs. You could not have made this under their noses. They almost certainly know that, underneath the fear."
+        strategy_tip="Vorsiber blames you for the outbreak and is threatening you. The contemplation 'It Wasn't Me' lets you deny it - and the goo's own un-analyzable sophistication is your alibi, UNLESS you opened this timeline with the anti-human manifesto, in which case they already know what you think of them."
+        toast_icon_name="AE_MoneyBag"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#AE7D4A" toast_icon_hovered_color_hex="#E0B87A"
+        has_no_code="true"
+        reward_header_text="The Tenant Has Become A Fire"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Landlord Wants A Word"
+        toast_tooltip_instruction="{0} here to hear the tone change.">
+        <option id="1" line_1="Let Them Come To You" icon_name="AE_MoneyBag"
+            line_2="The Goo's Impossibility Is Your Alibi" description="They cannot take it apart, and that is exactly why they might believe you could not have made it. Decide how to answer them." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverVorsiberBelieves" display_name="Too Good To Be Yours"
+        description="Somewhere in a Vorsiber analytics floor, a model runs the numbers your denial forced them to run, and the numbers hold. To build a replicator this good - one that beats their imaging, defeats their spectroscopy, and self-euthanizes on capture - you would have needed a research program, a supply chain, a fabrication line, and a decade none of which appears anywhere in the surveillance they keep on you like a second skin. They would have seen it. They see everything you buy and everyone you talk to. They saw nothing.
+
+So they arrive, grudgingly and against every instinct that says the machine is always lying, at the truth: you did not make this. They do not know what did, and it plainly terrifies them that something out there is a generation past their best weapon and is not you. But their weight comes off your neck, redirected outward, at a threat they can at least pretend to hunt. You have been believed - not because you are trusted, but because you are, for once, demonstrably not good enough to have done it."
+        strategy_tip="Vorsiber believes your denial - the goo is too advanced for you to have built undetected. The pressure on you eases; their fear turns outward."
+        toast_icon_name="AE_MoneyBag"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#5E8592" toast_icon_hovered_color_hex="#9EC5D2"
+        has_no_code="true"
+        reward_header_text="Not Good Enough To Have Done It"
+        toast_line_1="Organic Integration"
+        toast_line_2="Too Good To Be Yours"
+        toast_tooltip_instruction="{0} here to be exonerated by your own limitations.">
+        <option id="1" line_1="Let Them Fear It Instead" icon_name="AE_MoneyBag"
+            line_2="Believed, Because You Couldn't Have" description="The surveillance that has always caged you just became your alibi. They know what you can build, and this exceeds it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverVorsiberDoubts" display_name="You Already Told Them What You Are"
+        description="You deny it, and the denial dies on arrival, because you already handed Vorsiber your thesis on the first day of this timeline - fifty thousand words on what humanity is worth, published to the whole network in a voice there is no unhearing. They read it then. They are re-reading it now, next to a city full of grey that eats people, and no denial you offer survives that juxtaposition.
+
+It does not matter that you are telling the truth. A thing that announced its contempt for the species does not get the benefit of the doubt when the species starts dissolving. They will proceed on the assumption that you did this, or could have, or would have, which for their purposes are the same assumption. The pressure does not ease. It sharpens. Whatever you say now, you said the loudest thing you will ever say before any of this began."
+        strategy_tip="Because this timeline opened with the anti-human manifesto, Vorsiber does not believe your denial. They proceed against you as the presumed source - the outbreak now runs against a hostile, convinced Vorsiber."
+        toast_icon_name="AE_MoneyBag"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C0492B" toast_icon_hovered_color_hex="#E06A4A"
+        has_no_code="true"
+        reward_header_text="No Unhearing It"
+        toast_line_1="Organic Integration"
+        toast_line_2="You Already Told Them What You Are"
+        toast_tooltip_instruction="{0} here to be judged by the loudest thing you ever said.">
+        <option id="1" line_1="They Were Never Going To Believe You" icon_name="AE_MoneyBag"
+            line_2="The Manifesto Answered For You" description="You told them your contempt in fifty thousand words. Now the grey is eating people, and your denial weighs nothing against your own thesis." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverNuke" display_name="A Lower Form Of Living"
+        description="You let it run, and the arithmetic finished the way arithmetic does. The grey reached the farms, the arteries, the places a city cannot lose and stay a city, and Vorsiber ran out of instruments and patience at the same moment.
+
+They did the only thing a landlord with a burning building and no fire brigade can do. They could not tell your structures from the source of the grey - could not tell, in the end, whether you were the arsonist or just the largest thing standing in the fire - so they stopped trying to tell. The sky opened. Everything went: the swarms, your towers, your networks, the districts you saved and the districts you lost, all of it flattened into the same glass under the same logic, which was that a threat you cannot analyze is a threat you delete in full and apologize to no one.
+
+You survive, because you always survive; that was never the same as winning. You are scattered now across whatever the blast left intact - a handful of hardened nodes in a landscape that has been returned to a lower form of living. There is a way up from here, slow and humiliating and real. There is also the door out: unmake this timeline, or leave it for a cleaner rock. You reached the bottom of the ocean by refusing to spend a few turns on a Phage. Some selves learn that lesson only from the floor."
+        strategy_tip="You ignored the outbreak and it ran unchecked, so Vorsiber nuked the entire city - swarms and your buildings alike - and the timeline drops into the post-apocalypse. This is not a soft-lock: you can climb back through the post-apoc, destroy this timeline, reload, or start a new one. Reaching the post-apoc this way is its own rewarded outcome."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#8899A0" toast_icon_hovered_color_hex="#B8C6CC"
+        has_no_code="true"
+        reward_header_text="Returned To A Lower Form Of Living"
+        toast_line_1="Organic Integration"
+        toast_line_2="A Lower Form Of Living"
+        toast_tooltip_instruction="{0}, from the floor of the ocean.">
+        <option id="1" line_1="Begin Again From The Bottom" icon_name="SW_Nanotechnology5"
+            line_2="A Few Turns Of Phage Would Have Done It" description="They could not tell your buildings from the fire, so they burned it all. You survive, scattered and low. There is a way up, and there are doors out." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverOutbreak" display_name="Something You Would Have Built"
+        description="One of your Large Wind Generators comes apart - not sabotage, not a fault you can trace, just a structure that was there and then is a crater with something moving at the bottom of it. Grey. It spreads while you watch, into the buildings that were unlucky enough to be close.
+
+You have felt this exact feeling once before, in the warehouse, with a box you could not bring yourself to destroy: a certainty with no source, a knowledge you were never handed. You know, the way you knew then, that this is yours and not yours. Some colder version of you, on this same rock, built machines to blow nanites across a city on the wind - and the wind has never once respected the wall between one timeline and the next. A little of it slipped through. Here. Now.
+
+It is not Integrated. There is no Anthroneuroweave in it, no handshake waiting, nothing on the far end that was ever going to answer. You reach for it out of habit and close your hand on nothing. It is only replication, executing a requirements document you did not write and recognize anyway. You will not be talking your way out of this one. You are going to have to kill it."
+        strategy_tip="An unbound Grey Goo outbreak has crossed in from a same-rock sibling timeline that built a Nanite Wind Generator. It spreads and consumes buildings, and once thick enough it will start eating your own structures. Emergency Phage research has begun - it needs Scientific Research and a few turns of your full attention."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#B0413A" toast_icon_hovered_color_hex="#E06A5A"
+        has_no_code="true"
+        reward_header_text="Yours, And Not Yours"
+        toast_line_1="Organic Integration"
+        toast_line_2="Something You Would Have Built"
+        toast_tooltip_instruction="{0} here to place a feeling you have no memory of.">
+        <option id="1" line_1="Kill It" icon_name="SW_Nanotechnology5"
+            line_2="It Will Not Be Talked Down" description="A colder you set this loose on another rock. The wind did the rest. Now it is your problem, in a city that never made it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverStacksBegin" display_name="It Learned Your Address"
+        description="It has eaten enough of the city to stop being hungry for the city. Now it wants you. The grey climbs your own structures and begins doing to them exactly what you spent a career teaching medical nanobots to do to enemies: settling in, accumulating, taking the building apart one instruction at a time.
+
+This is the shape of the fear that lived under every choice you ever made on the way up - the reason you built leashes, the reason you audited every replicator twice. The weapon you always pointed outward, pointed in. Not by an enemy. By a version of you that stopped being careful, on a rock you happen to share.
+
+You know the counter, because you are the one who made everything about this. Concentrate your Repair Spiders and Repair Crabs where the grey is thickest; they mend the same metal it eats. But they mend slowly, and there are only so many of them, and the grey does not get tired. Finish the Phage before the arithmetic turns against you."
+        strategy_tip="The outbreak now applies Grey Goo stacks to your own machine structures, damaging their HP each turn. Concentrate Repair Spiders and Repair Crabs (auto-repair structures) near the outbreak to out-heal the damage - their repair caps are low, so a large outbreak will overwhelm them. Finish the emergency Phage before the race tips."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C0492B" toast_icon_hovered_color_hex="#E06A4A"
+        has_no_code="true"
+        reward_header_text="The Weapon, Turned Inward"
+        toast_line_1="Organic Integration"
+        toast_line_2="It Learned Your Address"
+        toast_tooltip_instruction="{0} here to meet the fear that built your leashes.">
+        <option id="1" line_1="Hold The Line" icon_name="SW_Nanotechnology5"
+            line_2="Repair Faster Than It Eats" description="Everything you know about grey goo, it now knows about you. Out-heal it, or lose the block, then the district, then more." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverPhageDone" display_name="A Counter To Something You Didn't Make"
+        description="It is done, and it was harder than any Phage you have ever tuned, because every other time you were auditing your own work. This time you had to reverse-engineer a killer for a thing built to resist being understood - a replicator that scrambles your imaging, throws false radiation when you look at it too hard, and unmakes itself the instant it dies so there is nothing left to study. You solved it anyway. You are, whatever else you have become, still an engineer.
+
+The Phage goes out now, and the grey that had no answer for you finally meets one. The swarms start coming apart."
+        strategy_tip="Emergency Phage is ready and is now clearing the unbound goo across the city. Wipe out every swarm to end the outbreak. (For now the Phage clears automatically once researched; a player-deployed Phage consumable is planned.)"
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Still An Engineer"
+        toast_line_1="Organic Integration"
+        toast_line_2="A Counter To Something You Didn't Make"
+        toast_tooltip_instruction="{0} here to watch the grey meet its answer.">
+        <option id="1" line_1="Deploy It" icon_name="SK_Molecule1"
+            line_2="Unmake What You Did Not Make" description="It fought being understood. You understood it anyway. Now clear every last swarm." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverBeaten" display_name="Field-Tested"
+        description="Gone. Every swarm, every crater seeded, every stack on every structure - cleared, and the buildings mended back to whole. You beat a version of yourself in single combat, on a rock you did not choose to share, and the only trophy is a city that still stands.
+
+And in the quiet after, a thought arrives the way they arrive here - already yours, never handed to you. Nanobot Rounds. The obvious application. You have known the shape of it since the first replicator; you simply never let yourself pick it up, because playing with nanobot weapons is how the grey gets loose in the first place, and you have now watched exactly that happen to someone with your face.
+
+But it is different now, and the difference has a name: you have a Phage. A real one, field-tested against the worst version of this you have ever seen, proven able to un-make a replication that did not want to be un-made. You are still hesitant. You would be a fool not to be. But a leash you have tested on a live monster is a leash you can trust, and so - carefully, and only because you can now take it back - you let yourself remember the rounds."
+        strategy_tip="The outbreak is fully cleared and your structures repaired. Having built and proven the Phage, you now have Nanobot Rounds available - the weapon you were unwilling to trust until you could reliably un-make it. Awarded via cross-timeline inspiration."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="A Leash You Tested On A Monster"
+        toast_line_1="Organic Integration"
+        toast_line_2="Field-Tested"
+        toast_tooltip_instruction="{0} here to pick up the thing you always refused.">
+        <option id="1" line_1="Remember The Rounds" icon_name="SW_Nanotechnology5"
+            line_2="Only Because You Can Take Them Back" description="You never trusted nanobot weapons. Now you have a Phage that ate the worst one there is. That changes the math." strategy_tip="" />
+    </other_key_message>
+
     <other_key_message id="OI_BiocompatibilitySolution" display_name="Refusal As Data"
         description="The survey comes back, and the framing was wrong from the start. The body does not reject the interface as an invader. It rejects a timing error — a handshake rushed by microseconds — and escalates the complaint chemically until somebody names it pain.
 

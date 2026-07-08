@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- Same-rock NEGATIVE crossover. is_good="false" and NO goes_to_ziggurat_from_anywhere means it
+	     bleeds only to timelines sharing this rock (never ziggurats, never other rocks). Published
+	     automatically when a timeline trips OI_NaniteWindGeneratorBuilt (causes_crossover). On a
+	     same-rock sibling at Chapter 3+, the engine trips OI_GreyGooOutbreakIncoming; the mod's
+	     calculator reacts to that flag and stages the outbreak. The crossover itself only trips a
+	     flag - it cannot explode, seed, or damage anything; that is all the calculator's job. -->
+	<city_timeline_crossover id="OI_NaniteWindGeneratorCrossover" display_name="Nanites On The Wind"
+		description="On this rock, a colder version of you built machines to blow medical nanites across a city on the wind, and a little of it slipped its leash. The wind has never respected the walls between timelines. Now some of it is loose here, in a city that never made it and cannot answer for it."
+		is_good="false"
+		city_flag_to_trip_1="OI_GreyGooOutbreakIncoming" />
+</root>

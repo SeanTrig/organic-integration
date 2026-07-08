@@ -368,6 +368,36 @@ Vorsiber will not survive it. The FedCorps will not survive it. You will spend t
 		</choice>
 	</city_event>
 
+	<!-- Cross-timeline outbreak: Vorsiber blames you for the swarms. Deny it or take the blame.
+	     Whether Vorsiber believes the denial is resolved in code (ApplyCrossoverVorsiber), keyed on
+	     whether this timeline opened with the anti-human manifesto. -->
+	<city_event id="Cont_OI_CrossoverVorsiberDeny" display_name="It Wasn't Me" tl="OC"
+		description="Vorsiber has seen the grey. They have also seen that their instruments cannot hold it - the imaging smears, the radiation readings come back as noise, and every sample they capture unmakes itself before it reaches a lab. They have drawn the obvious conclusion, which is you, and they are telling you so in the tone reserved for an asset that has become a liability.
+
+You did not make it. You know exactly who did, three rocks and one bad decision away, and you cannot say that, because it does not parse in any language Vorsiber speaks. What you can say is the true, narrow thing: this is not your work. Whether that lands depends entirely on what they already think you are."
+		strategy_tip="Deny it, or take the blame. Whether Vorsiber believes you depends on how you opened this timeline."
+		icon_name="AE_MoneyBag" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_CrossoverVorsiberNoticed" blocked_by_city_flag="OI_CrossoverVorsiberAnswered"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#C0492B" color_hdr_intensity="2.2" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="Deny" display_name="Tell Them The Truth: You Didn't Make It" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Say the narrow, true thing. You did not build this. You will not explain where it came from, because there is no version of &quot;another me, on another rock&quot; that survives contact with a Vorsiber SVP. You just deny it, and let the goo's own impossibility argue your case.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage">
+				<city_flag_change flag_type="OI_CrossoverVorsiberDenied" value="1"/>
+				<city_flag_change flag_type="OI_CrossoverVorsiberAnswered" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="Silence" display_name="Say Nothing. Let Them Wonder." action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Offer no denial. Let them believe what they will - that you did it, that you are hiding something, that the golden goose has finally become the fox. It costs you their trust, but it never risked exposing what you cannot explain.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage">
+				<city_flag_change flag_type="OI_CrossoverVorsiberAnswered" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
 	<!-- Wave 6 - the last lucid choice. Appears once the Sea has gone quiet (calculator
 	     trips OI_T3_EndingChoiceReady). The Reservoir option is hidden unless something
 	     was kept worth staying awake for (OI_T3_NoReservoir is set by the calculator when

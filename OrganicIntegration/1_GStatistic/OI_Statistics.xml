@@ -32,4 +32,8 @@
     <city_statistic id="OI_GooConvertedUnits" display_name="Mechs Subverted By Grey Goo" lang_key_for_name="OI_Stat_Name_GooConvertedUnits" lang_key_for_description="OI_Stat_Desc_GooConvertedUnits" has_no_meta_counterpart="true" sort_order="1000" />
     <city_statistic id="OI_ConsumedBuildings" display_name="Buildings Consumed By The Tide" lang_key_for_name="OI_Stat_Name_ConsumedBuildings" lang_key_for_description="OI_Stat_Desc_ConsumedBuildings" has_no_meta_counterpart="true" sort_order="1000" />
     <city_statistic id="OI_RestoredBuildings" display_name="Plots Reclaimed" lang_key_for_name="OI_Stat_Name_RestoredBuildings" lang_key_for_description="OI_Stat_Desc_RestoredBuildings" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_CrossoverIncomingTurn" display_name="Outbreak Incoming Turn" lang_key_for_name="OI_Stat_Name_CrossoverIncomingTurn" lang_key_for_description="OI_Stat_Desc_CrossoverIncomingTurn" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_CrossoverStartTurn" display_name="Outbreak Start Turn" lang_key_for_name="OI_Stat_Name_CrossoverStartTurn" lang_key_for_description="OI_Stat_Desc_CrossoverStartTurn" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_CrossoverGooMass" display_name="Unbound Goo Mass" lang_key_for_name="OI_Stat_Name_CrossoverGooMass" lang_key_for_description="OI_Stat_Desc_CrossoverGooMass" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_CrossoverPhageProgress" display_name="Emergency Phage Progress" lang_key_for_name="OI_Stat_Name_CrossoverPhageProgress" lang_key_for_description="OI_Stat_Desc_CrossoverPhageProgress" has_no_meta_counterpart="true" sort_order="1000" />
 </root>
