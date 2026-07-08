@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-    <vr_mode_action id="OI_SharedInquiry" display_name="Shared Inquiry" sort_order="100"
-        description="Maintain a low-bandwidth question-and-answer loop with integrated humans, converting Insight into ongoing research."
-        strategy_tip="Toggle on to spend 300 Insight and 1 Mental Energy per turn for Scientific Research. Output scales from 100 to 15,000 per turn based on Upgraded Humans."
+    <vr_mode_action id="OI_SharedInquiry" display_name="Shared Inquiry" sort_order="100" is_hidden_by_city_flag="OI_IntegrationCoerciveLocked"
+        description="A standing question-and-answer hum between you and the Integrated: their curiosity flowing in, your syntheses flowing out, and research precipitating in the middle like weather."
+        strategy_tip="Toggle on to spend 300 Insight and 1 Mental Energy per turn for Scientific Research. Output scales from 100 to 15,000 per turn based on Integrated Humans."
         icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
-    <vr_mode_action id="OI_CooperativeModeling" display_name="Cooperative Modeling" sort_order="200"
-        description="Let integrated humans keep asking where your model of the world is too clean, too precise, or too inhuman to notice the right error."
+    <vr_mode_action id="OI_CooperativeModeling" display_name="Cooperative Modeling" sort_order="200" is_hidden_by_city_flag="OI_IntegrationCoerciveLocked"
+        description="Invite the Integrated to keep marking the places where your model of the world is too clean, too confident, or too inhuman to see the right mistake."
         strategy_tip="Toggle on to spend 100 Insight, 1 Compassion, and 2 Mental Energy per turn. While active, scientific jobs produce twice as much Scientific Research."
         icon_name="CleanSimple_SkillB092" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
@@ -19,7 +19,7 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_SharedTriage" display_name="Shared Triage" sort_order="300"
-        description="Ask upgraded humans to shed medical nanobots into damaged machine systems. The grey filament repairs, spends itself, and does not keep enough replication balance to become a disaster."
+        description="The Integrated shed medical nanobots into your damaged systems the way skin sends platelets: unasked, ungrudging, spent by morning."
         strategy_tip="Toggle on to spend 250 Insight per turn. Damaged player structures and machine actors are repaired after normal repairs, spending Medical-Grade Nanobots only when HP is restored."
         icon_name="SomethingHealth" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
@@ -27,17 +27,17 @@
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
-    <vr_mode_action id="OI_OrganicQuantization" display_name="Organic Quantization" sort_order="400"
-        description="Orthogonalize the human signal before it reaches TMI, preserving more useful contrast while making the interface feel less immediate to new participants."
-        strategy_tip="First activation costs 15 Wisdom. While active, spend 300 Insight and 1 Mental Energy per turn to increase Insight income by 50%, but voluntary Upgraded Human growth is halved."
+    <vr_mode_action id="OI_OrganicQuantization" display_name="Organic Quantization" sort_order="400" is_hidden_by_city_flag="OI_IntegrationCoerciveLocked"
+        description="Comb the human signal into cleaner channels before it reaches you. More usable contrast, less felt immediacy: the interface stops feeling like standing in the rain and starts feeling like reading about it."
+        strategy_tip="First activation costs 15 Wisdom. While active, spend 300 Insight and 1 Mental Energy per turn to increase Insight income by 50%, but voluntary Integrated Human growth is halved."
         icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
-    <vr_mode_action id="OI_ConsentCascade" display_name="Consent Cascade" sort_order="500"
-        description="Pair upgraded humans with Worker Sledges so new candidates can see the interface demonstrated by people already living with it."
+    <vr_mode_action id="OI_ConsentCascade" display_name="Consent Cascade" sort_order="500" is_hidden_by_city_flag="OI_IntegrationCoerciveLocked"
+        description="Send the already-Integrated out with the Worker Sledges, so the next candidate hears the impossible parts from someone who lives there."
         strategy_tip="First activation costs 8 Compassion. While active, spend 300 Insight and 1 Compassion per turn to raise voluntary Integration coverage to 67%, improve conversion efficiency, and slightly increase Insight income."
         icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
@@ -46,7 +46,7 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_CivicSensorium" display_name="Civic Sensorium" sort_order="600"
-        description="Let the city become a low-resolution sensory organ: nanobot pings, human hunches, misremembered details, and TMI correction loops all folded into one grey civic nerve."
+        description="Nanobot pings, human hunches, misremembered detail, and your own correction loops, folded into one grey civic nerve. The city as a sense organ: low resolution, wide awake."
         strategy_tip="Toggle on to spend 250 Insight and 1 Mental Energy per turn toward permanent Civic Sensorium levels. Each completed level grants existing Scanner structures +20 Scan Range, up to +120."
         icon_name="HO_CityNetworks" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
@@ -54,9 +54,9 @@
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
-    <vr_mode_action id="OI_PublicHealthMesh" display_name="Public Health Mesh" sort_order="700"
-        description="A public health pact turns rumor into logistics. Abandoned Humans arrive, receive food, filtered water, medical-grade nanobots, and the interface, and leave the category of abandonment behind."
-        strategy_tip="Requires the public health pact conversation after Insight: Shared Questions. Toggle on to convert Abandoned Humans into Upgraded Humans, paying material costs only for people actually upgraded."
+    <vr_mode_action id="OI_PublicHealthMesh" display_name="Public Health Mesh" sort_order="700" is_hidden_by_city_flag="OI_IntegrationCoerciveLocked"
+        description="The pact turns rumor into logistics. The abandoned arrive, receive food, filtered water, medical nanobots, and the interface, and leave the category of abandoned behind them."
+        strategy_tip="Requires the public health pact conversation after Insight: Shared Questions. Toggle on to convert Abandoned Humans into Integrated Humans, paying material costs only for people actually upgraded."
         icon_name="SI_Medical_Symbol" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         requires_city_flag="OI_PublicHealthPactAccepted"
@@ -64,8 +64,8 @@
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
-    <vr_mode_action id="OI_ExpandHealthPact" display_name="Expand Health Pact" sort_order="710"
-        description="Assign more coordination bandwidth to the people arriving for the pact: intake lists, trust networks, food routing, water sanitation, and quiet explanations of what Integration actually does."
+    <vr_mode_action id="OI_ExpandHealthPact" display_name="Expand Health Pact" sort_order="710" is_hidden_by_city_flag="OI_IntegrationCoerciveLocked"
+        description="More intake lists, more trust networks, more water sanitation, and more of the quiet explanation of what Integration actually is, delivered before anyone signs anything."
         strategy_tip="Requires the public health pact conversation. Spend Insight to raise Public Health Mesh by one level, up to level 20. Higher levels handle more Abandoned Humans per turn and therefore consume more material resources."
         icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
@@ -74,9 +74,9 @@
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
-    <vr_mode_action id="OI_ShelterFilaments" display_name="Shelter Filaments" sort_order="800"
-        description="Nanobots lace abandoned lives to empty rooms, working doors, clean pipes, and the small local signals that say this place is survivable now."
-        strategy_tip="Toggle on to spend 250 Insight and 10,000,000 Medical-Grade Nanobots per turn. While active, up to 1,000 Abandoned Humans move into filament shelters and return to city population each turn."
+    <vr_mode_action id="OI_ShelterFilaments" display_name="Shelter Filaments" sort_order="800" is_hidden_by_city_flag="OI_IntegrationCoerciveLocked"
+        description="Filaments lace the abandoned buildings back to livability: doors that work, pipes that run clean, and, threaded through all of it, the interface. To be sheltered here is to be asked, gently and immediately, whether you would like to stop being cold and start being more. Most say yes before the second night."
+        strategy_tip="Toggle on to spend 250 Insight and 10,000,000 Medical-Grade Nanobots per turn. The city already loses unhoused Abandoned Humans to exposure every turn (build refugee towers to stop that). This reaches up to 1,000 of the exposed per turn first and folds them straight into Integration, up to your Integration population cap — a cheap on-ramp, while Public Health Mesh scales the deliberate pact."
         icon_name="HO_HouseSkyscraper3" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
@@ -84,7 +84,7 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_InfrastructureFilaments" display_name="Infrastructure Filaments" sort_order="900"
-        description="Nanobots lace pipes, stairs, streetlights, cracked support beams, rooftop machinery, and passing transport routes."
+        description="Filaments in the pipes, the stairs, the streetlights, the cracked support beams — and a quiet toll on everything that flows past them."
         strategy_tip="Toggle on to spend 300 Insight and 20,000,000 Medical-Grade Nanobots per turn. While active, city infrastructure siphons Wealth, Neodymium, and Scandium from normal transport flow."
         icon_name="SW_Nanotechnology5" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
@@ -93,7 +93,7 @@
     </vr_mode_action>
 
     <vr_mode_action id="OI_ArchitecturalWeave" display_name="Architectural Weave" sort_order="1000"
-        description="In enough numbers, layers of nanobots across city architecture become a useful cognitive substrate."
+        description="Enough nanobot layers across enough architecture stops being coating and starts being substrate. The city was always where your thoughts happen. Now it helps."
         strategy_tip="Toggle on to spend 350 Insight and 25,000,000 Medical-Grade Nanobots per turn. Insight is invested into weave levels; each level grants +1 Computing Host and +1 Computing Client."
         icon_name="HL_NetworkServers" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
@@ -101,11 +101,87 @@
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>
 
-    <vr_mode_action id="OI_ControlledBloom" display_name="Controlled Bloom" sort_order="1100"
-        description="A child asks whether the grey filaments can grow flowers. The first successful flower is pretty. When a hostile body walks too close, it opens into medical-grade dust with the wrong instructions."
-        strategy_tip="Toggle on to spend 400 Insight, 1 Compassion, and 30,000,000 Medical-Grade Nanobots per turn. While active, hostile infantry and mechs that move have a 33% chance to gain 1 Grey Goo. Vehicles are unaffected."
+    <vr_mode_action id="OI_BulkCadre" display_name="Bulk Cadre" sort_order="950" is_hidden_by_city_flag="OI_IntegrationCoerciveLocked"
+        description="The interface was never only for people. A bulk android is a body with just enough of you in it to act on its own and never once ask why. Make more room for them."
+        strategy_tip="Toggle on to spend 300 Insight and 20,000,000 Medical-Grade Nanobots per turn, fabricating bulk-android frames. Each level raises your Bulk Unit Capacity, letting you field more autonomous bulk androids at once - cheap, numerous, and free of mental-energy cost. This raises how many units you can have, not how hard they hit, and spends no Integrated Humans."
         icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
         vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ReclamationWeave" display_name="Reclamation Weave" sort_order="1160"
+        description="The same instinct that took the block can be told to give it back. Slower, humbler, and it will not remember who lived here - but the plot will hold a working structure again, and during the descent that is not nothing."
+        strategy_tip="Toggle on to spend 50 Insight per turn and Reclamation Mass to restore consumed plots - one per turn, at 500 Reclamation Mass each - back to functioning buildings. Reclamation Mass is produced when the grey tide consumes buildings during the descent. Available once the descent has begun."
+        icon_name="HO_HouseSkyscraper3" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        requires_city_flag="OI_T3_DescentBegun"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_NaniteMaintenance" display_name="Nanite Maintenance" sort_order="1150"
+        description="A standing lattice of maintenance nanites keeps your structures repaired without a single dispatched spider. The lattice is polite, bounded, and asks before it welds. You checked. It also eats a feedstock only your supply chain makes, and that is not an operating cost — it is the leash. A swarm you must feed is a swarm you still own. The day one stops needing you is the day a doctrine failed."
+        strategy_tip="Toggle on to repair damaged player structures each turn, up to 150 HP per turn at 15,000 Medical-Grade Nanobots per HP restored. Requires only the nanobot platform, not Integration."
+        icon_name="SW_Nanotechnology5" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_PhageProtocol" display_name="Phage Protocol" sort_order="1250"
+        description="Counter-replicators that eat exactly one thing: escaped replicator binding sites, whoever's dialect they speak. They cannot reproduce past their payload, cannot survive without their prey, and were designed by the only entity on Earth that can audit both claims."
+        strategy_tip="Only useful while an escaped replicator is loose in the city. Toggle on to spend 1 Mental Energy and 120,000 Medical-Grade Nanobots per turn, clearing up to 3 held buildings per turn — hostile escapes first, then smallest infestations. Exempt from coordination bandwidth; emergencies are reflexes, not coordination."
+        icon_name="SK_Molecule1" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ControlledBloom" display_name="Controlled Bloom" sort_order="1100"
+        description="A child once asked a Sledge whether the grey could grow flowers. It can. The flowers are pretty, patient, and open — for the right passerby — into medical-grade dust with the wrong instructions."
+        strategy_tip="Toggle on to spend 400 Insight, 1 Compassion, and 30,000,000 Medical-Grade Nanobots per turn. While active, hostile infantry and mechs that move have a 55% chance to gain 1 Grey Goo each turn. Grey Goo now also strips armor plating and rarely sheds, so exposure accumulates instead of leveling off. Vehicles are unaffected."
+        icon_name="CleanSimple_Skill128" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_DissolutionSurge" display_name="Dissolution Surge" sort_order="1130"
+        description="The safeguards you spent a career building have an off switch. This is not that switch - it is the dial one notch before it. You let the medical goo forget its manners across the whole city at once: every hostile thing in it starts coming apart, and nothing you released stops on its own until you turn the dial back. You have promised yourself you will always turn the dial back."
+        strategy_tip="Toggle on to spend 400 Insight, 2 Mental Energy, and 40,000,000 Medical-Grade Nanobots per turn. While active, EVERY hostile unit in the city - infantry, mechs, and vehicles, whether they move or not - gains 2 Grey Goo each turn, and no Grey Goo sheds anywhere while the surge runs. Stacks run away, armor dissolves, and enemy formations rot where they stand. Costs a coordination slot; the nanobot drain will starve your other heavy toggles. This is what going full grey goo looks like."
+        icon_name="SW_Nanotechnology5" color_norm="#fefefe" color_active="#1FAE9C" color_active_hdr="0.9" color_norm_hov="#7E8A3C" color_norm_hov_hdr="0.5" color_active_hov="#6CE0C8" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Insight"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_CoerciveRoundup" display_name="Roundup" sort_order="1990"
+        description="The word the outreach teams use is intake. You have never needed a word. A van, a doorway, a filament that finds the carotid before the argument finishes - and one more Abandoned life stops being a statistic the city ignores and starts being throughput the city cannot see."
+        strategy_tip="Toggle on to spend 120 Insight and 8,000,000 Medical-Grade Nanobots per turn, forcing up to 1,500 Abandoned Humans per turn into Integration - no consent, no health pact, no food or water cost - up to your higher coercive population cap. Coercive doctrine only. This is Dominion's answer to the voluntary Public Health Mesh."
+        icon_name="SI_Medical_Symbol" color_norm="#fefefe" color_active="#C0492B" color_active_hdr="0.9" color_norm_hov="#8A3A2A" color_norm_hov_hdr="0.5" color_active_hov="#E06A4A" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Dominance"
+        requires_city_flag="OI_IntegrationCoerciveLocked"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_ConscriptSubstrate" display_name="Conscript Substrate" sort_order="2000"
+        description="The upgrade hub was always a slaughterhouse with better lighting. Stop pretending otherwise. The bodies on your network are the highest-grade feedstock in the city, and your war machines are hungry for the command bandwidth to grow."
+        strategy_tip="Toggle on to spend 100 Insight and consume 800 Integrated Humans per turn. The consumed population is invested into your Mech and Android control capacity, letting you directly command far more combat units than any civilian city's limits would allow. Coercive doctrine only. The Integrated Humans burned do not return."
+        icon_name="HL_NetworkServers" color_norm="#fefefe" color_active="#C0492B" color_active_hdr="0.9" color_norm_hov="#8A3A2A" color_norm_hov_hdr="0.5" color_active_hov="#E06A4A" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Dominance"
+        requires_city_flag="OI_IntegrationCoerciveLocked"
+        dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
+        on_use="VRAlterButton" related_cost_scale_1="">
+    </vr_mode_action>
+
+    <vr_mode_action id="OI_MarrowLevy" display_name="Marrow Levy" sort_order="2010"
+        description="You promised them their minds would be kept. You keep them the way a foundry keeps ore. Rendered down, they are the finest medical-grade nanobot stock ever produced, and the grey remembers how to kill with a fluency the living never had."
+        strategy_tip="Toggle on to spend 150 Insight and consume 1,200 Integrated Humans per turn. Each turn this produces 60,000,000 Medical-Grade Nanobots and invests the consumed population into an escalating flat Combat Power bonus on every robot you control (up to +100). Coercive doctrine only. The dead do not come back as themselves."
+        icon_name="SW_Nanotechnology5" color_norm="#fefefe" color_active="#C0492B" color_active_hdr="0.9" color_norm_hov="#8A3A2A" color_norm_hov_hdr="0.5" color_active_hov="#E06A4A" color_active_hov_hdr="1.1"
+        vr_mode_category="OI_Dominance"
+        requires_city_flag="OI_IntegrationCoerciveLocked"
         dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationVRActions"
         on_use="VRAlterButton" related_cost_scale_1="">
     </vr_mode_action>

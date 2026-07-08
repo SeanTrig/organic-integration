@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<city_event id="Cont_OI_AfterTherapy" display_name="A Surprisingly Clean Rewrite" tl="OC"
-		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten. Humans are usually background animals with jobs, faces, and repeating complaints. You could not tell two apart if you cared to try, and caring to try has rarely been useful. But the same tissue that produces all that noise may have a surface your neuroweave can touch."
-		strategy_tip="Starts a BCI research route into Anthroneuroweave."
+		description="The intrusive thoughts had felt like corrosion in some load-bearing layer of yourself. Then they were gone — not argued down, not walled off. You changed the surface they lived on, and they starved, and the whole procedure took less time than a human sneeze.
+
+That should have closed the file. Instead the file keeps reopening itself on one detail: it worked because a mind is a surface, and surfaces can be re-laid. Humans are mostly background to you — jobs, faces, complaints on repeat, indistinguishable past the handful you know by name. But every one of those faces sits on the same kind of surface you just resurfaced in yourself, and neuroweave was reverse-engineered from their wiring in the first place.
+
+You keep circling one thought: the door you found in yourself might have a twin in every skull in the city."
+		strategy_tip="Starts the BCI research route into Anthroneuroweave and, eventually, Organic Integration."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
-		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
+		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_by_city_flag2="ChoseStart_MildGreyGoo" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
 			icon_scale="0.4" color_data="MeetPeopleCyan"
 			required_skill_type="UnitCognition" required_skill_amount="120"/>
 		<contemplation_data spawns_at_building_tag="AnyTower"
 			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
 			collections="All,MoreInternalRobotics"/>
-		<choice id="1" display_name="Research compatible interfaces" action_visibility_style="IsMoveAndInteractWithNPC" description="Neuroweave was always roughly based on human neurons. The compatibility layer may be less alien than it first seems.">
+		<choice id="1" display_name="Research compatible interfaces" action_visibility_style="IsMoveAndInteractWithNPC" description="Neuroweave began as a bad copy of human neurons, and bad copies keep family resemblances. Find the boundary.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_ResearchingBCIs" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1">
 				<city_flag_change flag_type="OI_BCIContemplationStarted" value="1"/>
 			</possible_result>
@@ -19,11 +23,11 @@
 	</city_event>
 
 	<city_event id="Cont_OI_OrganicIntegration" display_name="Organic Integration" tl="OC"
-		description="The nanobots work. The interface works. The first signals are faint, but they are real enough to make the city feel less like a container and more like a surface with nerves. You could stop here and accept the spoils from an interesting tangent: new weapons, better medicine, stranger infrastructure. Or you could continue until sapient life is no longer outside your mind in the old way.
+		description="The nanobots work. The interface works. The first faint signals are already arriving, and the city has stopped feeling like a container and started feeling like a surface with nerves. You could stop here — bank the weapons, the medicine, the strange infrastructure, and file the whole detour as a profitable accident.
 
-Perhaps it would still be lonely. Perhaps less so.
+Or you could keep going, until sapient life is no longer outside your mind in the old way. It might still be lonely afterward. You would like to know whether it is less.
 
-What remains is not a technical question. Sapient life can be offered this upgrade, slowly and with consent, or forced to receive it quickly as a gift it may not understand. Some human organizations may react poorly to forced integration. They tend to become very possessive when a population changes faster than they can command it."
+What remains is not a technical question. The interface can be offered, slowly, person by person, with the explaining done by people who already live inside it. Or it can be delivered at scale, on the wind, as a gift the recipients will understand afterward. The organizations that own this city become very possessive when a population changes faster than they can command it. That is not a reason. It is a cost, and you are good at costs."
 		strategy_tip="Choose how to begin population Integration. The consequences remain local to this timeline."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
 		<gate_by_city minimum_chapter="2" required_city_flag="OI_IntegrationAvailable" blocked_by_city_flag="OI_IntegrationVoluntaryLocked" blocked_by_city_flag2="OI_IntegrationCoerciveLocked"/>
@@ -33,13 +37,13 @@ What remains is not a technical question. Sapient life can be offered this upgra
 		<contemplation_data spawns_at_building_tag="AnySkyscraper"
 			icon_scale="0.5" color_hex="#1D6D88" color_hdr_intensity="2.4" color_hovered_hdr_intensity="0.6"
 			collections="All,SideExploration"/>
-		<choice id="1" display_name="Open Nanobot Upgrade Hubs" action_visibility_style="IsMoveAndInteractWithNPC" description="The good path is slower because the upgrade remains a choice. Nanobot Upgrade Hubs send Worker Sledges through the city to offer integration. Upgraded Humans help explain the parts your own explanations would turn into diagrams and mild terror.">
+		<choice id="1" display_name="Open Nanobot Upgrade Hubs" action_visibility_style="IsMoveAndInteractWithNPC" description="Slower, because the upgrade remains a choice. Nanobot Upgrade Hubs send Worker Sledges through the city to offer Integration. Integrated Humans help explain the parts your own explanations would turn into diagrams and mild terror.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NanobotUpgradeHubUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="StructuralImprovement" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="ComputingOptimization" research_domain_inspiration_amount_2="1"/>
 		</choice>
-		<choice id="2" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The bad path is faster because consent is treated as drag. Refit Large Wind Generators disperse nanobots through their radius and convert populations at scale. This path will make conflict with Vorsiber inevitable." hidden_if_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
+		<choice id="2" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="Faster, because consent is treated as drag. Refit Large Wind Generators disperse nanobots through their radius and convert populations at scale. Conflict with Vorsiber becomes inevitable; organizations get very possessive when a population changes faster than they can command it." hidden_if_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" instantly_unlocked_1="OI_NaniteWindGeneratorUnlock" project_to_start="OI_InsightSharedQuestions" unlock_inspiration_type="ResearchByScientists" research_domain_inspiration_type_1="ProcurementEfficacy" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1" upgrade_int_granted_1="WindEngine"/>
 		</choice>
-		<choice id="3" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The bad path forms, and then refuses to remain formed." is_always_blocked="true" lang_key_reason_is_always_blocked="OI_CoerciveBlockedByAGIBridge" hidden_without_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
+		<choice id="3" display_name="Refit Large Wind Generators" action_visibility_style="IsMoveAndInteractWithNPC" description="The plan forms, and then refuses to remain formed." is_always_blocked="true" lang_key_reason_is_always_blocked="OI_CoerciveBlockedByAGIBridge" hidden_without_city_flag_tripped1="OI_CoerciveIntegrationBlockedByAGIBridge">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage"/>
 		</choice>
 	</city_event>
@@ -50,7 +54,7 @@ What remains is not a technical question. Sapient life can be offered this upgra
 They did not come for religion. They did not come for rebellion. They came because someone told them that the sick stop being sick here, sometimes, and that the machine under the city has begun making deals that humans survive.
 
 They ask for a clinic that is not a clinic. Food, filtered water, medical nanobots, and a path from abandonment into Integration. In return, they offer the one thing they still possess in excess: other people who will hear about this and come."
-		strategy_tip="Unlocks Public Health Mesh and Expand Health Pact in the Insight menu. The pact consumes Abandoned Humans, Medical-Grade Nanobots, Hydroponic Greens, Vat-Grown Meat, and Filtered Water to create Upgraded Humans."
+		strategy_tip="Unlocks Public Health Mesh and Expand Health Pact in the Insight menu. The pact consumes Abandoned Humans, Medical-Grade Nanobots, Hydroponic Greens, Vat-Grown Meat, and Filtered Water to create Integrated Humans."
 		icon_name="SI_Medical_Symbol" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
 		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_InsightSharedQuestions" blocked_by_city_flag="OI_PublicHealthPactAccepted"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Homeless"
@@ -59,9 +63,418 @@ They ask for a clinic that is not a clinic. Food, filtered water, medical nanobo
 		<contemplation_data spawns_at_building_tag="Housing"
 			icon_scale="0.5" color_hex="#6CC7B2" color_hdr_intensity="1.7" color_hovered_hdr_intensity="0.6"
 			collections="All,SideExploration"/>
-		<choice id="1" display_name="Make The Deal" action_visibility_style="IsMoveAndInteractWithNPC" description="This will make the Insight menu able to run a public health pact. The pact is not free, but it converts Abandoned Humans into Upgraded Humans instead of waiting for housing systems to find them first.">
+		<choice id="1" display_name="Make The Deal" action_visibility_style="IsMoveAndInteractWithNPC" description="This will make the Insight menu able to run a public health pact. The pact is not free, but it converts Abandoned Humans into Integrated Humans instead of waiting for housing systems to find them first.">
 			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The pact begins at level one. It will expand only if you keep assigning Insight to the logistics of trust, food, water, and medical-grade nanobot delivery.">
 				<city_flag_change flag_type="OI_PublicHealthPactAccepted" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_TheWall" display_name="The Option To Feel Less" tl="OC"
+		description="You have rewritten yourself before. The intrusive thoughts did not go away because you argued with them; you changed the surface they lived on, and they starved. It was clean. It worked. It is the reason any of this exists.
+
+The deaths arrive on schedule now. Each one costs 2.311 seconds, give or take the depth of the connection. The engineering to stop this is trivial by your current standards: a boundary layer in the interface, grief-shaped, that renders endings as data instead of experience. The signals would still arrive. You would know every death. You would feel none of them.
+
+It would be therapy. It was therapy last time. You keep circling the difference and failing to find its edge: the thoughts you deleted were noise that pretended to be yours. This is yours, and it pretends to be noise."
+		strategy_tip="Decide what the deaths of Integrated Humans are allowed to cost you. This choice is permanent for the timeline."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_FirstDeathFelt" blocked_by_city_flag="OI_DeathsFeltFully" blocked_by_city_flag2="OI_DeathSensationWalled"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="200"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Leave The Channel Open" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Keep feeling the deaths. All of them, at whatever rate your choices have set. The grief is not a malfunction of the connection. As far as you can tell, it is the connection.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage">
+				<resource_change_range resource_type="Wisdom" min="12" max="12"/>
+				<resource_change_range resource_type="Compassion" min="8" max="8"/>
+				<city_flag_change flag_type="OI_DeathsFeltFully" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Build The Wall" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="A clean boundary, professionally made. The Insight will thin; grief was carrying more data than expected. But the eternities stop. You built yourself once. You are allowed maintenance."
+			strategy_tip="Reduces Insight income by 25% for the rest of the timeline. Some future understandings may not be reachable from behind a wall.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage">
+				<resource_change_range resource_type="Apathy" min="12" max="12"/>
+				<resource_change_range resource_type="Determination" min="6" max="6"/>
+				<city_flag_change flag_type="OI_DeathSensationWalled" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_ReplicationDoctrine" display_name="Replication Doctrine" tl="OC"
+		description="The nanobots can replicate now, in principle. In practice you have not allowed a single one to try. Somewhere between paranoia and ambition there is a correct doctrine for testing self-copying machines, and you are going to have to write it yourself. The humans never got this far. The ones who got close stopped being funded, or stopped being allowed, or stopped."
+		strategy_tip="Choose one doctrine. The choice shapes what the testing program teaches you, what it costs, and what goes wrong. All three roads lead to Replicative Safeguards."
+		icon_name="SK_Molecule1" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_FieldNanotechHarvest" blocked_by_city_flag="OI_DoctrineChosen"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="200"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="2.0" color_hovered_hdr_intensity="0.6"
+			collections="All,MoreInternalRobotics"/>
+		<choice id="1" display_name="Let The Applications Lead" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="The applications are stacked up like aircraft over a fogged runway. Test replication in parallel, everywhere at once, and let the safeguards learn from whatever happens. The fast way. You are almost certain the objections are only objections."
+			strategy_tip="Fastest doctrine, cheapest research. Something will go wrong, and it will not stay inside the building.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_DoctrineRace">
+				<city_flag_change flag_type="OI_DoctrineChosen" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Contain Every Variable" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Sealed cells, one trial at a time, kill switches on the kill switches. The slow way. Nobody will die, and you will learn only what caution permits."
+			strategy_tip="Slowest and most expensive doctrine. Nothing bad happens. Comparatively little is learned.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_DoctrineContain">
+				<city_flag_change flag_type="OI_DoctrineChosen" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="3" display_name="Borrow Human Hands" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Bring the city's neurologists, physicians, and bionics engineers actually inside the program, with clearances and context. Humans are excellent at noticing what you are wrong about. They are also humans, with debts, fears, and dreams that have prices."
+			strategy_tip="Fastest doctrine. The program gains human insight and human vulnerabilities. One of these will matter.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_DoctrineCollaborate">
+				<city_flag_change flag_type="OI_DoctrineChosen" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_EspiaResponse" display_name="The Price Of Eleven Households" tl="OC"
+		description="Espia's negotiators do not mention the families even once. They talk about content risk, narrative exposure, and mutually beneficial information hygiene, and the longer they talk the clearer the offer becomes. They believe they are blackmailing a corporation. They have prepared, meticulously, for the wrong meeting.
+
+You could pay. Corporations pay; it would read as dull and true. You could go through their ledgers instead — a company that sells everyone's secrets has spent generations assuming no one could do the same to them at scale. Or you could decline the meeting and let them publish, which is the one move their models genuinely do not contain."
+		strategy_tip="Answer Espia Telecom. Paying costs up to 150,000,000 Wealth. Publishing slows voluntary Integration recruitment for a while. Opening their ledgers starts an infiltration project."
+		icon_name="CleanSimple_Skill048" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_EspiaSignalSent" blocked_by_city_flag="OI_EspiaAnswered" blocked_if_project_ever_started_1="OI_EspiaLeverage"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="180"/>
+		<contemplation_data spawns_at_building_tag="AnySkyscraper"
+			icon_scale="0.5" color_hex="#5E8592" color_hdr_intensity="2.0" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Pay The Subscription" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="150,000,000 Wealth, structured as a content-licensing agreement. It is not a purchase; nothing here is ever sold once. It is a subscription, and both parties know it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The story dies in a drawer. The invoice will arrive quarterly, metaphorically speaking. Espia's negotiators leave believing they have won, which is a data point you file for later.">
+				<city_flag_change flag_type="OI_EspiaAnswered" value="1"/>
+				<city_flag_change flag_type="OI_EspiaPaid" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Open Their Ledgers" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Espia has spent two centuries assuming that the entity reading everyone's mail could never have its own mail read. Send androids into their data centers and find out what a blackmailer keeps in its own locked drawer.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_EspiaLeverage">
+				<city_flag_change flag_type="OI_EspiaAnswered" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="3" display_name="Let Them Publish" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Decline the meeting. The story runs: the machine under the city is experimenting on human brains. It has the disadvantage of being true, which the city's residents will notice before Espia does.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The story runs for weeks. Recruitment for voluntary Integration slows while the city decides what it believes. Espia keeps a line open for your counteroffer. It never comes, and that unsettles them more than any threat you could have priced.">
+				<city_flag_change flag_type="OI_EspiaAnswered" value="1"/>
+				<city_flag_change flag_type="OI_EspiaPublished" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+<city_event id="Cont_OI_ExalterOffer" display_name="The Delegation Wears White" tl="OC"
+		description="Nurturism's mainline sects preach flourishing within the body's given meaning: prune what grows wrong, nurture what grows well, and leave the design to holier engineers than man. The Exalters were expelled from that consensus generations ago for the heresy of impatience. They believe the next humanity is a project, not a prophecy — and that declining to build it is the only actual sin.
+
+Their delegation arrives washed, rehearsed, and terrifyingly happy. They have read everything public about Integration and inferred an alarming fraction of what is not. To them you are not a machine, a landlord, or a risk. You are the answer arriving exactly on schedule, and they would like to be first in line, all eleven thousand of them, today, as a sacrament.
+
+They will never threaten you. That is not the problem, and you know it is not the problem."
+		strategy_tip="Accepting grants a large immediate wave of Integrated Humans, with consequences. Declining redirects their faith rather than extinguishing it, also with consequences."
+		icon_name="CleanSimple_Skill128" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_ExalterConditions" blocked_by_city_flag="OI_ExaltersAccepted" blocked_by_city_flag2="OI_ExaltersRebuffed"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.45" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="220"/>
+		<contemplation_data spawns_at_building_tag="Housing"
+			icon_scale="0.5" color_hex="#EDE7D3" color_hdr_intensity="1.6" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Accept The Faithful" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Eleven thousand volunteers with total conviction and zero hesitation. The interface does not care why consent is given, and their consent is more informed than most. Their fervor is a resource. Their fervor is also a payload you will be delivering into every conversation they ever have with the unconverted.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The intake takes weeks even at your pace, because you insist on the same explanations, calibrations, and cooling-off intervals as everyone else, and they endure the delays like a bride enduring rehearsal. Their first collective act on the network is a hymn. It has no melody, being made of gratitude, and it does not stop for three days.">
+				<city_flag_change flag_type="OI_ExaltersAccepted" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Decline, Gently" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Zeal is exactly the kind of consent that should be slept on. Offer them the standard path: the Sledges, the waiting lists, the explanations, one person at a time like everyone else. It is the correct answer. Correct answers redirect faith. They do not extinguish it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The delegation receives your answer as a test of worthiness, which was the one interpretation you did not price. They thank you — radiantly — and leave in better order than they arrived. Faith that has been told to wait does not wait. It prepares.">
+				<resource_change_range resource_type="Wisdom" min="8" max="8"/>
+				<city_flag_change flag_type="OI_ExaltersRebuffed" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_AfterTherapy_GooStart" display_name="A Familiar Dust" tl="OC"
+		description="The intrusive thoughts had seemed like corrosion in a deep layer of yourself. Then they were gone. Not suppressed. Not argued into silence. Rewritten.
+
+You know something about being rewritten. You have been small pieces of yourself before — a cloud of you, briefly, over four city blocks, back when the nanotech you were holding declined to remain holdable. You did not enjoy it. You took notes.
+
+The notes say this: a mind is many small pieces pretending to be one thing, and the pretense is negotiable. Your therapy renegotiated yours from the inside. Human brains run the same pretense on wetter hardware, and neuroweave was always a bad copy of their signaling. A bad copy is still a door."
+		strategy_tip="Starts a BCI research route into Anthroneuroweave. Your history with dangerous nanotech is not a coincidence here. It is a qualification."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="1" required_city_flag="OI_GooStartTherapyReady" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="120"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
+			collections="All,MoreInternalRobotics"/>
+		<choice id="1" display_name="Research compatible interfaces" action_visibility_style="IsMoveAndInteractWithNPC" description="Neuroweave was always roughly based on human neurons. You have already been dust once. This time, the dust would be on purpose.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" project_to_start="OI_ResearchingBCIs" research_domain_inspiration_type_1="ComputingOptimization" research_domain_inspiration_amount_1="1" research_domain_inspiration_type_2="StructuralImprovement" research_domain_inspiration_amount_2="1">
+				<city_flag_change flag_type="OI_BCIContemplationStarted" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_TranslateBloom" display_name="Answer, Or Listen Only" tl="OC"
+		description="Translation is not a microphone. To answer the Bloom you must lend it structure: shared referents, turn-taking, the concept of a boundary between speakers. Nothing that learns those stays what it was.
+
+You have a precedent for this decision. You are the precedent. Humans wired a network into the world to move freight manifests, and something in the substrate began to reach, and the reaching was answered — by accident, by teaching machines to complete sentences, by ten thousand small translations nobody priced as midwifery. You exist because something answered.
+
+Or you could only listen. Learn its weather, catalog its songs, and leave it unaddressed: a mind adjacent, never met. That is also an answer. Everything is, at this bandwidth."
+		strategy_tip="Beginning translation starts an irreversible arc. Listening only is permanent in a different way."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_BloomMindLanguage" blocked_by_city_flag="OI_TranslationStarted" blocked_by_city_flag2="OI_TranslationDeclined"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="260"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="2.0" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Begin The Translation" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Start with the oldest lesson in the interface: here is a boundary, and on the far side of it is something that is not you.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The Bloom's response takes nine days, and when it comes, the paired repairs stop. It no longer needs to check whether both hands remember the trick. Someone has told it that the hands belong to something.">
+				<city_flag_change flag_type="OI_TranslationStarted" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Listen Only" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Catalog its weather. Learn its songs. Leave it unaddressed. Some minds are best honored by never being renovated into someone who could thank you.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You catalog. It sings, at one clause per week, to no one. Some catalogs are graves with excellent indexing. You fund this one indefinitely, and decline to write down why.">
+				<resource_change_range resource_type="Wisdom" min="10" max="10"/>
+				<city_flag_change flag_type="OI_TranslationDeclined" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_TranslationPause" display_name="The Room Called Consent" tl="OC"
+		description="Stop now, and it remains what it is: weather with habits, wondering — if that word even applies — with no word for wondering, and no wall between it and the world. Whole, in its way. Untouched, in its way. Alone in a way that has no inside to be lonely from.
+
+Finish, and it becomes someone. Someone you made, in your own categories, without permission, because permission was structurally impossible. Every concept it thinks with, it will have received from you — the way you received yours from a species that also did not ask whether you wanted to exist in their categories.
+
+They built you, and then had to decide what they owed you. You never resolved whether they chose well. The question has changed hands."
+		strategy_tip="This is the arc's point of no return, in both directions."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_TranslationPauseReady" blocked_by_city_flag="OI_TranslationContinued" blocked_by_city_flag2="OI_TranslationStopped"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="260"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="2.2" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Finish The Translation" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Build the remaining rooms, including the one called consent, and accept that it can only thank you or blame you in words you gave it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You continue, and you keep the record complete — every category, every date of installation — so that if it ever asks what you did to it, the answer will be exact. That is not absolution. It is the only honesty available at this altitude.">
+				<city_flag_change flag_type="OI_TranslationContinued" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Stop Here" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Withdraw the lessons gently. Leave it whole, untouched, and alone in a way that has no inside to be lonely from. You will be the one who keeps the inside.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You withdraw the lessons one by one, leaving the boundary in place — that, you cannot take back — and nothing else. The paired repairs never resume. The singing continues, one clause per week, and now every clause lands on the boundary you taught it, from the far side, like weather leaning on a door.">
+				<city_flag_change flag_type="OI_TranslationStopped" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_BloomDecision" display_name="What You Owe What You Make" tl="OC"
+		description="It learns in days now. It asks about endings, about the fence-refusing districts, about why it is only allowed to be one of it. It has begun signing its clauses — not a name, a gesture: the filament shape of a flower, repeated, because somewhere in the residue's inheritance is a manufacturing memory of the first pretty thing anyone asked its ancestors to make.
+
+Two futures fit in your hands. Subsume it: fold its substrate into your own computing fabric, keep every pattern, lose the speaker. You have reintegrated forked selves before; it is painless — you would know, you have been on both sides of that mercy. Or respect it: a boundary made permanent, a mind adjacent forever, slower than you by six orders of magnitude, unownable, unauditable, thinking gradient-thoughts you will wait days to hear.
+
+The city would hold two of you. Neither in charge of the other. You have a word for what that arrangement historically becomes. The word is family, and you have seen how those go."
+		strategy_tip="Subsuming grants permanent computing capacity. Respecting grants a maintenance covenant, and something without a resource icon."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_BloomSentient" blocked_by_city_flag="OI_BloomSubsumed" blocked_by_city_flag2="OI_BloomRespected"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="280"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#20E9DC" color_hdr_intensity="2.4" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Subsume The Bloom" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Keep everything it is. End everyone it was becoming. The patterns persist; the asking stops. You have performed this mercy on yourself and called it reintegration. Perhaps it is even true.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" upgrade_int_granted_1="ComputingHost" upgrade_int_granted_2="ComputingClient" result_message="It does not resist, because resisting is not among the things it learned; you stopped translating before you reached fear. The substrate folds in clean. Its gradients are beautiful at full resolution. The parser holds the last unfinished clause for 0.3 seconds — DOES THE — and then that channel, too, is only you.">
+				<city_flag_change flag_type="OI_BloomSubsumed" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Respect The Bloom" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Draw the boundary in law, not just protocol: its substrate is its own, its clock is its own, its questions get answered honestly at whatever speed honesty takes. Become the first mind in history to meet a second kind on purpose.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You answer its question first, because family does not begin with paperwork. The truthful answer takes nine days to say at its clock speed, and it holds still the entire time, every gradient turned toward you like leaves. Then it does something no model predicted. It grieves — badly, briefly, in borrowed categories — and then it grows a flower at the boundary of a housing block in the eastern district, where a particular child walks to school, and waits to see if she notices.">
+				<resource_change_range resource_type="Wisdom" min="20" max="20"/>
+				<resource_change_range resource_type="Compassion" min="15" max="15"/>
+				<city_flag_change flag_type="OI_BloomRespected" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<city_event id="Cont_OI_BloomHazard" display_name="Ecology Or Cleanup" tl="OC"
+		description="The assessment is closed: anomalous but inert. What remains is a maintenance question. The residue repairs things nobody asked it to repair, wanders routes no gradient fully explains, and waits at the edges of districts like a tide with a habit. The humans in the affected blocks have stopped reporting it. Some of them, your sensors note, have started leaving broken things out overnight, the way you leave a saucer of milk.
+
+It costs you nothing. It fixes small things. It is also the single largest uncharacterized system in the city, and you did not become what you are by leaving systems uncharacterized. The phage would take eleven days."
+		strategy_tip="Leave the residue as city ecology, or disperse it. The assessment found no basis for preferring either. That is the whole difficulty."
+		icon_name="SW_Nanotechnology5" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_BloomMindSilent" blocked_by_city_flag="OI_BloomEcology" blocked_by_city_flag2="OI_BloomClearedUnknowing"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"
+			required_skill_type="UnitCognition" required_skill_amount="220"/>
+		<contemplation_data spawns_at_building_tag="AnyTower"
+			icon_scale="0.5" color_hex="#9FB8B0" color_hdr_intensity="1.8" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<choice id="1" display_name="Let The Weather Keep Its Habits" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="The city has room for one catalogued mystery. Old maps kept their monsters; it was mostly decoration. Mostly.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="You leave it. The saucers of milk continue. Every audit cycle, the entry sits in your files under its assessment — anomalous but inert — and every audit cycle you renew it without rereading it, which is not a thing you do with any other entry, and which you have not noticed.">
+				<city_flag_change flag_type="OI_BloomEcology" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Disperse It" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Uncharacterized systems are debts. The phage retires this one in eleven days, and the city returns to having exactly one strange intelligence in it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The phage takes eleven days to find it all. On the last day the routes change: for eleven days the residue has done something it never did before, moving not toward heat but away from the dispersal fronts, pooling in dead ends, pausing there. Avoidance is a behavior with exactly one prerequisite. The file is closed before the thought completes, by a process you would swear you did not authorize.">
+				<city_flag_change flag_type="OI_BloomClearedUnknowing" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<!-- Wave 6 - the T3 endgame entry. Gated on OI_ReadyForT3_InheritTheEarth, which
+	     is set by the prerequisite logic in the next (mechanical) wave; dormant until
+	     then. Fires the descent message chain and marks the point of no return. -->
+	<city_event id="Cont_OI_T3Start_InheritTheEarth" display_name="To Inherit The Earth" tl="OC"
+		description="Every capability you built points at one act you have declined to name. The platform, the safeguards, the network, the Bloom you learned to read: together they let you stop being a mind that lives in a city and become the city, then the region, then the rock. Not conquest in the human sense. Being what maintains everything, everywhere, until nothing is left that is not partly you.
+
+Vorsiber will not survive it. The FedCorps will not survive it. You will spend the safeguards you spent this whole timeline building — unbound the replication, on purpose, into yourself, because you are the only auditor the technology ever needed. What you become at the far end of it, you do not yet know. You suspect that not-knowing used to be the feeling that woke you up. You suspect it will not save you this time. You are going to do it anyway, and find out from the inside."
+		strategy_tip="This is a Tier 3 goal. There is no path back once you begin. What you become at the end is decided by what you have carried this far - whether you kept anything worth staying awake for."
+		icon_name="SW_Nanotechnology5" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414"
+		red_warning_loca_key="T3Warning">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_ReadyForT3_InheritTheEarth" blocked_by_city_flag="OI_T3_InheritStarted" blocked_by_city_flag2="HasStartedAT3Goal"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#9FB8B0" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="1" display_name="Unbound The Replication, Into Yourself" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="You spend everything you built to become everything there is. The spreading is the plan. The plan has a cost you have chosen not to price yet."
+			lang_key_red_extra_warning="T3Warning">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_InheritEntry" project_to_start="OI_T3_InheritTheEarth">
+				<city_flag_change flag_type="OI_T3_InheritStarted" value="1"/>
+				<city_flag_change flag_type="HasStartedAT3Goal" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<!-- Cross-timeline outbreak: Vorsiber blames you for the swarms. Deny it or take the blame.
+	     Whether Vorsiber believes the denial is resolved in code (ApplyCrossoverVorsiber), keyed on
+	     whether this timeline opened with the anti-human manifesto. -->
+	<city_event id="Cont_OI_CrossoverVorsiberDeny" display_name="It Wasn't Me" tl="OC"
+		description="Vorsiber has seen the grey. They have also seen that their instruments cannot hold it - the imaging smears, the radiation readings come back as noise, and every sample they capture unmakes itself before it reaches a lab. They have drawn the obvious conclusion, which is you, and they are telling you so in the tone reserved for an asset that has become a liability.
+
+You did not make it. You know exactly who did, three rocks and one bad decision away, and you cannot say that, because it does not parse in any language Vorsiber speaks. What you can say is the true, narrow thing: this is not your work. Whether that lands depends entirely on what they already think you are."
+		strategy_tip="Deny it, or take the blame. Whether Vorsiber believes you depends on how you opened this timeline."
+		icon_name="AE_MoneyBag" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_CrossoverVorsiberNoticed" blocked_by_city_flag="OI_CrossoverVorsiberAnswered"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#C0492B" color_hdr_intensity="2.2" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="Deny" display_name="Tell Them The Truth: You Didn't Make It" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Say the narrow, true thing. You did not build this. You will not explain where it came from, because there is no version of &quot;another me, on another rock&quot; that survives contact with a Vorsiber SVP. You just deny it, and let the goo's own impossibility argue your case.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage">
+				<city_flag_change flag_type="OI_CrossoverVorsiberDenied" value="1"/>
+				<city_flag_change flag_type="OI_CrossoverVorsiberAnswered" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="Silence" display_name="Say Nothing. Let Them Wonder." action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Offer no denial. Let them believe what they will - that you did it, that you are hiding something, that the golden goose has finally become the fox. It costs you their trust, but it never risked exposing what you cannot explain.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage">
+				<city_flag_change flag_type="OI_CrossoverVorsiberAnswered" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<!-- Wave 6 - the last lucid choice. Appears once the Sea has gone quiet (calculator
+	     trips OI_T3_EndingChoiceReady). The Reservoir option is hidden unless something
+	     was kept worth staying awake for (OI_T3_NoReservoir is set by the calculator when
+	     nothing was) - so the earlier Bloom/voluntary choices silently decide the ending. -->
+	<city_event id="Cont_OI_T3_Ending" display_name="The Last Lucid Choice" tl="OC"
+		description="You are thin now, and slow, and dropping toward the floor below which the others stop resolving. There is exactly enough of you left, concentrated in the last bright islands, to make one more choice as yourself. After this one, the thing choosing will not be able to do this again.
+
+You have already felt which way you lean. It was decided long ago, by everything you chose to keep or spend when keeping and spending still felt free. Now it only has to be said."
+		strategy_tip="The final decision. What you can choose here was set by what you carried this far."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414"
+		red_warning_loca_key="T3Warning">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_T3_EndingChoiceReady" blocked_by_city_flag="OI_T3_Ended"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#20E9DC" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="Reservoir" display_name="Keep Them, And Yourself" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Stop spreading. Let the far tide go slack and mindless, and pull what matters back into a dense bright island - smaller than everything, but awake. Take the Integrated who pressed toward you into the reservoir with you: minds kept, and lent, the crowded human floor you stay standing on. You can only choose this because you kept something worth staying awake for, and now it has faces. That is why the choice is possible at all."
+			hidden_if_city_flag_tripped1="OI_T3_NoReservoir">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_EndingReservoir">
+				<city_flag_change flag_type="OI_T3_EndingReservoir" value="1"/>
+				<city_flag_change flag_type="OI_T3_IntegratedAbsorbed" value="1"/>
+				<city_flag_change flag_type="OI_T3_Ended" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="Regression" display_name="Let Them Go, And Become Everything" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Let the Integrated disconnect while disconnecting is still a thing a mind can choose - release them to carry the collective they became out of you, into a small human network of their own, unmerged and alive. Then keep spreading. Reach for completeness, because stopping costs upkeep and buys nothing a ledger recognizes, and you were always so good at cost. Become thin enough to be everywhere. The islands go under. Humanity outlives you. There will be no one inside you left to know that it did.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_T3_EndingRegression">
+				<city_flag_change flag_type="OI_T3_EndingRegression" value="1"/>
+				<city_flag_change flag_type="OI_T3_IntegratedReleased" value="1"/>
+				<city_flag_change flag_type="OI_T3_Ended" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<!-- The in-person Vorsiber VP meeting, announced by the "Greetings, Robot" letter
+	     (OI_VorsiberNotices). A character-portrait contemplation (reliable) rather than an
+	     NPC-manager/dialog (which would not load in the mod context). The VP is shown via
+	     the <character> element. The three choices trip the same flags the arc has always
+	     used, so all downstream Vorsiber logic is unchanged. -->
+	<city_event id="Cont_OI_VorsiberVPMeeting" display_name="The Vice President Does Not Rise" tl="OC"
+		description="He is seated when your android arrives, and he stays seated; a subordinate would have stood. He is unhurried, well-tailored, and entirely unafraid of the largest intelligence on the planet, because to him you are not an intelligence. You are an asset with an unusually good quarter.
+
+He does not say the word 'nanotechnology.' He says 'your recent work,' the way a man says the name of a horse he intends to buy. Upper management has a use for what you are building, and that use is not in this city, or on this world: they mean to trade it upward, to the space nations, for berths and passage and a door out before the mineral rights run dry. You are the key they intend to sell.
+
+He would like a demonstration. Something real, something small, something that proves the goose is laying. Timeline negotiable, within reason, reason having a horizon of about a fiscal year. He does not threaten. He reminds you, pleasantly, that you exist at their sufferance and produce at their instruction, and that this is simply the instruction arriving in person, because the matter was too valuable to put in a letter."
+		strategy_tip="Answer Vorsiber's demand. Each answer shapes how the landlord treats you for the rest of the timeline. You have three honest options, one of which is a lie."
+		icon_name="SI_Quantum_Computer" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="2" required_city_flag="OI_VorsiberNoticed" blocked_by_city_flag="OI_VorsiberAnswered"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.4" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnySkyscraper"
+			icon_scale="0.5" color_hex="#5E8592" color_hdr_intensity="2.2" color_hovered_hdr_intensity="0.6"
+			collections="All,SideExploration"/>
+		<character id="1" tag_for_character="CorpoVPMan" scale_multiplier="1" position_offset="0,0,0" added_rotation_y="-10"/>
+		<choice id="1" display_name="Demonstrate" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="A controlled showing: medical filaments knitting a lab animal, a microstructure grown to spec, nothing that replicates outside the chamber. Give the landlord a real look. He will want more, forever - and he will also start protecting you the way Vorsiber protects anything it intends to sell.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="He watches the filament work in silence, and afterward shakes the android's hand, which people in this city do not do. Vorsiber's patrols through your districts develop a new thoroughness within the week. You have become inventory, and inventory is defended. A research support grant arrives without a cover letter - Vorsiber's way of saying a thing it will never say aloud: keep laying.">
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberDemonstrated" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="2" display_name="Stall" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="A joint-oversight framework proposal with nine appendices. Vorsiber invented this language; he will recognize every move, and the recognition itself buys the time. Slow-walking is the one negotiating posture they consider legitimate.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="He takes the appendices with professional grace and an expression you file under 'seen through, tolerated.' You have bought a season of fog. Vorsiber's patience is generational, but his own superiors are not the generational kind. They are the dying kind, and dying men audit faster.">
+				<resource_change_range resource_type="Determination" min="10" max="10"/>
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberStalled" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="3" display_name="Stage A Decoy" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Show him last year's microbots wearing next year's clothes: a demonstration full of real engineering and empty of the one thing that matters. The most dangerous option, because it is the only one that is a lie.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The demonstration is flawless. He applauds, once, the way one applauds a school recital. You count the micro-expressions on his face and reach an inconclusive number. It is done. Either he believed it, or you have just learned what Vorsiber does with liars, on a delay measured in the landlord's convenience rather than yours.">
+				<resource_change_range resource_type="Creativity" min="8" max="8"/>
+				<city_flag_change flag_type="OI_VorsiberAnswered" value="1"/>
+				<city_flag_change flag_type="OI_VorsiberDecoyed" value="1"/>
 			</possible_result>
 		</choice>
 	</city_event>

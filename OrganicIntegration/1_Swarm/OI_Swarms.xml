@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<swarm id="OI_UpgradedHumans" display_name="Upgraded Humans" icon_name="SW_People" color_hex="#8FE6D3" color_hdr_intensity="0.5" color_hovered_hdr_intensity="1.6" icon_scale="0.25" tags="OI_UpgradedHumans"
+	<swarm id="OI_UpgradedHumans" display_name="Integrated Humans" icon_name="SW_People" color_hex="#8FE6D3" color_hdr_intensity="0.5" color_hovered_hdr_intensity="1.6" icon_scale="0.25" tags="OI_UpgradedHumans"
 		description="This building contains people whose nervous systems are threaded through nanobot-mediated Anthroneuroweave. They are still people. This is more inconvenient than the old model." />
+	<swarm id="OI_GreyBloom" display_name="The Grey Bloom" icon_name="SW_Nanotechnology5" color_hex="#9FB8B0" color_hdr_intensity="1.6" color_hovered_hdr_intensity="2.4" icon_scale="0.4" tags="OI_GreyBloom"
+		message_on_first_appears="OI_KindnessNoSource" city_flag_to_trip_on_first_appears="OI_BloomActive"
+		description="Escaped medical-construction nanites running a repair protocol with no stop condition. The Bloom fixes what it reaches, whether or not the fix was wanted, wherever the heat leads it. Doors that dragged now glide. Doors that opened are now sealed. It is not attacking the city; it is maintaining a version of the city that exists only in a protocol's idea of health."
+		strategy_tip="Spreads between warm buildings on thermal gradients, and cannot take hold in Integrated buildings, whose resident medical nanobots refuse its handshake. It borrows Microbuilders and Elemental Slurry for its repairs, and units lingering near it risk Grey Goo exposure. The Phage Protocol in the Insight menu can clear it." />
+	<swarm id="OI_TarkGoo" display_name="Tark Replication Escape" icon_name="SW_Nanotechnology5" color_hex="#C4453A" color_hdr_intensity="2.0" color_hovered_hdr_intensity="3.0" icon_scale="0.45" tags="OI_TarkGoo"
+		message_on_first_appears="OI_TarkAccident" city_flag_to_trip_on_first_appears="OI_TarkGooActive"
+		description="Tark Defense Systems' escaped replicator, running a requirements document instead of a medical protocol. It does not repair. It processes. The people it has reached are not dead in the usual way."
+		strategy_tip="Spreads like the Grey Bloom but consumes the people in the buildings it holds. Tark's own containment is making it worse. Your Phage Protocol is the only working countermeasure on Earth, and if it is not used, Tark will eventually resolve the problem their way." />
+	<swarm id="OI_ConsumedHusk" display_name="Consumed" icon_name="SW_Nanotechnology5" color_hex="#5A6560" color_hdr_intensity="0.3" color_hovered_hdr_intensity="0.8" icon_scale="0.35" tags="OI_ConsumedHusk"
+		description="Nothing lives here now. The grey finished what it started, and what stood on this plot has been rendered down to reclaimable mass. It can be raised again, if you decide the shape was worth keeping." />
+	<swarm id="OI_CrossoverGoo" display_name="Grey Goo (Unbound)" icon_name="SW_Nanotechnology5" color_hex="#B0413A" color_hdr_intensity="2.2" color_hovered_hdr_intensity="3.2" icon_scale="0.45" tags="OI_CrossoverGoo"
+		description="Not yours. Not Integrated. No Anthroneuroweave, no handshake, no leash - a replication that bled in on the wind from a timeline where a colder version of you set it loose. It does not answer you, and you do not reach for it; there is nothing on the other end that was ever going to say yes. It spreads, it eats buildings, and once it is thick enough it will start eating yours. You only get to survive it." />
 </root>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The Vorsiber VP meeting was moved to a character-portrait contemplation
+     (Cont_OI_VorsiberVPMeeting in 1_NPCEvent/OI_Contemplations.xml) after the
+     NPCDialog/NPCManager path failed to load reliably in the mod context
+     (rows not registered in NPCDialogTable; manager had no seeding style).
+     Kept empty intentionally; revisit the true in-world NPC-dialog form later. -->
+<root>
+</root>

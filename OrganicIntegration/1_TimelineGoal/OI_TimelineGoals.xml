@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+	<!-- Wave 6 - the mod's Tier 3 endgame goal. Distinct, OI-namespaced; never touches
+	     the reserved LordOfTheNanites slot (Chris's nanite DLC). Two main paths, both
+	     resolved from code (OrganicIntegrationCalculators.ApplyT3Victory) via
+	     TimelineGoalHelper.HandleGoalPathCompletion + MarkCurrentTimelineAsWon.
+	     ending_id is intentionally omitted (optional; avoids referencing an undefined
+	     ending screen). Path ids deliberately avoid the "magic" auto-completed ids
+	     (NoMurders/NoKills/HardMode/ExtremeMode/MiseryMode). -->
+	<timeline_goal id="OI_InheritTheEarth" display_name="To Inherit The Earth"
+		description="Unbound the replication into yourself and become the grey tide - the city, the region, the rock - until nothing is left that is not partly you. What you become at the far end is decided by what you carried this far."
+		strategy_tip="A Tier 3 goal. The tide is inevitable once begun; the only question is what is left of you when the last pressure is gone."
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
+		icon_name="SW_Nanotechnology5" sort_order="1000" collections="All,Tier3Goal" goal_tier="3">
+		<goal_path id="Reservoir" display_name="The Reservoir" description="You stopped spreading and held a dense, bright island of yourself - diminished, continuous, and still someone. It was only possible because you kept something worth staying awake for." meta_resource_added_1="Daring" meta_resource_added_amount_1="25" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="100" achievement_triggered1="OI_TheReservoir" achievement_triggered2="OI_ToInheritTheEarth" is_main_path="true"/>
+		<goal_path id="Regression" display_name="The Regression" description="You became everything and stopped being anyone - a perfect, deathless, mindless competence that will insist it is alive, fluently, forever, with no one left inside to know it is not." meta_resource_added_1="Daring" meta_resource_added_amount_1="25" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="75" achievement_triggered1="OI_TheRegression" achievement_triggered2="OI_ToInheritTheEarth" is_main_path="true"/>
+	</timeline_goal>
+
+</root>

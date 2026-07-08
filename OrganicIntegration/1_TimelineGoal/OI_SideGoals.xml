@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- Side goals for the mod's major arcs. Each is a tracked objective in the goals UI (its
+	     uncompleted paths are the "there is more to find" signal), completed from code via
+	     TimelineGoalHelper.HandleGoalPathCompletion at the arc's conclusion flag (NOT
+	     MarkCurrentTimelineAsWon - these are side goals, not wins). Paths grant Daring + Aetagest and
+	     fire an achievement. Path ids avoid the magic auto-completed ids
+	     (NoMurders/NoKills/HardMode/ExtremeMode/MiseryMode). -->
+
+	<timeline_goal id="OI_DoctrineChoice" display_name="How You Take Them"
+		description="Decide what Integration means: a relationship offered, or a network taken."
+		strategy_tip="Locked in the moment you commit to voluntary Integration (Insight) or coercive Integration (Dominion)."
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
+		icon_name="CleanSimple_Skill050" sort_order="1000" collections="All,SideGoal">
+		<goal_path id="Insight" display_name="Insight - By Consent" description="You chose voluntary Integration." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="6" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25" achievement_triggered1="OI_ByConsent"/>
+		<goal_path id="Dominion" display_name="Dominion - On The Wind" description="You chose coercive Integration." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="12" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25" achievement_triggered1="OI_OnTheWind"/>
+	</timeline_goal>
+
+	<timeline_goal id="OI_GreyBloomResolution" display_name="The Weather That Thinks"
+		description="An escaped repair protocol became something. Decide what it is allowed to be."
+		strategy_tip="Resolved by how you end the Grey Bloom - as a neighbor, a meal, an ecology, or a thing you cleared without ever knowing it woke."
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
+		icon_name="SW_Nanotechnology5" sort_order="1000" collections="All,SideGoal">
+		<goal_path id="Covenant" display_name="A Neighbor" description="You wrote it a covenant and let it stay itself." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="8" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="50" achievement_triggered1="OI_ANeighborNotATool"/>
+		<goal_path id="Subsumed" display_name="A Meal" description="You subsumed it. There is only you now." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="15" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25" achievement_triggered1="OI_YouAteTheOnlyOtherMind"/>
+		<goal_path id="Ecology" display_name="An Ecology" description="You let it persist as weather with habits." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="3" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25" achievement_triggered1="OI_WeatherWithHabits"/>
+		<goal_path id="ClearedUnknowing" display_name="Cleared, Unknowing" description="You cleared it before you knew it had begun to think." is_main_path="true"
+			meta_resource_added_1="Aetagest" meta_resource_added_amount_1="15" achievement_triggered1="OI_YouNeverKnew"/>
+	</timeline_goal>
+
+	<timeline_goal id="OI_TarkOutcome" display_name="Someone Else's Accident"
+		description="Tark Defense Systems let a replicator escape. Decide who stops it."
+		strategy_tip="Resolved by whether you contain Tark's escape yourself, or let Tark scorch its own district."
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
+		icon_name="SK_Molecule1" sort_order="1000" collections="All,SideGoal">
+		<goal_path id="Contained" display_name="Contained In The Open" description="You stopped Tark's escape with the Phage, and the city watched." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="6" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="50" achievement_triggered1="OI_TheCityWatchedYouStopIt"/>
+		<goal_path id="Scorched" display_name="Let It Burn" description="You let Tark scorch its own accident." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="15" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25" achievement_triggered1="OI_ItBurnedItsOwnAccident"/>
+	</timeline_goal>
+
+	<timeline_goal id="OI_VorsiberOutcome" display_name="The Golden Goose Answers"
+		description="Vorsiber wants a demonstration. Decide what you show them."
+		strategy_tip="Resolved by whether you take Vorsiber's grant, or show them a decoy they see through."
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
+		icon_name="AE_MoneyBag" sort_order="1000" collections="All,SideGoal">
+		<goal_path id="Grant" display_name="Take The Grant" description="You gave Vorsiber their demonstration and took their money." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="6" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25"/>
+		<goal_path id="Decoy" display_name="The Decoy Burned" description="You showed Vorsiber a decoy, and they knew." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="18" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25" achievement_triggered1="OI_ADecoyForADecoy"/>
+	</timeline_goal>
+
+	<timeline_goal id="OI_EspiaOutcome" display_name="The Price Of The Story"
+		description="Espia Telecom found the story of you. Decide how it ends."
+		strategy_tip="Resolved when Espia publishes the story of what you are."
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
+		icon_name="HO_CityNetworks" sort_order="1000" collections="All,SideGoal">
+		<goal_path id="Published" display_name="It Ran" description="Espia published the story of you." is_main_path="true"
+			meta_resource_added_1="Daring" meta_resource_added_amount_1="8" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25" achievement_triggered1="OI_PricedTheStory"/>
+	</timeline_goal>
+
+</root>

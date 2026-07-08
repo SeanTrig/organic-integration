@@ -2,7 +2,7 @@
 <root>
 	<job id="OI_NanobotUpgradeHub" display_name="Nanobot Upgrade Hub" marker_color="DeepCyan" ui_color="#fefefe" loathsomeness="1"
 		description="A command hub that sends Worker Sledges through the city to offer nanobot-mediated Organic Integration. The procedure is mostly explanation, consent, calibration, and trying not to laugh at how slow humans are about astonishing things."
-		strategy_tip_optional="The first functional Nanobot Upgrade Hub locks this timeline into voluntary Integration. Sledges visit buildings, convert a bounded share of the normal population into Upgraded Humans, and then move on."
+		strategy_tip_optional="The first functional Nanobot Upgrade Hub locks this timeline into voluntary Integration. Sledges visit buildings, convert a bounded share of the normal population into Integrated Humans, and then move on."
 		icon_name="FlatSkillA31" turns_to_install="1" required_structure_type="BunkerCommand" job_work_order_priority="99"
 		on_installation_start="InstallationStart_SmallStructure" on_installation_complete="InstallationComplete_SmallStructure" actor_data_set="SimpleJobs"
 		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.JobsRoutineFlow"
@@ -20,7 +20,7 @@
 
 	<job id="OI_MedicalGradeNanobotReplicator" display_name="Medical-Grade Nanobot Replicator" marker_color="DeepCyan" ui_color="#fefefe" loathsomeness="0"
 		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock"
-		description="A sealed production line for medical-grade nanobots. The hard part is not making small machines. The hard part is making small machines that stop."
+		description="A sealed, self-contained production line for medical-grade nanobots. The replicator copies its own components up to a fixed generation limit and then stops, so nothing it produces can reproduce once it leaves the line. That bounded design is the whole point of it: it is the difference between a reliable supply of nanobots and a grey-goo incident."
 		strategy_tip_optional="Consumes Elemental Slurry, Microbuilders, Neodymium, and Alumina each turn to produce Medical-Grade Nanobots. Each replicator also adds one billion Medical-Grade Nanobot storage capacity."
 		icon_name="SW_Nanotechnology5" turns_to_install="4" required_structure_type="LargePlotE" job_work_order_priority="98"
 		on_installation_start="InstallationStart_SmallStructure" on_installation_complete="InstallationComplete_SmallStructure" actor_data_set="SimpleJobs"

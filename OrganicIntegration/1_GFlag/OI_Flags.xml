@@ -6,4 +6,116 @@
 	<city_flag id="OI_IntegrationCoerciveLocked" display_name="Coercive Integration chosen" has_no_code="true"/>
 	<city_flag id="OI_CoerciveIntegrationBlockedByAGIBridge" display_name="Coercive Integration blocked by AGI bridge" has_no_code="true"/>
 	<city_flag id="OI_PublicHealthPactAccepted" display_name="Organic Integration public health pact accepted" has_no_code="true"/>
+	<city_flag id="OI_DoctrineChosen" display_name="Replication Doctrine chosen" has_no_code="true"/>
+	<city_flag id="OI_DoctrineRushed" display_name="Replication Doctrine: applications led" has_no_code="true"/>
+	<city_flag id="OI_DoctrineContained" display_name="Replication Doctrine: every variable contained" has_no_code="true"/>
+	<city_flag id="OI_DoctrineCollaborative" display_name="Replication Doctrine: human hands borrowed" has_no_code="true"/>
+	<city_flag id="OI_GooLeakSeeded" display_name="1.4 kilograms unaccounted for" has_no_code="true"/>
+	<city_flag id="OI_SabotageDiscovered" display_name="Program sabotage traced to the exit visa trade" has_no_code="true"/>
+	<city_flag id="OI_FirstDeathFelt" display_name="First Integrated death felt through the interface" has_no_code="true"/>
+	<city_flag id="OI_DeathsFeltFully" display_name="The channel stays open" has_no_code="true"/>
+	<city_flag id="OI_DeathSensationWalled" display_name="Death sensation walled off" has_no_code="true"/>
+	<city_flag id="OI_BloomActive" display_name="The Grey Bloom has appeared" has_no_code="true"/>
+	<city_flag id="OI_BloomSpreadBeat" display_name="The Grey Bloom spread across districts" has_no_code="true"/>
+	<city_flag id="OI_BloomHandshakeBeat" display_name="The Grey Bloom repaired a player structure" has_no_code="true"/>
+	<city_flag id="OI_BloomEvolvedBeat" display_name="The Grey Bloom's mutation counters drifted" has_no_code="true"/>
+	<city_flag id="OI_BloomContainedOnce" display_name="The Grey Bloom was contained" has_no_code="true"/>
+	<city_flag id="OI_BloomResidueDormant" display_name="Grey Bloom residue remains, dormant" has_no_code="true"/>
+	<city_flag id="OI_BandwidthNoticeShown" display_name="Coordination bandwidth explained" has_no_code="true"/>
+	<city_flag id="OI_EspiaSignalSent" display_name="Espia Telecom priced the story" has_no_code="true"/>
+	<city_flag id="OI_EspiaAnswered" display_name="Espia Telecom has been answered" has_no_code="true"/>
+	<city_flag id="OI_EspiaPaid" display_name="Espia subscription paid" has_no_code="true"/>
+	<city_flag id="OI_EspiaPaidCharged" display_name="Espia subscription charged" has_no_code="true"/>
+	<city_flag id="OI_EspiaLeveraged" display_name="Espia's own ledgers copied" has_no_code="true"/>
+	<city_flag id="OI_EspiaPublished" display_name="Espia published the trial story" has_no_code="true"/>
+	<city_flag id="OI_VorsiberNoticed" display_name="Vorsiber requested a demonstration" has_no_code="true"/>
+	<city_flag id="OI_VorsiberAnswered" display_name="Vorsiber has been answered" has_no_code="true"/>
+	<city_flag id="OI_VorsiberDemonstrated" display_name="Vorsiber saw a real demonstration" has_no_code="true"/>
+	<city_flag id="OI_VorsiberGrantGiven" display_name="Vorsiber research grant received" has_no_code="true"/>
+	<city_flag id="OI_VorsiberStalled" display_name="Vorsiber was stalled with appendices" has_no_code="true"/>
+	<city_flag id="OI_VorsiberDecoyed" display_name="Vorsiber was shown a decoy" has_no_code="true"/>
+	<city_flag id="OI_VorsiberKnowsYouLied" display_name="Vorsiber knew the decoy was a decoy" has_no_code="true"/>
+	<city_flag id="OI_TarkProgramStarted" display_name="Tark crash replication program running" has_no_code="true"/>
+	<city_flag id="OI_TarkGooActive" display_name="Tark's replicator has escaped" has_no_code="true"/>
+	<city_flag id="OI_TarkGooContained" display_name="Tark's escape contained by the Phage" has_no_code="true"/>
+	<city_flag id="OI_PublicTrustEarned" display_name="The city watched you stop Tark's goo" has_no_code="true"/>
+	<city_flag id="OI_TarkScorchedDistrict" display_name="Tark burned its own accident" has_no_code="true"/>
+	<city_flag id="OI_IntegrationChosen" display_name="An Integration path is locked" has_no_code="true"/>
+	<city_flag id="OI_ExalterConditions" display_name="The Exalters have taken notice" has_no_code="true"/>
+	<city_flag id="OI_ExaltersAccepted" display_name="The Exalter faithful were accepted" has_no_code="true"/>
+	<city_flag id="OI_ExalterPopGranted" display_name="Exalter intake completed" has_no_code="true"/>
+	<city_flag id="OI_ExaltersRebuffed" display_name="The Exalters were gently declined" has_no_code="true"/>
+	<city_flag id="OI_ZealotProblemShown" display_name="The zealot problem surfaced" has_no_code="true"/>
+	<city_flag id="OI_UnlicensedCell" display_name="An unlicensed congregation is on the network" has_no_code="true"/>
+	<city_flag id="OI_UnlicensedPopGranted" display_name="Unlicensed integration counted" has_no_code="true"/>
+	<city_flag id="OI_BloomMindStirring" display_name="The residue is checking its hands" has_no_code="true"/>
+	<city_flag id="OI_BloomMindConfirmed" display_name="The Bloom is thinking in gradients" has_no_code="true"/>
+	<city_flag id="OI_BloomMindBranched" display_name="The Bloom question has been framed" has_no_code="true"/>
+	<city_flag id="OI_BloomMindLanguage" display_name="The Bloom's utterances parse" has_no_code="true"/>
+	<city_flag id="OI_BloomMindSilent" display_name="The Bloom remains weather with habits" has_no_code="true"/>
+	<city_flag id="OI_TranslationStarted" display_name="Translation begun" has_no_code="true"/>
+	<city_flag id="OI_TranslationDeclined" display_name="Listening only" has_no_code="true"/>
+	<city_flag id="OI_TranslationPauseReady" display_name="Translation is renovating the Bloom" has_no_code="true"/>
+	<city_flag id="OI_TranslationContinued" display_name="Translation finished" has_no_code="true"/>
+	<city_flag id="OI_TranslationStopped" display_name="Translation stopped at the boundary" has_no_code="true"/>
+	<city_flag id="OI_HalfTranslatedShown" display_name="The neighbor amendment made" has_no_code="true"/>
+	<city_flag id="OI_BloomSentient" display_name="The Bloom asked its first question" has_no_code="true"/>
+	<city_flag id="OI_BloomSubsumed" display_name="The Bloom was subsumed" has_no_code="true"/>
+	<city_flag id="OI_BloomRespected" display_name="The Bloom was respected" has_no_code="true"/>
+	<city_flag id="OI_WhatYouAteShown" display_name="The texture noticed" has_no_code="true"/>
+	<city_flag id="OI_CovenantShown" display_name="The covenant written" has_no_code="true"/>
+	<city_flag id="OI_BloomEcology" display_name="The weather keeps its habits" has_no_code="true"/>
+	<city_flag id="OI_BloomClearedUnknowing" display_name="The strange weather was dispersed" has_no_code="true"/>
+	<city_flag id="OI_BloomFragmentShown" display_name="A sentence arrived from nowhere" has_no_code="true"/>
+	<city_flag id="OI_FirstUnanswerableShown" display_name="The first unanswerable question" has_no_code="true"/>
+	<city_flag id="OI_GooStartTherapyReady" display_name="Goo-start therapy reflection available" has_no_code="true"/>
+	<city_flag id="OI_GooConversionShown" display_name="The grey goo turned its first mech" has_no_code="true"/>
+	<city_flag id="OI_FirstConsumptionShown" display_name="The tide consumed its first building" has_no_code="true"/>
+
+	<!-- Wave 6 - the T3 endgame "To Inherit The Earth" -->
+	<city_flag id="OI_ReadyForT3_InheritTheEarth" display_name="Ready for the grey-tide Tier 3 goal" has_no_code="true"/>
+	<city_flag id="OI_T3_InheritStarted" display_name="The grey-tide Tier 3 goal has begun" has_no_code="true"/>
+	<city_flag id="OI_T3_DescentBegun" display_name="Total victory reached; the descent has begun" has_no_code="true"/>
+	<city_flag id="OI_T3_KeptSomethingToStayAwakeFor" display_name="A thread worth staying awake for was carried this far" has_no_code="true"/>
+	<city_flag id="OI_T3_EndingReservoir" display_name="Ending: the Reservoir - diminished but continuous" has_no_code="true"/>
+	<city_flag id="OI_T3_EndingRegression" display_name="Ending: the Regression - competent, mindless, closed circle" has_no_code="true"/>
+	<city_flag id="OI_T3_FarmsShown" display_name="The grey tide reached the farms" has_no_code="true"/>
+	<city_flag id="OI_T3_ThermocyteShown" display_name="Thermocytes answered the glassing" has_no_code="true"/>
+	<city_flag id="OI_T3_FuzzShown" display_name="The first fuzziness set in" has_no_code="true"/>
+	<city_flag id="OI_T3_SeaQuietShown" display_name="The Black Sea went quiet" has_no_code="true"/>
+	<city_flag id="OI_T3_EndingChoiceReady" display_name="The last lucid choice is available" has_no_code="true"/>
+	<city_flag id="OI_T3_NoReservoir" display_name="Nothing was kept worth staying awake for" has_no_code="true"/>
+	<city_flag id="OI_T3_Ended" display_name="The grey-tide Tier 3 goal has resolved" has_no_code="true"/>
+	<city_flag id="OI_T3_VictoryDeclared" display_name="The grey-tide timeline victory has been recorded" has_no_code="true"/>
+	<city_flag id="OI_T3_VorsiberFollowShown" display_name="Vorsiber finally moved, and called down the fire" has_no_code="true"/>
+	<city_flag id="OI_T3_IntegratedFeelShown" display_name="The Integrated felt the descent and divided" has_no_code="true"/>
+	<city_flag id="OI_T3_IntegratedAbsorbed" display_name="The Integrated were kept, folded into the reservoir" has_no_code="true"/>
+	<city_flag id="OI_T3_IntegratedReleased" display_name="The Integrated were released to their own network" has_no_code="true"/>
+	<city_flag id="OI_T3_GlassingHit" display_name="The Space Nations bombardment arrived" has_no_code="true"/>
+	<city_flag id="OI_BlackSeaRememberedThisTimeline" display_name="This timeline perceived the Black Sea" has_no_code="true"/>
+
+	<!-- Cross-timeline Grey Goo outbreak (same-rock negative crossover). A timeline that built a
+	     Nanite Wind Generator publishes OI_NaniteWindGeneratorCrossover to the metagame via
+	     causes_crossover; same-rock siblings at Chapter 3+ get OI_GreyGooOutbreakIncoming tripped,
+	     and the calculator reacts. -->
+	<city_flag id="OI_NaniteWindGeneratorBuilt" display_name="This timeline set nanites loose on the wind" has_no_code="true" causes_crossover="OI_NaniteWindGeneratorCrossover"/>
+	<city_flag id="OI_GreyGooOutbreakIncoming" display_name="The wind carried something across the rock" has_no_code="true"/>
+	<city_flag id="OI_GreyGooOutbreakActive" display_name="An unbound Grey Goo outbreak is loose in the city" has_no_code="true"/>
+	<city_flag id="OI_GreyGooOutbreakShown" display_name="The outbreak announced itself" has_no_code="true"/>
+	<city_flag id="OI_CrossoverStacksShown" display_name="The unbound goo began eating your own structures" has_no_code="true"/>
+	<city_flag id="OI_CrossoverPhageResearching" display_name="Emergency Phage research underway" has_no_code="true"/>
+	<city_flag id="OI_CrossoverPhageReady" display_name="Emergency Phage is available" has_no_code="true"/>
+	<city_flag id="OI_GreyGooOutbreakBeaten" display_name="The unbound outbreak was cleared" has_no_code="true"/>
+	<city_flag id="OI_GreyGooOutbreakLost" display_name="The unbound outbreak was left to run" has_no_code="true"/>
+	<city_flag id="OI_NanobotRoundsRemembered" display_name="Nanobot Rounds recalled after mastering the Phage" has_no_code="true"/>
+	<city_flag id="OI_CrossoverVorsiberNoticed" display_name="Vorsiber noticed the unbound swarms" has_no_code="true"/>
+	<city_flag id="OI_CrossoverVorsiberAnswered" display_name="You have answered Vorsiber about the swarms" has_no_code="true"/>
+	<city_flag id="OI_CrossoverVorsiberDenied" display_name="You told Vorsiber you did not make the goo" has_no_code="true"/>
+	<city_flag id="OI_CrossoverVorsiberResolved" display_name="Vorsiber has decided whether to believe you" has_no_code="true"/>
+
+	<!-- Meta integration: one-time guards for code-awarded Aetagest. -->
+	<city_flag id="OI_AetaConversionCharged" display_name="First-conversion Aetagest awarded" has_no_code="true"/>
+	<city_flag id="OI_AetaBlackSeaCharged" display_name="Black Sea Aetagest awarded" has_no_code="true"/>
+	<city_flag id="OI_AetaOutbreakLostCharged" display_name="Outbreak-lost Aetagest awarded" has_no_code="true"/>
+	<city_flag id="OI_AetaOutbreakBeatenCharged" display_name="Outbreak-beaten Aetagest awarded" has_no_code="true"/>
 </root>

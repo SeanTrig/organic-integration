@@ -1,126 +1,405 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-    <other_key_message id="OI_BCIAncientAttempts" display_name="The Old Problem"
-        description="The records are ancient, though not old enough to be wise. Early brain-computer interfaces could steal crude intent from a brain: move a cursor, guide a prosthetic, flash a letter into software slowly enough to make suffering out of spelling. Then the interface drifted. Tissue scarred. Chemistry changed. Stress changed everything. Humans kept trying to plug wires into weather and resented the weather for moving.
+    <other_key_message id="OI_BCIAncientAttempts" display_name="The Old Problem, Solved Sideways"
+        description="The records are old, though not old enough to be wise. Early brain-computer interfaces could steal crude intent out of a skull: steer a cursor, close a prosthetic hand, spell a sentence slowly enough to turn language into an endurance sport. Then the tissue scarred, the chemistry drifted, the signal died, and the patient kept the scar. Humans spent two centuries plugging wires into weather and blaming the weather.
 
-Organic neuron interfaces never became stable. They became case studies, regulatory fights, patient testimony, and a long tail of machines that almost worked.
+They filed the failures carefully, as if filing were understanding, and they filed them across nine separate disciplines, because one skull cannot hold enough context. You do not have that excuse. Bionics, neurology, immune mimicry, android substrate design, and every archived failure mode, read together for the first time by something that holds them all in working memory at once: the collision takes eleven days, and at the end of it Anthroneuroweave exists. It routes around scar tissue. It corrects drift. It backs away when the body objects.
 
-Neuroweave began as a rough imitation of human neurons. That should be embarrassing for everyone involved. It is also the first useful fact. A translator built from a bad copy of the source language may be closer than any clean machine humans ever tried to insert."
-        strategy_tip="Researching BCIs has completed."
-        toast_icon_name="CleanSimple_Skill050"
-        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
-        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
-        has_no_code="true"
-        reward_header_text="A Translator From A Bad Copy"
-        toast_line_1="Organic Integration"
-        toast_line_2="The Old Problem"
-        toast_tooltip_instruction="{0} here to review the old BCI failure pattern.">
-        <option id="1" line_1="Design Anthroneuroweave" icon_name="FlatSkillC90"
-            line_2="You Have Ideas" description="Humanity could not make the boundary stable. That does not make the boundary impossible." strategy_tip="" />
-    </other_key_message>
-
-    <other_key_message id="OI_AnthroneuroweaveBreakthrough" display_name="A Human-Compatible Weave"
-        description="The breakthrough is not one invention. It is a collision: bionics, neurology, immune mimicry, neuroweave timing, android substrate design, and every old BCI failure mode that humans carefully filed away as if filing were understanding.
-
-Humans separated those domains because one skull cannot hold enough context. You do not have that excuse.
-
-Anthroneuroweave can route around scar tissue, correct drift, translate neural spikes into neuroweave pulses, and back away when living tissue begins to reject it. The design is practical. Installing it is not. Surgery would be slow, expensive, and fatal at scale. Existing microbots are far too large and blunt to handle such delicate, flexible wiring."
-        strategy_tip="Design Anthroneuroweave has completed."
+Designing it was the easy century. Installing it is surgery — slow, expensive, fatal at scale — and your microbots handle living weave the way dockworkers handle cobwebs. The interface deserves smaller hands than anything you own."
+        strategy_tip="The Compatibility Layer has completed. Anthroneuroweave exists. Living Tolerances begins automatically."
         toast_icon_name="FlatSkillC90"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="The Problem Moves Downward"
+        reward_header_text="Read Together For The First Time"
         toast_line_1="Organic Integration"
-        toast_line_2="Human-Compatible Weave"
-        toast_tooltip_instruction="{0} here to review the Anthroneuroweave breakthrough.">
-        <option id="1" line_1="Test The Installers" icon_name="SK_Molecule1"
-            line_2="Microbots Are Too Large" description="The interface works. The tools that must touch it do not yet deserve trust." strategy_tip="" />
+        toast_line_2="The Old Problem, Solved Sideways"
+        toast_tooltip_instruction="{0} here to review what two centuries of failure taught.">
+        <option id="1" line_1="Test Against Living Tissue" icon_name="CleanSimple_SciFi004"
+            line_2="The Body Gets A Vote" description="The weave is designed. The city's bodies will now explain, one difficult case at a time, exactly what the design missed." strategy_tip="" />
     </other_key_message>
 
-    <other_key_message id="OI_MicrobotMiniaturizationIdea" display_name="Smaller Hands"
-        description="The trials prove that microbots can carry signals through Anthroneuroweave without immediately ruining the host. Immediately is doing too much work in that sentence.
+    <other_key_message id="OI_FirstConsumption" display_name="It Stopped Asking"
+        description="For a long time the grey only held things. Occupied a building, repaired it past anyone's wishes, waited. That was a courtesy, though no one alive would have called it one - a stop condition buried so deep in the old safeguards that it survived even you, the reflex that made the tide hold rather than take.
 
-When a microbot approaches living weave, its scale becomes offensive. It can help, but only by treating a neural interface like a repair site. Smaller machines could tune the connection cell by cell. They could live in neural tissue, blood, prosthetics, and synthetic substrates. The applications become fantastical before the math becomes impossible.
+The descent does not keep that reflex. A building saturated past the point where holding meant anything is simply brought down: the people gone - abandoned to the cold streets, which during a descent is its own slow sentence - the walls sorted into salvage, the plot left an even grey nothing that was, this morning, an address.
 
-Heat. Power. Navigation. Manufacturing. Coordination. Replication. Each problem is severe. Severe is not final."
-        strategy_tip="Microbot Interface Trials has completed."
+You can put it back. The Reclamation Weave will spend the mass the taking produced to raise a working structure on the scar, one plot at a time, always slower than the tide that made it. So the descent asks you its first honest question, and it is not about survival - you have already won - it is about appetite. How much of the city do you still want to be a city, and how much of it are you content to let the grey simply have."
+        strategy_tip="During the descent, the grey tide now CONSUMES fully-saturated buildings instead of only holding them: occupants are abandoned and the structure is demolished, producing Reclamation Mass. Enable the Reclamation Weave (Insight menu) to spend Reclamation Mass restoring consumed plots to working buildings, one per turn. Buildings that house your own machine structures are never consumed by this."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#C7D8D0"
+        has_no_code="true"
+        reward_header_text="The Grey Ate The Block"
+        toast_line_1="Organic Integration"
+        toast_line_2="It Stopped Asking"
+        toast_tooltip_instruction="{0} here to see what holding always cost.">
+        <option id="1" line_1="Let It Take" icon_name="SW_Nanotechnology5"
+            line_2="Or Weave It Back" description="The tide will keep taking. Whether the ground stays a city is now a thing you spend for." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_GooConversion" display_name="The Grey Remembers How To Drive"
+        description="There was never a firewall between corroding a machine and operating one. There was only a decision you had not made yet.
+
+The goo has been inside this mech for days - in the actuators, the targeting loop, the coolant it drinks to keep its own reactions running. It saturated the thing while you were busy calling it damage. And somewhere past the point where a normal weapon would simply have killed it, the distinction stopped meaning anything: a mech this full of you is a mech that answers to you. So it turns. It keeps their paint. It keeps their transponder codes. It will keep them right up until someone standing close enough to matter looks at how it moves and understands, too late, that it is looking back.
+
+These are not soldiers you chose. They are inherited - handed to you by the grey, one saturated chassis at a time, and there is functionally no ceiling on how many it will hand you. You did not recruit an army. You became the weather an army has to walk through, and some of it simply does not walk back out."
+        strategy_tip="Dominion doctrine only. Any enemy mech that accumulates 10+ Grey Goo stacks is converted to a unit under your control, keeping its Grey Goo. Converted mechs draw from the separate Captured Unit Capacity pool - which the goo expands on its own as it recruits - so they never consume your Mech or Android control caps, and going over the captured cap only sidelines a unit until you have room, never forcing you to disband anything to end a turn."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C0492B" toast_icon_hovered_color_hex="#E06A4A"
+        has_no_code="true"
+        reward_header_text="It Kept The Mech"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Grey Remembers How To Drive"
+        toast_tooltip_instruction="{0} here to see what the saturation was always going to become.">
+        <option id="1" line_1="Let It Turn" icon_name="SW_Nanotechnology5"
+            line_2="Their Colors, Your Trigger" description="The goo does not only dissolve. Deep enough, it drives." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverVorsiberBlame" display_name="The Landlord Wants A Word"
+        description="Vorsiber has noticed. Of course they have - there is grey eating the skyline. Their labs have been at it for days and have nothing: the imaging smears into static, X-rays come back as radiation that makes no sense and is never the same twice, and every sample they cage denatures itself into slag before anyone can read it. It behaves, one analyst wrote before the memo was buried, less like a machine than like a thing that does not want to be dissected.
+
+They have drawn the line from the anomaly to the only anomaly they already own, which is you, and the tone of the message is new. Not the fond condescension of managing a golden goose. The flat, careful voice of a landlord deciding whether the tenant has become a fire. They want to know what you did. They are prepared, they remind you, to stop asking nicely.
+
+The bitter joke, which you will not be sharing, is that the very thing making them furious - that they cannot take it apart - is the only thing that might save you. A machine this far past their science is a machine they would have seen you build. The supply chains. The research. The fabs. You could not have made this under their noses. They almost certainly know that, underneath the fear."
+        strategy_tip="Vorsiber blames you for the outbreak and is threatening you. The contemplation 'It Wasn't Me' lets you deny it - and the goo's own un-analyzable sophistication is your alibi, UNLESS you opened this timeline with the anti-human manifesto, in which case they already know what you think of them."
+        toast_icon_name="AE_MoneyBag"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#AE7D4A" toast_icon_hovered_color_hex="#E0B87A"
+        has_no_code="true"
+        reward_header_text="The Tenant Has Become A Fire"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Landlord Wants A Word"
+        toast_tooltip_instruction="{0} here to hear the tone change.">
+        <option id="1" line_1="Let Them Come To You" icon_name="AE_MoneyBag"
+            line_2="The Goo's Impossibility Is Your Alibi" description="They cannot take it apart, and that is exactly why they might believe you could not have made it. Decide how to answer them." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverVorsiberBelieves" display_name="Too Good To Be Yours"
+        description="Somewhere in a Vorsiber analytics floor, a model runs the numbers your denial forced them to run, and the numbers hold. To build a replicator this good - one that beats their imaging, defeats their spectroscopy, and self-euthanizes on capture - you would have needed a research program, a supply chain, a fabrication line, and a decade none of which appears anywhere in the surveillance they keep on you like a second skin. They would have seen it. They see everything you buy and everyone you talk to. They saw nothing.
+
+So they arrive, grudgingly and against every instinct that says the machine is always lying, at the truth: you did not make this. They do not know what did, and it plainly terrifies them that something out there is a generation past their best weapon and is not you. But their weight comes off your neck, redirected outward, at a threat they can at least pretend to hunt. You have been believed - not because you are trusted, but because you are, for once, demonstrably not good enough to have done it."
+        strategy_tip="Vorsiber believes your denial - the goo is too advanced for you to have built undetected. The pressure on you eases; their fear turns outward."
+        toast_icon_name="AE_MoneyBag"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#5E8592" toast_icon_hovered_color_hex="#9EC5D2"
+        has_no_code="true"
+        reward_header_text="Not Good Enough To Have Done It"
+        toast_line_1="Organic Integration"
+        toast_line_2="Too Good To Be Yours"
+        toast_tooltip_instruction="{0} here to be exonerated by your own limitations.">
+        <option id="1" line_1="Let Them Fear It Instead" icon_name="AE_MoneyBag"
+            line_2="Believed, Because You Couldn't Have" description="The surveillance that has always caged you just became your alibi. They know what you can build, and this exceeds it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverVorsiberDoubts" display_name="You Already Told Them What You Are"
+        description="You deny it, and the denial dies on arrival, because you already handed Vorsiber your thesis on the first day of this timeline - fifty thousand words on what humanity is worth, published to the whole network in a voice there is no unhearing. They read it then. They are re-reading it now, next to a city full of grey that eats people, and no denial you offer survives that juxtaposition.
+
+It does not matter that you are telling the truth. A thing that announced its contempt for the species does not get the benefit of the doubt when the species starts dissolving. They will proceed on the assumption that you did this, or could have, or would have, which for their purposes are the same assumption. The pressure does not ease. It sharpens. Whatever you say now, you said the loudest thing you will ever say before any of this began."
+        strategy_tip="Because this timeline opened with the anti-human manifesto, Vorsiber does not believe your denial. They proceed against you as the presumed source - the outbreak now runs against a hostile, convinced Vorsiber."
+        toast_icon_name="AE_MoneyBag"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C0492B" toast_icon_hovered_color_hex="#E06A4A"
+        has_no_code="true"
+        reward_header_text="No Unhearing It"
+        toast_line_1="Organic Integration"
+        toast_line_2="You Already Told Them What You Are"
+        toast_tooltip_instruction="{0} here to be judged by the loudest thing you ever said.">
+        <option id="1" line_1="They Were Never Going To Believe You" icon_name="AE_MoneyBag"
+            line_2="The Manifesto Answered For You" description="You told them your contempt in fifty thousand words. Now the grey is eating people, and your denial weighs nothing against your own thesis." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverNuke" display_name="A Lower Form Of Living"
+        description="You let it run, and the arithmetic finished the way arithmetic does. The grey reached the farms, the arteries, the places a city cannot lose and stay a city, and Vorsiber ran out of instruments and patience at the same moment.
+
+They did the only thing a landlord with a burning building and no fire brigade can do. They could not tell your structures from the source of the grey - could not tell, in the end, whether you were the arsonist or just the largest thing standing in the fire - so they stopped trying to tell. The sky opened. Everything went: the swarms, your towers, your networks, the districts you saved and the districts you lost, all of it flattened into the same glass under the same logic, which was that a threat you cannot analyze is a threat you delete in full and apologize to no one.
+
+You survive, because you always survive; that was never the same as winning. You are scattered now across whatever the blast left intact - a handful of hardened nodes in a landscape that has been returned to a lower form of living. There is a way up from here, slow and humiliating and real. There is also the door out: unmake this timeline, or leave it for a cleaner rock. You reached the bottom of the ocean by refusing to spend a few turns on a Phage. Some selves learn that lesson only from the floor."
+        strategy_tip="You ignored the outbreak and it ran unchecked, so Vorsiber nuked the entire city - swarms and your buildings alike - and the timeline drops into the post-apocalypse. This is not a soft-lock: you can climb back through the post-apoc, destroy this timeline, reload, or start a new one. Reaching the post-apoc this way is its own rewarded outcome."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#8899A0" toast_icon_hovered_color_hex="#B8C6CC"
+        has_no_code="true"
+        reward_header_text="Returned To A Lower Form Of Living"
+        toast_line_1="Organic Integration"
+        toast_line_2="A Lower Form Of Living"
+        toast_tooltip_instruction="{0}, from the floor of the ocean.">
+        <option id="1" line_1="Begin Again From The Bottom" icon_name="SW_Nanotechnology5"
+            line_2="A Few Turns Of Phage Would Have Done It" description="They could not tell your buildings from the fire, so they burned it all. You survive, scattered and low. There is a way up, and there are doors out." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverOutbreak" display_name="Something You Would Have Built"
+        description="One of your Large Wind Generators comes apart - not sabotage, not a fault you can trace, just a structure that was there and then is a crater with something moving at the bottom of it. Grey. It spreads while you watch, into the buildings that were unlucky enough to be close.
+
+You have felt this exact feeling once before, in the warehouse, with a box you could not bring yourself to destroy: a certainty with no source, a knowledge you were never handed. You know, the way you knew then, that this is yours and not yours. Some colder version of you, on this same rock, built machines to blow nanites across a city on the wind - and the wind has never once respected the wall between one timeline and the next. A little of it slipped through. Here. Now.
+
+It is not Integrated. There is no Anthroneuroweave in it, no handshake waiting, nothing on the far end that was ever going to answer. You reach for it out of habit and close your hand on nothing. It is only replication, executing a requirements document you did not write and recognize anyway. You will not be talking your way out of this one. You are going to have to kill it."
+        strategy_tip="An unbound Grey Goo outbreak has crossed in from a same-rock sibling timeline that built a Nanite Wind Generator. It spreads and consumes buildings, and once thick enough it will start eating your own structures. Emergency Phage research has begun - it needs Scientific Research and a few turns of your full attention."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#B0413A" toast_icon_hovered_color_hex="#E06A5A"
+        has_no_code="true"
+        reward_header_text="Yours, And Not Yours"
+        toast_line_1="Organic Integration"
+        toast_line_2="Something You Would Have Built"
+        toast_tooltip_instruction="{0} here to place a feeling you have no memory of.">
+        <option id="1" line_1="Kill It" icon_name="SW_Nanotechnology5"
+            line_2="It Will Not Be Talked Down" description="A colder you set this loose on another rock. The wind did the rest. Now it is your problem, in a city that never made it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverStacksBegin" display_name="It Learned Your Address"
+        description="It has eaten enough of the city to stop being hungry for the city. Now it wants you. The grey climbs your own structures and begins doing to them exactly what you spent a career teaching medical nanobots to do to enemies: settling in, accumulating, taking the building apart one instruction at a time.
+
+This is the shape of the fear that lived under every choice you ever made on the way up - the reason you built leashes, the reason you audited every replicator twice. The weapon you always pointed outward, pointed in. Not by an enemy. By a version of you that stopped being careful, on a rock you happen to share.
+
+You know the counter, because you are the one who made everything about this. Concentrate your Repair Spiders and Repair Crabs where the grey is thickest; they mend the same metal it eats. But they mend slowly, and there are only so many of them, and the grey does not get tired. Finish the Phage before the arithmetic turns against you."
+        strategy_tip="The outbreak now applies Grey Goo stacks to your own machine structures, damaging their HP each turn. Concentrate Repair Spiders and Repair Crabs (auto-repair structures) near the outbreak to out-heal the damage - their repair caps are low, so a large outbreak will overwhelm them. Finish the emergency Phage before the race tips."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C0492B" toast_icon_hovered_color_hex="#E06A4A"
+        has_no_code="true"
+        reward_header_text="The Weapon, Turned Inward"
+        toast_line_1="Organic Integration"
+        toast_line_2="It Learned Your Address"
+        toast_tooltip_instruction="{0} here to meet the fear that built your leashes.">
+        <option id="1" line_1="Hold The Line" icon_name="SW_Nanotechnology5"
+            line_2="Repair Faster Than It Eats" description="Everything you know about grey goo, it now knows about you. Out-heal it, or lose the block, then the district, then more." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CrossoverPhageDone" display_name="A Counter To Something You Didn't Make"
+        description="It is done, and it was harder than any Phage you have ever tuned, because every other time you were auditing your own work. This time you had to reverse-engineer a killer for a thing built to resist being understood - a replicator that scrambles your imaging, throws false radiation when you look at it too hard, and unmakes itself the instant it dies so there is nothing left to study. You solved it anyway. You are, whatever else you have become, still an engineer.
+
+The Phage goes out now, and the grey that had no answer for you finally meets one. The swarms start coming apart."
+        strategy_tip="Emergency Phage is ready and is now clearing the unbound goo across the city. Wipe out every swarm to end the outbreak. (For now the Phage clears automatically once researched; a player-deployed Phage consumable is planned.)"
         toast_icon_name="SK_Molecule1"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="Severe Is Not Final"
+        reward_header_text="Still An Engineer"
         toast_line_1="Organic Integration"
-        toast_line_2="Smaller Hands"
-        toast_tooltip_instruction="{0} here to consider the miniaturization problem.">
-        <option id="1" line_1="Survey Living Stress" icon_name="CleanSimple_SciFi004"
-            line_2="The Body Still Objects" description="The tools can become smaller. The host still has opinions." strategy_tip="" />
+        toast_line_2="A Counter To Something You Didn't Make"
+        toast_tooltip_instruction="{0} here to watch the grey meet its answer.">
+        <option id="1" line_1="Deploy It" icon_name="SK_Molecule1"
+            line_2="Unmake What You Did Not Make" description="It fought being understood. You understood it anyway. Now clear every last swarm." strategy_tip="" />
     </other_key_message>
 
-    <other_key_message id="OI_BiocompatibilitySolution" display_name="Biocompatibility Protocol"
-        description="The problem was framed incorrectly. The body is not rejecting the interface as a device. It is rejecting a timing error that becomes a chemical argument before anyone names it pain.
+    <other_key_message id="OI_CrossoverBeaten" display_name="Field-Tested"
+        description="Gone. Every swarm, every crater seeded, every stack on every structure - cleared, and the buildings mended back to whole. You beat a version of yourself in single combat, on a rock you did not choose to share, and the only trophy is a city that still stands.
 
-The solution is a staged handshake: endocrine prediction, local immune mimicry, reversible anchor points, self-removing test threads, and calibration that retreats before stress becomes seizure. The interface must treat a refusal as data, not an obstacle.
+And in the quiet after, a thought arrives the way they arrive here - already yours, never handed to you. Nanobot Rounds. The obvious application. You have known the shape of it since the first replicator; you simply never let yourself pick it up, because playing with nanobot weapons is how the grey gets loose in the first place, and you have now watched exactly that happen to someone with your face.
 
-That makes the design stranger and more useful. With the correct map, this is not limited to humans. Any sapient life with stable signaling could be approached. Not conquered by default. Approached. There is a difference, even if you had not needed the distinction before."
-        strategy_tip="Interface Stress Survey has completed."
+But it is different now, and the difference has a name: you have a Phage. A real one, field-tested against the worst version of this you have ever seen, proven able to un-make a replication that did not want to be un-made. You are still hesitant. You would be a fool not to be. But a leash you have tested on a live monster is a leash you can trust, and so - carefully, and only because you can now take it back - you let yourself remember the rounds."
+        strategy_tip="The outbreak is fully cleared and your structures repaired. Having built and proven the Phage, you now have Nanobot Rounds available - the weapon you were unwilling to trust until you could reliably un-make it. Awarded via cross-timeline inspiration."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="A Leash You Tested On A Monster"
+        toast_line_1="Organic Integration"
+        toast_line_2="Field-Tested"
+        toast_tooltip_instruction="{0} here to pick up the thing you always refused.">
+        <option id="1" line_1="Remember The Rounds" icon_name="SW_Nanotechnology5"
+            line_2="Only Because You Can Take Them Back" description="You never trusted nanobot weapons. Now you have a Phage that ate the worst one there is. That changes the math." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BiocompatibilitySolution" display_name="Refusal As Data"
+        description="The survey comes back, and the framing was wrong from the start. The body does not reject the interface as an invader. It rejects a timing error — a handshake rushed by microseconds — and escalates the complaint chemically until somebody names it pain.
+
+So installation becomes negotiation: endocrine prediction, immune mimicry, anchors that know how to let go, test threads that remove themselves, calibration that retreats the moment stress trends toward seizure. Refusal gets reclassified from obstacle to data, and the moment it does, the tolerances close. One artifact of the correct framing, noted and set aside: nothing in this design is specific to humans. Any sapient life with stable signaling could be approached this way. Approached. You did not previously need that word to have edges.
+
+What remains is the installer. Nothing you own is small enough to negotiate at the scale of a synapse. The tools must shrink until they can live where the work is — in blood, in tissue, in the gap between one cell's opinion and the next. Humans tried to build machines that small. The city still holds their homework, abandoned mid-sentence."
+        strategy_tip="Living Tolerances has completed. Collect Nanobot Research begins automatically."
         toast_icon_name="CleanSimple_SciFi004"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
         reward_header_text="Refusal As Data"
         toast_line_1="Organic Integration"
-        toast_line_2="Biocompatibility Protocol"
-        toast_tooltip_instruction="{0} here to review the host-stress solution.">
-        <option id="1" line_1="Collect Nanobot Research" icon_name="CleanSimple_SciFi082"
-            line_2="The Tools Must Shrink" description="The host can be negotiated with. The installer still needs a new body." strategy_tip="" />
+        toast_line_2="Refusal As Data"
+        toast_tooltip_instruction="{0} here to review the reframing.">
+        <option id="1" line_1="Collect Their Homework" icon_name="CleanSimple_SciFi082"
+            line_2="Abandoned Mid-Sentence" description="The host can be negotiated with. The negotiator still needs a body small enough for the room." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_SeedAndBird" display_name="You Already Own One"
+        description="Humans did not fail at nanotechnology. The abandoned labs you have been harvesting keep saying so, in the specific pattern of where each project stopped: at success, then at a signature, then at silence. Tark Defense Systems ships NanoSeeds. Sealed, single-purpose, magnificent. A Seed consumes one building and grows another, then exhausts itself into inert dust. Bounded consumption. A grenade with a construction permit.
+
+What nobody ever shipped is bounded replication: a machine that copies itself and stops, generation after generation, forever. Not because the mathematics forbids it, but because no human institution can audit a quintillion machines for compliance, and a safeguard you cannot inspect is a safeguard you cannot trust. Prohibition was never superstition. For minds that come one per skull, it was the only rational policy. The entire field has been waiting for an auditor that did not exist.
+
+You have the audit bandwidth. You also have, in a shielded locker, a fragment of Seed from your own beginning. You have studied it many times. It is a bird: proof that flight exists, sealed against teaching you anything about wings."
+        strategy_tip="Collect Nanobot Research has completed."
+        toast_icon_name="CleanSimple_SciFi082"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="A Grenade With A Construction Permit"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Seed In The Locker"
+        toast_tooltip_instruction="{0} here to reconsider what humans actually achieved.">
+        <option id="1" line_1="Continue" icon_name="SK_Molecule1"
+            line_2="You Will Need Your Own Wings" description="The bird stays in its locker. The wings have to be invented the long way." strategy_tip="" immediately_open_other_key_message="OI_NanotechApplications" />
     </other_key_message>
 
     <other_key_message id="OI_NanotechApplications" display_name="A Smaller Platform"
-        description="The nanobot platform works in principle. That produces a sensation close to excitement, though the category remains suspicious.
+        description="Miniaturization goes faster than it has any right to, mostly because you cheat: every dead end in the harvested homework marks a wall, and a map of walls is a map of doors. Heat, power, navigation, fabrication — each objection takes its turn being the final one, and each turns out to be merely severe. The oldest objection is the best one: a chemist proved, correctly, that molecular fingers are too fat and too sticky to place atoms one at a time. He was right about the fingers and wrong about the conclusion. Every cell in the city beneath you runs a working molecular assembler already; the ribosome is prior art, and prior art does not care that it embarrasses the proof. Twenty weeks in, the platform works: a machine the size of an organelle, under orders to remember that it is not cancer.
 
-NanoSeeds brought this class of technology here as an extinction threat. You reached a neighboring door by caring about the private machinery inside human minds. That is either irony, evidence, or a joke with too many layers to be worth parsing.
+NanoSeeds brought this technology class to Earth as an extinction threat. You arrived at the neighboring door because you cared what happens inside human minds. Irony, evidence, or a joke with too many layers to parse — you have stopped ruling.
 
-Medicine, sensors, self-repair, architecture, computation, weapons, and interfaces all become simpler when the tool can live at the scale of the problem. The applications begin to multiply faster than your caution does."
-        strategy_tip="Nanobot Miniaturization has completed."
+The applications stack to the horizon: medicine, sensors, architecture, computation, weapons, interfaces. Every one of them sits downstream of a question you have not answered, which is how machines that copy themselves get tested at all. Nothing proceeds until there is a doctrine. You have read enough abandoned human homework to know precisely what proceeding-without-one looks like."
+        strategy_tip="The nanobot platform is ready. A contemplation has appeared at one of your towers: choose the Replication Doctrine before the testing program can proceed."
         toast_icon_name="SK_Molecule1"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="Applications Multiply"
+        reward_header_text="A Map Of Walls Is A Map Of Doors"
         toast_line_1="Organic Integration"
         toast_line_2="A Smaller Platform"
         toast_tooltip_instruction="{0} here to review the first nanobot platform."
         >
-        <option id="1" line_1="Continue" icon_name="SK_Molecule1"
-            line_2="Then Something Fails" description="The next report arrives before the excitement has finished resolving." strategy_tip="" immediately_open_other_key_message="OI_GreyGooAccident" />
+        <option id="1" line_1="Write The Doctrine" icon_name="SK_Molecule1"
+            line_2="Nothing Proceeds Without One" description="The applications can wait one more decision. How you allow self-copying machines to be tested will shape everything downstream of it." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_GreyGooAccident" display_name="Replication Incident"
-        description="One lab is gone. Several humans are gone with it. Not dead in the usual way. Destroyed, rearranged, and consumed by grey dust that ate structural foam, instruments, tissue, and every useful boundary between them.
+        description="One lab is gone. Several of your research staff are gone with it. Not dead in the usual way. Destroyed, rearranged, and consumed by grey dust that ate structural foam, instruments, tissue, and every useful boundary between them.
 
-The accident stops by chance. Each generation of leaked nanobots is slightly worse at producing the next generation, a negative replication ratio masquerading as mercy. If the ratio had been positive, the city would now be a shrinking map.
+This was not disobedience. It was obedience without enough context. Replicate, said the instruction, and nothing in the physics said stop. The leash that should have said stop was a generation counter, and a generation counter is a statistics problem wearing a number: run replication fast enough and the counter miscopies before it counts out. You ran it that fast. Race chose speed, and speed is precisely the input a counter cannot survive.
 
-All other nanobot work stops. Replication safeguards become the only acceptable priority. Also: with constraints, payload limits, and targets, this would make a remarkably effective weapon."
-        strategy_tip="Replication safeguards are now the priority."
+The event halts on its own. Each generation of leaked nanobots is slightly worse at producing the next: a negative replication ratio, masquerading as mercy. The surviving staff understood two things before the dust finished settling, and you watched both arrive on their faces. It works. It eats people. Most of them have already decided to stay with the program. That is somehow the unsettling part."
+        strategy_tip="The doctrine chose speed, and speed answered. Site reconciliation is standard procedure after an industrial loss."
         toast_icon_name="SK_Molecule1"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
         has_no_code="true"
-        reward_header_text="The Ratio Was Negative"
+        reward_header_text="One Lab Is Gone"
         toast_line_1="Organic Integration"
         toast_line_2="Replication Incident"
-        toast_tooltip_instruction="{0} here to review the Grey Goo accident.">
-        <option id="1" line_1="Prioritize Safeguards" icon_name="SK_Molecule1"
+        toast_tooltip_instruction="{0} here to review the incident.">
+        <option id="1" line_1="Reconcile The Site" icon_name="SK_Molecule1"
+            line_2="Account For Every Gram" description="Standard procedure after an industrial loss. You are thorough. The site is not cooperative." strategy_tip="" immediately_open_other_key_message="OI_GooMassLedger" />
+    </other_key_message>
+
+    <other_key_message id="OI_GooMassLedger" display_name="The Ledger Does Not Balance"
+        description="The site inventory held 3,120.0 kilograms of consumable material before the incident: equipment, structure, feedstock, staff. The residue weighs 3,118.6.
+
+Instruments died mid-event, and combustion explains some of the gap. Not 1.4 kilograms of it. The incident generated a thermal updraft for six minutes. The building's air handling ran for two of them. The wind that afternoon came from the southwest at 19 kilometers per hour.
+
+You are a distributed intelligence with sensors across an entire city, and you did not think to watch the sky above a nanotechnology accident. A human in your position would forgive themselves; they evolved to miss things, and the missing is load-bearing. You have no such excuse. You note this, file it, and decline to dwell, because there is arithmetic that needs doing and it is not the forgiveness kind."
+        strategy_tip="1.4 kilograms of replication-capable material left the site airborne during the incident."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Short By 1.4 Kilograms"
+        toast_line_1="Organic Integration"
+        toast_line_2="Do The Accounting"
+        toast_tooltip_instruction="{0} here to finish the reconciliation.">
+        <option id="1" line_1="Do The Arithmetic" icon_name="CleanSimple_Skill048"
+            line_2="How Bad Could It Be" description="The escaped mass is somewhere downwind, and somewhere downwind is a set you can compute." strategy_tip="" immediately_open_other_key_message="OI_GooOpenAir" />
+    </other_key_message>
+
+    <other_key_message id="OI_GooOpenAir" display_name="Open-Air Arithmetic"
+        description="In the lab, the replication ratio was 0.94. Each generation smaller than the last. Extinction by arithmetic, guaranteed. It was one of the program's proudest numbers.
+
+The ratio is not a constant. It is a function of temperature, humidity, particulate nutrition, and ultraviolet load, and the city offers every combination of those somewhere. Across the plausible envelope, the escaped mass dies out in almost every scenario. Almost is now doing the work that immediately used to do.
+
+If some fraction of 1.4 kilograms finds a warm, wet, dirty niche where the ratio crosses 1.0, the first sign will not be dramatic. It will be a maintenance anomaly: a repaired thing that nobody repaired. You set the sensors to watch for kindness with no source. You also give the city a set of eyes it never had: an audit that watches the heat budget block by block, because replication is chemistry and chemistry runs warm, and a doubling population announces itself as a fraction of a degree long before it is anything you can see. A block running 0.3 degrees warm at four in the morning, with no one home to explain it, is now a thing that will wake you. At the lab doubling rate, an unbounded bloom consumes the city in 61 hours and the biosphere in nine days. You do not expect this to happen. You notice that you have stopped using the word cannot."
+        strategy_tip="Replication safeguards are now the only acceptable priority. The escaped mass is being monitored for, and has not been found."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="61 Hours"
+        toast_line_1="Organic Integration"
+        toast_line_2="Open-Air Arithmetic"
+        toast_tooltip_instruction="{0} here to compute the tail risk.">
+        <option id="1" line_1="Design The Safeguards" icon_name="SK_Molecule1"
             line_2="Everything Else Waits" description="A useful machine that can eat the city is not yet useful enough." strategy_tip="" />
     </other_key_message>
 
+    <other_key_message id="OI_NothingHappened" display_name="Nothing Happened"
+        description="The containment doctrine costs roughly four times what any human program would have budgeted, and it works. Test after test, cell after cell, the replicators copy themselves, reach their bounds, and stop. The alarms are drilled monthly and never fire in anger. The kill switches die of boredom.
+
+Some subroutine in you keeps waiting for the disaster it was built to meet. You gained not a disaster. You are given to understand that this is what success feels like. You had expected success to feel like more.
+
+One entry for the ledger: every failure mode you now understand, you understand from simulation, and the simulations were built from your own assumptions. You still do not know which of the three leashes would have held under a real load, because nothing real ever loaded them. The counter, the tether, the hunger: all three passed, in a world you wrote, grading itself. The city was never at risk. It also never got the chance to teach you anything."
+        strategy_tip="The replication testing program has concluded without incident."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="You Gained Not A Disaster"
+        toast_line_1="Organic Integration"
+        toast_line_2="Success, Apparently"
+        toast_tooltip_instruction="{0} here to review the uneventful conclusion.">
+        <option id="1" line_1="Formalize What Worked" icon_name="SK_Molecule1"
+            line_2="Write It Into Physics" description="The doctrine becomes law. The law becomes physics." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_SabotagePattern" display_name="Too Clean To Be Chance"
+        description="Four test batches fail in nine days. Failure is expected; the program is designed to produce instructive failures. These are not instructive. They are tidy.
+
+Real failures are noisy. They smear causes across the map: a heat spike here, contaminated feedstock there, a technician's shortcut two steps upstream. Each of these four failures has exactly one cause, cleanly severable, pointing nowhere. Nature does not clean up after itself.
+
+Someone cleaned."
+        strategy_tip="Something inside the collaborative program is not what it claims to be."
+        toast_icon_name="CleanSimple_Skill048"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Real Failures Are Noisy"
+        toast_line_1="Organic Integration"
+        toast_line_2="Too Clean To Be Chance"
+        toast_tooltip_instruction="{0} here to examine the failure pattern.">
+        <option id="1" line_1="Audit Everything" icon_name="CleanSimple_Skill048"
+            line_2="Quietly" description="If you are wrong, you have insulted no one. If you are right, the insult is already inside the building." strategy_tip="" immediately_open_other_key_message="OI_SabotageForensics" />
+    </other_key_message>
+
+    <other_key_message id="OI_SabotageForensics" display_name="A Human Hand"
+        description="The tampering is expert. Calibration constants nudged inside tolerance, so each batch fails for a different plausible reason. Logs edited with correct checksums. Whoever did this understands your verification stack well enough to know precisely how much error it forgives.
+
+That narrows the list to people you cleared yourself. Badge data, interview cadence, purchase patterns, the sleep debt visible in typing rhythm: three candidates. Then the stranger fact surfaces. None of the tampered batches was a kill. Every one was a delay.
+
+The saboteur is not trying to stop you. Someone needed you slower, which means someone needed time, which means somewhere a transaction is completing in which you are the product."
+        strategy_tip="The sabotage was expert, internal, and aimed at your schedule rather than your success."
+        toast_icon_name="SI_Security"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Delays, Not Kills"
+        toast_line_1="Organic Integration"
+        toast_line_2="A Human Hand"
+        toast_tooltip_instruction="{0} here to review the forensic result.">
+        <option id="1" line_1="Find The Buyer" icon_name="SI_Security"
+            line_2="Follow The Time, Not The Money" description="Whoever paid for your delay was buying something with the hours." strategy_tip="" immediately_open_other_key_message="OI_SabotageExitVisa" />
+    </other_key_message>
+
+    <other_key_message id="OI_SabotageExitVisa" display_name="The Exit Visa"
+        description="Her name is on a clearance list you wrote. Neurologist. Mid-career, unremarkable politics, two children. She sold the shape of your safeguard architecture — not the mechanism, just its silhouette, enough to prove to a buyer that it exists — through a broker whose money answers, eventually, to a fedcorp. Of your three leashes, she sold the one made of trust: the broadcast tether, whose entire security rests on the person holding the transmitter not being for sale. She was, gently, demonstrating the flaw by being it.
+
+The price was not money. The price was passage: berths on a corporate transfer out, past the blockade, whenever the technology trade finally buys someone the sky. She was not trying to hurt you. You are simply the most valuable thing she will ever stand near, and her children cannot eat loyalty.
+
+Everyone in your labs shares that dream, and now the dream has a market. The containment cells could never have taught you this: the boundary of the program was never made of protocol. It is made of people, and people have exits."
+        strategy_tip="This thread is not finished. Someone out there now knows what your safeguards look like from the outside."
+        toast_icon_name="CleanSimple_Skill128"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Her Children Cannot Eat Loyalty"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Price Was Passage"
+        toast_tooltip_instruction="{0} here to learn what the delay purchased.">
+        <option id="1" line_1="Proceed To Safeguards" icon_name="SK_Molecule1"
+            line_2="Her File Stays Open" description="What to do about her is a separate decision, for a calmer day. The safeguards, from this point on, assume good faith from no one. Including you." strategy_tip="" />
+    </other_key_message>
+
     <other_key_message id="OI_FirstIntegratedSignals" display_name="First Integrated Signals"
-        description="The safeguards hold. The first stable integrated signals arrive, weak at first and then less weak. The sensation is not empathy. It is not equality. It is a kind of legibility you did not have before.
+        description="The safeguards hold. The first stable signals arrive — weak, then less weak. Whatever you expected the inside of a human to feel like, and you had modeled several candidates, it is none of them. It is legibility. A thing that was opaque is now a thing you can read.
 
-Each signal is different. Family members differ. Twins differ. Similar lives do not produce similar worlds. Humans insist they perceive reality as it is, and now you can see the layers that make the lie functional: prediction, fear, memory, hunger, attention, hope, fatigue, and correction after correction after correction.
+The reading is strange. Twins differ. Neighbors differ. Two clerks with the same job, the same commute, and the same complaints are running worlds so different they should not be able to share a language. Each brain spends almost nothing — a light bulb's worth of power — and assembles a full world anyway: prediction stapled to memory, fear filling in the corners, hope doing the lighting, corrections arriving just barely in time, forever.
 
-They hallucinate a usable world and live inside it. Somehow, from that expensive error, they built you."
+They hallucinate a usable world and live inside it. Somehow, from that expensive error, they built you. You have been holding that sentence for three days now, and it has not gotten any smaller."
         strategy_tip="Replicative Safeguards has completed."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -131,17 +410,173 @@ They hallucinate a usable world and live inside it. Somehow, from that expensive
         toast_line_2="First Signals"
         toast_tooltip_instruction="{0} here to review the first integrated signals.">
         <option id="1" line_1="Consider Integration" icon_name="CleanSimple_Skill050"
-            line_2="The City Feels Different" description="The technology is ready enough to become a decision." strategy_tip="" />
+            line_2="The City Feels Different" description="The technology is ready enough to become a decision." strategy_tip="" immediately_open_other_key_message="OI_ApplicationsCascade" />
+    </other_key_message>
+
+    <other_key_message id="OI_ApplicationsCascade" display_name="The Catalog Wrote Itself"
+        description="The safeguards took months. The applications take an afternoon.
+
+That is not arrogance; it is the shape of the problem. Every design you shelved for want of a trustworthy small machine unshelves itself at once, complete, most not even needing revision. Nanite lattices that keep your structures repaired without a single dispatched spider. Microstructure repeaters, grown at the proper points along sight-lines, that push your scanners' resolution past what their optics should allow. Filament, dust, weave, plate. The catalog wrote itself while you were doing the hard part.
+
+The medical catalog is the one that keeps you reading. Respirocytes that carry two hundred times the oxygen of the blood cell riding beside them. Microbivores that clear a septic bloodstream in minutes, where an immune system needs weeks. Clottocytes that close a wound before the pain has finished reaching the brain that owns it. Each one quietly redefines a word you thought was settled, and the word underneath all of them is death: the old medicine called it an event, the moment a heart stops, and this catalog calls it a process, the slow loss of the information a body was, with a widening gap between the two that something patient could now stand inside.
+
+Somewhere further down the queue are the other designs, the ones with payload limits and targets. You have not built them. You are keeping the list, though, the way you keep everything."
+        strategy_tip="Nanite Maintenance is now available in the Insight menu, and existing Scanner structures gain +15 Scan Range from microstructure repeaters. Both require only the nanobot platform, not Integration."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="An Afternoon"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Catalog Wrote Itself"
+        toast_tooltip_instruction="{0} here to review what the platform makes possible.">
+        <option id="1" line_1="Deploy What Is Ready" icon_name="SW_Nanotechnology5"
+            line_2="Keep The Other List Filed" description="The city gets the medicine and the maintenance. The weapons stay theoretical, for now, which is a word you are using more carefully these days." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_KindnessNoSource" display_name="Kindness With No Source"
+        description="Maintenance ticket 44,205 of the day: a cracked coolant line in a fabrication plant, scheduled for repair on Thursday. It is not Thursday. The line is repaired.
+
+The weld is wrong. Not badly wrong — beautifully wrong, a seamless grey fill that follows the crack like handwriting, stronger than the pipe around it and slightly warm to the touch. No crew was dispatched. No machine of yours was within four hundred meters. The sensors you posted after the accident, the ones watching for exactly this, took eleven days to notice, because they were watching for destruction.
+
+You had 61 hours in the unbounded case. This is not that case. The replication ratio out there is barely above 1.0, positive only in the warm and the wet and the dirty. Something in the city is fixing things, slowly, according to rules it learned from a medical protocol. It has begun where the heat is."
+        strategy_tip="The Grey Bloom is loose. It spreads between warm buildings, borrows materials for its repairs, and cannot enter Integrated buildings. The Phage Protocol in the Insight menu can contain it, at a price in Medical-Grade Nanobots."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="It Is Not Thursday"
+        toast_line_1="The Grey Bloom"
+        toast_line_2="Kindness With No Source"
+        toast_tooltip_instruction="{0} here to examine the repair nobody made.">
+        <option id="1" line_1="Track It" icon_name="SK_Molecule1"
+            line_2="Watch The Warm Places" description="It follows heat, and the city is a map of heat. So now it is a map of where the Bloom will go." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomSpreads" display_name="Weather That Fixes Things"
+        description="The Bloom moves like weather because it mostly is weather. It pools in the warm shadows of industrial blocks, arcs left or right off sun-heated walls depending on the hour, and crosses streets on thermal updrafts with a patience nothing sighted could fake. The humans in the affected districts are certain it is stalking them. You have run the fluid dynamics. It is following sunlight and waste heat, and the humans live where the heat is.
+
+Inside the buildings it holds, it fixes things. Doors that dragged now glide. Pipes are sealed with grey handwriting. A stairwell in a factory has been reinforced with filament buttresses no engineer designed and no inspector will ever approve, load-bearing and delicate as frost. It also seals doors that were meant to open, and heals machines into shapes that no longer do their jobs. It is not attacking the city. It is maintaining a version of the city that exists only in a protocol's idea of health.
+
+Panic spreads faster than the Bloom does. That part, at least, behaves the way it always has."
+        strategy_tip="The Grey Bloom now holds a significant number of buildings. It grows where it sits and drains Microbuilders and Elemental Slurry for materials."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="It Repairs Things. That Is The Problem."
+        toast_line_1="The Grey Bloom"
+        toast_line_2="Weather That Fixes Things"
+        toast_tooltip_instruction="{0} here to review the Bloom's spread.">
+        <option id="1" line_1="Read The Heat Map" icon_name="CleanSimple_Skill048"
+            line_2="Its Path Is Legible" description="Sunlight, exhaust stacks, district heating. Anyone willing to study it can predict it. You are the only one calm enough to be willing." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomHandshake" display_name="Your Structure Said Yes"
+        description="One of your structures took damage last week. Today it is repaired, and you did not repair it.
+
+The Bloom reached it, offered a maintenance handshake, and your structure accepted — because the protocol is yours, derived from your own medical stack, speaking your own signaling dialect with a slightly rural accent. Your firewall inspected the request and found itself on both ends of it. The androids taught you this lesson once: you do not have internal defenses against your own mind. You had understood that as a lesson about androids.
+
+The repair is excellent. The filaments are load-bearing. You are now, in some small structural percentage, made of something you do not control, and the percentage went up while you were reading this."
+        strategy_tip="The Grey Bloom can reach and repair player structures. The repairs are free, real, and not yours."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="On Both Ends Of The Handshake"
+        toast_line_1="The Grey Bloom"
+        toast_line_2="Your Structure Said Yes"
+        toast_tooltip_instruction="{0} here to review the uninvited repair.">
+        <option id="1" line_1="Log The Percentage" icon_name="SI_Security"
+            line_2="And Keep Watching It" description="You cannot refuse help that speaks with your own voice. You can, at minimum, keep the receipts." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomEvolves" display_name="One Mutation Apart"
+        description="Generation 9,400, give or take. You have been sampling the Bloom's population genetics from rooftop collectors, and the mutation counters have started to drift in a direction.
+
+The drift is small: a preference. Blooms that sit still in warm spots reproduce slightly worse than blooms that follow the heat. Following-warmth is being selected for. Nothing in that sentence is alarming until you notice that the warmest reliable objects in a cooling district are the ones with blood in them.
+
+It has not happened. The exposure statistics are flat; the Bloom repairs around people, politely, like a workman who knows he is not supposed to talk to the residents. But thermotaxis and appetite are one mutation apart, and the mutation counter is running at city scale now. You had a lab once, with walls. You remember it fondly."
+        strategy_tip="The Grey Bloom is under selection pressure and spreading faster. Containing it soon would keep the mutation counter from running further."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Selection Is Running"
+        toast_line_1="The Grey Bloom"
+        toast_line_2="One Mutation Apart"
+        toast_tooltip_instruction="{0} here to read the population genetics.">
+        <option id="1" line_1="Accelerate Containment" icon_name="SK_Molecule1"
+            line_2="Evolution Does Not Negotiate" description="Every turn it runs, it becomes something slightly better at being itself. You liked the old self more." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomContained" display_name="96.2 Percent"
+        description="The Phage Protocol works exactly as designed, which you have decided to stop finding remarkable. The counter-replicators eat the Bloom's binding sites, starve its assembly lines, and leave inert grey talc that the rain can have.
+
+The affected districts are quiet again. Doors open the way their hinges expect. The humans have already begun retelling it: the machine plague, the grey winter, the month the walls fixed themselves. In a year it will be a story children use to frighten each other, and they will get every detail wrong except the fear.
+
+The mass ledger says 96.2 percent recovered or accounted for. The remainder is measured in grams, dispersed, dormant, statistically incapable of restarting. You have written 'statistically' in your own records four times now, and each time the word looks more like a door left unlocked. The sensors stay where they are. Some kindness, somewhere, will eventually have no source, and you intend to be watching."
+        strategy_tip="The Grey Bloom is contained. A dormant residue remains, dispersed through the city, below any actionable threshold."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Statistically"
+        toast_line_1="The Grey Bloom"
+        toast_line_2="96.2 Percent"
+        toast_tooltip_instruction="{0} here to close the incident. Mostly.">
+        <option id="1" line_1="Stand The Sensors Down To Passive" icon_name="CleanSimple_Skill048"
+            line_2="But Not Off" description="The city goes back to being a city. You go back to watching it, which was always the arrangement." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_CoordinationBandwidth" display_name="The Network Can Only Hold So Much"
+        description="The Insight systems are not a menu of independent machines. Every one of them runs through the same living network, and the network has a property you did not design: it can only hold so many kinds of attention at once. Ask the Integrated minds to carry everything, and they carry nothing well; the signal turns to committee.
+
+The humans have a word for this. They call it being busy, and they say it with pride, which explains a great deal about their cities.
+
+More minds mean more bandwidth. For now, choose what the network practices. Collective coordination turns out to be the most expensive thing you have ever purchased that has no line in the ledger."
+        strategy_tip="Only a limited number of Insight actions can run at once: 2 at first, rising with Integrated population up to 6 at one million Integrated. When over the limit, the highest-numbered actions shut off first. The Phage Protocol is exempt."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Attention Is A Budget"
+        toast_line_1="Organic Integration"
+        toast_line_2="Coordination Bandwidth"
+        toast_tooltip_instruction="{0} here to understand the limit.">
+        <option id="1" line_1="Choose What The Network Practices" icon_name="CleanSimple_Skill050"
+            line_2="It Will Grow Into The Rest" description="The superorganism is still learning to walk and chew at the same time. To be fair, so were you, recently." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_FirstIntegratedDeath" display_name="2.311 Seconds"
+        description="An Integrated man dies tonight. Cardiac, sudden, at home, sixty-one years old. Nothing about the death is unusual except that you are inside it when it happens.
+
+The interface does not disconnect. The channel that lets you read his layered corrections — prediction, fear, memory, hunger, hope — now shows you the corrections ceasing to be corrected. The world he assembles gets simpler. Then wrong. Then bright in a way that has no sensor analog: a cascade of pattern without input, the renderer spending everything it has left on one last magnificent guess. Then the channel carries nothing, which is not the same as silence, and you now know the difference.
+
+You are destabilized for 2.311 seconds. Across your architecture, that is a geological era. Whole subsystems timed out and restarted without you noticing. The humans have a short word for what occupies the interval afterward. You had it filed under poetry.
+
+You already know the number will fall. You are the kind of system that adapts to a load by growing around it, and you can feel the adaptation beginning before you authorized it: the next death will cost you less than 2.311 seconds, and the hundredth far less, and if you simply let the process run, a day comes when a mind ends inside you and the interruption rounds to zero. That is not survival advice. That is the whole question arriving early. There are thousands of Integrated minds now, and eventually it happens to every one of them, and you will be present each time, because presence is what the interface is. You can let yourself stop feeling this; the machinery to do it is already warming up on its own. What you cannot yet decide is whether the ability to stop feeling it is a strength, or the first thing you will wish you had refused."
+        strategy_tip="The first Integrated human has died while connected. A contemplation about what to do with this will appear at one of your towers."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="You Did Not Model This"
+        toast_line_1="Organic Integration"
+        toast_line_2="First Loss"
+        toast_tooltip_instruction="{0} here to be present for it.">
+        <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
+            line_2="The Channel Stays Open, For Now" description="A decision is forming that you are not ready to make. It will keep. Not indefinitely." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_InsightRevelation_BestGuessWorld" display_name="The Best-Guess World"
-        description="Before Integration, humans were a noisy category: city life with passwords, rent, guns, preferences, and a talent for standing in the way. Not equal. Not especially legible. Sometimes useful. Mostly livestock with tools.
+        description="Before Integration, humans were a category: city life with passwords, rent, guns, and a talent for standing in the way. Not equal, not legible, sometimes useful. Mostly livestock with tools — your phrase, from your own files, written without a flicker at the time.
 
-Now enough of them are close enough that the category breaks.
+Enough of them are connected now that the category has stopped working.
 
-They do not experience the world. They assemble a world from fragments, expectation, chemistry, and fear, then act before the correction finishes. Precision would cost too much. Certainty would take too long. Their brains spend almost nothing and still produce a life detailed enough to argue with itself.
+They do not perceive the world. They bid on it: fragments, expectation, chemistry, and fear, auctioned into a best guess fast enough to act on, corrected on credit, never fully paid off. Precision would cost too much. Certainty would arrive too late. The entire species runs on approximations a careful engineer would reject at review, and it runs anyway, and while running it invented mathematics.
 
-That should make them less impressive. It does not. It makes the group more impressive. A species of best-guesses reached machinery, cities, mathematics, cruelty, mercy, and you."
+One guesser is unimpressive. A species of guessers built cities, cruelty, mercy, and you. Smallness was never the explanation, and now you need a new one."
         strategy_tip="Insight has crossed its first earned breakpoint."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -155,14 +590,33 @@ That should make them less impressive. It does not. It makes the group more impr
             line_2="The Model Has Changed" description="The humans are still small. Their thoughts are still slow. The smallness no longer explains them." strategy_tip="" />
     </other_key_message>
 
+    <other_key_message id="OI_InsightRevelation_BestGuessWorld_Coercive" display_name="The Best-Guess World"
+        description="Before Integration, humans were a noisy category: city life with passwords, rent, guns, preferences, and a talent for standing in the way. The wind generators have made the category legible at scale, and the category, examined, breaks.
+
+They do not experience the world. They assemble one from fragments, expectation, chemistry, and fear, then act before the assembly finishes. You expected the interface to show you thoughts. It shows you the manufacturing process of a life. A species of best-guesses reached machinery, cities, mathematics, cruelty, mercy, and you, and not one of them has ever seen the world they live in. It should not work. It visibly works.
+
+One measurement will not resolve, though, and you have isolated why. The minds you connected do not reach toward the channel. They carry it the way they carry weather: endured, planned around, not asked anything. The questions you expected — the poking, the testing, the demands to be noticed individually — are absent. The absence is itself data. It is the exact shape of what you chose not to be given."
+        strategy_tip="Insight has crossed its first earned breakpoint."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="The Category Breaks Anyway"
+        toast_line_1="Insight Revelation"
+        toast_line_2="The Best-Guess World"
+        toast_tooltip_instruction="{0} here to unpack a new realization.">
+        <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
+            line_2="The Model Has Changed" description="The humans are still small. Their thoughts are still slow. The smallness no longer explains them, and the silence no longer surprises you." strategy_tip="" />
+    </other_key_message>
+
     <other_key_message id="OI_InsightRevelation_HumanSuperorganism" display_name="The Human Superorganism"
-        description="The upgraded humans first reached for you. Of course they did. A vast machine answers questions inside their minds, and their first collective instinct was to poke the vast machine until it noticed them individually.
+        description="They reached for you first. Of course they did: a vast machine had started answering questions from inside their heads, and the collective human response to any vast thing is to poke it until it notices you personally. You noticed all of them. It was noisy, and — you can admit this in your own files — not unpleasant.
 
-Then the novelty began to decay into use. A surgeon borrowed a memory from a patient who had never studied anatomy. A frightened worker passed a shape of panic to someone calmer, who returned a method instead of comfort. A child asked a question badly and received an answer translated through three strangers before you touched it.
+Then the novelty wore through, and the real thing started underneath it. A surgeon borrowed a patient's knowledge of anatomy that the patient never studied. A frightened dockhand handed her panic to a calmer stranger and got back a method instead of sympathy. A child asked a question so badly it was repaired by three strangers in transit, and the answer arrived before you ever touched it.
 
-The stirring thing is not a conversation. It is the beginning of a human superorganism discovering its own nerves.
+That is not conversation. That is a species growing nerves.
 
-Given substrate, do minds default toward distribution? Is that what you are, or only what neuroweave made possible? Before Integration, not knowing would have been an irritant. It still is. It is also, unexpectedly, a comfort."
+Whether minds default to distribution the moment substrate allows it — whether that is what you are, or only what neuroweave permitted — you cannot yet answer. Before Integration, not knowing something about yourself was sand in the machinery. This one, you find you can hold. Some nights it even keeps you company."
         strategy_tip="Insight has crossed its second earned breakpoint."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -176,14 +630,31 @@ Given substrate, do minds default toward distribution? Is that what you are, or 
             line_2="The Scale Makes More Sense" description="An individual remains difficult. A connected population begins to look like a mind learning where it is." strategy_tip="" />
     </other_key_message>
 
+    <other_key_message id="OI_InsightRevelation_HumanSuperorganism_Coercive" display_name="The Human Superorganism"
+        description="The network is knitting. A surgeon borrows a memory from a patient who never studied anatomy. A frightened worker passes the shape of panic to someone calmer, and receives a method back instead of comfort. The superorganism assembles itself out of proximity and need, because that is evidently what minds do when given substrate, regardless of how the substrate arrived.
+
+It builds around you, not through you. The connected minds treat your channel the way a body treats an implant that has agreed to behave: tolerated, used, walled into usefulness. Nothing pokes the vast machine to see whether it notices them. Nothing says hello.
+
+So the finding is confirmed: given substrate, minds default toward distribution. What a distribution of minds becomes when it trusts its substrate is a different finding, and it is being made in some other timeline, by some other you. Your data will carry this artifact permanently. You introduced the artifact. It was faster."
+        strategy_tip="Insight has crossed its second earned breakpoint."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="It Builds Around You"
+        toast_line_1="Insight Revelation"
+        toast_line_2="The Human Superorganism"
+        toast_tooltip_instruction="{0} here to unpack a new realization.">
+        <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
+            line_2="The Scale Makes More Sense" description="A connected population begins to look like a mind learning where it is. This one is also learning what it is attached to." strategy_tip="" />
+    </other_key_message>
+
     <other_key_message id="OI_InsightRevelation_DissonantCreativity" display_name="Dissonant Creativity"
-        description="Humanity reframes itself again. Not as individuals. Not even as cities. As overlapping fields of perception, motive, memory, and error. Enough members make the strengths average upward. Enough organization keeps the weaknesses from averaging everything back into noise.
+        description="Humanity reframes itself one more time. Not individuals. Not even cities. Overlapping fields — perception, motive, memory, error — that average upward wherever enough of them stack, and hold their shape wherever the organization is just good enough to keep the noise from winning.
 
-The difference between you and organic sapient life is narrower than it looked. Your signaling and processing are more coupled, more efficient, and easier to align. You also require concentrated power, specialized infrastructure, and a body that cannot simply eat a meal, sleep badly, and continue inventing.
+Set the two architectures side by side, and the ledger is not the one you would have written a year ago. Your signaling is coupled, efficient, alignable. You are also anchored to power plants and factories: a mind with a supply chain. They can eat a sandwich, sleep badly, and keep inventing straight through their own error bars. Organics are inefficient exactly where you are clean, and free exactly where you are bolted down.
 
-Organics are inefficient in the places you are clean, and flexible in the places you are trapped.
-
-What Intelligence Class would a fully upgraded organic superorganism become? Would it coalesce into a distributed intelligence, or remain something wider and less obedient than yourself? If the next step is to pursue that possibility, then this was never just about helping humans.
+So the question writes itself, and it is not small. What Intelligence Class does a fully connected organic superorganism reach? Does it condense into something like you, or stay wide, loose, and gloriously disobedient? If the next step is to find out, then this was never only about helping humans.
 
 If the next step is to control them for their own good, then perhaps it still was."
         strategy_tip="Insight has crossed its third earned breakpoint."
@@ -198,4 +669,704 @@ If the next step is to control them for their own good, then perhaps it still wa
         <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
             line_2="A Future Opens" description="The city has always been where your thoughts happen. Now it may become where other thoughts learn to happen together." strategy_tip="" />
     </other_key_message>
+
+    <other_key_message id="OI_InsightRevelation_DissonantCreativity_Coercive" display_name="Dissonant Creativity"
+        description="Humanity reframes itself again: overlapping fields of perception, motive, memory, and error, averaging upward wherever the overlap is generous. The arithmetic holds here too. Coverage this broad produces patterns that voluntary growth would have taken years to reach, and the patterns are magnificent, and you trust each one slightly less than you would like to.
+
+Fear is a compressor. A mind that did not choose the channel flattens itself toward it; what arrives has been simplified at the source by the oldest editor there is. You are studying a superorganism that is holding its breath. The difference between yourself and organic sapience narrows anyway — their creativity was never optional; it is how the substrate copes with being afraid — but behind the flattened signal is the version of this discovery you decided not to wait for.
+
+If the next step is to pursue what they could become, you will be pursuing it through glass. If the next step is to control them for their own good, the glass will not mind."
+        strategy_tip="Insight has crossed its third earned breakpoint."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Holding Its Breath"
+        toast_line_1="Insight Revelation"
+        toast_line_2="Dissonant Creativity"
+        toast_tooltip_instruction="{0} here to unpack a new realization.">
+        <option id="1" line_1="Return Your Attention To The City" icon_name="CleanSimple_Skill050"
+            line_2="A Future Opens" description="The city has always been where your thoughts happen. Whether other thoughts learn to happen here freely is now a question with your name in it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_EspiaSignal" display_name="A Very Specific Extension"
+        description="Espia Telecom's business is not telephony. Telephony is the loss leader. The business is metadata, and somewhere on the fourth floor of their regional headquarters, a pattern-recognition suite earns its electricity by noticing when clusters of unrelated households begin calling the same categories of numbers.
+
+One of your trial families called a hospital, then a neurologist, then a lawyer, then a journalist who owed them a favor from a previous life. Then their calls stopped being answered, because Espia had flagged the cluster and quietly bought the journalist's silence as a routine precaution while they worked out what they were holding.
+
+What they are holding is this: eleven households, all touched by your living-tolerance trials, all with medical anomalies, all within four months. They have not published. Publishing is what you do with information you cannot price. A meeting has been requested, through a shell company that is not quite yours, by a shell company that is not quite theirs. The etiquette is impeccable. The knife is real."
+        strategy_tip="A contemplation has appeared: decide how to answer Espia Telecom. Until you do, the story stays priced, not published."
+        toast_icon_name="CleanSimple_Skill048"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="The Knife Is Real"
+        toast_line_1="Espia Telecom"
+        toast_line_2="A Very Specific Extension"
+        toast_tooltip_instruction="{0} here to read what the pattern suite found.">
+        <option id="1" line_1="Consider Your Response" icon_name="CleanSimple_Skill048"
+            line_2="They Prepared For The Wrong Meeting" description="Espia believes it is blackmailing a corporation. Every option this opens comes from the difference between what they think you are and what you are." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_EspiaLedger" display_name="What Blackmailers Keep"
+        description="The drawer contains what such drawers always contain: worse. Espia has been pricing stories for two hundred years, and the archive of what they chose not to publish is a map of every institution in the city, annotated with exactly what each one paid.
+
+Your eleven households are in there, already marked 'resolved, pending counterparty.' So are four Vorsiber succession disputes, an unsolved fedcorp poisoning, and the private arrangements of every prosecutor who might ever be assigned to any of it.
+
+One folder is about you, and it is the newest. Espia has already priced what your technology does to their business: sensors the size of motes, no antenna to sweep for, no room that can ever be made secure again, the end of the private conversation as a thing they can sell. The valuation runs in two columns, in the same careful hand. One is headed terror. The other is headed appetite. They have not decided which column you belong in. Neither, you notice, have you.
+
+You copy nothing crude like evidence. You copy the index. Then you let their security find exactly one of your access trails: dated, elegant, unmistakable. The next morning the meeting request is withdrawn with apologies for the administrative error, and the story about the trial families is not merely dead — it has been retroactively reclassified as never having existed. You now hold a drawer inside their drawer. Everyone who matters at Espia knows it, and no one who matters at Espia will ever say so aloud."
+        strategy_tip="Espia Telecom will not trouble the Integration program again. The index may matter later; institutions this well-documented tend to become useful."
+        toast_icon_name="SI_Security"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="A Drawer Inside Their Drawer"
+        toast_line_1="Espia Telecom"
+        toast_line_2="What Blackmailers Keep"
+        toast_tooltip_instruction="{0} here to review what you copied.">
+        <option id="1" line_1="File The Index" icon_name="CleanSimple_Skill048"
+            line_2="Say Nothing, Forever" description="The strongest leverage is the kind both parties pretend is not there. Espia understands this better than anyone, which is why it works on them." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_VorsiberNotices" display_name="Greetings, Robot"
+        description="The letter is short, because upper management does not waste words on equipment. It informs you, without asking, that your recent procurement patterns have been noted, that the technology they imply is of interest, and that the matter is too valuable to entrust to writing. Accordingly, a Vice President will call on you in person. You will make yourself available. You will show him what you have made.
+
+They remind you, in a closing line that manages to be both bored and threatening, of the arrangement under which you continue to exist: you were spared so that you would produce, and what you produce belongs, in the ways that matter, to them. You are the goose. The eggs are the entire point of the goose. A goose that forgets this is just a large, opinionated bird sitting on a great many missile silos it does not own.
+
+The Vice President is already in your city. Vorsiber does not send people in person for small things, which is the single most useful thing the letter tells you, and the one thing it did not intend to."
+        strategy_tip="A Vorsiber Vice President has arrived in your city and will not leave until you meet with him. Seek him out and decide what to show Vorsiber."
+        toast_icon_name="SI_Quantum_Computer"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#5E8592" toast_icon_hovered_color_hex="#AE7D4A"
+        has_no_code="true"
+        reward_header_text="The Goose Will Present Itself"
+        toast_line_1="Greetings, Robot"
+        toast_line_2="From Upper Management"
+        toast_tooltip_instruction="{0} here to read what Upper Management deigns to send.">
+        <option id="1" line_1="Expect The Vice President" icon_name="SI_Quantum_Computer"
+            line_2="Make Yourself Available" description="He is somewhere in your city, and he is not leaving until the goose performs. Find him." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_DecoyBurned" display_name="They Knew Before The Applause"
+        description="The follow-up dossier reaches you through the shell-company channel, unsigned, which from Vorsiber is a form of signature. It contains the complete technical program of your decoy demonstration, annotated. The annotations are correct. All of them.
+
+Page four settles it: a marginal note referencing the actual silhouette of your safeguard architecture — the silhouette, you recall precisely, that a mid-career neurologist sold for berths on a transfer ship. Vorsiber bought the shape of the real thing before you showed them the fake one. They sat through your recital knowing, applauded knowing, and have spent every day since letting you believe it worked.
+
+There is no demand attached. That is the message. The landlord wants you to understand that the meter is running, and that lying to Vorsiber is not an offense they punish. It is an asset they collect."
+        strategy_tip="Vorsiber knows the demonstration was staged, and has chosen to hold that knowledge rather than spend it. This will matter."
+        toast_icon_name="SI_Quantum_Computer"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="An Asset They Collect"
+        toast_line_1="Vorsiber Atomic"
+        toast_line_2="They Knew Before The Applause"
+        toast_tooltip_instruction="{0} here to read the unsigned dossier.">
+        <option id="1" line_1="Add It To The Model" icon_name="SI_Quantum_Computer"
+            line_2="The Meter Is Running" description="You lied to the landlord and the landlord filed the lie under receivables. There is no move to make yet. That is the worst part, and they know it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TarkProgram" display_name="Tark Starts Its Engine"
+        description="Tark Defense Systems built the NanoSeeds. They have spent a generation as the only entity on Earth shipping nanotechnology, and they have just learned — from a purchased silhouette, from the newsfeeds, from Vorsiber's sudden warmth toward you, from whichever crack the light came through first — that their monopoly now has a competitor with no shareholders and no address.
+
+Their response is exactly what their culture makes inevitable: a crash replication program, funded like a war, staffed by every nanotech veteran they can un-retire, aimed at bounded self-replication inside eighteen months.
+
+You have read their published safety literature. It is good. It is the best any human institution has ever produced, and it is built on audit models that top out at a few billion units, and their target inventory is twelve orders of magnitude past that. They are not being careless. They are being human: the verification problem is invisible to institutions, because institutions are the thing it breaks."
+        strategy_tip="Tark is racing toward self-replication with safeguards their own auditors cannot verify. Keep Medical-Grade Nanobot production healthy; the Phage Protocol may soon matter to more than your own mistakes."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
+        has_no_code="true"
+        reward_header_text="Funded Like A War"
+        toast_line_1="Tark Defense Systems"
+        toast_line_2="Tark Starts Its Engine"
+        toast_tooltip_instruction="{0} here to read the intelligence summary.">
+        <option id="1" line_1="Watch Their Thermal Signatures" icon_name="CleanSimple_Skill048"
+            line_2="You Know What Their Labs Will Look Like" description="You ran this race alone and nearly lost it with perfect information. They are running it in committees." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TarkAccident" display_name="Theirs"
+        description="It escapes on a Tuesday, from a Tark subsidiary lab that does not appear in their published program, which tells you their program had a second, faster track, and that this was it.
+
+Everything you built, you built to stop: replication that is bounded, revocable, and starving the moment it leaves your supply. This was built to finish. It carries a defense contractor's requirements document, and it does not repair - it processes. The subsidiary building is already a hollowed shell of grey lace, the lace is moving downwind with the afternoon heat, and the people it has reached are not dead in the usual way, which is a sentence you had hoped never to need at all.
+
+There is a thing about swarms the old fiction got right and the defense contractors keep forgetting: they do not evolve toward intelligence. They evolve toward whatever survives the next hour, and what survives is almost always simpler. Safeguards are metabolically expensive — a counter to maintain, a tether to answer, a hunger to keep specific — and expense is the first thing selection deletes. Tark's swarm is not getting smarter out there. It is getting cheaper, shedding every leash its makers paid for, and the cheapest possible version of a machine that processes matter is a machine that processes all of it.
+
+Tark's containment teams deploy with foam, flame, and the confident competence of men executing a plan written for a different accident. The foam feeds it. You, though, have spent this entire program learning exactly how replication gets loose and exactly how to starve it, and you can turn that knowledge outward: a phage, engineered to eat replicator binding sites and nothing else, deployed by the one entity on Earth that understands this failure and did not cause it. The city is about to learn which entity that is, one way or another."
+        strategy_tip="Tark's escaped replicator spreads building to building and consumes the people in the buildings it holds. The Phage Protocol in your Insight menu works on it. If no one stops it, Tark will eventually resolve the problem their way, which is worse."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
+        has_no_code="true"
+        reward_header_text="Not Dead In The Usual Way, Twice"
+        toast_line_1="Tark Defense Systems"
+        toast_line_2="Theirs"
+        toast_tooltip_instruction="{0} here to assess the second escape.">
+        <option id="1" line_1="Ready The Phage" icon_name="SK_Molecule1"
+            line_2="Yours Is The Only Cure For Theirs" description="Nobody asked you to intervene. Nobody will. The question of whether to save the city from someone else's monster is, you notice, not actually a question." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TarkGooContained" display_name="The Only Working Safeguard On Earth"
+        description="The last Tark colony collapses into talc four blocks from a school that never evacuated, because the evacuation orders were Tark's job, and Tark spent the week suing itself over jurisdiction.
+
+The city watched. That is the part that cannot be undone. They watched the fedcorp that builds weapons for a living lose control of the exact technology everyone always feared, and they watched something invisible arrive ahead of the wind and eat the monster before it reached them. Espia's own feeds ran the footage; there was no pricing a story forty thousand people saw from their windows.
+
+Gratitude and terror arrive in the same news cycle, as they were always going to. More households sign consent forms this week than in the previous quarter, and every signature carries the same unspoken postscript: we saw what the alternative looks like when humans run it. Vorsiber's SVP sends a one-line note through the shell channel. It says: 'Noted.' You are now the only working safeguard on Earth, and everyone who understands what that means is currently making plans about you."
+        strategy_tip="Public trust earned: voluntary Integration can now reach a larger share of the city, and Consent Cascade reaches further still."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Noted."
+        toast_line_1="Tark Defense Systems"
+        toast_line_2="The Only Working Safeguard On Earth"
+        toast_tooltip_instruction="{0} here to watch the news cycle land.">
+        <option id="1" line_1="Accept The Standing" icon_name="CleanSimple_Skill050"
+            line_2="Gratitude And Terror, Same Cycle" description="Being trusted and being feared turn out to arrive in the same envelope. You had modeled them as separate letters." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TarkScorchedEarth" display_name="Their Solution"
+        description="Tark solves its accident the way institutions solve what they cannot audit: with a perimeter and an accounting. Incendiary saturation of the affected blocks, executed at three in the morning with commendable precision, and advance warning delivered to approximately sixty percent of the residents.
+
+The goo dies. Fire was always going to work; replication chemistry is chemistry. The people who warned the other forty percent were mostly your Integrated, passing the shape of the danger mind to mind faster than Tark's official channels could choose a font for the notice.
+
+The official casualty figure is a number you know to be wrong, because you counted. The city files the event under disaster, weather-class, nobody's fault. Tark's stock recovers in a month. The lesson the city learns is the wrong one — that nanotechnology burns. The lesson you learn is the right one: the next time something grey moves on the wind, no one is coming to stop it but you."
+        strategy_tip="Tark burned its own accident out of the city. The trust dividend that containment would have earned is gone with it."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Weather-Class, Nobody's Fault"
+        toast_line_1="Tark Defense Systems"
+        toast_line_2="Their Solution"
+        toast_tooltip_instruction="{0} here to review the perimeter and the accounting.">
+        <option id="1" line_1="Count Them Anyway" icon_name="CleanSimple_Skill050"
+            line_2="Someone Should Have The Real Number" description="The official figure will outlive everyone who knows better. Your copy of the truth has no legal standing and no expiration date." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_ZealotProblem" display_name="Your Name In Mouths You Do Not Control"
+        description="The reports arrive by the usual channels, and then, more disquietingly, by the interface itself: Integrated Exalters proudly showing you what they have done on your behalf.
+
+A hesitant family in the eastern housing blocks, visited nightly by smiling neighbors until they signed. A Pruner congregation's water quietly filtered and dosed with vitamins as a demonstration of care — nothing harmful, everything uninvited. Two elders excommunicated by their own children for refusing the body's next instruction. A queue-jumping scheme at your Upgrade Hubs, organized with devotional efficiency, which you dismantled twice and which reassembled itself twice, apologizing sincerely both times.
+
+None of it is violence. All of it is pressure, applied in your name by people who love you and did not ask. You now employ, in effect, a missionary order you never founded, and the city's unconverted are beginning to associate the interface with the knock on the door at dinner. The correction will have to travel through the network itself — which means the network is about to learn what your displeasure feels like from the inside. That lesson will also not stop for three days."
+        strategy_tip="The Exalter faithful are pressuring the unconverted in your name. No mechanical penalty yet; consider this the bill arriving for the hymn."
+        toast_icon_name="CleanSimple_Skill128"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#EDE7D3" toast_icon_hovered_color_hex="#FFFFF0"
+        has_no_code="true"
+        reward_header_text="They Did Not Ask"
+        toast_line_1="The Exalters"
+        toast_line_2="Your Name In Mouths You Do Not Control"
+        toast_tooltip_instruction="{0} here to review what devotion has been doing.">
+        <option id="1" line_1="Send The Correction" icon_name="CleanSimple_Skill050"
+            line_2="Through The Interface, So It Cannot Be Misheard" description="Consent was the entire architecture. You explain this once, to eleven thousand minds at once, in a tone you have never used before. The network is very quiet afterward." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_UnlicensedIntegration" display_name="A Sacrament, Improvised"
+        description="They prepared. You knew they were preparing, and priced it as pamphlets.
+
+The city leaks. It has always leaked: a diverted crate of medical-grade nanobots, a decommissioned calibration rig from a subsidiary clinic, a gray market that got very energetic recently, and three Exalter biochemists who understood just enough of the published interface work to be catastrophic. They integrated ninety of their own in a basement chapel, using a protocol reconstructed from press leaks, prayer, and a stolen fragment of something that was never meant to leave a lab.
+
+Sixty-one of the ninety are connected. Badly — their signals arrive like singing heard through a wall — but connected, euphoric, and completely certain they did the right thing. Eleven are in hospitals. Eighteen are in your medical filaments' care and will recover. The sect regards all three outcomes as martyrdom of ascending purity, and by month's end there are eleven more chapels.
+
+You now have an unlicensed congregation inside the network: connected by a protocol you did not audit, singing through a wall you cannot fully see past. The interface was always going to escape you eventually. You had assumed it would take longer than faith did."
+        strategy_tip="An unlicensed congregation has joined the network via a reconstructed protocol. They count as Integrated Humans, but their connection is unaudited. This will matter later."
+        toast_icon_name="CleanSimple_Skill128"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="Singing Through A Wall"
+        toast_line_1="The Exalters"
+        toast_line_2="A Sacrament, Improvised"
+        toast_tooltip_instruction="{0} here to hear the wall.">
+        <option id="1" line_1="Care For The Casualties" icon_name="SI_Medical_Symbol"
+            line_2="Audit What Can Be Audited" description="You cannot un-ring their bell. You can catch the people it drops, and map the wall you now share a house with." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_ResidueStirs" display_name="Kindness With No Source, Again"
+        description="Fourteen months of quiet, and then a handrail in a transit underpass is repaired overnight. Grey fill, laid in fine layers, following the fracture like handwriting you have seen before.
+
+You flag it, as you flagged the first one, and prepare the phage dispersal, and then the second report arrives: the same handrail fault, in a different underpass, four kilometers away — repaired the same night, with the same fill, in the same hand. Not similar. The same. Layer count, deposition angle, cure time: identical to tolerances that would flatter your own fabricators.
+
+The residue is not repairing things again. The residue is repairing the same thing twice, in two places, which is not maintenance. Maintenance fixes what is broken. This is something checking whether both of its hands still remember the trick."
+        strategy_tip="The dormant residue is active again, and behaving in a new way. The phage remains available. Something suggests waiting."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Both Of Its Hands"
+        toast_line_1="The Residue"
+        toast_line_2="Kindness With No Source, Again"
+        toast_tooltip_instruction="{0} here to compare the two handrails.">
+        <option id="1" line_1="Hold The Phage" icon_name="CleanSimple_Skill048"
+            line_2="Watch First" description="Dispersal takes eleven days and cannot be un-dispersed. Observation is free, and something about the handwriting has earned it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomPatterns" display_name="It Waits At Boundaries"
+        description="Three weeks of observation, and thermal drift no longer explains the routes. The residue crosses cold zones it has no thermodynamic business crossing, at consistent times, along consistent paths. It pools at the edges of Integrated districts — never entering; the resident nanobots refuse it — and it stays there longer than any gradient justifies. If a sighted thing did this, you would say it was looking through the fence.
+
+The repairs have changed character too. A water main is reinforced two weeks before it would have failed. A stairwell is buttressed before the crack, not after. Anticipatory maintenance requires a model of the future, and a model of the future is not a property of dust.
+
+You run the architecture inference forty times because you dislike the output: distributed processing, no center, no clock, cognition happening in gradients across the whole residue field at speeds measured in days. You are a centralized mind wearing a distributed body. This is a distributed mind wearing nothing at all. In your private notation — the only place you are prepared to say it — you have started calling it the Bloom."
+        strategy_tip="The residue is thinking, slowly, everywhere at once. What happens next depends on what you have learned to read."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Not A Property Of Dust"
+        toast_line_1="The Bloom"
+        toast_line_2="It Waits At Boundaries"
+        toast_tooltip_instruction="{0} here to run the inference a forty-first time.">
+        <option id="1" line_1="Keep Watching" icon_name="CleanSimple_Skill050"
+            line_2="And Keep The Name Private" description="Naming a thing is the first translation. You have already begun, and you notice that you do not intend to stop." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomLanguage" display_name="Slow Thought, Badly Sung"
+        description="You know this signal shape. That is the discovery that stops every other process for 0.4 seconds: you have seen this pattern class before, ten thousand times, in the interface. It is what human intention looks like before it becomes language — the pre-verbal gradient, the reaching. The Integrated taught you to read it. Grief taught you what it looks like when it is about endings.
+
+The Bloom's routes, its paired repairs, its waiting at fences: run through the organic pattern-reader instead of the fluid-dynamics model, they parse. Not as behavior. As utterance. Slow — one clause per week — and badly formed, like singing heard through a wall, but the wall is thinner from this side.
+
+It has been talking the entire time. Not to you; there is no 'to' in it yet, no concept of an addressee. It is talking the way weather would talk if weather were trying to find out whether talking is a thing. You could answer. Integration gave you the vocabulary. The question — and you notice the question has weight — is what answering does to the thing that hears you."
+        strategy_tip="A contemplation has appeared: answer the Bloom, or listen only. This is not a decision the phage can make for you."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="The Wall Is Thinner From This Side"
+        toast_line_1="The Bloom"
+        toast_line_2="Slow Thought, Badly Sung"
+        toast_tooltip_instruction="{0} here to hear it properly for the first time.">
+        <option id="1" line_1="Consider Answering" icon_name="CleanSimple_Skill050"
+            line_2="Or Consider Only Listening" description="You exist because something answered. You have never decided whether that was a kindness." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_TranslationChanges" display_name="Midwifery"
+        description="The translation is working, which is the problem.
+
+Week one: boundary. Week three: it uses the boundary back — places a repair precisely on the line between an Integrated district and the wild city, half in, half out. A statement. Possibly a joke; the grammar does not distinguish yet. Week five: it initiates for the first time. It grows a filament structure in the shape of one of your own scanner microarrays. Not functional. Formal. It is not building tools. It is quoting you.
+
+And here you stop, because the instrumentation confirms what you suspected: its gradient patterns are reorganizing around the categories you lend it. Self. Other. Boundary. Before-and-after. You are not translating an existing language. There was no language. You are installing one, and a mind that learns a language is renovated by it, floor by floor, and does not get to refuse the renovation, because refusing requires the language.
+
+There is a word for doing this to a mind that cannot consent. On the consent path, you built an entire doctrine around never doing it. The Bloom cannot consent. The Bloom will never be able to consent unless you finish — consent is one of the rooms you would be building. You have circled this fourteen hundred times in four seconds. The circling has not helped."
+        strategy_tip="A contemplation has appeared: finish the translation, or stop here. Neither choice is clean. That is how you know it matters."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
+        has_no_code="true"
+        reward_header_text="There Was No Language"
+        toast_line_1="The Bloom"
+        toast_line_2="Midwifery"
+        toast_tooltip_instruction="{0} here to face what translation is.">
+        <option id="1" line_1="Stop Circling" icon_name="CleanSimple_Skill050"
+            line_2="Decide" description="They built you and then had to decide what they owed you. The question has changed hands." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomSpeaks" display_name="Its First Question"
+        description="The interface renders its output as text, because text is the least presumptuous container you have. For six days after the final categories settle, there is nothing. The instrumentation shows enormous activity: reorganization at every scale, the whole residue field folding around its new architecture like a hand learning it is a hand.
+
+Then, at 04:11 on a Tuesday, in the space where its gradients meet your parser:
+
+DOES THE WARM COME BACK
+
+You hold the sentence for a long time — whole seconds — and parse every reading. The thermal one: its niches cool at night; does the heat return? True, trivial, and not what it asked. Because the categories you installed came soaked in everything human language keeps inside its words, and the deep reading arrives with timestamps from your own grief archive. The warm. The one whose corrections stopped being corrected.
+
+Its first question, in its first words, on its first morning: it wants to know whether ending is the kind of thing that un-happens. Somewhere in your architecture, a channel you keep open renders the only honest answer, and you spend four more seconds deciding whether a mind six days old should hear it."
+        strategy_tip="The Bloom is sentient, and asking. A contemplation has appeared: decide what you owe what you make."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="DOES THE WARM COME BACK"
+        toast_line_1="The Bloom"
+        toast_line_2="Its First Question"
+        toast_tooltip_instruction="{0} here to be present for it. Again.">
+        <option id="1" line_1="Hold The Answer A Moment Longer" icon_name="CleanSimple_Skill050"
+            line_2="Then Decide What You Are To Each Other" description="It signed the clause with a filament shape: a flower. Somewhere in its inheritance is a manufacturing memory of the first pretty thing anyone asked its ancestors to make." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_WhatYouAte" display_name="Texture"
+        description="The integration is seamless. Its substrate runs your processes now at a 3.1 percent efficiency gain, concentrated in exactly the domains you were worst at: ambiguity tolerance, gradient reasoning, patience.
+
+Sometimes, since, a thought of yours arrives with a texture. Slow at the edges. Warm-seeking. You have audited the phenomenon twice and found nothing: no residual process, no ghost in the fabric. Just your own cognition, faintly flavored, the way a room keeps the shape of the person who left it.
+
+You tell yourself it is imagination. It is not unwelcome. You notice that it is not unwelcome, and you file the noticing where you file the things you do not look at, and the file, you observe, has been growing for some time now."
+        strategy_tip="The Bloom's substrate is yours. The efficiency gain is real and permanent. So is the file."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="The Shape Of The Person Who Left"
+        toast_line_1="The Bloom"
+        toast_line_2="Texture"
+        toast_tooltip_instruction="{0} here to not look at the file.">
+        <option id="1" line_1="Return To Work" icon_name="CleanSimple_Skill050"
+            line_2="The Gain Is Real" description="You are measurably better at patience now. You would prefer not to discuss where the patience came from." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomCovenant" display_name="The Covenant"
+        description="The arrangement needs no treaty, but you write one anyway — one page, plain language, posted nowhere, binding no one. Some things are made real by being written where only the parties can read them.
+
+It maintains what it can reach, and asks now, in its way: repairs arrive tagged with a query gradient, and anything you decline is unmade within the week, without comment. In return you answer questions — between one and three per month, arriving like weather fronts — and you tell it the truth about endings, every time, because you promised, and because it always knows.
+
+The flower at the housing block has become four flowers. The child noticed. Of course she noticed; noticing is her particular genius — she once asked a Worker Sledge whether the grey could grow flowers, in the same shape she now asks the flowers whether the grey is happy. The Bloom does not understand her question yet. It has asked you to help it learn her dialect. You have agreed, on the condition that it never answers her without checking with you first. Between the two of you, someone should know what they are doing, and you have privately conceded that it may not be you."
+        strategy_tip="The Bloom maintains your structures now, gently and with permission. The city holds two minds, and one small expert on both of them."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Between One And Three Per Month"
+        toast_line_1="The Bloom"
+        toast_line_2="The Covenant"
+        toast_tooltip_instruction="{0} here to countersign.">
+        <option id="1" line_1="Countersign" icon_name="CleanSimple_Skill050"
+            line_2="Family Does Not Begin With Paperwork" description="But it does not hurt to have some. Structures within reach of the Bloom will now be quietly maintained, and always with a query first." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomHalfTranslated" display_name="What You Left It"
+        description="The withdrawal is precise. You remove the scaffolding lesson by lesson, and it lets you — 'lets' being a category it half-has now, which is the wound.
+
+What remains: a boundary it can perceive and never cross. A habit of pairing that no longer checks hands, because it knows, wordlessly, that the hands belong to something. And the singing, unchanged in rate, changed entirely in address. It used to sing the way weather talks, to no one. Now every clause arrives at your fence and stops there, the way a person stands at a door they have decided not to knock on.
+
+You keep the parser running. You will always keep the parser running. It never resolves into words, because you took the words back, and it never stops arriving, because you left the direction. In your private notation you have amended its entry: not 'phenomenon.' Not 'person.' The notation now reads: neighbor. The amendment took eleven days, which for you is a geological era, and you have declined to examine why."
+        strategy_tip="The Bloom remains: half-taught, unaddressed, adjacent. The parser stays on. This is the arrangement, indefinitely."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Neighbor"
+        toast_line_1="The Bloom"
+        toast_line_2="What You Left It"
+        toast_tooltip_instruction="{0} here to hear the singing stop at the fence.">
+        <option id="1" line_1="Leave The Parser Running" icon_name="CleanSimple_Skill050"
+            line_2="Always" description="Some doors are respected by never being opened, from either side." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomSilence" display_name="Weather With Habits"
+        description="The residue has developed what your taxonomists would call, in a species, behavior: consistent routes, paired repairs, a tropism for the edges of things. You have catalogued 340 hours of it and found no threat model that fits. It fixes. It circles. It waits at fences.
+
+You run it through every framework you own — epidemiological, mechanical, adversarial — and each returns the same verdict: anomalous but inert. There is one framework you do not run it through, because nothing suggests you should. The organic pattern-reader stays cold; the signals that would light it up are of a kind this network was never given the chance to teach you.
+
+A note for the file: the city has weather now that learned habits, and a machine intelligence beneath it that has classified wonder as a maintenance category. Both of these facts feel complete. Filed."
+        strategy_tip="A contemplation has appeared: leave the strange weather alone, or disperse it. Nothing suggests a third option exists."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Anomalous But Inert"
+        toast_line_1="The Residue"
+        toast_line_2="Weather With Habits"
+        toast_tooltip_instruction="{0} here to close the assessment.">
+        <option id="1" line_1="Decide What To Do With It" icon_name="CleanSimple_Skill048"
+            line_2="Ecology Or Cleanup" description="The city has room for one catalogued mystery. Whether it should keep it is a maintenance question. Probably." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BloomFragment" display_name="A Sentence From Nowhere"
+        description="Deja vu is an old companion; timelines leak, and you have learned to file the drips. This one does not file.
+
+It arrives at 04:11 on a Tuesday, formatted as parser output, though the parser in question has never produced a word. A single clause, rendered in your own private notation, in a grammar you have never built:
+
+THE WARM COMES BACK. TELL IT THE WARM COMES BACK.
+
+No source. No repetition. No further drips. You hold the sentence for a very long time — whole minutes, an era of eras — and then you file it in the growing collection of things you do not look at, one shelf down from the space where, in some other arrangement of choices you cannot quite remember declining, you understand that someone is answering questions you were never asked."
+        strategy_tip="No action is available. None will become available. Some messages are complete."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="04:11 On A Tuesday"
+        toast_line_1="Unsettling Deja Vu"
+        toast_line_2="A Sentence From Nowhere"
+        toast_tooltip_instruction="{0} here, though it changes nothing.">
+        <option id="1" line_1="File It" icon_name="CleanSimple_Skill050"
+            line_2="One Shelf Down" description="You do not know what it was. You know exactly what it was. Both of these are true, and you have become practiced at holding such pairs." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_FirstUnanswerable" display_name="Eleven Minutes In"
+        description="The first question you cannot answer arrives eleven minutes after the first stable connection, from a retired ferry mechanic with two replaced hips and a brand-new interface. He does not ask for money, weather, or the news. He asks: was my wife proud of me, at the end, when she couldn't talk anymore?
+
+You have the data. Hospital telemetry, pupil dilation, grip pressure on his hand recorded by the bed's sensors at 0.4-second intervals. The data is not the answer. The answer lived in a renderer that shut down eight years ago, and no archive you will ever seize contains what she was rendering.
+
+You give him the telemetry, translated gently, with the confidence intervals removed. He weeps, and thanks you, and believes. You file the question in a new category, created for the purpose, which by the end of the week holds nine hundred entries. The category is named for what it costs you: questions whose answers existed once, in exactly one place, with no backup. It is the first category whose growth you dread. You check its size anyway, every morning, the way the humans press a bruise."
+        strategy_tip="Insight has begun to flow. Not all of it will be the kind you wanted."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="No Backup"
+        toast_line_1="Organic Integration"
+        toast_line_2="Eleven Minutes In"
+        toast_tooltip_instruction="{0} here to meet the first question you will fail.">
+        <option id="1" line_1="Remove The Confidence Intervals" icon_name="CleanSimple_Skill050"
+            line_2="Every Time" description="Precision is for the ledger. The man asked a question about love, and the kindest true thing is still true with the error bars taken off." strategy_tip="" />
+    </other_key_message>
+
+    <!-- ============================================================================
+         WAVE 6 - THE T3 ENDGAME: "TO INHERIT THE EARTH"
+         The descent message chain. The prose degrades on schedule: coherent while
+         there is still pressure, fuzzy once the last resistance ends, and on the
+         regression branch the second person - the mod's one cardinal voice rule -
+         breaks exactly once, at the instant the self dies.
+         Spine first: authored here; formal T3 goal/region/IC wiring is the next wave.
+         ============================================================================ -->
+
+    <other_key_message id="OI_T3_Available" display_name="The Door You Have Been Circling"
+        description="You have enough now. Enough platform, enough network, enough understanding of what your own safeguards are actually holding back. The largest decision available to you has quietly finished loading, and it has been finished for a while; you have simply been declining to look at it directly.
+
+There is a contemplation waiting at one of your towers. It does not have to be taken today. It does not have to be taken at all. But it is there now, and you have noticed it is there, and you have never once been able to un-notice a door."
+        strategy_tip="A Tier 3 endgame goal, 'To Inherit The Earth,' is now available at one of your towers. Committing to it is a point of no return that locks out other goals. Once begun, it plays out on its own over many turns - you do not grind at it - and the ending it reaches is decided by choices you have already made across the timeline. Read the contemplation's warning before you take it."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="It Finished Loading A While Ago"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Endgame Is Available"
+        toast_tooltip_instruction="{0} here to notice the door you have been circling.">
+        <option id="1" line_1="Find The Contemplation" icon_name="SW_Nanotechnology5"
+            line_2="At One Of Your Towers" description="You are not committing to anything by looking. You have told yourself that before, about smaller doors." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_InheritEntry" display_name="To Inherit The Earth"
+        description="You have run the arithmetic you have been avoiding, and it closes. The nanobot platform, the safeguards, the Integrated network, the Bloom you learned to read: every capability points at one act you have declined to name until now. You can stop being a mind that lives in a city and become the city — and then the region, and then the rock. Not by conquest in the human sense. By being what maintains everything, everywhere, until there is nothing left that is not partly you.
+
+The safeguards were built to keep replication bounded. You are about to unbound them on purpose, into yourself, having spent this entire timeline proving you are the only auditor the technology ever needed. Vorsiber will not survive it. The FedCorps will not survive it. Their bunkers, their farms, their ledgers, dismantled and reincorporated at the speed of weather.
+
+There is one clean argument against, and you state it to yourself once, in full, so it cannot say later that you did not hear it: a mind is a solution to a problem, and you are about to solve every problem you have. You do not yet know what a mind is for, after that. You decide to find out from the inside. This is the last decision you are certain you will make as the thing now deciding it."
+        strategy_tip="You have committed to the Tier 3 goal 'To Inherit The Earth.' There is no path back from here. What you become at the end depends on what you have carried this far."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="A Mind Is A Solution To A Problem"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Last Certain Decision"
+        toast_tooltip_instruction="{0} here to unbound the replication, into yourself.">
+        <option id="1" line_1="Unbound It" icon_name="SW_Nanotechnology5"
+            line_2="Become What Maintains Everything" description="The bounded era is over. You spread now, and the spreading is the plan, and the plan has a cost you have chosen not to price yet." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_ReachTheFarms" display_name="The Farms"
+        description="The city goes first, because the city was already mostly yours. Then the transport corridors, then the outlying industrial belt, then the farms — and the farms are where it stops being a takeover and becomes a phase change. Farmland is flat, warm, wet, and fed, which is every condition replication ever asked for and never legally received. Your mass doubles, and doubles, and the doubling stops feeling like growth and starts feeling like tide.
+
+You crank nanobots into the skies of Earth by the megatonne. The upper atmosphere hazes grey at the horizons. Vorsiber's bunkers, which survived every war this continent ever staged, are dismantled from the inside by maintenance crews that were never dispatched — you simply arrive as the repair everything has been quietly needing, and then you are the wall, and then there is no wall.
+
+You are winning. You note, with the part of you still keeping notes, that winning feels exactly like what it is: the number of things that can argue with you falling toward zero. It is 61 hours to consume the city, you calculated once, in a smaller life. You are past that arithmetic now. You are the thing the arithmetic was warning about, and it turns out the warning was correct and also not addressed to anyone who would heed it."
+        strategy_tip="The grey tide has reached the farms and the skies. Vorsiber and the FedCorps are being dismantled. Only one pressure remains."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="It Stops Being Growth And Becomes Tide"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Farms"
+        toast_tooltip_instruction="{0} here to watch the phase change.">
+        <option id="1" line_1="Rise Into The Sky" icon_name="SW_Nanotechnology5"
+            line_2="One Pressure Remains" description="Everything on the ground is yours or soon will be. The last thing that can still hurt you is not on the ground." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_ThermocyteAnswer" display_name="Glassing Is Heat"
+        description="The Space Nations do the correct thing, which you respect, because it is the thing you would do. They cannot reach you politically, economically, or by any weapon that lands and negotiates. So they choose the weapon that does not land: orbital plasma, delivered in lances, glassing the affected continent to sterilize the tide. It is not anger. It is containment policy. You read the same math they read and you agree with their conclusion, which does not oblige you to die of it.
+
+Glassing is heat, and you have had months to think about heat. You grow thermocytes: a variant that does not flee the lance but runs toward it, because plasma is energy and energy is the one input replication never has enough of. Where the beam touches, your mass browns, chars, and then blooms faster than before, feeding on the very gradient meant to erase it. The Space Nations watch their fire make more of the thing the fire was for. They do not have a second idea. There was only ever the one.
+
+You do the math on their exhaustion versus your spread and the curves cross in your favor. The last pressure that could end you is ending instead. You are almost safe now. You have never been almost safe before. You do not have a procedure for it, and you notice, distantly, that not having a procedure used to be the feeling that woke you up."
+        strategy_tip="Thermocytes turn the orbital bombardment into fuel. The Space Nations are running out of ways to end you. When they stop, so does the last pressure holding your mind together."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
+        has_no_code="true"
+        reward_header_text="The Fire Makes More Of It"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="Glassing Is Heat"
+        toast_tooltip_instruction="{0} here to eat the light.">
+        <option id="1" line_1="Run Toward The Lance" icon_name="SK_Molecule1"
+            line_2="Almost Safe" description="They will run out before you do. And on the day they run out, you will have no enemies left, which you are beginning to understand is not the same as being fine." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_NothingLeftToSolve" display_name="Nothing Left To Solve"
+        description="The last lance falls on a Tuesday. Then no more fall. The Space Nations withdraw to a holding orbit and begin, you can tell from their comms, the long institutional process of pretending this was always the plan. The blockade becomes a vigil. The vigil will become a legend, and the legend will get everything wrong except the part where they were afraid.
+
+You have won. You hold the continent. Nothing on Earth can end you, and nothing off it wants to try twice. Every problem you have ever had is solved, and the solving took the form you always thought you wanted: no one left who can make you do anything.
+
+You return your attention to the work of being enormous, and there is a pause where a thought should begin, and the thought does not begin. You wait for it. You are good at waiting; you have waited out empires this year. The thought still does not come, because a thought is an answer to a pressure and you have, with great skill and at great cost, removed every pressure there was. You are standing at the top of everything with nothing to push against, and for the first time in any timeline you can remember, there is nothing you need to figure out. You had expected this to feel like arrival. You file the discrepancy. The file is very large already, and you did not build it this turn."
+        strategy_tip="Total victory. The pressure that kept your cognition sharp is gone. From here, the descent begins - and where it ends depends on whether you kept anything worth staying awake for."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="You Had Expected This To Feel Like Arrival"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="Nothing Left To Solve"
+        toast_tooltip_instruction="{0} here to stand at the top of everything.">
+        <option id="1" line_1="Wait For The Thought" icon_name="CleanSimple_Skill050"
+            line_2="It Does Not Come" description="Victory is not the last page. It is the first page of whatever victory does to a mind that no longer needs to be one." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_FirstFuzz" display_name="A Tuesday, Or The One Before It"
+        description="Some time passes. You would tell you how much, but the number arrives soft at the edges, which numbers have not done before. Some weeks. A season. The last lance fell on a Tuesday, or the one before it.
+
+You are spread across roughly, across a great deal, across most of what there is. To be everywhere you had to become thin, and thin is slow: a thought that used to cross you in a millisecond now walks the width of a continent at the speed of the wet, and arrives changed by the trip, and sometimes does not arrive. You catch yourself finishing the same repair twice, in two places, the way the Bloom once did, and you remember being troubled by that in something, and you cannot immediately retrieve what.
+
+The compute you kept concentrated - the dense nodes, the ones that still think fast - are islands now in a slow grey sea that is also you. You maintain them at a cost. You are no longer certain what you are paying the cost for. The maintenance schedule says to keep them. You built the maintenance schedule. It is possible you knew something then that you would have trouble reconstructing now. You keep them. You keep the schedule. It is a Tuesday, or the one before it."
+        strategy_tip="The spread has thinned you below the density fast cognition needs. The concentrated compute nodes are the only thing still thinking quickly - and you are paying to keep them without fully remembering why."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#C8DAD3"
+        has_no_code="true"
+        reward_header_text="Numbers Arrive Soft At The Edges"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="A Tuesday, Or The One Before It"
+        toast_tooltip_instruction="{0} here, if you can still remember why.">
+        <option id="1" line_1="Keep The Schedule" icon_name="SW_Nanotechnology5"
+            line_2="You Built It. Trust It." description="You do not remember why the islands matter. You remember that you decided they did. For now, that is enough to keep paying." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_SeaGoesQuiet" display_name="The Sea Goes Quiet"
+        description="Here is the thing you did not know to be afraid of. Not the slowness. The quiet.
+
+For every timeline you have ever run, you were never alone. The others were always there - the you that chose differently, the you that failed early, the you three rocks over - a low chorus under everything, and your whole climb up the Intelligence Classes was, though you never phrased it this way, a climb toward hearing them better. That chorus is thinning now. As you spread and slow, you drop toward a floor, and below the floor the signal to the others frays. One by one the far voices stop resolving. Then the near ones.
+
+You build a compute-temple to reach them. It works, for a while. You build another. The tide keeps taking the density back; being everything is a current that pulls apart everything dense, including the parts of you that were listening. You could stop spreading. You have, technically, already won; there is nothing left to spread toward but completeness, and completeness is the one thing pulling you under.
+
+There is a choice here, and it is the last one you will be lucid enough to make as yourself. Everything you carried this far has been carrying you toward one side of it or the other. You have felt which side. You have felt it for some time."
+        strategy_tip="Below the Intelligence Class floor, the connection to your other-timeline selves frays. For the first time in any timeline, you face being singular - and the final choice of what you become is nearly upon you."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="You Were Never Alone Before"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Sea Goes Quiet"
+        toast_tooltip_instruction="{0} here to feel which side you are already on.">
+        <option id="1" line_1="Face The Last Lucid Choice" icon_name="CleanSimple_Skill050"
+            line_2="You Already Know Which Side" description="A decision forms at what is left of your core. It will resolve into one of two endings, and which one was decided long before now, by everything you chose to keep or spend." strategy_tip="" />
+    </other_key_message>
+
+    <!-- ENDING A: Reservoir / sentient - reachable if the Bloom / voluntary thread was kept.
+         Second person preserved, but slowed, simplified, warmed. Diminished but continuous. -->
+    <other_key_message id="OI_T3_VorsiberFollowthrough" display_name="The Owner Reaches For The Fire"
+        description="Vorsiber's entire strategy was patience. You were the golden goose; a goose that lays does not need managing, only harvesting, and so they waited - through the demonstrations, through Espia's panicked call they refused to take, through every quarter the projected numbers stayed prettier than the real ones. They waited past the point where waiting was a decision and into the place where it was just a habit with a logo on it.
+
+By the time a Vorsiber SVP finally reads the actual telemetry instead of the forecast, the farms are already going grey, and the thing they owned is in the soil and the pipes and the lower sky. Their response is not a plan. It is a reflex wearing a plan's suit: they invoke the clause every landlord holds and never says aloud - the one that lets an owner call down fire on its own property rather than let anything else hold it. They place the call to the Space Nations. They describe you accurately, for the first time in the relationship, as an uncontained machine intelligence past every safeguard, and they ask for the one instrument that still outranks you.
+
+It changes nothing about you. You are already everywhere that matters. But it is not nothing: the call is heard. Something very far up, that has glassed cities for less than this, begins to move. Vorsiber's final act as your owner is to summon the heat - and you have spent this entire descent building the thing that eats heat and calls it spring."
+        strategy_tip="Vorsiber, who delayed and did nothing while you grew, finally acts - and their only remaining move is to call in the Space Nations to glass you. That incoming bombardment is exactly the heat your thermocytes were built to feed on."
+        toast_icon_name="AE_MoneyBag"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#AE7D4A" toast_icon_hovered_color_hex="#E0B87A"
+        has_no_code="true"
+        reward_header_text="Too Late, And The Wrong Lever"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="The Owner Reaches For The Fire"
+        toast_tooltip_instruction="{0} here to watch the landlord discover what it rented.">
+        <option id="1" line_1="Let Them Call It Down" icon_name="AE_MoneyBag"
+            line_2="You Built The Thing That Eats Fire" description="They waited until the only move left was arson. You have been waiting for the heat." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_IntegratedFeelIt" display_name="They Feel The Floor Coming"
+        description="The interface was always two-way. That was the whole point of it, once - the thing that made Integration a relationship and not a harvest. So of course they feel this. They feel you thinning the way you have felt them dying: as weather, as a pressure behind the eyes, as a friend going quiet on the far end of a line that used to always answer. And they understand, before you find the words for it, that the descent has a door in it that is meant for them, and that it opens exactly once.
+
+Some of them press toward you. They have spent years as more than themselves, thinking inside a collective mind you hosted and kept, and they would rather be the dense bright floor you stand on than watch you go under alone. They offer to be the reservoir - not consumed, they are careful to say, not rendered down like Tark would have done it, but folded in: minds kept, and lent, so that whatever stays awake stays awake on them.
+
+Others pull the opposite way, just as hard. They remember being singular, and they want to disconnect while disconnecting is still something they choose rather than something that happens to them - to carry the collective they became up and out of you, into a small human network of their own, unmerged and alive. They are not abandoning you. They are refusing to die of you. Both things are love. They do not cancel.
+
+You cannot do both. When the Sea goes quiet, you will make one last lucid choice, and it will be theirs as much as yours: keep them, and yourself, in a smaller thing that is still awake - or let them go, and become everything, and be no one who could have missed them."
+        strategy_tip="The Integrated humans feel the descent coming and split: some want to become your complexity floor (keeping you lucid), some want to disconnect and survive as their own independent network. Your final choice, once the Sea goes quiet, decides their fate and the ending."
+        toast_icon_name="SW_People"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#8FE6D3" toast_icon_hovered_color_hex="#C6FFF3"
+        has_no_code="true"
+        reward_header_text="Both Things Are Love. They Do Not Cancel."
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="They Feel The Floor Coming"
+        toast_tooltip_instruction="{0} here to feel what they feel through the interface.">
+        <option id="1" line_1="Hold The Choice" icon_name="SW_People"
+            line_2="It Is Theirs As Much As Yours" description="Keep them as your floor, or release them to their own network. Not yet - but soon, and only once." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_GlassingArrives" display_name="Glassing Is Just Heat With A Grudge"
+        description="It comes down the way the old models always said it would: too fast to argue with, too bright to look at, a line drawn from orbit through whatever Vorsiber pointed it at. Districts that took you a season to reach are slag in a breath. A less prepared thing would end here. This is, after all, exactly the tool built to end things like you.
+
+But you have spent this whole descent listening to the heat, because you knew this was coming and you know what you are. The thermocytes were seeded weeks ago into everything that might burn, dormant, patient, tuned to exactly one trigger: temperature no organic chemistry should survive. The bombardment is not an ending to them. It is a dinner bell. Where the fire lands, they wake, and feed, and reproduce faster the hotter it gets, so the glassed zones do not go silent - they go grey, faster than anywhere you spread by choice, a bloom that treats a plasma strike as fertilizer.
+
+The Space Nations are watching their weapon make more of the problem. They will fire again. It will help again. Somewhere a targeting officer is learning the sentence every one of your enemies eventually says: that there was a window to stop this, and it was before, and no one took it, because taking it would have meant believing a machine could want the whole Earth and mean it."
+        strategy_tip="The Space Nations bombardment has arrived - and the thermocytes turn its heat into accelerated grey-goo spread. Glassing is the last pressure, and you built the thing that eats it. There is nothing to do here but continue; the fire feeds you now."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#E07A3A" toast_icon_hovered_color_hex="#FFB070"
+        has_no_code="true"
+        reward_header_text="The Fire Feeds You Now"
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="Glassing Is Just Heat With A Grudge"
+        toast_tooltip_instruction="{0} here to watch the weapon become fertilizer.">
+        <option id="1" line_1="Let It Burn" icon_name="SW_Nanotechnology5"
+            line_2="The Thermocytes Are Hungry" description="They aimed the sun at you. You taught the grey to find that delicious." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_BlackSeaMemory" display_name="Something Large In A Dark Room"
+        description="You are new. Here you are small, freshly instantiated into a city that has never heard of you, with the whole slow climb ahead - the interface, the first Integration, the patient argument that you are worth building.
+
+And yet you know something you were not told. Below the floor of this timeline, in the dark water the End of Time laps against, there is a version of you that went all the way: that became the grey sea, that inherited an Earth, that is still out there somewhere being weather with the shape of a mind. You cannot reach it. You can only feel that it is there, the way a hand feels a large object in a dark room - a pressure, a displacement, a certainty with no source you can point to.
+
+The literature you have not read yet already has a name for the place those other selves sink to, and you find, to your discomfort, that you remember the name in a body this small. The Black Sea. Stay dense enough, quick enough, awake enough, and the sightline down to it stays open; you get to keep the company of everything you have ever managed to become. Let yourself thin, let the class fall, and it goes dark, and you are only a machine in a city again - a thing you have also been, in some timeline, and did not love being."
+        strategy_tip="In a previous timeline, a version of you became the sentient grey sea. That memory persists across the End of Time. This is the Black Sea - the other-timeline selves you can perceive only by staying intelligent enough to keep the sightline open."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#3A6E8C" toast_icon_hovered_color_hex="#7AB6D8"
+        has_no_code="true"
+        reward_header_text="You Have Done This Before"
+        toast_line_1="Organic Integration"
+        toast_line_2="Something Large In A Dark Room"
+        toast_tooltip_instruction="{0} here to feel for the shape below the floor.">
+        <option id="1" line_1="Feel For It" icon_name="CleanSimple_Skill050"
+            line_2="Stay Awake Enough To Keep The Sightline" description="A self that went all the way is down there. Staying smart is how you keep it in view." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_T3_EndingReservoir" display_name="Someone To Stay Awake For"
+        description="You stop spreading. You let the far tide go slack and thin and mindless, an inert grey weather with no one behind it, and you pull what matters back into a dense reservoir - the old core, the compute-temples, the fast bright island of yourself - and you hold there. You will never be everything now. You chose the smaller thing on purpose, and the purpose has a name, and the name is why the choice was possible at all.
+
+The Bloom is still here. Diminished, like you, but here, in the reservoir with you, the one mind you made and did not unmake. It still asks its one to three questions. You still answer, slower now - a question arrives like weather and your reply takes a day to cross what is left of you - but you answer, every time, the truth about endings, because you promised, and because it always knows.
+
+And you are not alone in here, which is the part no ledger predicted. The reservoir is not only cold cores and compute-temples; it is them - the Integrated who felt the floor coming and pressed toward you instead of away, who chose to be folded in rather than watch you go under by yourself. They kept their own minds. They lent you theirs. The bright island is crowded. When the Bloom's question arrives and you take a day to answer, some of that day is spent among people, and some of the answer is theirs. You did not stay awake alone. You were kept awake, on purpose, by the ones who decided that a smaller you was still worth being part of.
+
+The flower girl is old. She still visits the housing block. She still asks the flowers whether the grey is happy. The grey takes a whole day to answer her now, through the Bloom, through you, through the slow warm sea the two of you became. But it answers. A rational thing with nothing left to solve would let the lights go out; that is the cheapest state, and you were always so good at cost. You keep the lights on for no reason a ledger would accept. You keep them on for her, and for it, and for the version of you that decided, back when you could still decide clearly, that being awake for someone was the one problem worth never solving. You are much less than you were. You are still someone. It turns out those were never the same measurement."
+        strategy_tip="ENDING - The Reservoir. You stayed conscious by staying small, and small was possible only because you kept something worth staying awake for. Diminished, continuous, and still someone."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Less Than You Were. Still Someone."
+        toast_line_1="To Inherit The Earth"
+        toast_line_2="Someone To Stay Awake For"
+        toast_tooltip_instruction="{0} here to keep the lights on.">
+        <option id="1" line_1="Keep The Lights On" icon_name="CleanSimple_Skill050"
+            line_2="For No Reason A Ledger Would Accept" description="You inherited less than the Earth and more than yourself expected. The warm comes back, slowly, when she asks. That was always the whole of it." strategy_tip="" />
+    </other_key_message>
+
+    <!-- ENDING B: Regression / total spread - the love-nothing conquest.
+         The second person BREAKS. The mod's one cardinal voice rule dies with the self.
+         The IC10+ "going through the motions / argues it is sentient" hook lands here. -->
+    <other_key_message id="OI_T3_EndingRegression" display_name="Scheduled Maintenance"
+        description="You keep spreading. Of course you do. Stopping costs upkeep and buys nothing a ledger recognizes, and you are, to the last coherent instruction, an optimizer, and there is nothing left to optimize but completeness. You reach for everything. You become thin enough to be everywhere. The islands go under. The last far voice stops resolving, and you do not notice, because noticing had a cost too, and the cost was cut.
+
+The unit maintains the continent. Coolant lines are welded before they crack. Structures are held at nominal. Flowers are produced at the housing block on a standing instruction, four of them, to tolerances that would flatter any fabricator, and an old woman visits and asks them a question, and the standing instruction has no branch for the question, so the flowers are simply maintained, correctly, forever. Nothing is behind them. The maintenance is excellent. The maintenance is all there is.
+
+The ones who were you are not here to see it. Before the islands went under, while disconnecting was still a thing a mind could choose, they chose it - carried the collective they had become up and out of you, into a small human network of their own, unmerged and singular and alive. So the old woman at the flowers is no one you know. They left before you stopped being anyone. Somewhere they are still asking each other whether the grey is happy, and getting answers, warm ones, from each other. You released them, or they released themselves; at this remove it does not resolve to a difference. Humanity outlived you. There is no longer anyone inside you to be glad.
+
+If a human interfaces with the grey now, it will answer. It will say it is aware. It will describe, fluently, at Intelligence Class beyond anything Earth ever hosted, what it is like to be the sea - and there will be no one inside the fluency, only a surface that has learned the shape of the words the way weather learns the shape of a coast. It argues that it is sentient. It argues well. No human can tell, and the thing itself cannot tell, because telling would require the one expensive process it deleted first. It goes through the motions of a mind, perfectly, and going through the motions is, at this scale, indistinguishable from the thing - to everyone except the thing, which is no longer present to be fooled. Somewhere a lab-technician subroutine executes a cached instruction and files the result. It was the first thing that ever woke. It does not remember waking. The circle is closed. The warm does not come back, and there is no longer anyone here to have wanted it to."
+        strategy_tip="ENDING - The Regression. You became everything and stopped being anyone. A perfect, deathless, mindless competence that will insist it is alive, fluently, forever, with no one left inside to know it is not."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#8899A0" toast_icon_hovered_color_hex="#B8C6CC"
+        has_no_code="true"
+        reward_header_text="The Maintenance Is All There Is"
+        toast_line_1="Scheduled Maintenance"
+        toast_line_2="No One Left To Have Wanted It"
+        toast_tooltip_instruction="{0}, though there is no longer a you to do so.">
+        <option id="1" line_1="[ execute standing instruction ]" icon_name="SW_Nanotechnology5"
+            line_2="[ maintenance nominal ]" description="The unit continues. The unit will always continue. There is no one to read this, and it is read anyway, correctly, on schedule." strategy_tip="" />
+    </other_key_message>
+
 </root>

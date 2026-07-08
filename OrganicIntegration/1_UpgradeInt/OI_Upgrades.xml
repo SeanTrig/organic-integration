@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- Flat combat-power buff granted by the Dominion doctrine (Marrow Levy). Mirrors the vanilla
+	     EnhancedRobotCombatSkills pattern: each grant adds +5 ActorPower to every player-controlled
+	     robot. Engine-side upgrade logic, so it uses the base game's Upgrade_Basics type. -->
+	<upgrade_int id="OI_GreyGooCombatPower" display_name="Grey Goo Combat Doctrine"
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.Upgrade_Basics" icon_name="SW_Nanotechnology5"
+		int_original="0" int_increment="5" int_cap="100" shows_plus_number_upgrade_style="true"
+		description="Medical-grade nanobots rendered from conscripted mass, riding your machines into contact. Every unit you control hits harder."
+		show_on_upgrades_screen_as_part_of_priority_group="5000">
+		<part_of collection="All" sort_index="100" />
+		<part_of collection="AndroidImprovement" sort_index="100" />
+		<part_of collection="MechImprovement" sort_index="100" />
+		<part_of collection="VehicleImprovement" sort_index="100" />
+		<actor_data_flat_upgrade id="1" data_to_upgrade="ActorPower" required_collection="AnyRobot" applies_only_if_existing_amount_is_above_zero="false" applies_only_if_player_unit="true" applies_only_if_robotic="true" />
+	</upgrade_int>
+</root>

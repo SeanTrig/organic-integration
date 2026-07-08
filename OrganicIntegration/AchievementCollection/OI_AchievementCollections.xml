@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- The mod's own achievement bucket. Never references the reserved empty collections
+	     GoalLordOfTheNanites / GoalScorchedEarth / GoalIAmVorsiberNow. -->
+	<achievement_collection id="OI_OrganicIntegration" display_name="Organic Integration" sort_order="9000" />
+</root>
