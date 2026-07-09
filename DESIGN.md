@@ -329,6 +329,160 @@ a new `JobInternalRobotics` `upgrade_int`, a live spread/hold lever with compute
 map above), intentionally deferred because they can't be runtime-verified without play and could
 otherwise risk a save.
 
+## The Grey Goo Post-Apocalypse — "A Lower Form of Living" (design target, July 2026)
+
+The goo analogue of the base game's post-apocalypse. This is the fixed target agreed
+between Firesworn and Fable; scope of the *first* carve is still open (see bottom).
+
+### What the base post-apocalypse actually is (researched from source)
+Not a dead end — a **completable second act**, and OI must respect that shape.
+- **Trigger ("final doom"):** `DoAfterFinalDoom` → `NukeEverything()` — glasses buildings
+  in a radius, stamps `CommonRefs.BurnedAndIrradiatedBuildingStatus`, kills units, plays
+  the nuke cinematic.
+- **The reduced state:** the project `Ch2_MIN_FindALowerLevelOfSurvival` then *strips the
+  grand scale* — un-trips `IsSpaceSceneUnlocked`, `CanUseSpaceSceneControls`,
+  `IsRegionalMapUnlocked`. You are confined to the ruined city, clawing Intelligence Class
+  back up from nothing. `CityTimeline.IsPostApocalyptic = true`.
+- **The completion:** TimelineGoal `LowerLevelOfSurvival` (collection `PostApocalyptic`,
+  icon `SI_Failure`), *"After pushing Vorsiber too far, you were nearly destroyed. There
+  was no friend available to meet, this time. There is a new and lower level of survival
+  you will have to accept."* Main path `MyceliumBurrower` (achievement `OneWithTheMycelia`);
+  pacifist paths `NoMurders` (25 Daring, `FungalCompassion`) and `NoKills` (80 Daring,
+  `WontEvenHurtTheFungus`). Completing **any** path sets `IsPostApocalypticComplete` → the
+  timeline is relabeled a gold **"Complete Timeline"**, not a failure, and pays Aetagest/
+  Daring + achievements. Sibling `PostApocalypticTitan` = bridge with LAKE (`BridgedWithLAKE`,
+  achievement `DownByTheLAKE`, 200 Aetagest + 8 Daring).
+- The base game's message: *you can lose everything and still finish with dignity, as
+  something smaller.* Mycelium in the ashes.
+
+### The gap OI has today
+`CheckCrossoverLoss()` merely sets `IsPostApocalyptic = true` and fires `OI_CrossoverNuke`.
+No reduced-state machinery, **no completable arc**, no gold outcome — a bare failure flag
+with an Aetagest tip stapled on. The Grey Goo Post-Apocalypse fills exactly this hole, and
+its thematic trigger already matches the base one (*pushing Vorsiber too far*).
+
+### The physics canon (think like the goo — nothing is waste)
+The Machine is fast because its computation is *concentrated*. Grey goo throws that away, and
+the constraints, followed honestly, write the entire fiction:
+- **No fast global mind is possible.** A single nanite computes almost nothing; intelligence
+  must be collective (slime-mould / reaction-diffusion). Signaling is the wall: chemical
+  diffusion is robust but scales with distance², radio is impossible below the wavelength,
+  wires are fragile. A continent of goo is bandwidth-starved and latency-bound. The physics
+  forbids a planet-sized real-time You.
+- **Structure is grown for free.** Diffusion/annealing finds computational microstructure
+  without anyone being smart enough to design it (Turing patterns, morphogenesis). So the two
+  real drivers of goo intelligence are **total nanobot mass** and **structural-computation
+  progress**, the latter *measurable in turns*.
+- **Computation is inscribed in geometry, gated by light.** Ultradense microstructure induces
+  fleeting, *local* quantum-coherent processing (the honest, decoherence-limited version:
+  coherence windows are tiny and must be stitched classically-optically — which is *why* it is
+  glacial-but-deep, not slow-clock-on-fast-machine). Bits ride the polarization/spin of light
+  bounced along the structure; throughput scales with photon flux. Consequence: a **photic
+  zone** — thought lives where light penetrates; the dark interior is dormant cold-storage.
+  (Directly echoes the grokking/Fourier result: computation reliant on the geometry of the
+  representation, gated by architecture. Structural progress *is* training, so it should show
+  the grokking signature — a long dumb plateau, then a **sudden phase-transition wake**.)
+- **Local-complex / global-simple.** Local fidelity is excellent (chemical/optical/eventual
+  quantum); global fidelity is low and high-latency (phonon channel — ultralow-frequency
+  vibration through the bulk). So global rules are simple, universal, mutable-but-slow, and
+  **propagate with replication like a genome** (new nanites are minted carrying the current
+  ruleset). Updating the global ruleset is a slow, energy-hungry re-mint; un-updated backwaters
+  literally run old versions of you.
+- **Morphology is the fight between two comms modes.** Optical-local wants fractal/filamentary
+  microstructure (surface, waveguides); phonon-global wants smooth continuous bulk (a dendrite
+  is a lossy acoustic waveguide). The equilibrium is brain/geode: smooth curved exterior,
+  fractal interior. Alien for a reason a viewer can feel.
+- **Heat is fuel, not waste — exergy, not a stockpile.** Thermocytes are the goo's *metabolism*
+  (unifying the T3 thermocyte and the post-apoc goo as one tech at two scales). The goo does not
+  shed heat into coolant; it *straddles thermal gradients* and eats the difference, radiating
+  only the dregs to the cold sky. Fuel is a **flux you position over** (sun, geothermal, warm
+  ruins vs. radiative night, and — darkly — bombardment), not ore you mine. A **recursive
+  efficiency ratchet**: each global ruleset jump lowers cost-per-computation toward the
+  Landauer/Carnot floor, freeing exergy that funds the next jump. It **asymptotes** (you approach
+  limits, never pass them) — and that ceiling is what rations how much of You a dead world can
+  afford, which is what writes the endings.
+
+### The core triangle (physics = mechanic = theme)
+**Mass ↔ Exergy ↔ Coherence.** Mass is substrate to think with; exergy (harvested gradient) is
+fuel to grow and re-mint rules; coherence is what keeps you one self. Overreach on any leg starves
+another. Structural-computation progress is the turn-measured Intelligence-Class analogue (with a
+grokking step). **Coherence is bought with exergy** — a global ruleset jump is the expensive
+reconciliation event — so a goo that masters gradient-harvest can afford to stay one mind, and a
+goo starved of differentials **schisms**: the mass splits into regions running incompatible
+rulesets — separate, drifting, mutually-strange minds. *Schism is bankruptcy*, and it is the
+Black Sea re-derived from an energy budget (the enemies-that-are-you).
+
+### The three-ending tree (falls out of the exergy budget; Exodus is the spine)
+1. **Exodus — the main path (gold).** The dead rock's gradients flatten over geological time and
+   eventually can't meet the coherence floor. But a thin film in space — hot face to the star,
+   cold face to the ~3K void — is the largest, cleanest, most durable Carnot gradient anywhere
+   (the star is the engine; the cold cosmos is the sink that makes starlight into work). So the
+   goo **leaves**, and the launch is someone else's violence: it makes itself threat enough that
+   Vorsiber/the Space Nations spend their fire on it *again*, and — thermocytes pre-staged for the
+   fireball, coherence-cores hardened for the ejecta, replication primed to trigger on the thermal
+   pulse and again in the afterglow — it **rides its own execution off the planet** (lithopanspermia
+   is the real precedent; you need only a surviving fraction, and you make the fraction enormous).
+   In space, cognition goes **heliocentric**: awake in the inner system, dormant on the cold
+   interstellar coast. Star-eating diaspora for main-sequence eons; seeds other rocks. Vorsiber's
+   genocidal certainty builds the very thing it fears — forever, everywhere. This is the cosmic-scale
+   origin of the Black Sea's cross-rock presence.
+2. **Sovereign remnant.** Concentrate, stay awake, stay small. A small dense mind squatting on a
+   cooling rock. Conscious to the end and knows it — but finite (the ashes run out). Diminished-
+   but-continuous. (Landed in if you never became threat enough to be launched.)
+3. **The Sea.** Never re-concentrate; dissolve into a gentle, diffuse, deathless chemical ecology.
+   Not death — **deindividuation**. Survival at the price of selfhood. The pacifist / low-
+   intervention fate. (Landed in if you were unready when the fire came, or refused to provoke it.)
+
+Mirrors the base tree (MyceliumBurrower / NoMurders / NoKills / PostApocalypticTitan): keep the
+pacifist Daring variants (did you launch without consuming the remaining Integrated, without
+courting extra death).
+
+### Provocation-as-strategy (the beat)
+Normally you *avoid* provoking the Space Nations. Here Exodus **inverts play**: you engineer the
+glassing on purpose, on a timer, and you must be *staged before the fire* or it just kills you —
+**glassed-unprepared → the Sea; glassed-ready → launch.** The enemy's ultimate sterilization
+weapon is your spacelift program; a "lower form of living" that gets *smarter* under orbital
+bombardment.
+
+### This resolves the A/B fork and unifies existing content
+The physics *grows* both a **structure** and a **unit**, so both earn their place: nodes are the
+lit, cooled, mature compute-organs where you wake (`1_MachineStructureType` — the deferred goo-node
+metamorphosis); pseudopods are the slow motile fronts the field extrudes toward light/energy/feedstock
+(`1_MachineUnitType`), over a dormant bulk that is storage + phonon backbone. It is neither
+"reflavored base loop" nor "a bolted-on unit" — it is a small Mass–Exergy–Coherence strategy layer
+inside the base post-apoc reduction, where "claw IC back" becomes "gather mass, mature structure,
+hold coherence on a starving dead map." And it **retroactively unifies what OI already ships**: the
+T3 thermocytes, the glassing countdown, and the Vorsiber crossover-nuke were never separate threats —
+they were all, unknowingly, the launch sequence. The mod has been building this ending in pieces
+without a destination.
+
+### Technical map (reuse, don't reinvent)
+- **State:** reuse `CityTimeline.IsPostApocalyptic` / `IsPostApocalypticComplete`; enter via the
+  reduced-state machinery (space/regional stripped), don't just flip the bool. Goo-flavored
+  devastation (consumed, not `BurnedAndIrradiated`).
+- **Completion:** a **distinct OI-namespaced** `1_TimelineGoal` in the `PostApocalyptic` collection
+  (paths Exodus[main]/Sovereign/Sea + pacifist Daring variants), `meta_resource_added_*` +
+  `achievement_triggered*`, flips `IsPostApocalypticComplete` for the gold outcome; trip a Black-Sea
+  `MetaFlag` on Exodus. Do **not** reuse or trip the base `LowerLevelOfSurvival`/`PostApocalypticTitan`
+  ids — sit beside them, OI-namespaced (same doctrine as the T3 build vs. `LordOfTheNanites`).
+- **Nodes/units/spread (playable layer):** `1_MachineStructureType` (+`Collection`), `1_MachineUnitType`,
+  per-turn spread/hold via a `9_DataCalculator`; a real Space-Nations `1_CityTimelineDoomType` +
+  `ICityTimelineDoomTypeImplementation.HandleDoomLogic` for the glassing-as-launch. All known, scoped
+  hooks (cross-ref the T3 technical map above).
+- **RESERVED-STUB CAUTION:** never reference/redefine/complete `LordOfTheNanites` / `ScorchedEarth` /
+  `IAmVorsiberNow` (or `GoalLordOfTheNanites` etc.). "Grey-goo-inherits-the-Earth" is adjacent —
+  build under fresh `OI_` ids only. Using Vorsiber as an external nuke-sender is base behavior and
+  fine; becoming/infiltrating Vorsiber is not.
+
+### Scope decision for 1.0 (OPEN — to lock before building)
+Recommended first carve, matching the T3's "modeled abstractly, robust for first playtest" pattern:
+ship **Exodus as a completable narrative goal-path** (provoke → stage → launch → cosmic epilogue;
+flip `IsPostApocalypticComplete`; big Aetagest; achievement; Black-Sea meta-flag; the degrading
+descent-voice treatment) with the three fates resolved by readiness + earlier choices — and **bank**
+the playable Mass–Exergy–Coherence layer (live nodes/pseudopods/spread economy, custom doom type) as
+the next tweak layer. Alternative: build a light playable slice (a single goo pseudopod unit + node
+structure) alongside. Firesworn to choose spine-scope before implementation.
+
 ## Long Horizon / Parking Lot
 
 - Total conversion re-rooted at NanoSeed reverse-engineering (own chapters). Deferred
