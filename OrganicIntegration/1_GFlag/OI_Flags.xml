@@ -125,4 +125,25 @@
 	<city_flag id="OI_AetaBlackSeaCharged" display_name="Black Sea Aetagest awarded" has_no_code="true"/>
 	<city_flag id="OI_AetaOutbreakLostCharged" display_name="Outbreak-lost Aetagest awarded" has_no_code="true"/>
 	<city_flag id="OI_AetaOutbreakBeatenCharged" display_name="Outbreak-beaten Aetagest awarded" has_no_code="true"/>
+	<!-- Grey Goo Post-Apocalypse ("A Lower Form of Living") -->
+	<city_flag id="OI_GreyGooApocalypse" display_name="The grey goo post-apocalypse has begun" has_no_code="true"/>
+	<city_flag id="OI_Goo_ReducedStateEntered" display_name="Goo post-apoc: reduced state entered" has_no_code="true"/>
+	<city_flag id="OI_Goo_SlowFieldShown" display_name="Goo post-apoc: slow field explained" has_no_code="true"/>
+	<city_flag id="OI_Goo_GrokShown" display_name="Goo post-apoc: the grokking wake" has_no_code="true"/>
+	<city_flag id="OI_Goo_NoticedShown" display_name="Goo post-apoc: the Space Nations noticed" has_no_code="true"/>
+	<city_flag id="OI_Goo_SchismWarned" display_name="Goo post-apoc: coherence failing" has_no_code="true"/>
+	<city_flag id="OI_Goo_DialChosen" display_name="Goo post-apoc: spread/gather dial set" has_no_code="true"/>
+	<city_flag id="OI_Goo_Concentrating" display_name="Goo post-apoc: gathering inward" has_no_code="true"/>
+	<city_flag id="OI_Goo_Spreading" display_name="Goo post-apoc: thinning out" has_no_code="true"/>
+	<city_flag id="OI_Goo_ThermocytesStaged" display_name="Goo post-apoc: thermocytes staged for the fire" has_no_code="true"/>
+	<city_flag id="OI_Goo_GlassingHit" display_name="Goo post-apoc: the bombardment arrived" has_no_code="true"/>
+	<city_flag id="OI_Goo_EndingReady" display_name="Goo post-apoc: the last choice is available" has_no_code="true"/>
+	<city_flag id="OI_Goo_ExodusUnavailable" display_name="Goo post-apoc: Exodus not available" has_no_code="true"/>
+	<city_flag id="OI_Goo_SovereignUnavailable" display_name="Goo post-apoc: Sovereign not available" has_no_code="true"/>
+	<city_flag id="OI_Goo_EndingExodus" display_name="Goo post-apoc: chose Exodus" has_no_code="true"/>
+	<city_flag id="OI_Goo_EndingSovereign" display_name="Goo post-apoc: chose Sovereign" has_no_code="true"/>
+	<city_flag id="OI_Goo_EndingSea" display_name="Goo post-apoc: chose the Sea" has_no_code="true"/>
+	<city_flag id="OI_Goo_Ended" display_name="Goo post-apoc: arc ended" has_no_code="true"/>
+	<city_flag id="OI_Goo_VictoryDeclared" display_name="Goo post-apoc: completion recorded" has_no_code="true"/>
+	<city_flag id="OI_Goo_AetaReachedCharged" display_name="Goo post-apoc: reached-Aetagest granted" has_no_code="true"/>
 </root>

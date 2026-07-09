@@ -10,4 +10,15 @@
 		alert_color_style="Crisis"
 		city_flag_to_trip_1="OI_T3_GlassingHit"
 		other_key_message_to_show1="OI_T3_GlassingArrives" />
+	<!-- The goo post-apocalypse's glassing. Started from the calculator when your notoriety crosses
+	     the threshold, WHILE still pre-final-doom (tripping IsPostFinalDoom cancels running countdowns,
+	     so the reduced state is only entered after this completes). On completion it trips
+	     OI_Goo_GlassingHit and shows the arrival letter; the calculator then reads whether you staged
+	     thermocytes to decide fire-versus-fuel and enters the reduced state. -->
+	<countdown_type id="OI_GooGlassingIncoming" display_name="Something Very Far Up Is Moving" turns_to_last="5"
+		description="You made yourself too bright to ignore. Something in orbit has decided the cheapest answer to you is heat, and a great deal of it. It has glassed cities for less."
+		strategy_tip="When this ends the bombardment arrives. If you staged the thermocytes, the fire is fuel and a launch window. If not, it is only fire."
+		alert_color_style="Crisis"
+		city_flag_to_trip_1="OI_Goo_GlassingHit"
+		other_key_message_to_show1="OI_Goo_GlassingArrives" />
 </root>

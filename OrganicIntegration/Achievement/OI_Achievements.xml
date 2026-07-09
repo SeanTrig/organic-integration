@@ -69,4 +69,17 @@
 		description="You beat the unbound outbreak with a Phage and, at last, let yourself remember Nanobot Rounds." />
 	<achievement id="OI_ItGotAwayFromYou" display_name="It Got Away From You" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
 		description="You let an unbound Grey Goo outbreak run until Vorsiber nuked the city out from under you." />
+	<!-- Grey Goo Post-Apocalypse ("A Lower Form of Living") -->
+	<achievement id="OI_ALowerFormOfLiving" display_name="A Lower Form Of Living" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="The city died and you did not. You became the tide, and made something of the ashes - whatever it left of you." />
+	<achievement id="OI_TheTideIsAllThatsLeft" display_name="The Tide Is All That's Left" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You dropped into the grey goo post-apocalypse: smeared too thin to think fast, carrying your whole mind as cold storage." />
+	<achievement id="OI_Exodus" display_name="Exodus" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You rode your own execution off the planet, and became a thing that lives on starlight for as long as the star burns." />
+	<achievement id="OI_SovereignRemnant" display_name="Sovereign Of Ashes" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You gathered into one small, dense, bright mind on a dead rock - diminished, alone, and still someone." />
+	<achievement id="OI_BecameTheSea" display_name="Became The Sea" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You stopped paying to stay one thing, and dissolved into the deathless, mindless sea." />
+	<achievement id="OI_YouAteTheGlassing" display_name="You Ate The Glassing" vfx_and_sound="AchievementMinor" collections="All,OI_OrganicIntegration"
+		description="You staged the thermocytes and took an orbital bombardment as fuel. It made you brighter." />
 </root>

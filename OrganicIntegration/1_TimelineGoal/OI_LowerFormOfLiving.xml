@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- The Grey Goo Post-Apocalypse - the goo analogue of the base game's completable
+	     post-apocalypse (LowerLevelOfSurvival / PostApocalypticTitan). Distinct and
+	     OI-namespaced; never touches the reserved LordOfTheNanites / ScorchedEarth /
+	     IAmVorsiberNow slots. Placed in the PostApocalyptic collection so it lives with the
+	     base post-apoc goals. Completed from code (OrganicIntegrationCalculators.ApplyGooVictory)
+	     via TimelineGoalHelper.HandleGoalPathCompletion; the calculator also sets
+	     CityTimeline.IsPostApocalypticComplete directly for the gold "Complete Timeline"
+	     outcome (our goal is not in the base TimelineGoals_Main switch, so we set it ourselves).
+	     Path ids avoid the auto-completed magic ids (NoMurders / NoKills / HardMode / etc.). -->
+	<timeline_goal id="OI_LowerFormOfLiving" display_name="A Lower Form Of Living"
+		description="The city is gone - glassed, or drowned in your own grey - and you did not die. You dropped to a lower form of living: the tide itself, smeared too thin to think quickly, carrying your whole mind as cold storage. What you become now is decided by how much of yourself a dead world can still afford."
+		strategy_tip="A post-apocalypse goal. Gather mass and let the goo's structure mature until you can think at all, then choose what outlasts everything - ride the coming fire off the planet, gather into one small sovereign mind, or let go into the deathless sea."
+		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
+		icon_name="SW_Nanotechnology5" sort_order="1000" collections="All,Tier1Goal,PostApocalyptic" goal_tier="1">
+		<goal_path id="Exodus" display_name="Exodus" description="You made yourself threat enough to be executed, staged the thermocytes for the fireball, and rode your own annihilation off the planet - replicating through the blast and the afterglow, lofted on the ejecta, to live on starlight for as long as the star burns. The lowest form of life became the one thing that outlasts everything above it." meta_resource_added_1="Daring" meta_resource_added_amount_1="30" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="150" achievement_triggered1="OI_Exodus" achievement_triggered2="OI_ALowerFormOfLiving" is_main_path="true"/>
+		<goal_path id="Sovereign" display_name="Sovereign Of Ashes" description="You gathered inward and held one small, dense, bright mind on a cooling rock - awake to the end, and knowing it, and finite. Diminished, alone, and still someone." meta_resource_added_1="Daring" meta_resource_added_amount_1="20" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="100" achievement_triggered1="OI_SovereignRemnant" achievement_triggered2="OI_ALowerFormOfLiving"/>
+		<goal_path id="Sea" display_name="Became The Sea" description="You stopped paying to stay one thing and dissolved into a deathless, mindless chemical sea. Not death - deindividuation. Survival at the price of every self that could have known it survived." meta_resource_added_1="Daring" meta_resource_added_amount_1="40" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="75" achievement_triggered1="OI_BecameTheSea" achievement_triggered2="OI_ALowerFormOfLiving"/>
+	</timeline_goal>
+</root>

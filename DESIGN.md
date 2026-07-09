@@ -483,6 +483,38 @@ the playable Mass–Exergy–Coherence layer (live nodes/pseudopods/spread econo
 the next tweak layer. Alternative: build a light playable slice (a single goo pseudopod unit + node
 structure) alongside. Firesworn to choose spine-scope before implementation.
 
+### Build status (July 2026 - built for the first 1.0 alpha playtest)
+**BUILT and deployed:** the full narrative arc + a working, completable post-apocalypse goal, end to end.
+- **Entry** (two ways, both trip `OI_GreyGooApocalypse`): the deliberate `Cont_OI_GooApocalypse_Enter`
+  ("Unbind Into Yourself", gated coercive + chapter 3, red-warned) and the cross-timeline
+  outbreak-lost path (`CheckCrossoverLoss` now routes there instead of leaving the cosmetic-only
+  `IsPostApocalyptic` half-state the research flagged).
+- **Economy** (`ApplyGooPostApocalypse`, paced like `ApplyT3Descent`): five GStatistics -
+  `OI_Goo_Mass/Structure/Coherence/Exergy/Threat` - advanced per turn. Intelligence = Mass +
+  Structure; Structure has a **grokking step** (`GooGrokThreshold`) that fires `OI_Goo_Grok` and
+  wakes the mind; Coherence is bought from Exergy against a mass-scaling upkeep and, if it hits zero,
+  auto-resolves to the Sea (schism/bankruptcy). The **dial** (`Cont_OI_Goo_Dial`,
+  Concentrate/Spread) biases the economy toward Sovereign vs survival.
+- **Glassing:** Threat (or a turn cap) opens the `OI_GooGlassingIncoming` countdown *while still
+  pre-final-doom*; `Cont_OI_Goo_StageThermocytes` sets the Exodus prerequisite. Countdown completion
+  trips `OI_Goo_GlassingHit`; the calculator then enters the reduced state (`EnterGooReducedState`:
+  `IsPostFinalDoom` + `IsPostNuclearDelivery`, dead weather, per-turn un-trip of the space/regional
+  flags - deliberately NOT `NukeEverything`) and opens the last choice with unearned endings hidden.
+- **Endings** (`Cont_OI_Goo_Ending` -> `ApplyGooVictory`): Exodus (needs staged thermocytes) /
+  Sovereign (needs coherence >= floor) / the Sea (always). Completion calls
+  `HandleGoalPathCompletion(OI_LowerFormOfLiving, path)` and sets `IsPostApocalypticComplete`
+  directly (our goal is not in the base `TimelineGoals_Main` switch) for the gold "Complete
+  Timeline"; trips `OI_GooHasEverBecomeSentient` (and `OI_GooReachedTheStars` on Exodus); pays
+  Aetagest/Daring + achievements. Handbook `OI_HB_LowerFormOfLiving` reveals on arrival.
+- **Modeled abstractly (deferred, per the "robust first playtest" rule):** the economy is
+  stat-driven; the **visible goo spread (pseudopod-as-swarm-front)** and **real `MachineStructureType`
+  goo-nodes** are NOT in the alpha. Research (July 2026) confirmed both are save-safe and not
+  DLL-coupled - recommendation was to model the pseudopod as a swarm-front first (avoids unit
+  deploy-footer/stance/replication-cap tuning under playtest) and add the node as a real structure
+  (low risk) - so both are the next tuning layer, wired onto the existing Mass/Exergy stats.
+- **Reachability for the playtest:** the deliberate entry in a coercive, chapter-3+ run (or by
+  losing the cross-timeline outbreak).
+
 ## Long Horizon / Parking Lot
 
 - Total conversion re-rooted at NanoSeed reverse-engineering (own chapters). Deferred

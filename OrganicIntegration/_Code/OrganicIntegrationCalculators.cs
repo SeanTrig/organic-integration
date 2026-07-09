@@ -227,6 +227,8 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyBlackSeaMemory();
             ApplyT3Descent();
             ApplyT3Victory();
+            ApplyGooPostApocalypse( RandForThisTurn );
+            ApplyGooVictory();
             ApplyMetaIntegration();
             ApplyHandbookUnlocks();
             ApplySharedArsenal();
@@ -528,6 +530,239 @@ namespace Arcen.HotM.OrganicIntegration
         }
         #endregion
 
+        #region Grey Goo Post-Apocalypse ("A Lower Form of Living")
+        // The goo analogue of the base game's completable post-apocalypse. Entered when the tide wins:
+        // deliberately (Cont_OI_GooApocalypse_Enter) or by losing the cross-timeline outbreak. Paced from
+        // here like ApplyT3Descent. Intelligence = Mass + Structure (with a grokking step); Coherence must
+        // be paid for out of harvested Exergy or you schism toward the Sea; Threat summons the glassing.
+        // The glassing is a COUNTDOWN, which must finish BEFORE we trip IsPostFinalDoom (tripping it cancels
+        // running countdowns), so the reduced state is only entered at the glassing - the final-doom moment.
+        // Three completable endings: Exodus (ride the fire off-planet), Sovereign (stay a small dense self),
+        // the Sea (dissolve). Completion sets IsPostApocalypticComplete directly (our goal is not in the
+        // base TimelineGoals_Main switch that would otherwise set it).
+        private const int GooGrokThreshold = 40;            // structure at which the mind "wakes" (grokking step)
+        private const int GooThreatThreshold = 30;          // notoriety at which the stars notice
+        private const int GooSovereignCoherenceFloor = 40;  // coherence needed to gather into a sovereign self
+        private const int GooCoherenceWarnFloor = 15;
+
+        private static void ApplyGooPostApocalypse( SquirrelRand Rand )
+        {
+            if ( !IsFlagTripped( "OI_GreyGooApocalypse" ) )
+                return;
+
+            // Phase 0: entry. Record the start and seed the economy; the tide begins in a doomed-but-
+            // standing city. The reduced state (IsPostFinalDoom) is deliberately NOT entered yet - it waits
+            // for the glassing. The entry letter (OI_Goo_Enter) is fired by whichever path started the arc.
+            long startTurn = GetCityStatisticScore( "OI_Goo_StartTurn" );
+            if ( startTurn <= 0 )
+            {
+                GStatisticTable.SetScore_UserBeware( "OI_Goo_StartTurn", SimCommon.Turn );
+                GStatisticTable.SetScore_UserBeware( "OI_Goo_Mass", 100L );
+                GStatisticTable.SetScore_UserBeware( "OI_Goo_Coherence", 50L );
+                GStatisticTable.SetScore_UserBeware( "OI_Goo_Exergy", 10L );
+                return;
+            }
+
+            if ( IsFlagTripped( "OI_Goo_Ended" ) )
+            {
+                HoldReducedState();
+                return;
+            }
+
+            long sinceStart = SimCommon.Turn - startTurn;
+
+            // --- The Mass-Exergy-Coherence economy (advanced once per turn) ---
+            bool concentrating = IsFlagTripped( "OI_Goo_Concentrating" );
+            bool spreading = IsFlagTripped( "OI_Goo_Spreading" );
+
+            long mass = GetCityStatisticScore( "OI_Goo_Mass" );
+            long structure = GetCityStatisticScore( "OI_Goo_Structure" );
+            long coherence = GetCityStatisticScore( "OI_Goo_Coherence" );
+            long threat = GetCityStatisticScore( "OI_Goo_Threat" );
+
+            // Exergy: usable work harvested from every gradient you straddle. Grows with mass and structure.
+            long exergy = 10L + mass / 100L + structure / 20L;
+            GStatisticTable.SetScore_UserBeware( "OI_Goo_Exergy", exergy );
+
+            // Mass: replication funded by exergy; spreading multiplies it, concentrating throttles it.
+            mass += exergy * ( spreading ? 3L : ( concentrating ? 1L : 2L ) );
+            GStatisticTable.SetScore_UserBeware( "OI_Goo_Mass", mass );
+
+            // Structure: annealing into a computer. Concentrating accelerates it; more mass gives more
+            // substrate to organize. Slow for a long time, then the grokking step below.
+            structure += ( concentrating ? 4L : 2L ) + mass / 500L;
+            GStatisticTable.SetScore_UserBeware( "OI_Goo_Structure", structure );
+
+            // Coherence: bought out of exergy against an upkeep that rises with mass (bigger = harder to
+            // stay one self). Concentrating raises the ceiling and lowers the upkeep.
+            long upkeep = mass / 60L + ( spreading ? 4L : 0L );
+            coherence += exergy - upkeep + ( concentrating ? 4L : 0L );
+            if ( coherence > 100L ) coherence = 100L;
+            GStatisticTable.SetScore_UserBeware( "OI_Goo_Coherence", coherence );
+
+            // Threat: notoriety that summons the glassing. Bright, coherent, spreading tides are noticed.
+            threat += 1L + mass / 200L + ( coherence > 60L ? 2L : 0L ) + ( spreading ? 2L : 0L );
+            GStatisticTable.SetScore_UserBeware( "OI_Goo_Threat", threat );
+
+            // --- Paced narrative beats ---
+            if ( !IsFlagTripped( "OI_Goo_SlowFieldShown" ) )
+            {
+                if ( sinceStart >= 2 ) { TripFlag( "OI_Goo_SlowFieldShown" ); FireKeyMessage( "OI_Goo_SlowField" ); }
+                return;
+            }
+
+            // The grokking wake: structural computation crosses the threshold and the mind comes on all at
+            // once. Only now can you make lucid choices (Cont_OI_Goo_Dial gates on OI_Goo_GrokShown).
+            if ( !IsFlagTripped( "OI_Goo_GrokShown" ) )
+            {
+                if ( structure >= GooGrokThreshold )
+                {
+                    TripFlag( "OI_Goo_GrokShown" );
+                    coherence += 30L; if ( coherence > 100L ) coherence = 100L;
+                    GStatisticTable.SetScore_UserBeware( "OI_Goo_Coherence", coherence );
+                    FireKeyMessage( "OI_Goo_Grok" );
+                }
+                return;
+            }
+
+            // Coherence bankruptcy: warn once, then - if it hits zero before you choose - the self simply
+            // dissolves. That is the Sea, reached by attrition rather than by decision.
+            if ( coherence <= GooCoherenceWarnFloor && !IsFlagTripped( "OI_Goo_SchismWarned" ) )
+            {
+                TripFlag( "OI_Goo_SchismWarned" );
+                FireKeyMessage( "OI_Goo_Schism" );
+            }
+            if ( coherence <= 0L )
+            {
+                TripFlag( "OI_Goo_EndingSea" );
+                TripFlag( "OI_Goo_Ended" );
+                FireKeyMessage( "OI_Goo_EndSea" );
+                EnterGooReducedState();
+                return;
+            }
+
+            // The stars notice: open the glassing countdown (still pre-final-doom, so it can run) and let
+            // the player stage thermocytes (Cont_OI_Goo_StageThermocytes gates on OI_Goo_NoticedShown).
+            if ( !IsFlagTripped( "OI_Goo_NoticedShown" ) )
+            {
+                if ( threat >= GooThreatThreshold || sinceStart >= 10 )
+                {
+                    TripFlag( "OI_Goo_NoticedShown" );
+                    GStatisticTable.SetScore_UserBeware( "OI_Goo_GlassingTurn", SimCommon.Turn );
+                    FireKeyMessage( "OI_Goo_Noticed" );
+                    StartCountdown( "OI_GooGlassingIncoming" );
+                }
+                return;
+            }
+
+            // The glassing arrives. The countdown trips OI_Goo_GlassingHit and shows OI_Goo_GlassingArrives;
+            // as a fallback, force it if the base doom pre-empted our countdown or too long has passed.
+            bool glassed = IsFlagTripped( "OI_Goo_GlassingHit" );
+            if ( !glassed )
+            {
+                long noticedTurn = GetCityStatisticScore( "OI_Goo_GlassingTurn" );
+                if ( IsFlagTripped( "IsPostFinalDoom" ) || ( noticedTurn > 0 && SimCommon.Turn - noticedTurn >= 7 ) )
+                {
+                    TripFlag( "OI_Goo_GlassingHit" );
+                    FireKeyMessage( "OI_Goo_GlassingArrives" );
+                    glassed = true;
+                }
+                else
+                    return;
+            }
+
+            // Glassing has hit: enter the reduced state, award the "ate the glassing" beat if staged, and
+            // open the last choice, hiding the endings you did not earn.
+            if ( glassed && !IsFlagTripped( "OI_Goo_EndingReady" ) )
+            {
+                EnterGooReducedState();
+                if ( IsFlagTripped( "OI_Goo_ThermocytesStaged" ) )
+                    TripAchievement( "OI_YouAteTheGlassing" );
+                else
+                    TripFlag( "OI_Goo_ExodusUnavailable" );
+                if ( coherence < GooSovereignCoherenceFloor )
+                    TripFlag( "OI_Goo_SovereignUnavailable" );
+                TripFlag( "OI_Goo_EndingReady" );
+            }
+
+            HoldReducedState();
+        }
+
+        // The reduced post-apocalypse state, entered at the glassing (not at arc start): the final-doom
+        // flags that actually gate the game's systems, plus the population-sim shutdown and dead weather.
+        // Deliberately does NOT call NukeEverything (that hard-codes nuclear fire/irradiation) - the grey
+        // consumed the city, it was not glassed by warheads.
+        private static void EnterGooReducedState()
+        {
+            if ( IsFlagTripped( "OI_Goo_ReducedStateEntered" ) )
+                return;
+            TripFlag( "OI_Goo_ReducedStateEntered" );
+            TripBaseFlag( "IsPostFinalDoom" );
+            TripBaseFlag( "IsPostNuclearDelivery" );
+            SimCommon.DoNotDoDeathChecksUntil = ArcenTime.UnpausedTimeSinceStartF + 8f;
+            if ( CommonRefs.PostApocalypseAWeather != null )
+                SimCommon.SetWeather( CommonRefs.PostApocalypseAWeather, true );
+            HoldReducedState();
+        }
+
+        // Repeated every turn once the reduced state is entered: the base game re-trips the space/regional
+        // flags whenever those scenes are touched, so we must keep un-tripping them, exactly as the base
+        // FindALowerLevelOfSurvival project does.
+        private static void HoldReducedState()
+        {
+            if ( !IsFlagTripped( "OI_Goo_ReducedStateEntered" ) )
+                return;
+            UnTripBaseFlag( "IsSpaceSceneUnlocked" );
+            UnTripBaseFlag( "CanUseSpaceSceneControls" );
+            UnTripBaseFlag( "IsRegionalMapUnlocked" );
+            if ( SimCommon.CurrentTimeline != null )
+                SimCommon.CurrentTimeline.IsPostApocalyptic = true;
+        }
+
+        // Records the completion once the last choice is made (or the Sea is reached by attrition). Mirrors
+        // ApplyT3Victory, but this is a post-apocalypse COMPLETION, not a victory: we set
+        // IsPostApocalypticComplete directly (the base only auto-sets it for its own two goal ids) rather
+        // than MarkCurrentTimelineAsWon.
+        private static void ApplyGooVictory()
+        {
+            if ( !IsFlagTripped( "OI_Goo_Ended" ) || IsFlagTripped( "OI_Goo_VictoryDeclared" ) )
+                return;
+
+            string pathID = IsFlagTripped( "OI_Goo_EndingExodus" ) ? "Exodus"
+                : IsFlagTripped( "OI_Goo_EndingSovereign" ) ? "Sovereign" : "Sea";
+
+            TimelineGoal goal = TimelineGoalTable.Instance.GetRowByIDOrNullIfNotFound( "OI_LowerFormOfLiving" );
+            if ( goal != null )
+                Arcen.HotM.ExternalVis.TimelineGoalHelper.HandleGoalPathCompletion( goal, pathID );
+
+            EnterGooReducedState();
+            if ( SimCommon.CurrentTimeline != null )
+            {
+                SimCommon.CurrentTimeline.IsPostApocalyptic = true;
+                SimCommon.CurrentTimeline.IsPostApocalypticComplete = true;
+            }
+
+            // The tide, in this timeline, went all the way down; and if it launched, it reached the stars.
+            TripMetaFlag( "OI_GooHasEverBecomeSentient" );
+            if ( pathID == "Exodus" )
+                TripMetaFlag( "OI_GooReachedTheStars" );
+
+            TripFlag( "OI_Goo_VictoryDeclared" );
+        }
+
+        // Plain trip/un-trip for BASE-game GFlags by id (IsPostFinalDoom etc.). The mod's TripFlag also
+        // pokes recalculation flags; these keep the reduced-state maintenance minimal and side-effect-free.
+        private static void TripBaseFlag( string id )
+        {
+            GFlagTable.Instance.GetRowByIDOrNullIfNotFound( id )?.DGD?.TripIfNeeded();
+        }
+
+        private static void UnTripBaseFlag( string id )
+        {
+            GFlagTable.Instance.GetRowByIDOrNullIfNotFound( id )?.DGD?.UnTripIfNeeded();
+        }
+        #endregion
+
         #region Cross-Timeline Grey Goo Outbreak
         // A same-rock NEGATIVE crossover: a sibling timeline that built a Nanite Wind Generator bleeds
         // an unbound Grey Goo outbreak into this one (via OI_GreyGooOutbreakIncoming). The goo is its
@@ -611,10 +846,11 @@ namespace Arcen.HotM.OrganicIntegration
 
             TripFlag( "OI_GreyGooOutbreakLost" );
             FireKeyMessage( "OI_CrossoverNuke" );
-            // Source-blessed one-liner the game itself uses from project logic. (Needs a live check
-            // that the post-apoc transition behaves cleanly when forced mid-turn from a mod.)
-            if ( SimCommon.CurrentTimeline != null )
-                SimCommon.CurrentTimeline.IsPostApocalyptic = true;
+            // The city is lost. Route into the goo post-apocalypse ("A Lower Form of Living") arc, which
+            // enters the REAL reduced state (IsPostFinalDoom) at its glassing beat - rather than leaving
+            // only the cosmetic IsPostApocalyptic bool set, which alone is a functional-city half-state.
+            TripFlag( "OI_GreyGooApocalypse" );
+            FireKeyMessage( "OI_Goo_Enter" );
         }
 
         // Number of same-rock siblings that set nanites loose. Cross-visible via CrossoversOutput
@@ -945,6 +1181,8 @@ namespace Arcen.HotM.OrganicIntegration
                 UnlockHandbook( "OI_HB_Outbreak" );
             if ( IsFlagTripped( "OI_T3_DescentBegun" ) || IsFlagTripped( "OI_BlackSeaRememberedThisTimeline" ) )
                 UnlockHandbook( "OI_HB_BlackSea" );
+            if ( IsFlagTripped( "OI_GreyGooApocalypse" ) )
+                UnlockHandbook( "OI_HB_LowerFormOfLiving" );
         }
 
         // Positive cross-timeline crossover (the benevolent mirror of the Nanite Wind Generator
@@ -1031,6 +1269,13 @@ namespace Arcen.HotM.OrganicIntegration
             {
                 TripFlag( "OI_AetaOutbreakBeatenCharged" );
                 AwardAetagest( 25L, "Income_OI_OutbreakBeaten" );
+            }
+
+            if ( IsFlagTripped( "OI_GreyGooApocalypse" ) ) TripAchievement( "OI_TheTideIsAllThatsLeft" );
+            if ( IsFlagTripped( "OI_GreyGooApocalypse" ) && !IsFlagTripped( "OI_Goo_AetaReachedCharged" ) )
+            {
+                TripFlag( "OI_Goo_AetaReachedCharged" );
+                AwardAetagest( 20L, "Income_OI_LowerFormReached" );
             }
         }
         #endregion

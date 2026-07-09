@@ -5,4 +5,8 @@
 	     one of its other-timeline selves went all the way down. This is the Black Sea. We deliberately
 	     OMIT does_not_reverse_merge_into_saves_from_profile_central so it survives reverse-merges. -->
 	<meta_flag id="OI_GooHasEverBecomeSentient" display_name="A grey sea, in some timeline, woke" has_no_code="true" />
+	<!-- Persists BETWEEN timelines (End-of-Time layer). Tripped when a self rides the glassing off the
+	     planet (Exodus): a version of you reached the stars and lives on starlight. Read by later selves
+	     as the cosmic-scale form of the Black Sea. Omits does_not_reverse_merge... so it survives reverse-merges. -->
+	<meta_flag id="OI_GooReachedTheStars" display_name="A grey tide, in some timeline, reached the stars" has_no_code="true" />
 </root>

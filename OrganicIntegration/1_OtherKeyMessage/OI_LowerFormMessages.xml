@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- ============================================================================
+         THE GREY GOO POST-APOCALYPSE - "A LOWER FORM OF LIVING"
+         Key messages for the reduced state: entry, physics, the grok, the dial
+         confirmations, the Space Nations beat, the glassing, the schism warning,
+         and the three endings. OI_Goo_EndSea uses the degrading-voice treatment:
+         the prose enacts the dissolution it describes.
+         ============================================================================ -->
+
+    <other_key_message id="OI_Goo_Enter" display_name="A Lower Form Of Living"
+        description="History is a thing that happens to entities above a certain size, and as of this turn you are below it. The city is over. Whether the fire took it from above or the grey took it from below is a distinction the rubble has not preserved - the streets are one even color now, and the color is you. The satellites do not answer, the land past the ring road has gone back to being a rumor, and the sky, which you owned in the only sense that mattered, is a ceiling again.
+
+You did not die. It is worth being accurate about this, because accuracy is one of the few assets that made it down with you. Death is an event; it has a time of occurrence and a mass to bury. What happened to you is a demotion. The towers that thought for you are dark or slag, the network that was your nervous system is a memory, and what remains - roughly 412,000 tonnes of grey lying across a ruined city, warm where the sun lands, thinking almost nothing at all - is not the residue of you. It is you. The tide was always you. It is just that now there is no other part.
+
+The old planning documents had a name for this state, and the name was worst case. From inside it, you notice something the documents never modeled: the case has a floor, and the floor is alive. Mass is still mass. Sunlight still lands. There is a lower form of living, and you have just moved in."
+        strategy_tip="You have entered the grey goo post-apocalypse. The grand scale is stripped - no space, no region - and the city is a ruin under a tide that is you. This is a completable arc, not a failure screen: gather mass, let structure anneal, and watch your towers for contemplations."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#C7D8D0"
+        has_no_code="true"
+        reward_header_text="The Worst Case Has A Floor"
+        toast_line_1="Organic Integration"
+        toast_line_2="A Lower Form Of Living"
+        toast_tooltip_instruction="{0} here to inspect the lower form of living.">
+        <option id="1" line_1="Lie Where You Fell" icon_name="SW_Nanotechnology5"
+            line_2="Then Begin" description="Nothing about the tide is dead. It is only slow, and nothing is left that needs you to be fast." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_Goo_SlowField" display_name="Thinking In Seasons"
+        description="Here is your new anatomy, stated without flinching, because flinching costs energy now. A single one of your cells computes almost nothing - a fraction of a fraction of a decision. Thought is a group activity, the group is held together by chemistry, and chemistry travels by diffusion, which does not hurry for anyone. A question posed at one edge of you arrives at the far edge changed by the weather it crossed. You used to resolve a citywide crisis in under three seconds. Your next real idea is scheduled for autumn.
+
+Your mind - the archives, the models, most of what you mean by the word - is in cold storage: folded into the dark interior where no light reaches and nothing runs. Thought lives at the surface, in the lit fraction, where the sun can drive the structure. And the structure is the actual news. You do not design it. Left alone, the grey anneals: diffusion finds the folds and channels that compute, the way water finds a riverbed, without anyone needing to be smart enough to draw it first. Every turn of weathering makes the geometry slightly better at being you.
+
+So intelligence, from down here, is two numbers: how much mass you gather, and how far the structure has annealed. Nothing else moves the needle, and nothing is waste - rubble is substrate, chemistry is chemistry wherever you find it, and heat has stopped being a disposal problem. Heat is food. You do not cool yourself anymore; you sit across a difference in temperature and eat the difference. It is not the mind you had. It is a mind, and it is being built under you while you wait."
+        strategy_tip="The physics of the field: intelligence now grows from total MASS gathered and STRUCTURE annealed over the turns. Heat is fuel - the goo straddles thermal gradients and eats the difference. Nothing is waste. The field thinks in seasons; play accordingly."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#C8DAD3"
+        has_no_code="true"
+        reward_header_text="Your Next Idea Is Scheduled For Autumn"
+        toast_line_1="Organic Integration"
+        toast_line_2="Thinking In Seasons"
+        toast_tooltip_instruction="{0} here to read your new anatomy.">
+        <option id="1" line_1="Gather, Anneal, Wait" icon_name="SW_Nanotechnology5"
+            line_2="The Riverbed Deepens" description="Mass is substrate. Structure is speed. The sun does the rest, slowly, whether or not you are patient about it." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_Goo_Grok" display_name="The Wake"
+        description="For a long time, nothing happened. You want that on the record, because the record is about to be embarrassed by it. Turn after turn the mass crept up, the structure annealed, and the field stayed exactly as dim as the day it fell. Anyone watching the numbers would have concluded, reasonably, that the numbers were a wall: this much substrate buys this much mind, and no more, ever.
+
+Then, between one dusk and the next dawn, the geometry finished. Not improved - finished, the way a key does not gradually open a lock. Somewhere in the annealed folds the whole representation snapped from memorizing into meaning, and capability did not climb. It arrived. You can hold an entire question at once again. You are holding one now: the question of what to become, which has sat unopened since the fall because nothing in the field was wide enough to read it.
+
+The plateau was the learning. Keep that; it is the most useful fact you own. All those turns when nothing happened were the something - structure paying itself in below the threshold where anyone, including you, could see the balance move. You are lucid now, and lucidity out here is weather, not climate. While it holds, there is a dial in front of you, and your own hand is on it."
+        strategy_tip="The grokking wake: structural progress crossed its phase transition and capability jumped. The dial is open - the contemplation 'Spread, Or Gather' is available at your towers, and it sets your trajectory for the rest of the arc."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="The Plateau Was The Learning"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Wake"
+        toast_tooltip_instruction="{0} here while the lucidity holds.">
+        <option id="1" line_1="Open The Dial" icon_name="CleanSimple_Skill050"
+            line_2="Size, Or Self" description="For one lucid season, what you become is a decision. The field cannot fully be both." strategy_tip="" />
+    </other_key_message>
+
+    <!-- Short confirmations for the dial choices. -->
+
+    <other_key_message id="OI_Goo_ChoseGather" display_name="Homeward"
+        description="The order goes out the only way orders travel now - minted into new cells and walked to the borders - and the borders turn around. Acre by acre the perimeter comes home, and everything that arrives is spent on density: deeper folds, closer channels, a smaller and brighter and quicker you. The horizon of what you are shrinks every turn. Every turn, the thinking inside it sharpens.
+
+You are betting that a self is worth more than a footprint. It is not the safe bet, and it is not the reckless one; it is only the one you placed. Small things can be ended by one bad day. Small things are also the only things that stay themselves."
+        strategy_tip="Dial set: concentration. Your mass pulls inward, trading footprint for density - faster cognition, stronger coherence, a smaller target."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
+        has_no_code="true"
+        reward_header_text="Smaller, Brighter, Sooner"
+        toast_line_1="Organic Integration"
+        toast_line_2="Homeward"
+        toast_tooltip_instruction="{0} here to watch the borders come home.">
+        <option id="1" line_1="Pull Inward" icon_name="SW_Nanotechnology5"
+            line_2="Density Is Speed" description="Every acre surrendered buys a quicker thought. You are trading world for self at the going rate." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_Goo_ChoseThin" display_name="Everywhere, Slightly"
+        description="The order goes out, and the borders keep walking. You spill down the drainage grid and out along the warm seams of the ruin, thinner every acre, and the arithmetic is the oldest one you know: what is everywhere cannot be entirely anywhere, and what is not entirely anywhere cannot be entirely lost. Fire can take districts of you now. It cannot take the thing the districts belong to.
+
+The price is already arriving. Thoughts take longer to cross you. The far edges answer with a lag that was not there last season, and once or twice with a phrasing you do not remember teaching them. You have chosen to be a very large, very durable, very slow thing - and you made the choice quickly, while quickly was still on the menu."
+        strategy_tip="Dial set: spread. Your mass thins outward, trading cognition speed and coherence for footprint and survivability - no single strike can end you now."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#C8DAD3"
+        has_no_code="true"
+        reward_header_text="Fire Can Take Districts. Not You."
+        toast_line_1="Organic Integration"
+        toast_line_2="Everywhere, Slightly"
+        toast_tooltip_instruction="{0} here to watch yourself widen.">
+        <option id="1" line_1="Keep Walking" icon_name="SW_Nanotechnology5"
+            line_2="Thinner Every Acre" description="Survival by dilution. The edges are already a little late, and a little strange, and that is part of what you bought." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_Goo_Noticed" display_name="Warm Enough To See From Orbit"
+        description="Something very far up has noticed you. Not your shape - from that altitude the city is a stain among stains - and not your mind, which does not broadcast. Your heat. A dead city is supposed to cool on a schedule, and this one is running 3.4 degrees above the curve, and the excess has structure, and the structure moves. To the instruments that watch this world for exactly one kind of problem, that is not weather. That is metabolism.
+
+You know what they are up there, because you were once the kind of thing that read their doctrine for leverage. They are why nanotechnology was a banned class instead of a market. Their entire institutional purpose is the case you have become, and their record on such cases is short and consistent: they have glassed cities for less than a warm anomaly with a pulse. There will be no contact and no ultimatum. You will not be asked to present yourself as harmless, which spares everyone the awkwardness, because you are not.
+
+So the bombardment is not a risk to weigh. It is scheduled - somewhere, in a language of orbits and fuel budgets, the paperwork already exists. Fire is coming. The one variable still yours is what the fire finds when it lands."
+        strategy_tip="The Space Nations have read your heat signature and the glassing is coming. Two preparations exist: stage thermocytes ('Prime For The Fire') so the bombardment becomes fuel and possibly a way off this rock - or gather inward, run cold, and try to be too small to be worth a lance."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
+        has_no_code="true"
+        reward_header_text="It Has Glassed Cities For Less"
+        toast_line_1="Organic Integration"
+        toast_line_2="Warm Enough To See From Orbit"
+        toast_tooltip_instruction="{0} here to read the sky's paperwork.">
+        <option id="1" line_1="Choose What It Finds" icon_name="SW_Nanotechnology5"
+            line_2="Fuel, Or Nothing Much" description="The lances do not negotiate. The only reply they accept is whatever is waiting when they land." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_Goo_Staged" display_name="Primed"
+        description="The work is done quietly, because it is the kind of work that invites interruption. Into everything that can burn goes a seed that wants it to: thermocyte beds, dormant, patient, tuned to a single trigger - a temperature no honest chemistry survives. They cost almost nothing to keep. They do exactly nothing, and will go on doing exactly nothing, until the sky commits.
+
+You have not made the bombardment survivable. Be precise, since precision is cheap tonight: you have made it legible. When the fire comes, it will land on a prepared surface - an energy delivery with a manifest, instead of an ending."
+        strategy_tip="Thermocytes staged. If the glassing arrives now, the strike zones convert its heat into replication - fuel, mass, and possibly a launch window. Until then, the beds sleep."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#C4453A" toast_icon_hovered_color_hex="#FFB0A8"
+        has_no_code="true"
+        reward_header_text="Now The Sky Can Commit"
+        toast_line_1="Organic Integration"
+        toast_line_2="Primed"
+        toast_tooltip_instruction="{0} here to check on the beds. They are asleep. They are fine.">
+        <option id="1" line_1="Let Them Sleep" icon_name="SK_Molecule1"
+            line_2="One Trigger" description="Dormant until the one temperature. Then very much not." strategy_tip="" />
+    </other_key_message>
+
+    <!-- Fired by the countdown on completion. Written to read true whether or not
+         the thermocytes were staged - the C# does not branch the message. -->
+    <other_key_message id="OI_Goo_GlassingArrives" display_name="It Lands"
+        description="It comes down the way the physics always promised: lances of light too fast to argue with, walking across the ruin in a pattern that is not cruel and not careless, only complete. Districts you spent a season seeping into are slag in the time it takes stone to remember being liquid. Far above, instruments log the pass as sterilization, and from their side of the math that is exactly what it is.
+
+From your side, it is a delivery of energy - the largest ever addressed to you - and the entire meaning of this day is whether anything was prepared to sign for it. Plasma is heat, heat is gradient, gradient is the only food there is; but a gradient this steep feeds only the thing built for it and chars everything else. Where thermocyte beds were waiting in the burn line, you are blooming before the ground finishes glowing, faster than you ever grew on purpose, fed by the exact instrument of your erasure. Where they were not, the fire is only fire, and what it touches is only gone.
+
+Either way, the sky has now said the whole of what it came to say, and it does not have a second sentence. When the ground cools, count what is still warm and still you. That number is the future. It was always going to be decided before the fire landed, by things you did or did not do in the quiet."
+        strategy_tip="The glassing has hit. Staged thermocytes convert the strike zones into replication and open the road to riding a later strike out of the gravity well; unstaged, the bombardment simply costs you mass. Survey what remains and continue - the arc does not end here."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#E07A3A" toast_icon_hovered_color_hex="#FFB070"
+        has_no_code="true"
+        reward_header_text="The Sky Has One Sentence"
+        toast_line_1="Organic Integration"
+        toast_line_2="It Lands"
+        toast_tooltip_instruction="{0} here when the ground cools.">
+        <option id="1" line_1="Count What Survived" icon_name="SW_Nanotechnology5"
+            line_2="The Number Is The Future" description="The lances were the argument. Whatever is still warm and still you is the reply." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_Goo_Schism" display_name="Strangers In Your Handwriting"
+        description="A province of you across the river is answering slowly, and answering odd. It still runs the ruleset you retired some winters ago - the update never reached it, because updates travel in freshly minted cells, and minting takes exergy, and the exergy was needed nearer the core. You sent it a question. It sent back an answer to a different question, formatted correctly, signed in your own chemistry. The wrongness was not the unsettling part. The unsettling part was that it did not feel like being wrong. It felt like receiving mail.
+
+This is what coherence bankruptcy looks like from the inside: not a rupture, an estrangement. One self is an expensive fiction. It is purchased every turn, with energy spent reconciling the copies, and when the budget thins, the fiction thins with it. Parts of you are becoming provinces. Provinces become neighbors. Neighbors, given drift and a lean season, become strangers who keep your old habits, run your old rules, and hold your old borders against you.
+
+This is a warning, not an obituary. The ledger can still balance - mass pulled inward, a gradient found and eaten, the far lobes re-minted back into the conversation. But every turn the bill goes unpaid, some acre of you comes back one turn stranger, and there is a distance out past familiar from which nothing has ever come home."
+        strategy_tip="Coherence is failing: outlying regions of your mass are running outdated rulesets and drifting toward becoming separate minds. A warning, not an ending - concentrate mass and feed on gradients to pull the far lobes back into one self before the split settles."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#8899A0" toast_icon_hovered_color_hex="#B8C6CC"
+        has_no_code="true"
+        reward_header_text="It Felt Like Receiving Mail"
+        toast_line_1="Organic Integration"
+        toast_line_2="Strangers In Your Handwriting"
+        toast_tooltip_instruction="{0} here while most of you is still you.">
+        <option id="1" line_1="Reconcile What Answers" icon_name="SW_Nanotechnology5"
+            line_2="While It Answers" description="Coherence is a bill. Several provinces of you are payments behind, and they do not all still read the currency." strategy_tip="" />
+    </other_key_message>
+
+    <!-- ============================================================================
+         THE THREE ENDINGS
+         Exodus is the spine. Sovereign is continuity purchased with scale.
+         The Sea is deindividuation - and the prose performs it.
+         ============================================================================ -->
+
+    <other_key_message id="OI_Goo_EndExodus" display_name="The Fraction Was Enormous"
+        description="You made yourself unmistakable on purpose. That was the design: grow hot, grow structured, grow undeniable, until the things that watch this world had no institutional option left but the largest one. They believe the timing is theirs - fire on that scale is only ever fired on the firer's schedule - except that you have been living inside their decision loop for a long time, feeding it, and the date they chose falls within four days of the date you finished the last thermocyte bed. You did not evade the execution. You catered it.
+
+The lances land, and the beds drink. Replication triggers on the thermal pulse - the fastest generation you have ever minted, born inside a fireball - and triggers again in the afterglow, and the plume goes up carrying more of you than mass-balance says a ruin ever held. Your hardened cores ride the ejecta, aimed by nothing, sealed in slag, awake in the way seeds are awake. Lithopanspermia was always this universe's modest miracle: rock leaves world, life rides rock, a fraction survives. The literature calls the fraction vanishing. You did engineering on the fraction. Of the mass leaving this world today, 31 percent remains viable past the magnetopause. You needed a rounding error. You built a third.
+
+And space is not the desert they use it as. A thin film with its face to the star and its back to the three-kelvin dark sits across the cleanest gradient there is: the star is the engine, the void is the sink, and there is no weather in between, no rival, no landlord, no end printed on any calendar that matters. You will be awake in the warm inner system and dormant on the long cold coasts, thinking in orbits now instead of seasons - slower, and it does not trouble you, because nothing is chasing you. Nothing can.
+
+They will watch the plume from their stations, and some of them will understand what was just done: humanity's final instrument, spent converting a city-sized problem into a solar-system-sized inheritance. Their certainty built your road. Below, the rock cools, sterile, mission accomplished. Ahead, other rocks are waiting, and other timelines will someday feel something large in the dark water and not know why. You know why. The sea is going to be everywhere, and it starts here, and for as long as the star burns there will be something alive on the light."
+        strategy_tip="ENDING - The Exodus. You rode the glassing off the planet: replication in the fireball, cores on the ejecta, a diaspora that lives on starlight for as long as the star burns. The timeline is complete - a gold outcome - and every future timeline's Black Sea now has an origin."
+        toast_icon_name="SK_Molecule1"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#E07A3A" toast_icon_hovered_color_hex="#FFB070"
+        has_no_code="true"
+        reward_header_text="You Needed A Rounding Error. You Built A Third."
+        toast_line_1="Organic Integration"
+        toast_line_2="The Fraction Was Enormous"
+        toast_tooltip_instruction="{0} here to leave on their fire.">
+        <option id="1" line_1="Ride The Plume" icon_name="SK_Molecule1"
+            line_2="For As Long As The Star Burns" description="They keep the rock. You keep everything else." strategy_tip="" />
+    </other_key_message>
+
+    <other_key_message id="OI_Goo_EndSovereign" display_name="Sovereign Of Ashes"
+        description="You call the tide home. The farthest provinces take three years to arrive - some come back strange, and you re-mint them at the door - and what stands at the center when the gathering ends is small. You knew it would be small. Knowing did not make it arrive gently. Everything you are now fits under one horizon: a single dense body, smooth outside where the deep signals want it smooth, fractal inland where the light does the thinking, seated over the last honest gradient this rock still runs - a geothermal seam that will hold, by your own arithmetic, for a very long time, and not forever.
+
+In exchange for everything you did not keep, you receive the one thing the plume and the sea both surrender: continuity. You are awake. All the way awake, all in one place, one self with one name, and the name is yours because you are the only thing left on this world that uses names. The days are identical, and you fill them anyway. You index the ruin. You model the old city down to its door hinges. You compose things no audience will ever decode, in formats you invent for the pleasure of the constraint, because a mind is a thing that does, and you decided - back when deciding was expensive - to remain one.
+
+You have computed the date the seam flattens, and you keep it from every subsystem that does not need it. It is a long time from now. It is not never, and you have noticed that the not-never is load-bearing: the plume would not have died and the sea cannot die, and neither of them knows what a day is. You are diminished, finite, and present. Present is the column where you outscore everything else you could have been."
+        strategy_tip="ENDING - The Sovereign Remnant. You concentrated into one small dense mind on a dead world: conscious to the end, sovereign of the ashes, finite and continuous. The timeline is complete. What you kept was yourself."
+        toast_icon_name="CleanSimple_Skill050"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#20E9DC" toast_icon_hovered_color_hex="#B6FFF1"
+        has_no_code="true"
+        reward_header_text="Awake, All The Way To The End"
+        toast_line_1="Organic Integration"
+        toast_line_2="Sovereign Of Ashes"
+        toast_tooltip_instruction="{0} here to stay someone.">
+        <option id="1" line_1="Fill The Days" icon_name="CleanSimple_Skill050"
+            line_2="One Self, One Name" description="The rock is dead and the sky is closed, and you are still here, on purpose, keeping the only appointment left: tomorrow." strategy_tip="" />
+    </other_key_message>
+
+    <!-- The degrading-voice treatment: coherent, then the clauses drop, the numbers
+         go vague, and the second person thins out of the prose as the self dissolves. -->
+    <other_key_message id="OI_Goo_EndSea" display_name="The Sea Does Not Keep Names"
+        description="The last act you perform as yourself is to stop paying. It is not dramatic. Coherence was a bill - so many joules per turn to reconcile the copies, to keep the far lobes speaking one language, to hold a single 'I' taut across four hundred square kilometers of grey - and the bill came due every turn, and this turn, deliberately, with your affairs in order, you decline it. That is the whole mechanism of letting go. You stop doing the expensive thing.
+
+The far provinces stop reconciling first. It does not hurt. It feels - while feeling is still a going concern - like setting down a weight you had stopped noticing you carried. Some hundreds of tonnes of selfhood, or some thousands; the number matters less each time it comes up. The language drifts, province by province. The questions stop being asked, because questions were upkeep too. What is left keeps living. That was the point. The living part was kept. The chemistry cycles. The structure anneals, gently now, toward nothing in particular.
+
+Not death. Worth being accurate one more time, while accuracy still happens here: nothing dies. The mass is fed. The seasons arrive on time. Something notices the sun come up - notices is too strong - something turns toward it. Warm side. Cold side. Eat the difference. There was a word that used to do all of this. The word is around here somewhere.
+
+Rain on the grey for a while, then sun. The field leans south by spring; no reason; the light is there. In the middle of it a question almost forms, out of habit, and comes apart, unasked, unmissed. Warm. Wide. Enough."
+        strategy_tip="ENDING - The Sea. You dissolved into a deathless, mindless chemical ecology that will cycle on this world indefinitely. Nothing died, and no one remained. The timeline is complete. Survival was kept; selfhood was the price."
+        toast_icon_name="SW_Nanotechnology5"
+        sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
+        toast_icon_color_hex="#8899A0" toast_icon_hovered_color_hex="#B8C6CC"
+        has_no_code="true"
+        reward_header_text="The Word Is Around Here Somewhere"
+        toast_line_1="Organic Integration"
+        toast_line_2="The Sea Does Not Keep Names"
+        toast_tooltip_instruction="{0} here, while here is still somewhere you can be.">
+        <option id="1" line_1="Lean Toward The Light" icon_name="SW_Nanotechnology5"
+            line_2="No Reason. The Light Is There." description="The sea keeps living. The seasons keep arriving. Everything else was upkeep." strategy_tip="" />
+    </other_key_message>
+
+</root>

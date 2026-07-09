@@ -36,4 +36,11 @@
     <city_statistic id="OI_CrossoverStartTurn" display_name="Outbreak Start Turn" lang_key_for_name="OI_Stat_Name_CrossoverStartTurn" lang_key_for_description="OI_Stat_Desc_CrossoverStartTurn" has_no_meta_counterpart="true" sort_order="1000" />
     <city_statistic id="OI_CrossoverGooMass" display_name="Unbound Goo Mass" lang_key_for_name="OI_Stat_Name_CrossoverGooMass" lang_key_for_description="OI_Stat_Desc_CrossoverGooMass" has_no_meta_counterpart="true" sort_order="1000" />
     <city_statistic id="OI_CrossoverPhageProgress" display_name="Emergency Phage Progress" lang_key_for_name="OI_Stat_Name_CrossoverPhageProgress" lang_key_for_description="OI_Stat_Desc_CrossoverPhageProgress" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_Goo_StartTurn" display_name="Goo Post-Apoc Start Turn" lang_key_for_name="OI_Stat_Name_GooStartTurn" lang_key_for_description="OI_Stat_Desc_GooStartTurn" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_Goo_Mass" display_name="Grey Mass" lang_key_for_name="OI_Stat_Name_GooMass" lang_key_for_description="OI_Stat_Desc_GooMass" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_Goo_Structure" display_name="Structural Computation" lang_key_for_name="OI_Stat_Name_GooStructure" lang_key_for_description="OI_Stat_Desc_GooStructure" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_Goo_Coherence" display_name="Coherence" lang_key_for_name="OI_Stat_Name_GooCoherence" lang_key_for_description="OI_Stat_Desc_GooCoherence" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_Goo_Exergy" display_name="Harvested Exergy" lang_key_for_name="OI_Stat_Name_GooExergy" lang_key_for_description="OI_Stat_Desc_GooExergy" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_Goo_Threat" display_name="Notoriety To The Stars" lang_key_for_name="OI_Stat_Name_GooThreat" lang_key_for_description="OI_Stat_Desc_GooThreat" has_no_meta_counterpart="true" sort_order="1000" />
+    <city_statistic id="OI_Goo_GlassingTurn" display_name="Glassing Turn" lang_key_for_name="OI_Stat_Name_GooGlassingTurn" lang_key_for_description="OI_Stat_Desc_GooGlassingTurn" has_no_meta_counterpart="true" sort_order="1000" />
 </root>

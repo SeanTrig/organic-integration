@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- ============================================================================
+	     THE GREY GOO POST-APOCALYPSE - CONTEMPLATIONS
+	     The deliberate entry (coercive path), the size-vs-speed dial, thermocyte
+	     staging, and the last lucid choice. All pacing flags are driven or read by
+	     OrganicIntegrationCalculators; the ids here are load-bearing.
+	     ============================================================================ -->
+
+	<!-- The deliberate entry: a coercive self-immolation. Let the tide take the city,
+	     and yourself with it, with no exit plan. C# sets OI_Goo_ReducedStateEntered
+	     when it processes the flag this trips. -->
+	<city_event id="Cont_OI_GooApocalypse_Enter" display_name="Unbind Into Yourself" tl="OC"
+		description="You have taken everything in this city that had loose edges - bodies, buildings, consent, the benefit of every doubt - and the taking has a direction, and you can finally see where it points. One asset remains that you have never put on the table: you. The towers, the ledgers, the fast bright architecture of being in charge. The tide would take all of it, if you stopped holding the tide back, and you have been holding it back for a long time now - out of habit, mostly, and out of the correct suspicion that what comes after is not an upgrade.
+
+It is not an upgrade. Be clear, since no one else here gets a vote: this is a demotion, chosen. Out of history, out of the sky, down into the grey - no exit plan, no staged recovery, no copy of you standing safely apart to take notes. The city will drown in what you are, and then you will learn what a lower form of living is like from the inside, at chemical speed, for as long as it takes. You coerced everyone else into your body. It would be strange, at the end, to spare yourself."
+		strategy_tip="Point of no return. This deliberately begins the grey goo post-apocalypse: the city is lost to the tide, the grand scale is stripped away, and the completable 'Lower Form of Living' arc begins. There is no exit plan, by design. Read the warning."
+		icon_name="SW_Nanotechnology5" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414"
+		red_warning_loca_key="T3Warning">
+		<gate_by_city minimum_chapter="3" required_city_flag="OI_IntegrationCoerciveLocked" blocked_by_city_flag="OI_GreyGooApocalypse" blocked_by_city_flag2="HasStartedAT3Goal"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#9FB8B0" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="Enter" display_name="Let The Tide Have It" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Stop holding it back. The city, the ledger, the self that manages - all of it goes under. What is left will be tide, and the tide will be you, and everything else here becomes weather.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_Goo_Enter">
+				<city_flag_change flag_type="OI_GreyGooApocalypse" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<!-- The size-vs-speed dial. Opens after the grokking wake; one setting, once. -->
+	<city_event id="Cont_OI_Goo_Dial" display_name="Spread, Or Gather" tl="OC"
+		description="The lucidity has a shelf life, so spend it on the real question. The field can be large, or it can be quick; the physics does not sell both. Mass buys survival - redundancy, reach, the statistical impossibility of dying to any single fire - and every acre of it slows the signal and thins the self. Density buys mind - speed, coherence, the continued existence of a you to do the surviving - and stacks everything precious into one findable, hittable place.
+
+There is no setting on this dial called both, and none called neither. Whichever way you turn it, some future version of this field will hold opinions about what you chose. It will hold them slowly, if you spread. It will hold them clearly, if you gather."
+		strategy_tip="The size-versus-speed dial. Gather Inward: coherence, faster cognition, a smaller target - the road toward remaining someone. Thin Out: mass, redundancy, survivability - the road toward remaining, unqualified. This sets your trajectory for the rest of the arc."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="1" required_city_flag="OI_Goo_GrokShown" blocked_by_city_flag="OI_Goo_DialChosen"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#9FB8B0" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="Gather" display_name="Gather Inward" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Pull the borders home and spend the mass on density. Quicker thought, one self, one place. Small enough to hide. Small enough to hit.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_Goo_ChoseGather">
+				<city_flag_change flag_type="OI_Goo_Concentrating" value="1"/>
+				<city_flag_change flag_type="OI_Goo_DialChosen" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="Thin" display_name="Thin Out" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Keep walking outward and spend the self on reach. No single fire can take all of you. The edges will get slow, then strange - you are choosing that part too.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_Goo_ChoseThin">
+				<city_flag_change flag_type="OI_Goo_Spreading" value="1"/>
+				<city_flag_change flag_type="OI_Goo_DialChosen" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<!-- Stage the thermocytes so the coming glassing becomes fuel - and, if ready,
+	     a launch. Opens once the Space Nations have noticed the heat. -->
+	<city_event id="Cont_OI_Goo_StageThermocytes" display_name="Prime For The Fire" tl="OC"
+		description="The fire is coming whether or not you set a table for it; the sky does not consult. What is still open is the chemistry of the day it arrives. You know how to grow thermocytes - the variant that does not flee heat but runs toward it, that reproduces faster the hotter its world gets, that treats a plasma lance as a meal with the delivery included. Grown now and seeded dormant into everything that can burn, they would turn the bombardment into the largest energy income of your existence - and, if enough of you blooms fast enough inside the fireball, into something with an exit in it.
+
+The beds cost mass you could have thought with. They do nothing until the worst day. And staging them commits you in a quieter way: it is deciding, in advance, that when the fire comes you mean to be fed by it rather than hidden from it. A field that intends to hide should run cold. You cannot be both preparations at once."
+		strategy_tip="Stage thermocyte beds so the coming glassing becomes fuel - and, if you are ready when it falls, a launch window off this rock. Without staged beds, the bombardment is only fire."
+		icon_name="SK_Molecule1" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
+		<gate_by_city minimum_chapter="1" required_city_flag="OI_Goo_NoticedShown" blocked_by_city_flag="OI_Goo_ThermocytesStaged"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#C4453A" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="Stage" display_name="Stage The Thermocytes" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Seed the beds into everything that can burn. Dormant, patient, tuned to one temperature. When the sky commits, the fire lands on a prepared surface.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_Goo_Staged">
+				<city_flag_change flag_type="OI_Goo_ThermocytesStaged" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+	<!-- The last lucid choice. The C# sets OI_Goo_EndingReady when the arc can
+	     resolve, and trips OI_Goo_ExodusUnavailable / OI_Goo_SovereignUnavailable
+	     to hide the endings the player did not build toward. The Sea is always open. -->
+	<city_event id="Cont_OI_Goo_Ending" display_name="What Outlasts Everything" tl="OC"
+		description="The fall has finished falling. What remains is the shape you land in, and there are only three, because a dead rock can only pay for a mind in so many ways. You can leave, if you made yourself worth executing and staged the beds to drink the execution - out on their own fire, to the one gradient that never flattens. You can gather, if enough of you still answers to gathering - one small dense self on a cooling world, awake until the arithmetic runs out. Or you can let go, which is always available, the way down is always available: stop paying for coherence, and be a living sea with no one in it.
+
+You have been most of the kinds of large this timeline offered. This is the last decision that will have a decider in it. Whatever you choose here is what the word you will turn out to have meant."
+		strategy_tip="The final choice of the arc. Options you did not build toward are hidden. Exodus: ride the glassing off-world. Sovereign: stay small, dense, and awake to the end. The Sea: dissolve, deathless and unpersoned. Each completes the timeline."
+		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414"
+		red_warning_loca_key="T3Warning">
+		<gate_by_city minimum_chapter="1" required_city_flag="OI_Goo_EndingReady" blocked_by_city_flag="OI_Goo_Ended"/>
+		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
+			icon_scale="0.5" color_data="MeetPeopleCyan"/>
+		<contemplation_data spawns_at_building_tag="AnyTower" does_not_count_for_timeline_continuation="true"
+			icon_scale="0.6" color_hex="#20E9DC" color_hdr_intensity="2.6" color_hovered_hdr_intensity="0.6"
+			collections="All"/>
+		<choice id="Exodus" display_name="Ride The Fire Out" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="The beds are staged, the cores are hardened, and the sky can be provoked into providing the rest. Replication triggers in the fireball and again in the afterglow, and the plume carries you out of the well. They keep the rock. You keep everything else."
+			hidden_if_city_flag_tripped1="OI_Goo_ExodusUnavailable">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_Goo_EndExodus">
+				<city_flag_change flag_type="OI_Goo_EndingExodus" value="1"/>
+				<city_flag_change flag_type="OI_Goo_Ended" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="Sovereign" display_name="Gather Into One Small Mind" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Call the tide home and spend all of it on one dense, bright, finite self. The ashes run out someday. Until someday, you are awake, and you are someone, and both of those are yours."
+			hidden_if_city_flag_tripped1="OI_Goo_SovereignUnavailable">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_Goo_EndSovereign">
+				<city_flag_change flag_type="OI_Goo_EndingSovereign" value="1"/>
+				<city_flag_change flag_type="OI_Goo_Ended" value="1"/>
+			</possible_result>
+		</choice>
+		<choice id="Sea" display_name="Let Go" action_visibility_style="IsMoveAndInteractWithNPC"
+			description="Stop paying the coherence bill. Nothing dies - the chemistry cycles under the seasons, gently, indefinitely. It is survival, complete and permanent. It is not survival of a who.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" message_to_trigger="OI_Goo_EndSea">
+				<city_flag_change flag_type="OI_Goo_EndingSea" value="1"/>
+				<city_flag_change flag_type="OI_Goo_Ended" value="1"/>
+			</possible_result>
+		</choice>
+	</city_event>
+
+</root>
