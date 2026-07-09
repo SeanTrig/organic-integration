@@ -31,6 +31,8 @@ namespace Arcen.HotM.OrganicIntegration
 
         //Reweave Catalyst: how long the mark lingers once the carrier moves away.
         private const int ReweaveMarkTurns = 2;
+        //Reweave Catalyst: extra Grey Goo stacks a marked attacker lays on per application.
+        private const int ReweaveApplicationBonus = 2;
 
         public void DoWhenDealingDamage_Full( ActorFeat Feat, float FeatAmount, ISimMapActor Attacker, ISimMapActor Target,
             ref int PhysicalAttackPowerSoFar, ref int FearAttackPowerSoFar, ref int ArgumentAttackPowerSoFar, ref int SystemsDisruptionSoFar,
@@ -54,7 +56,7 @@ namespace Arcen.HotM.OrganicIntegration
                         if ( status == null )
                             return;
 
-                        int intensity = Math.Max( 1, (int)Math.Round( FeatAmount ) );
+                        int intensity = Math.Max( 1, (int)Math.Round( FeatAmount ) ) + GetReweaveGooBonus( Attacker );
                         Target.AddStatus( Attacker, status, intensity, GreyGooDuration, Attacker is ISimNPCUnit );
                     }
                     break;
@@ -157,9 +159,20 @@ namespace Arcen.HotM.OrganicIntegration
 
             if ( !isAnyKindOfPrediction && FeatAmount > 0f )
             {
-                int stacks = Math.Max( 1, (int)Math.Round( FeatAmount ) );
+                int stacks = Math.Max( 1, (int)Math.Round( FeatAmount ) ) + GetReweaveGooBonus( Attacker );
                 Target.AddStatus( Attacker, goo, stacks, GreyGooDuration, Attacker is ISimNPCUnit );
             }
+        }
+
+        // A Grey Goo applier standing in a Reweave Catalyst field (carrying OI_ReweaveMark) lays on extra stacks.
+        private static int GetReweaveGooBonus( ISimMapActor Attacker )
+        {
+            if ( Attacker == null )
+                return 0;
+            ActorStatus mark = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( "OI_ReweaveMark" );
+            if ( mark == null || Attacker.GetStatusIntensity( mark ) <= 0 )
+                return 0;
+            return ReweaveApplicationBonus;
         }
         #endregion
 
@@ -566,9 +579,9 @@ namespace Arcen.HotM.OrganicIntegration
 
         #region HandleReweaveCatalyst
         /// <summary>
-        /// Turn-start aura: marks friendly units within FeatAmount radius with OI_ReweaveMark. The mark is
-        /// currently a pure marker status; wiring it into the grey-goo lifecycle (boosted goo application,
-        /// slowed stack shedding for marked carriers) is a follow-up in the goo lifecycle code.
+        /// Turn-start aura: marks every unit within FeatAmount radius (friend and foe) with OI_ReweaveMark.
+        /// Marked friendly attackers lay on extra Grey Goo (GetReweaveGooBonus); marked enemies shed Grey Goo
+        /// more slowly (ApplyGreyGooFalloff). The field both accelerates saturation and makes it stick.
         /// </summary>
         private static void HandleReweaveCatalyst( ISimMapActor Carrier, float Radius )
         {
@@ -596,8 +609,7 @@ namespace Arcen.HotM.OrganicIntegration
                     continue; //units only
                 if ( prospect.ActorID == Carrier.ActorID || prospect.IsFullDead )
                     continue;
-                if ( !prospect.GetIsPartOfPlayerForcesInAnyWay() )
-                    continue;
+                // Mark friend and foe alike: friendly attackers get the application bonus, enemies get the slowed shed.
                 if ( (prospect.GetDrawLocation() - myLocation).GetSquareGroundMagnitude() > radiusSquared )
                     continue;
 

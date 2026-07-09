@@ -3004,7 +3004,12 @@ namespace Arcen.HotM.OrganicIntegration
             int intensity = unit.GetStatusIntensity( status );
             if ( intensity <= 0 )
                 return;
-            if ( Rand.Next( 0, 100 ) >= GreyGooFalloffPercent )
+            // A unit caught in a Reweave Catalyst field sheds Grey Goo more slowly - it makes the goo stick.
+            int falloff = GreyGooFalloffPercent;
+            ActorStatus reweave = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( "OI_ReweaveMark" );
+            if ( reweave != null && unit.GetStatusIntensity( reweave ) > 0 )
+                falloff = Math.Max( 1, falloff / 2 );
+            if ( Rand.Next( 0, 100 ) >= falloff )
                 return;
 
             unit.ClearStatus( status );
