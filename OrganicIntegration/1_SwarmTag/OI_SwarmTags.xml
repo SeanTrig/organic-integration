@@ -3,4 +3,6 @@
 	<swarm_tag id="OI_UpgradedHumans" />
 	<swarm_tag id="OI_GreyBloom" />
 	<swarm_tag id="OI_TarkGoo" />
+	<swarm_tag id="OI_ConsumedHusk" />
+	<swarm_tag id="OI_CrossoverGoo" />
 </root>

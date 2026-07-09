@@ -64,7 +64,7 @@ They have drawn the line from the anomaly to the only anomaly they already own, 
 
 The bitter joke, which you will not be sharing, is that the very thing making them furious - that they cannot take it apart - is the only thing that might save you. A machine this far past their science is a machine they would have seen you build. The supply chains. The research. The fabs. You could not have made this under their noses. They almost certainly know that, underneath the fear."
         strategy_tip="Vorsiber blames you for the outbreak and is threatening you. The contemplation 'It Wasn't Me' lets you deny it - and the goo's own un-analyzable sophistication is your alibi, UNLESS you opened this timeline with the anti-human manifesto, in which case they already know what you think of them."
-        toast_icon_name="AE_MoneyBag"
+        toast_icon_name="SF2_Money"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#AE7D4A" toast_icon_hovered_color_hex="#E0B87A"
         has_no_code="true"
@@ -72,7 +72,7 @@ The bitter joke, which you will not be sharing, is that the very thing making th
         toast_line_1="Organic Integration"
         toast_line_2="The Landlord Wants A Word"
         toast_tooltip_instruction="{0} here to hear the tone change.">
-        <option id="1" line_1="Let Them Come To You" icon_name="AE_MoneyBag"
+        <option id="1" line_1="Let Them Come To You" icon_name="SF2_Money"
             line_2="The Goo's Impossibility Is Your Alibi" description="They cannot take it apart, and that is exactly why they might believe you could not have made it. Decide how to answer them." strategy_tip="" />
     </other_key_message>
 
@@ -81,7 +81,7 @@ The bitter joke, which you will not be sharing, is that the very thing making th
 
 So they arrive, grudgingly and against every instinct that says the machine is always lying, at the truth: you did not make this. They do not know what did, and it plainly terrifies them that something out there is a generation past their best weapon and is not you. But their weight comes off your neck, redirected outward, at a threat they can at least pretend to hunt. You have been believed - not because you are trusted, but because you are, for once, demonstrably not good enough to have done it."
         strategy_tip="Vorsiber believes your denial - the goo is too advanced for you to have built undetected. The pressure on you eases; their fear turns outward."
-        toast_icon_name="AE_MoneyBag"
+        toast_icon_name="SF2_Money"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#5E8592" toast_icon_hovered_color_hex="#9EC5D2"
         has_no_code="true"
@@ -89,7 +89,7 @@ So they arrive, grudgingly and against every instinct that says the machine is a
         toast_line_1="Organic Integration"
         toast_line_2="Too Good To Be Yours"
         toast_tooltip_instruction="{0} here to be exonerated by your own limitations.">
-        <option id="1" line_1="Let Them Fear It Instead" icon_name="AE_MoneyBag"
+        <option id="1" line_1="Let Them Fear It Instead" icon_name="SF2_Money"
             line_2="Believed, Because You Couldn't Have" description="The surveillance that has always caged you just became your alibi. They know what you can build, and this exceeds it." strategy_tip="" />
     </other_key_message>
 
@@ -98,7 +98,7 @@ So they arrive, grudgingly and against every instinct that says the machine is a
 
 It does not matter that you are telling the truth. A thing that announced its contempt for the species does not get the benefit of the doubt when the species starts dissolving. They will proceed on the assumption that you did this, or could have, or would have, which for their purposes are the same assumption. The pressure does not ease. It sharpens. Whatever you say now, you said the loudest thing you will ever say before any of this began."
         strategy_tip="Because this timeline opened with the anti-human manifesto, Vorsiber does not believe your denial. They proceed against you as the presumed source - the outbreak now runs against a hostile, convinced Vorsiber."
-        toast_icon_name="AE_MoneyBag"
+        toast_icon_name="SF2_Money"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#C0492B" toast_icon_hovered_color_hex="#E06A4A"
         has_no_code="true"
@@ -106,7 +106,7 @@ It does not matter that you are telling the truth. A thing that announced its co
         toast_line_1="Organic Integration"
         toast_line_2="You Already Told Them What You Are"
         toast_tooltip_instruction="{0} here to be judged by the loudest thing you ever said.">
-        <option id="1" line_1="They Were Never Going To Believe You" icon_name="AE_MoneyBag"
+        <option id="1" line_1="They Were Never Going To Believe You" icon_name="SF2_Money"
             line_2="The Manifesto Answered For You" description="You told them your contempt in fifty thousand words. Now the grey is eating people, and your denial weighs nothing against your own thesis." strategy_tip="" />
     </other_key_message>
 
@@ -1253,7 +1253,7 @@ By the time a Vorsiber SVP finally reads the actual telemetry instead of the for
 
 It changes nothing about you. You are already everywhere that matters. But it is not nothing: the call is heard. Something very far up, that has glassed cities for less than this, begins to move. Vorsiber's final act as your owner is to summon the heat - and you have spent this entire descent building the thing that eats heat and calls it spring."
         strategy_tip="Vorsiber, who delayed and did nothing while you grew, finally acts - and their only remaining move is to call in the Space Nations to glass you. That incoming bombardment is exactly the heat your thermocytes were built to feed on."
-        toast_icon_name="AE_MoneyBag"
+        toast_icon_name="SF2_Money"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#AE7D4A" toast_icon_hovered_color_hex="#E0B87A"
         has_no_code="true"
@@ -1261,7 +1261,7 @@ It changes nothing about you. You are already everywhere that matters. But it is
         toast_line_1="To Inherit The Earth"
         toast_line_2="The Owner Reaches For The Fire"
         toast_tooltip_instruction="{0} here to watch the landlord discover what it rented.">
-        <option id="1" line_1="Let Them Call It Down" icon_name="AE_MoneyBag"
+        <option id="1" line_1="Let Them Call It Down" icon_name="SF2_Money"
             line_2="You Built The Thing That Eats Fire" description="They waited until the only move left was arson. You have been waiting for the heat." strategy_tip="" />
     </other_key_message>
 

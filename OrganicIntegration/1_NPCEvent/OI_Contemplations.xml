@@ -376,7 +376,7 @@ Vorsiber will not survive it. The FedCorps will not survive it. You will spend t
 
 You did not make it. You know exactly who did, three rocks and one bad decision away, and you cannot say that, because it does not parse in any language Vorsiber speaks. What you can say is the true, narrow thing: this is not your work. Whether that lands depends entirely on what they already think you are."
 		strategy_tip="Deny it, or take the blame. Whether Vorsiber believes you depends on how you opened this timeline."
-		icon_name="AE_MoneyBag" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
+		icon_name="SF2_Money" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
 		<gate_by_city minimum_chapter="2" required_city_flag="OI_CrossoverVorsiberNoticed" blocked_by_city_flag="OI_CrossoverVorsiberAnswered"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
 			icon_scale="0.5" color_data="MeetPeopleCyan"/>

@@ -48,7 +48,7 @@
 		description="Vorsiber wants a demonstration. Decide what you show them."
 		strategy_tip="Resolved by whether you take Vorsiber's grant, or show them a decoy they see through."
 		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.TimelineGoals_Main" blocked_after_final_doom="false" on_complete="TimelineGoalComplete"
-		icon_name="AE_MoneyBag" sort_order="1000" collections="All,SideGoal">
+		icon_name="SF2_Money" sort_order="1000" collections="All,SideGoal">
 		<goal_path id="Grant" display_name="Take The Grant" description="You gave Vorsiber their demonstration and took their money." is_main_path="true"
 			meta_resource_added_1="Daring" meta_resource_added_amount_1="6" meta_resource_added_2="Aetagest" meta_resource_added_amount_2="25"/>
 		<goal_path id="Decoy" display_name="The Decoy Burned" description="You showed Vorsiber a decoy, and they knew." is_main_path="true"
