@@ -8,4 +8,13 @@
 	<unlock id="OI_NaniteWindGeneratorUnlock" display_name="Nanite Wind Generators" structure_job="OI_NaniteWindGenerator" />
 	<unlock id="OI_NanobotRoundsUnlock" display_name="Nanobot Rounds" equipment_type="OI_NanobotRounds" />
 	<unlock id="OI_MedicalGradeNanobotReplicatorUnlock" display_name="Medical-Grade Nanobot Replicator" structure_job="OI_MedicalGradeNanobotReplicator" />
+	<!-- Shared-arsenal know-how. Invented by the calculator the moment the Medical-Grade Nanobot
+	     Replicator is invented (so a normal run notices no change), and granted directly to
+	     same-rock/ziggurat sibling timelines by OI_SharedArsenalCrossover. Gates the four
+	     crossover-shareable equipment pieces: Thermocyte Lance, Grey-Goo Cascade, Nanobot
+	     Restorative Weave, and Nanobot Repair Beacon (all variants). -->
+	<unlock id="OI_SharedArsenalUnlock" display_name="Shared Nanotech Arsenal" alt_icon_name="CleanSimple_Skill050"
+		description="The working knowledge behind your nanotech arsenal - thermocyte discharge geometries, bounded-cascade seeding ratios, restorative weave lattices, beacon triage scheduling - written down the way a body remembers a skill. Knowledge like this does not stay put. Where your other selves share a rock with you, it arrives before the courier is sent."
+		strategy_tip="Unlocks the Thermocyte Lance, Grey-Goo Cascade, Nanobot Restorative Weave, and Nanobot Repair Beacon equipment lines. Developed automatically alongside the Medical-Grade Nanobot Replicator, and carried to your co-located timelines."
+		concept_type="MinorMechanic" />
 </root>

@@ -10,4 +10,17 @@
 		description="On this rock, a colder version of you built machines to blow medical nanites across a city on the wind, and a little of it slipped its leash. The wind has never respected the walls between timelines. Now some of it is loose here, in a city that never made it and cannot answer for it."
 		is_good="false"
 		city_flag_to_trip_1="OI_GreyGooOutbreakIncoming" />
+
+	<!-- Same-rock/ziggurat POSITIVE crossover - the benevolent mirror of the one above. Published
+	     automatically when a timeline trips OI_SharedArsenalDeveloped (causes_crossover), which the
+	     calculator does the moment that timeline invents the Medical-Grade Nanobot Replicator.
+	     Sibling timelines on this rock (and every ziggurat timeline, via
+	     goes_to_ziggurat_from_anywhere) receive OI_SharedArsenalUnlock directly, opening the four
+	     shared-arsenal equipment lines there without any calculator involvement. No
+	     city_flag_to_trip: the gift is the unlock itself. -->
+	<city_timeline_crossover id="OI_SharedArsenalCrossover" display_name="An Arsenal Remembered"
+		description="On this rock, a kinder version of you taught medical nanites to fight, to mend, and to hold the line, and wrote every hard-won calibration down. The walls between timelines have never stopped knowledge from leaking. Your hands here already know the work - the way a body remembers a skill it was never taught."
+		is_good="true"
+		goes_to_ziggurat_from_anywhere="true"
+		unlock_1="OI_SharedArsenalUnlock" />
 </root>

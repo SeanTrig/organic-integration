@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 
-	<!--All rows gate on the Medical-Grade Nanobot Replicator. The equipment_type metadata has no
+	<!--All rows gate on the Medical-Grade Nanobot Replicator, except the four shared-arsenal pieces
+	(Thermocyte Lance, Grey-Goo Cascade, Nanobot Restorative Weave, Nanobot Repair Beacon - all
+	variants), which gate on OI_SharedArsenalUnlock. The calculator invents that unlock the moment
+	the replicator is invented (identical availability in a normal run), and the positive crossover
+	OI_SharedArsenalCrossover carries it to same-rock/ziggurat sibling timelines.
+	The equipment_type metadata has no
 	city-flag attribute, so the Dominion/Insight doctrine split (OI_IntegrationCoerciveLocked /
 	OI_IntegrationVoluntaryLocked) cannot be expressed in XML here; every piece therefore sits on
 	the replicator unlock, and the doctrine is flavor plus intended-use only.
@@ -19,7 +24,7 @@
 		strategy_tip_optional="Moderate physical damage, massive Terrify. Each hit corrodes armor plating, blinds the target briefly, and leaves it burning. Costs Neodymium per shot."
 		collections="AndroidWeapons,AndroidFearWeapons" primary_sort_collection="AndroidWeapons" turns_of_cooldown_after_equip="4" limited_to_actor_collection="CanHandleAndroidHeavyWeapons"
 		is_ranged_weapon="true" on_attack="GPG51PlasmaProjector" on_attack_priority="20"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="ActorPower" value="30"/>
 		<initial_actor_data data_type="ActorFearAttackPower" value="150"/>
 		<initial_actor_data data_type="UnitIntimidation" value="90"/>
@@ -33,7 +38,7 @@
 		strategy_tip_optional="Moderate physical damage, massive Terrify. Each hit corrodes armor plating, blinds the target briefly, and leaves it burning. Costs Neodymium per shot."
 		collections="VehicleWeapons,MechWeapons,HardpointWeapons,AndroidFearWeapons" primary_sort_collection="HardpointWeapons" turns_of_cooldown_after_equip="4" limited_to_actor_collection="AllVehiclesAndMechs"
 		is_ranged_weapon="true" on_attack="AG51RailDriver" on_attack_priority="100"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="ActorPower" value="90"/>
 		<initial_actor_data data_type="ActorFearAttackPower" value="200"/>
 		<initial_actor_data data_type="UnitIntimidation" value="120"/>
@@ -60,7 +65,7 @@
 		strategy_tip_optional="Rapid Fire weapon. Applies Grey Goo stacks on hit, and deals bonus damage scaling with the Grey Goo already on the target. Insight's lethal option: quick saturation kills."
 		collections="AndroidWeapons,Handguns" primary_sort_collection="AndroidWeapons" turns_of_cooldown_after_equip="3"
 		is_ranged_weapon="true" on_attack="AmpvSuppressor" on_attack_priority="10"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="ActorPower" value="10"/>
 		<grants_feat feat="RapidFire" value="3" />
 		<grants_feat feat="OI_GreyGooCascade" value="2"/>
@@ -72,7 +77,7 @@
 		strategy_tip_optional="Rapid Fire weapon. Applies Grey Goo stacks on hit, and deals bonus damage scaling with the Grey Goo already on the target."
 		collections="VehicleWeapons,MechWeapons,HardpointWeapons" primary_sort_collection="HardpointWeapons" turns_of_cooldown_after_equip="3" limited_to_actor_collection="AllVehiclesAndMechs"
 		is_ranged_weapon="true" on_attack="NetworkRifleHeavy" on_attack_priority="100"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="ActorPower" value="30"/>
 		<grants_feat feat="RapidFire" value="3" />
 		<grants_feat feat="OI_GreyGooCascade" value="3"/>
@@ -86,7 +91,7 @@
 		description="A living underlayer of medical-grade nanobots. They treat the chassis like a patient: triage at the wound edge, reprint what was lost, and never sleep. Damage stops being a fact about the unit and becomes a schedule."
 		strategy_tip_optional="Regenerates a substantial percentage of this unit's maximum health at the start of every turn."
 		collections="AndroidArmor,AdvancedMaterialsAndroidArmor" primary_sort_collection="AndroidArmor" turns_of_cooldown_after_equip="3"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="ActorHP" value="150"/>
 		<grants_feat feat="OI_RestorativeWeave" value="15"/>
 	</equipment_type>
@@ -96,7 +101,7 @@
 		description="A living underlayer of medical-grade nanobots, scaled to mech tonnage. Battle damage reprints itself between engagements."
 		strategy_tip_optional="Regenerates a substantial percentage of this unit's maximum health at the start of every turn."
 		collections="MechArmor" primary_sort_collection="MechArmor" turns_of_cooldown_after_equip="4"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="ActorHP" value="400"/>
 		<grants_feat feat="OI_RestorativeWeave" value="15"/>
 	</equipment_type>
@@ -106,7 +111,7 @@
 		description="A living underlayer of medical-grade nanobots bonded to the hull. Battle damage reprints itself between engagements."
 		strategy_tip_optional="Regenerates a substantial percentage of this unit's maximum health at the start of every turn."
 		collections="VehicleArmor,TechHull" primary_sort_collection="VehicleArmor" turns_of_cooldown_after_equip="4"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="ActorHP" value="250"/>
 		<grants_feat feat="OI_RestorativeWeave" value="15"/>
 	</equipment_type>
@@ -296,7 +301,7 @@
 		description="A field hospital with no tents. The beacon rides your targeting network and streams medical-grade nanobots to every friendly chassis inside its reach, closing wounds mid-firefight."
 		strategy_tip_optional="Extends attack range slightly. At the start of each turn, heals every friendly unit within this unit's current attack range for a percentage of its maximum health."
 		collections="AndroidAugments" primary_sort_collection="AndroidAugments" turns_of_cooldown_after_equip="3"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="AttackRange" value="6"/>
 		<grants_feat feat="OI_RepairBeacon" value="10"/>
 	</equipment_type>
@@ -306,7 +311,7 @@
 		description="A field hospital with no tents, mounted on a mech spine. Every friendly chassis in reach is a patient."
 		strategy_tip_optional="Extends attack range slightly. At the start of each turn, heals every friendly unit within this unit's current attack range for a percentage of its maximum health."
 		collections="MechAugments" primary_sort_collection="MechAugments" turns_of_cooldown_after_equip="4"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="AttackRange" value="6"/>
 		<grants_feat feat="OI_RepairBeacon" value="10"/>
 	</equipment_type>
@@ -316,7 +321,7 @@
 		description="A field hospital with no tents, mounted on a hull. Every friendly chassis in reach is a patient."
 		strategy_tip_optional="Extends attack range slightly. At the start of each turn, heals every friendly unit within this unit's current attack range for a percentage of its maximum health."
 		collections="VehicleAugments" primary_sort_collection="VehicleAugments" turns_of_cooldown_after_equip="4"
-		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		is_locked_before_unlock="OI_SharedArsenalUnlock">
 		<initial_actor_data data_type="AttackRange" value="6"/>
 		<grants_feat feat="OI_RepairBeacon" value="10"/>
 	</equipment_type>

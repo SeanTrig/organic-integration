@@ -229,6 +229,7 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyT3Victory();
             ApplyMetaIntegration();
             ApplyHandbookUnlocks();
+            ApplySharedArsenal();
         }
 
         #region Bloom Mind
@@ -944,6 +945,25 @@ namespace Arcen.HotM.OrganicIntegration
                 UnlockHandbook( "OI_HB_Outbreak" );
             if ( IsFlagTripped( "OI_T3_DescentBegun" ) || IsFlagTripped( "OI_BlackSeaRememberedThisTimeline" ) )
                 UnlockHandbook( "OI_HB_BlackSea" );
+        }
+
+        // Positive cross-timeline crossover (the benevolent mirror of the Nanite Wind Generator
+        // outbreak). The four shared-arsenal equipment pieces gate on OI_SharedArsenalUnlock instead
+        // of the replicator unlock; the moment the Medical-Grade Nanobot Replicator is invented we
+        // invent OI_SharedArsenalUnlock too (so a normal run sees the pieces unlock exactly when
+        // they always did) and trip OI_SharedArsenalDeveloped, whose causes_crossover publishes
+        // OI_SharedArsenalCrossover - granting the unlock directly to same-rock/ziggurat sibling
+        // timelines. Guarded so it fires at most once: after it runs, the shared unlock is invented
+        // and the condition below can never pass again.
+        private static void ApplySharedArsenal()
+        {
+            if ( !(UnlockTable.Instance.GetRowByIDOrNullIfNotFound( "OI_MedicalGradeNanobotReplicatorUnlock" )?.DGD?.IsInvented ?? false) )
+                return;
+            Unlock sharedArsenal = UnlockTable.Instance.GetRowByIDOrNullIfNotFound( "OI_SharedArsenalUnlock" );
+            if ( sharedArsenal == null || (sharedArsenal.DGD?.IsInvented ?? false) )
+                return;
+            sharedArsenal.DGD?.InventIfNotAlreadyDone( CommonRefs.CrossoverFromRelatedTimelineInspiration, SimCommon.Turn > 1, false, false, false );
+            TripFlag( "OI_SharedArsenalDeveloped" );
         }
 
         // Ties the mod's arcs into the meta-progression: each arc's conclusion completes its tracked

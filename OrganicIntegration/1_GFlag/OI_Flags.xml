@@ -113,6 +113,13 @@
 	<city_flag id="OI_CrossoverVorsiberDenied" display_name="You told Vorsiber you did not make the goo" has_no_code="true"/>
 	<city_flag id="OI_CrossoverVorsiberResolved" display_name="Vorsiber has decided whether to believe you" has_no_code="true"/>
 
+	<!-- Cross-timeline shared arsenal (POSITIVE crossover). When a timeline invents the
+	     Medical-Grade Nanobot Replicator, the calculator invents OI_SharedArsenalUnlock and trips
+	     this flag; causes_crossover publishes OI_SharedArsenalCrossover to the metagame, and
+	     same-rock/ziggurat sibling timelines receive OI_SharedArsenalUnlock directly (unlock_1).
+	     The benevolent mirror of OI_NaniteWindGeneratorBuilt above. -->
+	<city_flag id="OI_SharedArsenalDeveloped" display_name="This timeline mastered the shared nanotech arsenal" has_no_code="true" causes_crossover="OI_SharedArsenalCrossover"/>
+
 	<!-- Meta integration: one-time guards for code-awarded Aetagest. -->
 	<city_flag id="OI_AetaConversionCharged" display_name="First-conversion Aetagest awarded" has_no_code="true"/>
 	<city_flag id="OI_AetaBlackSeaCharged" display_name="Black Sea Aetagest awarded" has_no_code="true"/>
