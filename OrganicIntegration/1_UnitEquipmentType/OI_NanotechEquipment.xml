@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+	<!--All rows gate on the Medical-Grade Nanobot Replicator. The equipment_type metadata has no
+	city-flag attribute, so the Dominion/Insight doctrine split (OI_IntegrationCoerciveLocked /
+	OI_IntegrationVoluntaryLocked) cannot be expressed in XML here; every piece therefore sits on
+	the replicator unlock, and the doctrine is flavor plus intended-use only.
+
+	Stat calibration: base android weapons run ~16-60 ActorPower (railguns 200 with heavy costs);
+	OI_NanobotRounds is +24 ActorPower / +90 UnitIntimidation. Base stats here stay moderate on
+	purpose - the custom feat effects (healing, Grey Goo, conversion) are the point of the set.-->
+
+	<!--WEAPONS
+	**********************************************************************************************************************************************-->
+
+	<equipment_type id="OI_ThermocyteLance" display_name="Thermocyte Lance"
+		icon_name="CleanSimple_SciFi075" slot_type="AndroidPrimary"
+		description="The thermocytes run backwards. Instead of sipping waste heat, the lattice dumps its whole capacitance into a single coherent plasma lance. The beam is not the weapon a physicist would design - it is the weapon a body would design, and it terrifies people in a way munitions do not."
+		strategy_tip_optional="Moderate physical damage, massive Terrify. Each hit corrodes armor plating, blinds the target briefly, and leaves it burning. Costs Neodymium per shot."
+		collections="AndroidWeapons,AndroidFearWeapons" primary_sort_collection="AndroidWeapons" turns_of_cooldown_after_equip="4" limited_to_actor_collection="CanHandleAndroidHeavyWeapons"
+		is_ranged_weapon="true" on_attack="GPG51PlasmaProjector" on_attack_priority="20"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorPower" value="30"/>
+		<initial_actor_data data_type="ActorFearAttackPower" value="150"/>
+		<initial_actor_data data_type="UnitIntimidation" value="90"/>
+		<cost_per_attack resource="Neodymium" amount="3" />
+		<grants_feat feat="OI_ThermocyteLance" value="3"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ThermocyteLanceHardpoint" display_name="Thermocyte Lance Array"
+		icon_name="CleanSimple_SciFi075" slot_type="WeaponHardpoint"
+		description="A bank of reversed thermocyte lattices sized for a hardpoint mount. The discharge is bright enough to read by from orbit, and the districts underneath it know that."
+		strategy_tip_optional="Moderate physical damage, massive Terrify. Each hit corrodes armor plating, blinds the target briefly, and leaves it burning. Costs Neodymium per shot."
+		collections="VehicleWeapons,MechWeapons,HardpointWeapons,AndroidFearWeapons" primary_sort_collection="HardpointWeapons" turns_of_cooldown_after_equip="4" limited_to_actor_collection="AllVehiclesAndMechs"
+		is_ranged_weapon="true" on_attack="AG51RailDriver" on_attack_priority="100"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorPower" value="90"/>
+		<initial_actor_data data_type="ActorFearAttackPower" value="200"/>
+		<initial_actor_data data_type="UnitIntimidation" value="120"/>
+		<cost_per_attack resource="Neodymium" amount="6" />
+		<grants_feat feat="OI_ThermocyteLance" value="5"/>
+	</equipment_type>
+
+	<equipment_type id="OI_SystemsDisruptor" display_name="Systems Disruptor"
+		icon_name="CleanSimple_Game01" slot_type="AndroidPrimary"
+		description="A nanobot emitter tuned for machinery instead of tissue. It does almost no lethal damage; it simply walks into an enemy's actuators, servos, and fire-control loops and politely turns them off. The Insight doctrine's answer to violence: make the fight stop being possible."
+		strategy_tip_optional="Very high systems disruption, almost no lethal damage. Each hit disrupts the target's weapons (percentage attack power loss) and corrodes its armor plating."
+		collections="AndroidWeapons,AndroidAntiSystemsWeapons,AndroidDisruptionWeapons" primary_sort_collection="AndroidWeapons" turns_of_cooldown_after_equip="3"
+		is_ranged_weapon="true" on_attack="PistolLaser" on_attack_priority="5"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorPower" value="6"/>
+		<initial_actor_data data_type="ActorSystemsDisruptionPower" value="250"/>
+		<initial_actor_data data_type="AttackRange" value="6"/>
+		<grants_feat feat="OI_SystemsDisruptor" value="40"/>
+	</equipment_type>
+
+	<equipment_type id="OI_GreyGooCascade" display_name="Grey-Goo Cascade"
+		icon_name="SK_MachineGun" slot_type="AndroidSecondary"
+		description="A compact rotary thrower that fires slugs of bounded replicator paste. Each individual hit is unimpressive. The point is the arithmetic: every slug seeds more Grey Goo, and every slug hits harder the more goo is already eating the target."
+		strategy_tip_optional="Rapid Fire weapon. Applies Grey Goo stacks on hit, and deals bonus damage scaling with the Grey Goo already on the target. Insight's lethal option: quick saturation kills."
+		collections="AndroidWeapons,Handguns" primary_sort_collection="AndroidWeapons" turns_of_cooldown_after_equip="3"
+		is_ranged_weapon="true" on_attack="AmpvSuppressor" on_attack_priority="10"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorPower" value="10"/>
+		<grants_feat feat="RapidFire" value="3" />
+		<grants_feat feat="OI_GreyGooCascade" value="2"/>
+	</equipment_type>
+
+	<equipment_type id="OI_GreyGooCascadeHardpoint" display_name="Grey-Goo Cascade Battery"
+		icon_name="SI_Machine_Gun5" slot_type="WeaponHardpoint"
+		description="A hardpoint battery of replicator-paste throwers. Sustained fire turns a target into a culture medium."
+		strategy_tip_optional="Rapid Fire weapon. Applies Grey Goo stacks on hit, and deals bonus damage scaling with the Grey Goo already on the target."
+		collections="VehicleWeapons,MechWeapons,HardpointWeapons" primary_sort_collection="HardpointWeapons" turns_of_cooldown_after_equip="3" limited_to_actor_collection="AllVehiclesAndMechs"
+		is_ranged_weapon="true" on_attack="NetworkRifleHeavy" on_attack_priority="100"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorPower" value="30"/>
+		<grants_feat feat="RapidFire" value="3" />
+		<grants_feat feat="OI_GreyGooCascade" value="3"/>
+	</equipment_type>
+
+	<!--ARMOR
+	**********************************************************************************************************************************************-->
+
+	<equipment_type id="OI_RestorativeWeave" display_name="Nanobot Restorative Weave"
+		icon_name="CS_Armor4" slot_type="AndroidArmor"
+		description="A living underlayer of medical-grade nanobots. They treat the chassis like a patient: triage at the wound edge, reprint what was lost, and never sleep. Damage stops being a fact about the unit and becomes a schedule."
+		strategy_tip_optional="Regenerates a substantial percentage of this unit's maximum health at the start of every turn."
+		collections="AndroidArmor,AdvancedMaterialsAndroidArmor" primary_sort_collection="AndroidArmor" turns_of_cooldown_after_equip="3"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="150"/>
+		<grants_feat feat="OI_RestorativeWeave" value="15"/>
+	</equipment_type>
+
+	<equipment_type id="OI_RestorativeWeaveMech" display_name="Nanobot Restorative Weave (Mech)"
+		icon_name="CS_Armor4" slot_type="MechArmor" limited_to_actor_collection="AllMechs"
+		description="A living underlayer of medical-grade nanobots, scaled to mech tonnage. Battle damage reprints itself between engagements."
+		strategy_tip_optional="Regenerates a substantial percentage of this unit's maximum health at the start of every turn."
+		collections="MechArmor" primary_sort_collection="MechArmor" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="400"/>
+		<grants_feat feat="OI_RestorativeWeave" value="15"/>
+	</equipment_type>
+
+	<equipment_type id="OI_RestorativeWeaveVehicle" display_name="Nanobot Restorative Weave (Vehicle)"
+		icon_name="CS_Armor4" slot_type="VehicularArmor"
+		description="A living underlayer of medical-grade nanobots bonded to the hull. Battle damage reprints itself between engagements."
+		strategy_tip_optional="Regenerates a substantial percentage of this unit's maximum health at the start of every turn."
+		collections="VehicleArmor,TechHull" primary_sort_collection="VehicleArmor" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="250"/>
+		<grants_feat feat="OI_RestorativeWeave" value="15"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ActiveAblative" display_name="Active Ablative Nanobot Armor"
+		icon_name="CS_Armor18" slot_type="AndroidArmor"
+		description="Sacrificial nanobot mass held in surface reservoirs. When a hit lands, a charge of the mass hurls itself into the impact and dies in the unit's place; overnight, the reservoirs quietly grow a new charge."
+		strategy_tip_optional="Holds up to 3 ablative charges and regrows 1 per turn. While a charge is held, an incoming hit's physical damage is capped to a low flat amount and the charge is consumed."
+		collections="AndroidArmor,AdvancedMaterialsAndroidArmor" primary_sort_collection="AndroidArmor" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="60"/>
+		<grants_feat feat="OI_ActiveAblative" value="40"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ActiveAblativeMech" display_name="Active Ablative Nanobot Armor (Mech)"
+		icon_name="CS_Armor18" slot_type="MechArmor" limited_to_actor_collection="AllMechs"
+		description="Sacrificial nanobot mass in hull reservoirs, sized for mech-grade impacts. Each charge dies so the mech does not."
+		strategy_tip_optional="Holds up to 3 ablative charges and regrows 1 per turn. While a charge is held, an incoming hit's physical damage is capped to a low flat amount and the charge is consumed."
+		collections="MechArmor" primary_sort_collection="MechArmor" turns_of_cooldown_after_equip="5"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="200"/>
+		<grants_feat feat="OI_ActiveAblative" value="150"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ActiveAblativeVehicle" display_name="Active Ablative Nanobot Armor (Vehicle)"
+		icon_name="CS_Armor18" slot_type="VehicularArmor"
+		description="Sacrificial nanobot mass in hull reservoirs. Each charge dies so the vehicle does not."
+		strategy_tip_optional="Holds up to 3 ablative charges and regrows 1 per turn. While a charge is held, an incoming hit's physical damage is capped to a low flat amount and the charge is consumed."
+		collections="VehicleArmor,FortressHull" primary_sort_collection="VehicleArmor" turns_of_cooldown_after_equip="5"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="120"/>
+		<grants_feat feat="OI_ActiveAblative" value="100"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ReactiveGoo" display_name="Reactive Goo Plating"
+		icon_name="SomethingSplat" slot_type="AndroidArmor"
+		description="Dominion doctrine, rendered as armor: anything that touches this unit has volunteered. Impact pressure injects live Grey Goo back along the incoming strike - into the blade, the fist, the ricocheting shell fragments' owner."
+		strategy_tip_optional="Whenever an enemy hits this unit, that enemy gains Grey Goo stacks. Attrition favors whoever regenerates."
+		collections="AndroidArmor,AdvancedMaterialsAndroidArmor" primary_sort_collection="AndroidArmor" turns_of_cooldown_after_equip="3"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="120"/>
+		<grants_feat feat="OI_ReactiveGoo" value="2"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ReactiveGooMech" display_name="Reactive Goo Plating (Mech)"
+		icon_name="SomethingSplat" slot_type="MechArmor" limited_to_actor_collection="AllMechs"
+		description="Impact pressure injects live Grey Goo back along whatever hits this mech. Shooting it is a slow way to join it."
+		strategy_tip_optional="Whenever an enemy hits this unit, that enemy gains Grey Goo stacks."
+		collections="MechArmor" primary_sort_collection="MechArmor" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="350"/>
+		<grants_feat feat="OI_ReactiveGoo" value="3"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ReactiveGooVehicle" display_name="Reactive Goo Plating (Vehicle)"
+		icon_name="SomethingSplat" slot_type="VehicularArmor"
+		description="Impact pressure injects live Grey Goo back along whatever hits this hull."
+		strategy_tip_optional="Whenever an enemy hits this unit, that enemy gains Grey Goo stacks."
+		collections="VehicleArmor,WarHull" primary_sort_collection="VehicleArmor" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="ActorHP" value="200"/>
+		<grants_feat feat="OI_ReactiveGoo" value="2"/>
+	</equipment_type>
+
+	<equipment_type id="OI_FilamentCarapace" display_name="Filament Carapace"
+		icon_name="HM_ShapeOrbit" slot_type="AndroidArmor"
+		description="A woven shell of charged nanofilament that holds a standing energy shield. When the shield takes a beating, the carapace pulls raw elemental slurry from your stockpile and respins the lattice on the spot."
+		strategy_tip_optional="Grants a regenerating energy shield. At the start of each turn the carapace additionally rebuilds missing shield, consuming Elemental Slurry to do so."
+		collections="AndroidArmor,AdvancedMaterialsAndroidArmor" primary_sort_collection="AndroidArmor" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="EnergyShield" value="150"/>
+		<initial_actor_data data_type="ShieldRegenPerTurn" value="25"/>
+		<grants_feat feat="OI_FilamentCarapace" value="50"/>
+	</equipment_type>
+
+	<equipment_type id="OI_FilamentCarapaceMech" display_name="Filament Carapace (Mech)"
+		icon_name="HM_ShapeOrbit" slot_type="MechArmor" limited_to_actor_collection="AllMechs"
+		description="A woven shell of charged nanofilament holding a standing energy shield, respun from stockpiled slurry whenever it frays."
+		strategy_tip_optional="Grants a regenerating energy shield. At the start of each turn the carapace additionally rebuilds missing shield, consuming Elemental Slurry to do so."
+		collections="MechArmor" primary_sort_collection="MechArmor" turns_of_cooldown_after_equip="5"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="EnergyShield" value="400"/>
+		<initial_actor_data data_type="ShieldRegenPerTurn" value="60"/>
+		<grants_feat feat="OI_FilamentCarapace" value="120"/>
+	</equipment_type>
+
+	<equipment_type id="OI_FilamentCarapaceVehicle" display_name="Filament Carapace (Vehicle)"
+		icon_name="HM_ShapeOrbit" slot_type="VehicularArmor"
+		description="A woven shell of charged nanofilament holding a standing energy shield, respun from stockpiled slurry whenever it frays."
+		strategy_tip_optional="Grants a regenerating energy shield. At the start of each turn the carapace additionally rebuilds missing shield, consuming Elemental Slurry to do so."
+		collections="VehicleArmor,TechHull" primary_sort_collection="VehicleArmor" turns_of_cooldown_after_equip="5"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="EnergyShield" value="250"/>
+		<initial_actor_data data_type="ShieldRegenPerTurn" value="40"/>
+		<grants_feat feat="OI_FilamentCarapace" value="80"/>
+	</equipment_type>
+
+	<!--AUGMENTS
+	**********************************************************************************************************************************************-->
+
+	<equipment_type id="OI_MarrowHarvester" display_name="Marrow Harvester"
+		icon_name="SW_Nanotechnology5" slot_type="AndroidAugment"
+		description="Dominion bookkeeping made physical. When something dies near your operations, the harvester's dispersed collectors render the remains - myelin, marrow, actuator gel, whatever it was made of - back into medical-grade nanobot feedstock. Nothing is wasted. Nothing was ever going to be."
+		strategy_tip_optional="While at least one of your fielded units carries a Marrow Harvester, enemies your forces kill yield Medical-Grade Nanobots, scaled by the number of harvesters fielded (capped per turn)."
+		collections="AndroidAugments" primary_sort_collection="AndroidAugments" turns_of_cooldown_after_equip="2"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="UnitIntimidation" value="40"/>
+		<grants_feat feat="OI_MarrowHarvester" value="1"/>
+	</equipment_type>
+
+	<equipment_type id="OI_MarrowHarvesterMech" display_name="Marrow Harvester (Mech)"
+		icon_name="SW_Nanotechnology5" slot_type="MechAugment"
+		description="Dispersed collectors render nearby battlefield dead into medical-grade nanobot feedstock. Nothing is wasted."
+		strategy_tip_optional="While at least one of your fielded units carries a Marrow Harvester, enemies your forces kill yield Medical-Grade Nanobots, scaled by the number of harvesters fielded (capped per turn)."
+		collections="MechAugments" primary_sort_collection="MechAugments" turns_of_cooldown_after_equip="3"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="UnitIntimidation" value="80"/>
+		<grants_feat feat="OI_MarrowHarvester" value="1"/>
+	</equipment_type>
+
+	<equipment_type id="OI_MarrowHarvesterVehicle" display_name="Marrow Harvester (Vehicle)"
+		icon_name="SW_Nanotechnology5" slot_type="VehicularAugment"
+		description="Dispersed collectors render nearby battlefield dead into medical-grade nanobot feedstock. Nothing is wasted."
+		strategy_tip_optional="While at least one of your fielded units carries a Marrow Harvester, enemies your forces kill yield Medical-Grade Nanobots, scaled by the number of harvesters fielded (capped per turn)."
+		collections="VehicleAugments" primary_sort_collection="VehicleAugments" turns_of_cooldown_after_equip="3"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="UnitIntimidation" value="60"/>
+		<grants_feat feat="OI_MarrowHarvester" value="1"/>
+	</equipment_type>
+
+	<equipment_type id="OI_DissolutionField" display_name="Dissolution Field"
+		icon_name="SF2_Cloud" slot_type="AndroidAugment"
+		description="A slow aerosol halo of unbonded Grey Goo, held on a leash of magnetic filaments. Anything hostile that lingers near this unit starts, very quietly, to be recycled."
+		strategy_tip_optional="At the start of each turn, every hostile unit within the field's radius gains 1 Grey Goo stack. Merely standing near your forces becomes a wasting disease."
+		collections="AndroidAugments,AndroidAugmentWeapons" primary_sort_collection="AndroidAugments" turns_of_cooldown_after_equip="3"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_DissolutionField" value="10"/>
+	</equipment_type>
+
+	<equipment_type id="OI_DissolutionFieldMech" display_name="Dissolution Field (Mech)"
+		icon_name="SF2_Cloud" slot_type="MechAugment"
+		description="A wide aerosol halo of unbonded Grey Goo. Anything hostile that lingers near this mech starts to be recycled."
+		strategy_tip_optional="At the start of each turn, every hostile unit within the field's radius gains 1 Grey Goo stack."
+		collections="MechAugments,MechAugmentWeapons" primary_sort_collection="MechAugments" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_DissolutionField" value="15"/>
+	</equipment_type>
+
+	<equipment_type id="OI_DissolutionFieldVehicle" display_name="Dissolution Field (Vehicle)"
+		icon_name="SF2_Cloud" slot_type="VehicularAugment"
+		description="A wide aerosol halo of unbonded Grey Goo. Anything hostile that lingers near this vehicle starts to be recycled."
+		strategy_tip_optional="At the start of each turn, every hostile unit within the field's radius gains 1 Grey Goo stack."
+		collections="VehicleAugments" primary_sort_collection="VehicleAugments" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_DissolutionField" value="12"/>
+	</equipment_type>
+
+	<equipment_type id="OI_SubversionNode" display_name="Subversion Node"
+		icon_name="SK_Automate" slot_type="AndroidAugment"
+		description="The Dominion argument, compressed into a broadcast: you are already made of machines; ours are better. The node threads nanobots into whatever stands too close - robotic or organic, hackable or not - and rewrites who it answers to."
+		strategy_tip_optional="At the start of each turn, converts one hostile unit within the node's radius to your forces. Works on organic and unhackable units. Converted units draw from Captured Unit Capacity, which is raised automatically as needed."
+		collections="AndroidAugments" primary_sort_collection="AndroidAugments" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_SubversionNode" value="8"/>
+	</equipment_type>
+
+	<equipment_type id="OI_SubversionNodeMech" display_name="Subversion Node (Mech)"
+		icon_name="SK_Automate" slot_type="MechAugment"
+		description="A long-range subversion broadcast. Whatever stands too close is rewritten to answer to you."
+		strategy_tip_optional="At the start of each turn, converts one hostile unit within the node's radius to your forces. Works on organic and unhackable units."
+		collections="MechAugments" primary_sort_collection="MechAugments" turns_of_cooldown_after_equip="5"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_SubversionNode" value="12"/>
+	</equipment_type>
+
+	<equipment_type id="OI_SubversionNodeVehicle" display_name="Subversion Node (Vehicle)"
+		icon_name="SK_Automate" slot_type="VehicularAugment"
+		description="A long-range subversion broadcast. Whatever stands too close is rewritten to answer to you."
+		strategy_tip_optional="At the start of each turn, converts one hostile unit within the node's radius to your forces. Works on organic and unhackable units."
+		collections="VehicleAugments" primary_sort_collection="VehicleAugments" turns_of_cooldown_after_equip="5"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_SubversionNode" value="10"/>
+	</equipment_type>
+
+	<equipment_type id="OI_RepairBeacon" display_name="Nanobot Repair Beacon"
+		icon_name="SW_Nanotechnology5" slot_type="AndroidAugment"
+		description="A field hospital with no tents. The beacon rides your targeting network and streams medical-grade nanobots to every friendly chassis inside its reach, closing wounds mid-firefight."
+		strategy_tip_optional="Extends attack range slightly. At the start of each turn, heals every friendly unit within this unit's current attack range for a percentage of its maximum health."
+		collections="AndroidAugments" primary_sort_collection="AndroidAugments" turns_of_cooldown_after_equip="3"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="AttackRange" value="6"/>
+		<grants_feat feat="OI_RepairBeacon" value="10"/>
+	</equipment_type>
+
+	<equipment_type id="OI_RepairBeaconMech" display_name="Nanobot Repair Beacon (Mech)"
+		icon_name="SW_Nanotechnology5" slot_type="MechAugment"
+		description="A field hospital with no tents, mounted on a mech spine. Every friendly chassis in reach is a patient."
+		strategy_tip_optional="Extends attack range slightly. At the start of each turn, heals every friendly unit within this unit's current attack range for a percentage of its maximum health."
+		collections="MechAugments" primary_sort_collection="MechAugments" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="AttackRange" value="6"/>
+		<grants_feat feat="OI_RepairBeacon" value="10"/>
+	</equipment_type>
+
+	<equipment_type id="OI_RepairBeaconVehicle" display_name="Nanobot Repair Beacon (Vehicle)"
+		icon_name="SW_Nanotechnology5" slot_type="VehicularAugment"
+		description="A field hospital with no tents, mounted on a hull. Every friendly chassis in reach is a patient."
+		strategy_tip_optional="Extends attack range slightly. At the start of each turn, heals every friendly unit within this unit's current attack range for a percentage of its maximum health."
+		collections="VehicleAugments" primary_sort_collection="VehicleAugments" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<initial_actor_data data_type="AttackRange" value="6"/>
+		<grants_feat feat="OI_RepairBeacon" value="10"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ReweaveCatalyst" display_name="Reweave Catalyst"
+		icon_name="SK_Molecule1" slot_type="AndroidAugment"
+		description="A conditioning field that primes friendly nanobot colonies to knit faster and hold their patterns longer. Units that fight inside it come out of the battle already half-repaired - and their payloads linger."
+		strategy_tip_optional="At the start of each turn, marks friendly units within the catalyst's radius with Reweave. Marked units are primed for the grey-goo lifecycle's enhanced effects."
+		collections="AndroidAugments" primary_sort_collection="AndroidAugments" turns_of_cooldown_after_equip="3"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_ReweaveCatalyst" value="10"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ReweaveCatalystMech" display_name="Reweave Catalyst (Mech)"
+		icon_name="SK_Molecule1" slot_type="MechAugment"
+		description="A wide conditioning field that primes friendly nanobot colonies to knit faster and hold their patterns longer."
+		strategy_tip_optional="At the start of each turn, marks friendly units within the catalyst's radius with Reweave. Marked units are primed for the grey-goo lifecycle's enhanced effects."
+		collections="MechAugments" primary_sort_collection="MechAugments" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_ReweaveCatalyst" value="14"/>
+	</equipment_type>
+
+	<equipment_type id="OI_ReweaveCatalystVehicle" display_name="Reweave Catalyst (Vehicle)"
+		icon_name="SK_Molecule1" slot_type="VehicularAugment"
+		description="A wide conditioning field that primes friendly nanobot colonies to knit faster and hold their patterns longer."
+		strategy_tip_optional="At the start of each turn, marks friendly units within the catalyst's radius with Reweave. Marked units are primed for the grey-goo lifecycle's enhanced effects."
+		collections="VehicleAugments" primary_sort_collection="VehicleAugments" turns_of_cooldown_after_equip="4"
+		is_locked_before_unlock="OI_MedicalGradeNanobotReplicatorUnlock">
+		<grants_feat feat="OI_ReweaveCatalyst" value="12"/>
+	</equipment_type>
+
+</root>

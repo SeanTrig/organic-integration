@@ -12,6 +12,7 @@ namespace Arcen.HotM.OrganicIntegration
     {
         private const string CrossoverGooSwarmID = "OI_CrossoverGoo";
         private const int MinPhageRange = 30;
+        private const int MinFriendlyPhageRange = 18;
 
         public bool TryHandleConsumableHardTargeting( ISimMachineActor Actor, ResourceConsumable Consumable,
             Vector3A center, float attackRange, float moveRange, bool SkipLinesIfOverNothing )
@@ -131,6 +132,40 @@ namespace Arcen.HotM.OrganicIntegration
                             }
                         }
                         return true;
+                    }
+                    case "OI_PhageFriendly":
+                    {
+                        //Targets the player's OWN units, and purges all Grey Goo stacks from the clicked one.
+                        //Uses the game's generic unit-targeting consumable flow (range circle, tooltips, cost
+                        //payment, and the right-click all live in the shared handler); the row's cost
+                        //(Microbuilders) is paid by TryToDirectlyUseByActorAgainstTargetUnit on success.
+                        debugStage = 5000;
+                        ActorStatus goo = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( "OI_GreyGoo" );
+                        if ( goo == null )
+                            return false;
+
+                        return MachineMovePlannerImplementation.HandleUnitBasedConsumableTargetingModeForAnyMachineActor( Actor, MinFriendlyPhageRange,
+                            delegate ( ISimMapActor possibleTarget ) //ExtraCriteria
+                            {
+                                if ( possibleTarget == null || possibleTarget.IsFullDead )
+                                    return false;
+                                if ( !possibleTarget.GetIsPartOfPlayerForcesInAnyWay() )
+                                    return false; //own units only
+                                return possibleTarget.GetStatusIntensity( goo ) > 0; //must actually be carrying goo
+                            },
+                            delegate ( ISimMapActor possibleTarget, ArcenDoubleCharacterBuffer Buffer ) //OnInvalidTarget
+                            {
+                                Buffer.LineIfLastWrittenWasNotLine();
+                                if ( possibleTarget == null || !possibleTarget.GetIsPartOfPlayerForcesInAnyWay() )
+                                    Buffer.AddRaw( "Must target one of your own units.", ColorTheme.RedOrange2 ).Line();
+                                else
+                                    Buffer.AddRaw( "That unit is not carrying Grey Goo.", ColorTheme.RedOrange2 ).Line();
+                            },
+                            delegate ( ISimMapActor possibleTarget ) //OnSuccess
+                            {
+                                possibleTarget.ClearStatus( goo );
+                                Consumable.DGD.AlterScore( 1 );
+                            }, SkipLinesIfOverNothing );
                     }
                     default:
                         return false;

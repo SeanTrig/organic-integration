@@ -15,4 +15,21 @@
 			is_considered_an_attack_if_thrown="false"
 			do_not_complain_about_seeming_lack_of_purpose="true" />
 	</consumable_item>
+
+	<consumable_item id="OI_PhageFriendly" display_name="Friendly Phage"
+		description="A canister of engineered phages tuned to your own bounded Grey Goo. Deploy it onto one of your units to dissolve every stack of goo eating it - useful when a subverted unit arrives still carrying its own saturation, or when your payloads find their way home."
+		strategy_tip="Right-click one of your own units within range to purge all Grey Goo stacks from it."
+		icon_name="SF2_Cloud" icon_color="#8FE6D3" always_show_strategic_tip="true"
+		consumable_intentionally_has_no_unlock="true" is_hidden_before_city_flag_1="OI_IntegrationChosen"
+		min_consumable_range="18"
+		sort_order="21100"
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationConsumables">
+		<consumable_cost resource_type="Microbuilders" required="500" />
+		<direct_use_consumable_data targets_any_actor="true"
+			can_only_be_used_by_actors="AllAndroids"
+			on_direct_use="ConsumableWarPowerup"
+			is_considered_an_attack_if_thrown="false"
+			use_assist_style_targeting_line="true"
+			do_not_complain_about_seeming_lack_of_purpose="true" />
+	</consumable_item>
 </root>

@@ -5,4 +5,67 @@
 		strategy_tip_optional="Applies Grey Goo to enemies hit by physical attacks, even when armor blocks the immediate damage. Rapid Fire applies additional stacks, so the per-hit payload is intentionally restrained."
 		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
 		icon_name="CleanSimple_SciFi082" icon_color="#8FE6D3" tooltip_color="RedOrange2" has_code_when_dealing_damage="true"/>
+
+	<actor_feat id="OI_ThermocyteLance" display_name="Thermocyte Lance"
+		description="Hits corrode the target's armor plating, blind it briefly, and leave it burning."
+		strategy_tip_optional="The armor corrosion and burn last a few turns; the blindness is short but sharp. The lance's Terrify payload does the rest."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="CleanSimple_SciFi075" icon_color="#8FE6D3" tooltip_color="RedOrange2" has_code_when_dealing_damage="true"/>
+
+	<actor_feat id="OI_SystemsDisruptor" display_name="Systems Disruptor"
+		description="Hits disrupt the target's weapons (percentage attack power loss) and corrode its armor plating."
+		strategy_tip_optional="Deliberately strong: this is the Insight doctrine's nonviolent answer to being shot at."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="CleanSimple_Game01" icon_color="#8FE6D3" tooltip_color="RedOrange2" has_code_when_dealing_damage="true"/>
+
+	<actor_feat id="OI_GreyGooCascade" display_name="Grey-Goo Cascade"
+		description="Hits apply Grey Goo stacks, and deal bonus physical damage scaling with the Grey Goo already on the target."
+		strategy_tip_optional="Bonus damage is +6% per existing Grey Goo stack, up to +150%. Saturate a target, then finish it."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="SK_Molecule1" icon_color="#8FE6D3" tooltip_color="RedOrange2" has_code_when_dealing_damage="true"/>
+
+	<actor_feat id="OI_RestorativeWeave" display_name="Restorative Weave"
+		description="At the start of each turn, this unit regenerates a percentage of its maximum health equal to the feat rating."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="CS_Armor4" icon_color="#8FE6D3" tooltip_color="ActorStatus_MinorGood" has_code_at_turn_start="true"/>
+
+	<actor_feat id="OI_ActiveAblative" display_name="Active Ablative Charges"
+		description="Regrows 1 ablative charge per turn, holding up to 3. While a charge is held, an incoming hit's physical damage is capped to the feat rating and the charge is consumed."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="CS_Armor18" icon_color="#8FE6D3" tooltip_color="ActorStatus_MinorGood" has_code_at_turn_start="true" has_code_when_taking_damage="true"/>
+
+	<actor_feat id="OI_ReactiveGoo" display_name="Reactive Goo"
+		description="Whenever an enemy hits this unit, that enemy gains Grey Goo stacks equal to the feat rating."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="SomethingSplat" icon_color="#8FE6D3" tooltip_color="RedOrange2" has_code_when_taking_damage="true"/>
+
+	<actor_feat id="OI_FilamentCarapace" display_name="Filament Respinner"
+		description="At the start of each turn, rebuilds up to the feat rating of missing energy shield, consuming Elemental Slurry (1 per 10 shield rebuilt)."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="HM_ShapeOrbit" icon_color="#8FE6D3" tooltip_color="ActorStatus_MinorGood" has_code_at_turn_start="true"/>
+
+	<actor_feat id="OI_MarrowHarvester" display_name="Marrow Harvester"
+		description="While at least one of your fielded units carries this, enemies your forces kill are rendered into Medical-Grade Nanobots, scaled by the number of harvesters fielded (capped per turn)."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="SW_Nanotechnology5" icon_color="#8FE6D3" tooltip_color="RedOrange2"/>
+
+	<actor_feat id="OI_DissolutionField" display_name="Dissolution Field"
+		description="At the start of each turn, every hostile unit within the feat rating's radius gains 1 Grey Goo stack."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="SF2_Cloud" icon_color="#8FE6D3" tooltip_color="RedOrange2" has_code_at_turn_start="true" show_range_ring_on_hover="true"/>
+
+	<actor_feat id="OI_SubversionNode" display_name="Subversion Node"
+		description="At the start of each turn, converts one hostile unit within the feat rating's radius to your forces. Works on organic and unhackable units; captured-unit capacity is raised automatically as needed."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="SK_Automate" icon_color="#8FE6D3" tooltip_color="RedOrange2" has_code_at_turn_start="true" show_range_ring_on_hover="true"/>
+
+	<actor_feat id="OI_RepairBeacon" display_name="Repair Beacon"
+		description="At the start of each turn, heals every friendly unit within this unit's current attack range for a percentage of its maximum health equal to the feat rating."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="SW_Nanotechnology5" icon_color="#8FE6D3" tooltip_color="ActorStatus_MinorGood" has_code_at_turn_start="true" show_range_ring_on_hover="true"/>
+
+	<actor_feat id="OI_ReweaveCatalyst" display_name="Reweave Catalyst"
+		description="At the start of each turn, applies the Reweave mark to friendly units within the feat rating's radius, priming their nanobot colonies."
+		dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationFeats"
+		icon_name="SK_Molecule1" icon_color="#8FE6D3" tooltip_color="ActorStatus_MinorGood" has_code_at_turn_start="true" show_range_ring_on_hover="true"/>
 </root>

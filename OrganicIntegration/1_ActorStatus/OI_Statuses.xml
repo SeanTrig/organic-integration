@@ -7,4 +7,18 @@
 		<change_per_turn_by_intensity actor_data_type="ActorHP" multiplied_with_intensity="-2" max_abs_value_offset="350"/>
 		<change_to_maximum_by_intensity actor_data_type="ActorArmorPlating" multiplied_with_intensity="-3" is_handled_as_percentage_shift="true"/>
 	</actor_status>
+
+	<actor_status id="OI_AblativeCharge" display_name="Ablative Charge"
+		description="Sacrificial nanobot mass held in surface reservoirs. While at least one charge is held, an incoming hit's physical damage is capped to a low flat amount, consuming a charge. One charge regrows per turn, up to the reservoir limit."
+		strategy_tip_optional="Intensity is the number of charges currently held. Managed by the Active Ablative Nanobot Armor."
+		icon_name="CS_Armor18" icon_color="#8FE6D3" icon_hdr_intensity="0.8" tooltip_color="ActorStatus_MinorGood"
+		should_show_icon_next_to_health_bar="true">
+	</actor_status>
+
+	<actor_status id="OI_ReweaveMark" display_name="Reweave"
+		description="This unit's nanobot colonies are primed by a nearby Reweave Catalyst: they knit faster and hold their patterns longer."
+		strategy_tip_optional="Currently a marker; the grey-goo lifecycle reads it for enhanced effects."
+		icon_name="SK_Molecule1" icon_color="#8FE6D3" icon_hdr_intensity="0.8" tooltip_color="ActorStatus_MinorGood"
+		should_show_icon_next_to_health_bar="true" takes_highest_version_rather_than_stacking="true">
+	</actor_status>
 </root>

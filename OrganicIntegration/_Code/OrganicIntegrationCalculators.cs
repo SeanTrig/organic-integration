@@ -122,6 +122,15 @@ namespace Arcen.HotM.OrganicIntegration
         private const long MarrowLevyHumansPerTurn = 1200L;
         private const long MarrowLevyNanobotsPerHuman = 50000L;
         private static readonly long[] ConscriptSubstrateHumanGoals = { 2000L, 4000L, 8000L, 16000L, 32000L, 64000L, 128000L, 256000L };
+        // Marrow Harvester (equipment augment): player-credited kills render into Medical-Grade Nanobots
+        // while at least one fielded unit carries the OI_MarrowHarvester feat. Scaled by harvester count
+        // (capped so stacking a dozen is pointless), and hard-capped per turn.
+        private const string MarrowHarvesterFeat = "OI_MarrowHarvester";
+        private const long MarrowHarvestNanobotsPerKillPerHarvester = 100000L;
+        private const int MarrowHarvestMaxCountedHarvesters = 5;
+        private const long MarrowHarvestPerTurnCap = 2000000L;
+        private static long marrowHarvestLastTurn = -1;
+        private static long marrowHarvestAwardedThisTurn = 0;
         private static readonly long[] MarrowLevyPowerGoals = { 3000L, 6000L, 12000L, 24000L, 48000L, 96000L, 192000L, 384000L };
         // Insight (voluntary doctrine) volume lever: invest Insight + nanobots to raise Bulk Unit
         // Capacity, so the player can field far more autonomous bulk androids at once (numbers, not power).
@@ -1888,8 +1897,13 @@ namespace Arcen.HotM.OrganicIntegration
 
         public void DoAfterAnyUnitDeath( DataCalculator Calculator, ISimMapMobileActor Actor, NPCDisbandReason AnyUnitReason, SquirrelRand Rand )
         {
+            if ( Actor == null )
+                return;
+
+            ApplyMarrowHarvest( Actor );
+
             ActorStatus status = ActorStatusTable.Instance.GetRowByIDOrNullIfNotFound( GreyGooStatus );
-            if ( status == null || Actor == null )
+            if ( status == null )
                 return;
 
             int intensity = Actor.GetStatusIntensity( status );
@@ -3063,6 +3077,100 @@ namespace Arcen.HotM.OrganicIntegration
                 TripFlag( "OI_GooConversionShown" );
                 FireKeyMessage( "OI_GooConversion" );
             }
+        }
+
+        // The Subversion Node augment's conversion: same captured-cap headroom pattern as the grey-goo
+        // saturation conversion above, but with no mech restriction, no goo threshold, and no doctrine
+        // flag gate (equipment access is already gated by its unlock). ConvertEnemyRobotToPlayerForces
+        // has no robot check, so organic and unhackable units convert too.
+        internal static bool TrySubvertUnitToPlayerForces( ISimNPCUnit unit )
+        {
+            if ( unit == null || unit.IsFullDead || unit.UnitType == null )
+                return false;
+            if ( unit.GetIsPartOfPlayerForcesInAnyWay() || unit.GetIsAnAllyFromThePlayerPerspective() )
+                return false;
+            if ( !unit.GetIsConsideredHostileToPlayer() )
+                return false;
+
+            // Keep captured-unit headroom ahead of the converts so they stay active. Going over the
+            // captured cap only action-blocks units, never force-disbands them, so this can never
+            // stall a turn even if the upgrade line runs out.
+            NPCUnitType effectiveType = unit.UnitType.ConvertsToIfCaptured ?? unit.UnitType;
+            int need = effectiveType != null ? effectiveType.CapturedUnitCapacityRequired : 0;
+            if ( MathRefs.CapturedUnitCapacity != null
+                && SimCommon.TotalCapturedUnitSquadCapacityUsed + need > MathRefs.CapturedUnitCapacity.DGD.CurrentInt )
+            {
+                UpgradeInt capturedCap = UpgradeIntTable.Instance.GetRowByIDOrNullIfNotFound( "CapturedUnitCapacity" );
+                if ( capturedCap != null && !capturedCap.DGD.GetHasAlreadyBeenFullyUpgraded() )
+                    GrantUpgradeInt( capturedCap );
+            }
+
+            unit.ConvertEnemyRobotToPlayerForces();
+            GStatisticTable.AlterScore( "OI_GooConvertedUnits", 1 );
+            return true;
+        }
+
+        // Marrow Harvester (equipment): when a player-damaged hostile dies while the player fields at
+        // least one unit carrying the OI_MarrowHarvester feat, the remains render into Medical-Grade
+        // Nanobots, scaled by the number of harvesters fielded and capped per turn. The per-turn
+        // accumulator is transient (not serialized): worst case after a load is a fresh cap that turn.
+        private static void ApplyMarrowHarvest( ISimMapMobileActor Actor )
+        {
+            if ( !(Actor is ISimNPCUnit npc) )
+                return;
+            if ( npc.GetIsPartOfPlayerForcesInAnyWay() || npc.GetIsAnAllyFromThePlayerPerspective() )
+                return;
+            if ( !npc.HasBeenPhysicallyOrMoraleOrSystemDamagedByPlayer )
+                return; //only kills the player had a hand in
+
+            if ( marrowHarvestLastTurn != SimCommon.Turn )
+            {
+                marrowHarvestLastTurn = SimCommon.Turn;
+                marrowHarvestAwardedThisTurn = 0;
+            }
+            if ( marrowHarvestAwardedThisTurn >= MarrowHarvestPerTurnCap )
+                return;
+
+            int harvesters = CountFieldedMarrowHarvesters();
+            if ( harvesters <= 0 )
+                return;
+
+            long award = MarrowHarvestNanobotsPerKillPerHarvester * Math.Min( harvesters, MarrowHarvestMaxCountedHarvesters );
+            award = Math.Min( award, MarrowHarvestPerTurnCap - marrowHarvestAwardedThisTurn );
+            if ( award <= 0 )
+                return;
+
+            ResourceType nanobots = GetResource( MedicalNanobotsResource );
+            if ( nanobots == null )
+                return;
+
+            nanobots.AlterCurrent_Named( award, "Income_OI_MarrowHarvest", ResourceAddRule.StoreExcess );
+            marrowHarvestAwardedThisTurn += award;
+        }
+
+        private static int CountFieldedMarrowHarvesters()
+        {
+            ActorFeat feat = ActorFeatTable.Instance.GetRowByIDOrNullIfNotFound( MarrowHarvesterFeat );
+            if ( feat == null )
+                return 0;
+
+            int count = 0;
+            foreach ( ISimMachineActor actor in SimCommon.AllMachineActors.GetDisplayList() )
+            {
+                if ( actor == null || actor.IsFullDead )
+                    continue;
+                if ( actor.GetFeatAmount( feat ) > 0f )
+                    count++;
+            }
+            // bulk squads and other player-related NPC units can carry augments too
+            foreach ( ISimNPCUnit npc in SimCommon.AllPlayerRelatedNPCUnits.GetDisplayList() )
+            {
+                if ( npc == null || npc.IsFullDead )
+                    continue;
+                if ( npc.GetFeatAmount( feat ) > 0f )
+                    count++;
+            }
+            return count;
         }
 
         // The "full commit" grey-goo power: while active, every hostile unit in the city
