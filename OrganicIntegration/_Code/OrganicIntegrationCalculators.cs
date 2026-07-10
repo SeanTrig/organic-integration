@@ -1195,12 +1195,21 @@ namespace Arcen.HotM.OrganicIntegration
         // and the condition below can never pass again.
         private static void ApplySharedArsenal()
         {
+            // Fire exactly once. The old version invented the unlock with a CROSSOVER inspiration - and
+            // the crossover system forgets-and-re-grants crossover-inspired unlocks every turn, so it
+            // re-invented (and re-toasted "Now Available: Shared Nanotech Arsenal") endlessly. Locally
+            // this is the player's own follow-up to the Medical-Grade Replicator, so we invent it as a
+            // FollowUpIdea (which sticks, and is never touched by the crossover forget-loop) and guard on
+            // our own OI_SharedArsenalDeveloped flag so nothing here can run twice.
+            if ( IsFlagTripped( "OI_SharedArsenalDeveloped" ) )
+                return;
             if ( !(UnlockTable.Instance.GetRowByIDOrNullIfNotFound( "OI_MedicalGradeNanobotReplicatorUnlock" )?.DGD?.IsInvented ?? false) )
                 return;
             Unlock sharedArsenal = UnlockTable.Instance.GetRowByIDOrNullIfNotFound( "OI_SharedArsenalUnlock" );
-            if ( sharedArsenal == null || (sharedArsenal.DGD?.IsInvented ?? false) )
+            if ( sharedArsenal == null )
                 return;
-            sharedArsenal.DGD?.InventIfNotAlreadyDone( CommonRefs.CrossoverFromRelatedTimelineInspiration, SimCommon.Turn > 1, false, false, false );
+            if ( !(sharedArsenal.DGD?.IsInvented ?? false) )
+                sharedArsenal.DGD?.InventIfNotAlreadyDone( CommonRefs.FollowUpIdeaInspiration, SimCommon.Turn > 1, false, false, false );
             TripFlag( "OI_SharedArsenalDeveloped" );
         }
 

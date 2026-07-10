@@ -34,7 +34,7 @@
 		<math_int id="Microbuilders" int_min="250" income_or_expense_resource="Microbuilders" math_type="InputCost" />
 		<math_int id="Neodymium" int_min="100" income_or_expense_resource="Neodymium" math_type="InputCost" />
 		<math_int id="Alumina" int_min="100" income_or_expense_resource="Alumina" math_type="InputCost" />
-		<math_int id="MedicalGradeNanobots" int_min="100000" income_or_expense_resource="OI_MedicalGradeNanobots" math_type="OutputResult" />
+		<math_int id="MedicalGradeNanobots" int_min="1000000" income_or_expense_resource="OI_MedicalGradeNanobots" math_type="OutputResult" />
 		<resource_cost resource_type="Microbuilders" cost="1200" />
 		<part_of collection="All" sort_index="100" />
 		<part_of collection="Self" sort_index="100" />
