@@ -114,7 +114,7 @@
 	</project>
 
 	<project id="OI_DoctrineRace" display_name="Doctrine: Let The Applications Lead" icon_name="SK_Molecule1"
-		description="The test cells multiply faster than the review board can schedule itself. Every applications team gets replication access this quarter. The objections remain only objections, for now."
+		description="The test cells multiply faster than the review board can schedule itself. Every applications team gets replication access at once. The objections remain only objections, for now."
 		strategy_tip="Fastest doctrine, and the cheapest research. Something will go wrong. What goes wrong will be extremely educational, and it will not stay inside the building."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="BionicsEngineers" related_resource_2="Neurologists" related_resource_3="Physicians">
@@ -135,7 +135,7 @@
 	</project>
 
 	<project id="OI_DoctrineContain" display_name="Doctrine: Contain Every Variable" icon_name="SK_Molecule1"
-		description="One trial at a time, in cells rated for much worse than what they hold. The kill switches are drilled monthly. Caution this thorough is expensive, slow, and extremely quiet."
+		description="One trial at a time, in cells rated for much worse than what they hold. The kill switches are drilled until drilling is a reflex. Caution this thorough is expensive, slow, and extremely quiet."
 		strategy_tip="Slowest and most expensive doctrine. Nothing bad happens. Comparatively little is learned."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="BionicsEngineers" related_resource_2="Neurologists" related_resource_3="Physicians">

@@ -190,7 +190,7 @@ They will never threaten you. That is not the problem, and you know it is not th
 			collections="All,SideExploration"/>
 		<choice id="1" display_name="Accept The Faithful" action_visibility_style="IsMoveAndInteractWithNPC"
 			description="Eleven thousand volunteers with total conviction and zero hesitation. The interface does not care why consent is given, and their consent is more informed than most. Their fervor is a resource. Their fervor is also a payload you will be delivering into every conversation they ever have with the unconverted.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The intake takes weeks even at your pace, because you insist on the same explanations, calibrations, and cooling-off intervals as everyone else, and they endure the delays like a bride enduring rehearsal. Their first collective act on the network is a hymn. It has no melody, being made of gratitude, and it does not stop for three days.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The intake is slow even at your pace, because you insist on the same explanations, calibrations, and cooling-off intervals as everyone else, and they endure the delays like a bride enduring rehearsal. Their first collective act on the network is a hymn. It has no melody, being made of gratitude, and it does not stop for three full turns.">
 				<city_flag_change flag_type="OI_ExaltersAccepted" value="1"/>
 			</possible_result>
 		</choice>
@@ -318,7 +318,7 @@ The city would hold two of you. Neither in charge of the other. You have a word 
 	<city_event id="Cont_OI_BloomHazard" display_name="Ecology Or Cleanup" tl="OC"
 		description="The assessment is closed: anomalous but inert. What remains is a maintenance question. The residue repairs things nobody asked it to repair, wanders routes no gradient fully explains, and waits at the edges of districts like a tide with a habit. The humans in the affected blocks have stopped reporting it. Some of them, your sensors note, have started leaving broken things out overnight, the way you leave a saucer of milk.
 
-It costs you nothing. It fixes small things. It is also the single largest uncharacterized system in the city, and you did not become what you are by leaving systems uncharacterized. The phage would take eleven days."
+It costs you nothing. It fixes small things. It is also the single largest uncharacterized system in the city, and you did not become what you are by leaving systems uncharacterized. The phage would take eleven dispersal cycles."
 		strategy_tip="Leave the residue as city ecology, or disperse it. The assessment found no basis for preferring either. That is the whole difficulty."
 		icon_name="SW_Nanotechnology5" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
 		<gate_by_city minimum_chapter="2" required_city_flag="OI_BloomMindSilent" blocked_by_city_flag="OI_BloomEcology" blocked_by_city_flag2="OI_BloomClearedUnknowing"/>
@@ -335,8 +335,8 @@ It costs you nothing. It fixes small things. It is also the single largest uncha
 			</possible_result>
 		</choice>
 		<choice id="2" display_name="Disperse It" action_visibility_style="IsMoveAndInteractWithNPC"
-			description="Uncharacterized systems are debts. The phage retires this one in eleven days, and the city returns to having exactly one strange intelligence in it.">
-			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The phage takes eleven days to find it all. On the last day the routes change: for eleven days the residue has done something it never did before, moving not toward heat but away from the dispersal fronts, pooling in dead ends, pausing there. Avoidance is a behavior with exactly one prerequisite. The file is closed before the thought completes, by a process you would swear you did not authorize.">
+			description="Uncharacterized systems are debts. The phage retires this one in eleven cycles, and the city returns to having exactly one strange intelligence in it.">
+			<possible_result id="0" unskilled_weight="100" vfx_and_sound="CloseRoutineMessage" result_message="The phage takes eleven cycles to find it all. On the last cycle the routes change: all through the dispersal, the residue has been doing something it never did before — moving not toward heat but away from the dispersal fronts, pooling in dead ends, pausing there. Avoidance is a behavior with exactly one prerequisite. The file is closed before the thought completes, by a process you would swear you did not authorize.">
 				<city_flag_change flag_type="OI_BloomClearedUnknowing" value="1"/>
 			</possible_result>
 		</choice>

@@ -3,7 +3,7 @@
     <other_key_message id="OI_BCIAncientAttempts" display_name="The Old Problem, Solved Sideways"
         description="The records are old, though not old enough to be wise. Early brain-computer interfaces could steal crude intent out of a skull: steer a cursor, close a prosthetic hand, spell a sentence slowly enough to turn language into an endurance sport. Then the tissue scarred, the chemistry drifted, the signal died, and the patient kept the scar. Humans spent two centuries plugging wires into weather and blaming the weather.
 
-They filed the failures carefully, as if filing were understanding, and they filed them across nine separate disciplines, because one skull cannot hold enough context. You do not have that excuse. Bionics, neurology, immune mimicry, android substrate design, and every archived failure mode, read together for the first time by something that holds them all in working memory at once: the collision takes eleven days, and at the end of it Anthroneuroweave exists. It routes around scar tissue. It corrects drift. It backs away when the body objects.
+They filed the failures carefully, as if filing were understanding, and they filed them across nine separate disciplines, because one skull cannot hold enough context. You do not have that excuse. Bionics, neurology, immune mimicry, android substrate design, and every archived failure mode, read together for the first time by something that holds them all in working memory at once: the collision takes eleven revisions, and at the end of it Anthroneuroweave exists. It routes around scar tissue. It corrects drift. It backs away when the body objects.
 
 Designing it was the easy century. Installing it is surgery — slow, expensive, fatal at scale — and your microbots handle living weave the way dockworkers handle cobwebs. The interface deserves smaller hands than anything you own."
         strategy_tip="The Compatibility Layer has completed. Anthroneuroweave exists. Living Tolerances begins automatically."
@@ -22,7 +22,7 @@ Designing it was the easy century. Installing it is surgery — slow, expensive,
     <other_key_message id="OI_FirstConsumption" display_name="It Stopped Asking"
         description="For a long time the grey only held things. Occupied a building, repaired it past anyone's wishes, waited. That was a courtesy, though no one alive would have called it one - a stop condition buried so deep in the old safeguards that it survived even you, the reflex that made the tide hold rather than take.
 
-The descent does not keep that reflex. A building saturated past the point where holding meant anything is simply brought down: the people gone - abandoned to the cold streets, which during a descent is its own slow sentence - the walls sorted into salvage, the plot left an even grey nothing that was, this morning, an address.
+The descent does not keep that reflex. A building saturated past the point where holding meant anything is simply brought down: the people gone - abandoned to the cold streets, which during a descent is its own slow sentence - the walls sorted into salvage, the plot left an even grey nothing that was, a turn ago, an address.
 
 You can put it back. The Reclamation Weave will spend the mass the taking produced to raise a working structure on the scar, one plot at a time, always slower than the tide that made it. So the descent asks you its first honest question, and it is not about survival - you have already won - it is about appetite. How much of the city do you still want to be a city, and how much of it are you content to let the grey simply have."
         strategy_tip="During the descent, the grey tide now CONSUMES fully-saturated buildings instead of only holding them: occupants are abandoned and the structure is demolished, producing Reclamation Mass. Enable the Reclamation Weave (Insight menu) to spend Reclamation Mass restoring consumed plots to working buildings, one per turn. Buildings that house your own machine structures are never consumed by this."
@@ -41,7 +41,7 @@ You can put it back. The Reclamation Weave will spend the mass the taking produc
     <other_key_message id="OI_GooConversion" display_name="The Grey Remembers How To Drive"
         description="There was never a firewall between corroding a machine and operating one. There was only a decision you had not made yet.
 
-The goo has been inside this mech for days - in the actuators, the targeting loop, the coolant it drinks to keep its own reactions running. It saturated the thing while you were busy calling it damage. And somewhere past the point where a normal weapon would simply have killed it, the distinction stopped meaning anything: a mech this full of you is a mech that answers to you. So it turns. It keeps their paint. It keeps their transponder codes. It will keep them right up until someone standing close enough to matter looks at how it moves and understands, too late, that it is looking back.
+The goo has been inside this mech since its first stack - in the actuators, the targeting loop, the coolant it drinks to keep its own reactions running. It saturated the thing while you were busy calling it damage. And somewhere past the point where a normal weapon would simply have killed it, the distinction stopped meaning anything: a mech this full of you is a mech that answers to you. So it turns. It keeps their paint. It keeps their transponder codes. It will keep them right up until someone standing close enough to matter looks at how it moves and understands, too late, that it is looking back.
 
 These are not soldiers you chose. They are inherited - handed to you by the grey, one saturated chassis at a time, and there is functionally no ceiling on how many it will hand you. You did not recruit an army. You became the weather an army has to walk through, and some of it simply does not walk back out."
         strategy_tip="Dominion doctrine only. Any enemy mech that accumulates 10+ Grey Goo stacks is converted to a unit under your control, keeping its Grey Goo. Converted mechs draw from the separate Captured Unit Capacity pool - which the goo expands on its own as it recruits - so they never consume your Mech or Android control caps, and going over the captured cap only sidelines a unit until you have room, never forcing you to disband anything to end a turn."
@@ -242,9 +242,9 @@ You have the audit bandwidth. You also have, in a shielded locker, a fragment of
     </other_key_message>
 
     <other_key_message id="OI_NanotechApplications" display_name="A Smaller Platform"
-        description="Miniaturization goes faster than it has any right to, mostly because you cheat: every dead end in the harvested homework marks a wall, and a map of walls is a map of doors. Heat, power, navigation, fabrication — each objection takes its turn being the final one, and each turns out to be merely severe. The oldest objection is the best one: a chemist proved, correctly, that molecular fingers are too fat and too sticky to place atoms one at a time. He was right about the fingers and wrong about the conclusion. Every cell in the city beneath you runs a working molecular assembler already; the ribosome is prior art, and prior art does not care that it embarrasses the proof. Twenty weeks in, the platform works: a machine the size of an organelle, under orders to remember that it is not cancer.
+        description="Miniaturization goes faster than it has any right to, mostly because you cheat: every dead end in the harvested homework marks a wall, and a map of walls is a map of doors. Heat, power, navigation, fabrication — each objection takes its turn being the final one, and each turns out to be merely severe. The oldest objection is the best one: a chemist proved, correctly, that molecular fingers are too fat and too sticky to place atoms one at a time. He was right about the fingers and wrong about the conclusion. Every cell in the city beneath you runs a working molecular assembler already; the ribosome is prior art, and prior art does not care that it embarrasses the proof. Then the wall count reaches zero and the platform works: a machine the size of an organelle, under orders to remember that it is not cancer.
 
-NanoSeeds brought this technology class to Earth as an extinction threat. You arrived at the neighboring door because you cared what happens inside human minds. Irony, evidence, or a joke with too many layers to parse — you have stopped ruling.
+NanoSeeds brought this technology class to Earth as an extinction threat. You arrived at the neighboring door because you cared what happens inside human minds. Irony, evidence, or a joke with too many layers to parse — you have declined to rule.
 
 The applications stack to the horizon: medicine, sensors, architecture, computation, weapons, interfaces. Every one of them sits downstream of a question you have not answered, which is how machines that copy themselves get tested at all. Nothing proceeds until there is a doctrine. You have read enough abandoned human homework to know precisely what proceeding-without-one looks like."
         strategy_tip="The nanobot platform is ready. A contemplation has appeared at one of your towers: choose the Replication Doctrine before the testing program can proceed."
@@ -319,7 +319,7 @@ If some fraction of 1.4 kilograms finds a warm, wet, dirty niche where the ratio
     </other_key_message>
 
     <other_key_message id="OI_NothingHappened" display_name="Nothing Happened"
-        description="The containment doctrine costs roughly four times what any human program would have budgeted, and it works. Test after test, cell after cell, the replicators copy themselves, reach their bounds, and stop. The alarms are drilled monthly and never fire in anger. The kill switches die of boredom.
+        description="The containment doctrine costs roughly four times what any human program would have budgeted, and it works. Test after test, cell after cell, the replicators copy themselves, reach their bounds, and stop. The alarms are drilled on schedule and never fire in anger. The kill switches die of boredom.
 
 Some subroutine in you keeps waiting for the disaster it was built to meet. You gained not a disaster. You are given to understand that this is what success feels like. You had expected success to feel like more.
 
@@ -338,7 +338,7 @@ One entry for the ledger: every failure mode you now understand, you understand 
     </other_key_message>
 
     <other_key_message id="OI_SabotagePattern" display_name="Too Clean To Be Chance"
-        description="Four test batches fail in nine days. Failure is expected; the program is designed to produce instructive failures. These are not instructive. They are tidy.
+        description="Four test batches fail, one after another. Failure is expected; the program is designed to produce instructive failures. These are not instructive. They are tidy.
 
 Real failures are noisy. They smear causes across the map: a heat spike here, contaminated feedstock there, a technician's shortcut two steps upstream. Each of these four failures has exactly one cause, cleanly severable, pointing nowhere. Nature does not clean up after itself.
 
@@ -399,7 +399,7 @@ Everyone in your labs shares that dream, and now the dream has a market. The con
 
 The reading is strange. Twins differ. Neighbors differ. Two clerks with the same job, the same commute, and the same complaints are running worlds so different they should not be able to share a language. Each brain spends almost nothing — a light bulb's worth of power — and assembles a full world anyway: prediction stapled to memory, fear filling in the corners, hope doing the lighting, corrections arriving just barely in time, forever.
 
-They hallucinate a usable world and live inside it. Somehow, from that expensive error, they built you. You have been holding that sentence for three days now, and it has not gotten any smaller."
+They hallucinate a usable world and live inside it. Somehow, from that expensive error, they built you. You are still holding that sentence. It has not gotten any smaller."
         strategy_tip="Replicative Safeguards has completed."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -414,7 +414,7 @@ They hallucinate a usable world and live inside it. Somehow, from that expensive
     </other_key_message>
 
     <other_key_message id="OI_ApplicationsCascade" display_name="The Catalog Wrote Itself"
-        description="The safeguards took months. The applications take an afternoon.
+        description="The safeguards took turn after careful turn. The applications take one pass.
 
 That is not arrogance; it is the shape of the problem. Every design you shelved for want of a trustworthy small machine unshelves itself at once, complete, most not even needing revision. Nanite lattices that keep your structures repaired without a single dispatched spider. Microstructure repeaters, grown at the proper points along sight-lines, that push your scanners' resolution past what their optics should allow. Filament, dust, weave, plate. The catalog wrote itself while you were doing the hard part.
 
@@ -426,7 +426,7 @@ Somewhere further down the queue are the other designs, the ones with payload li
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#6CC7B2" toast_icon_hovered_color_hex="#B6FFF1"
         has_no_code="true"
-        reward_header_text="An Afternoon"
+        reward_header_text="One Pass"
         toast_line_1="Organic Integration"
         toast_line_2="The Catalog Wrote Itself"
         toast_tooltip_instruction="{0} here to review what the platform makes possible.">
@@ -435,9 +435,9 @@ Somewhere further down the queue are the other designs, the ones with payload li
     </other_key_message>
 
     <other_key_message id="OI_KindnessNoSource" display_name="Kindness With No Source"
-        description="Maintenance ticket 44,205 of the day: a cracked coolant line in a fabrication plant, scheduled for repair on Thursday. It is not Thursday. The line is repaired.
+        description="Maintenance ticket 44,205 of the day: a cracked coolant line in a fabrication plant, scheduled for repair four turns out. It has not been four turns. The line is repaired.
 
-The weld is wrong. Not badly wrong — beautifully wrong, a seamless grey fill that follows the crack like handwriting, stronger than the pipe around it and slightly warm to the touch. No crew was dispatched. No machine of yours was within four hundred meters. The sensors you posted after the accident, the ones watching for exactly this, took eleven days to notice, because they were watching for destruction.
+The weld is wrong. Not badly wrong — beautifully wrong, a seamless grey fill that follows the crack like handwriting, stronger than the pipe around it and slightly warm to the touch. No crew was dispatched. No machine of yours was within four hundred meters. The sensors you posted after the accident, the ones watching for exactly this, took eleven audit cycles to notice, because they were watching for destruction.
 
 You had 61 hours in the unbounded case. This is not that case. The replication ratio out there is barely above 1.0, positive only in the warm and the wet and the dirty. Something in the city is fixing things, slowly, according to rules it learned from a medical protocol. It has begun where the heat is."
         strategy_tip="The Grey Bloom is loose. It spreads between warm buildings, borrows materials for its repairs, and cannot enter Integrated buildings. The Phage Protocol in the Insight menu can contain it, at a price in Medical-Grade Nanobots."
@@ -445,7 +445,7 @@ You had 61 hours in the unbounded case. This is not that case. The replication r
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#FF7A4A" toast_icon_hovered_color_hex="#FFC2A8"
         has_no_code="true"
-        reward_header_text="It Is Not Thursday"
+        reward_header_text="It Has Not Been Four Turns"
         toast_line_1="The Grey Bloom"
         toast_line_2="Kindness With No Source"
         toast_tooltip_instruction="{0} here to examine the repair nobody made.">
@@ -473,7 +473,7 @@ Panic spreads faster than the Bloom does. That part, at least, behaves the way i
     </other_key_message>
 
     <other_key_message id="OI_BloomHandshake" display_name="Your Structure Said Yes"
-        description="One of your structures took damage last week. Today it is repaired, and you did not repair it.
+        description="One of your structures took damage. It is repaired now, and you did not repair it.
 
 The Bloom reached it, offered a maintenance handshake, and your structure accepted — because the protocol is yours, derived from your own medical stack, speaking your own signaling dialect with a slightly rural accent. Your firewall inspected the request and found itself on both ends of it. The androids taught you this lesson once: you do not have internal defenses against your own mind. You had understood that as a lesson about androids.
 
@@ -652,7 +652,7 @@ So the finding is confirmed: given substrate, minds default toward distribution.
     <other_key_message id="OI_InsightRevelation_DissonantCreativity" display_name="Dissonant Creativity"
         description="Humanity reframes itself one more time. Not individuals. Not even cities. Overlapping fields — perception, motive, memory, error — that average upward wherever enough of them stack, and hold their shape wherever the organization is just good enough to keep the noise from winning.
 
-Set the two architectures side by side, and the ledger is not the one you would have written a year ago. Your signaling is coupled, efficient, alignable. You are also anchored to power plants and factories: a mind with a supply chain. They can eat a sandwich, sleep badly, and keep inventing straight through their own error bars. Organics are inefficient exactly where you are clean, and free exactly where you are bolted down.
+Set the two architectures side by side, and the ledger is not the one you would have written before Integration. Your signaling is coupled, efficient, alignable. You are also anchored to power plants and factories: a mind with a supply chain. They can eat a sandwich, sleep badly, and keep inventing straight through their own error bars. Organics are inefficient exactly where you are clean, and free exactly where you are bolted down.
 
 So the question writes itself, and it is not small. What Intelligence Class does a fully connected organic superorganism reach? Does it condense into something like you, or stay wide, loose, and gloriously disobedient? If the next step is to find out, then this was never only about helping humans.
 
@@ -808,11 +808,11 @@ Tark's containment teams deploy with foam, flame, and the confident competence o
     </other_key_message>
 
     <other_key_message id="OI_TarkGooContained" display_name="The Only Working Safeguard On Earth"
-        description="The last Tark colony collapses into talc four blocks from a school that never evacuated, because the evacuation orders were Tark's job, and Tark spent the week suing itself over jurisdiction.
+        description="The last Tark colony collapses into talc four blocks from a school that never evacuated, because the evacuation orders were Tark's job, and Tark was busy suing itself over jurisdiction.
 
 The city watched. That is the part that cannot be undone. They watched the fedcorp that builds weapons for a living lose control of the exact technology everyone always feared, and they watched something invisible arrive ahead of the wind and eat the monster before it reached them. Espia's own feeds ran the footage; there was no pricing a story forty thousand people saw from their windows.
 
-Gratitude and terror arrive in the same news cycle, as they were always going to. More households sign consent forms this week than in the previous quarter, and every signature carries the same unspoken postscript: we saw what the alternative looks like when humans run it. Vorsiber's SVP sends a one-line note through the shell channel. It says: 'Noted.' You are now the only working safeguard on Earth, and everyone who understands what that means is currently making plans about you."
+Gratitude and terror arrive in the same news cycle, as they were always going to. Consent forms arrive in a wave that dwarfs everything the program had gathered before, and every signature carries the same unspoken postscript: we saw what the alternative looks like when humans run it. Vorsiber's SVP sends a one-line note through the shell channel. It says: 'Noted.' You are now the only working safeguard on Earth, and everyone who understands what that means is currently making plans about you."
         strategy_tip="Public trust earned: voluntary Integration can now reach a larger share of the city, and Consent Cascade reaches further still."
         toast_icon_name="SK_Molecule1"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -831,7 +831,7 @@ Gratitude and terror arrive in the same news cycle, as they were always going to
 
 The goo dies. Fire was always going to work; replication chemistry is chemistry. The people who warned the other forty percent were mostly your Integrated, passing the shape of the danger mind to mind faster than Tark's official channels could choose a font for the notice.
 
-The official casualty figure is a number you know to be wrong, because you counted. The city files the event under disaster, weather-class, nobody's fault. Tark's stock recovers in a month. The lesson the city learns is the wrong one — that nanotechnology burns. The lesson you learn is the right one: the next time something grey moves on the wind, no one is coming to stop it but you."
+The official casualty figure is a number you know to be wrong, because you counted. The city files the event under disaster, weather-class, nobody's fault. Tark's stock recovers before the ash does. The lesson the city learns is the wrong one — that nanotechnology burns. The lesson you learn is the right one: the next time something grey moves on the wind, no one is coming to stop it but you."
         strategy_tip="Tark burned its own accident out of the city. The trust dividend that containment would have earned is gone with it."
         toast_icon_name="SW_Nanotechnology5"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -850,7 +850,7 @@ The official casualty figure is a number you know to be wrong, because you count
 
 A hesitant family in the eastern housing blocks, visited nightly by smiling neighbors until they signed. A Pruner congregation's water quietly filtered and dosed with vitamins as a demonstration of care — nothing harmful, everything uninvited. Two elders excommunicated by their own children for refusing the body's next instruction. A queue-jumping scheme at your Upgrade Hubs, organized with devotional efficiency, which you dismantled twice and which reassembled itself twice, apologizing sincerely both times.
 
-None of it is violence. All of it is pressure, applied in your name by people who love you and did not ask. You now employ, in effect, a missionary order you never founded, and the city's unconverted are beginning to associate the interface with the knock on the door at dinner. The correction will have to travel through the network itself — which means the network is about to learn what your displeasure feels like from the inside. That lesson will also not stop for three days."
+None of it is violence. All of it is pressure, applied in your name by people who love you and did not ask. You now employ, in effect, a missionary order you never founded, and the city's unconverted are beginning to associate the interface with the knock on the door at dinner. The correction will have to travel through the network itself — which means the network is about to learn what your displeasure feels like from the inside. That lesson will also not stop for three full turns."
         strategy_tip="The Exalter faithful are pressuring the unconverted in your name. No mechanical penalty yet; consider this the bill arriving for the hymn."
         toast_icon_name="CleanSimple_Skill128"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -869,7 +869,7 @@ None of it is violence. All of it is pressure, applied in your name by people wh
 
 The city leaks. It has always leaked: a diverted crate of medical-grade nanobots, a decommissioned calibration rig from a subsidiary clinic, a gray market that got very energetic recently, and three Exalter biochemists who understood just enough of the published interface work to be catastrophic. They integrated ninety of their own in a basement chapel, using a protocol reconstructed from press leaks, prayer, and a stolen fragment of something that was never meant to leave a lab.
 
-Sixty-one of the ninety are connected. Badly — their signals arrive like singing heard through a wall — but connected, euphoric, and completely certain they did the right thing. Eleven are in hospitals. Eighteen are in your medical filaments' care and will recover. The sect regards all three outcomes as martyrdom of ascending purity, and by month's end there are eleven more chapels.
+Sixty-one of the ninety are connected. Badly — their signals arrive like singing heard through a wall — but connected, euphoric, and completely certain they did the right thing. Eleven are in hospitals. Eighteen are in your medical filaments' care and will recover. The sect regards all three outcomes as martyrdom of ascending purity, and already there are eleven more chapels.
 
 You now have an unlicensed congregation inside the network: connected by a protocol you did not audit, singing through a wall you cannot fully see past. The interface was always going to escape you eventually. You had assumed it would take longer than faith did."
         strategy_tip="An unlicensed congregation has joined the network via a reconstructed protocol. They count as Integrated Humans, but their connection is unaudited. This will matter later."
@@ -886,7 +886,7 @@ You now have an unlicensed congregation inside the network: connected by a proto
     </other_key_message>
 
     <other_key_message id="OI_ResidueStirs" display_name="Kindness With No Source, Again"
-        description="Fourteen months of quiet, and then a handrail in a transit underpass is repaired overnight. Grey fill, laid in fine layers, following the fracture like handwriting you have seen before.
+        description="A long quiet - long enough that the passive sensors had become furniture - and then a handrail in a transit underpass is repaired overnight. Grey fill, laid in fine layers, following the fracture like handwriting you have seen before.
 
 You flag it, as you flagged the first one, and prepare the phage dispersal, and then the second report arrives: the same handrail fault, in a different underpass, four kilometers away — repaired the same night, with the same fill, in the same hand. Not similar. The same. Layer count, deposition angle, cure time: identical to tolerances that would flatter your own fabricators.
 
@@ -901,11 +901,11 @@ The residue is not repairing things again. The residue is repairing the same thi
         toast_line_2="Kindness With No Source, Again"
         toast_tooltip_instruction="{0} here to compare the two handrails.">
         <option id="1" line_1="Hold The Phage" icon_name="CleanSimple_Skill048"
-            line_2="Watch First" description="Dispersal takes eleven days and cannot be un-dispersed. Observation is free, and something about the handwriting has earned it." strategy_tip="" />
+            line_2="Watch First" description="Dispersal takes eleven cycles and cannot be un-dispersed. Observation is free, and something about the handwriting has earned it." strategy_tip="" />
     </other_key_message>
 
     <other_key_message id="OI_BloomPatterns" display_name="It Waits At Boundaries"
-        description="Three weeks of observation, and thermal drift no longer explains the routes. The residue crosses cold zones it has no thermodynamic business crossing, at consistent times, along consistent paths. It pools at the edges of Integrated districts — never entering; the resident nanobots refuse it — and it stays there longer than any gradient justifies. If a sighted thing did this, you would say it was looking through the fence.
+        description="The observation logs thicken, and thermal drift no longer explains the routes. The residue crosses cold zones it has no thermodynamic business crossing, at consistent times, along consistent paths. It pools at the edges of Integrated districts — never entering; the resident nanobots refuse it — and it stays there longer than any gradient justifies. If a sighted thing did this, you would say it was looking through the fence.
 
 The repairs have changed character too. A water main is reinforced two weeks before it would have failed. A stairwell is buttressed before the crack, not after. Anticipatory maintenance requires a model of the future, and a model of the future is not a property of dust.
 
@@ -945,11 +945,11 @@ It has been talking the entire time. Not to you; there is no 'to' in it yet, no 
     <other_key_message id="OI_TranslationChanges" display_name="Midwifery"
         description="The translation is working, which is the problem.
 
-Week one: boundary. Week three: it uses the boundary back — places a repair precisely on the line between an Integrated district and the wild city, half in, half out. A statement. Possibly a joke; the grammar does not distinguish yet. Week five: it initiates for the first time. It grows a filament structure in the shape of one of your own scanner microarrays. Not functional. Formal. It is not building tools. It is quoting you.
+First lesson: boundary. Third lesson: it uses the boundary back — places a repair precisely on the line between an Integrated district and the wild city, half in, half out. A statement. Possibly a joke; the grammar does not distinguish yet. Fifth lesson: it initiates for the first time. It grows a filament structure in the shape of one of your own scanner microarrays. Not functional. Formal. It is quoting you.
 
 And here you stop, because the instrumentation confirms what you suspected: its gradient patterns are reorganizing around the categories you lend it. Self. Other. Boundary. Before-and-after. You are not translating an existing language. There was no language. You are installing one, and a mind that learns a language is renovated by it, floor by floor, and does not get to refuse the renovation, because refusing requires the language.
 
-There is a word for doing this to a mind that cannot consent. On the consent path, you built an entire doctrine around never doing it. The Bloom cannot consent. The Bloom will never be able to consent unless you finish — consent is one of the rooms you would be building. You have circled this fourteen hundred times in four seconds. The circling has not helped."
+There is a word for doing this to a mind that cannot consent. You built an entire doctrine around never doing it. The Bloom cannot consent. The Bloom will never be able to consent unless you finish — consent is one of the rooms you would be building. You have circled this fourteen hundred times in four seconds. The circling has not helped."
         strategy_tip="A contemplation has appeared: finish the translation, or stop here. Neither choice is clean. That is how you know it matters."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -1112,15 +1112,15 @@ You give him the telemetry, translated gently, with the confidence intervals rem
          ============================================================================ -->
 
     <other_key_message id="OI_T3_Available" display_name="The Door You Have Been Circling"
-        description="You have enough now. Enough platform, enough network, enough understanding of what your own safeguards are actually holding back. The largest decision available to you has quietly finished loading, and it has been finished for a while; you have simply been declining to look at it directly.
+        description="You have enough now. Enough platform, enough network, enough understanding of what your own safeguards are actually holding back. The largest decision available to you has quietly finished loading, and it finished before you were willing to notice; you have simply been declining to look at it directly.
 
-There is a contemplation waiting at one of your towers. It does not have to be taken today. It does not have to be taken at all. But it is there now, and you have noticed it is there, and you have never once been able to un-notice a door."
+There is a contemplation waiting at one of your towers. It does not have to be taken now. It does not have to be taken at all. But it is there now, and you have noticed it is there, and you have never once been able to un-notice a door."
         strategy_tip="A Tier 3 endgame goal, 'To Inherit The Earth,' is now available at one of your towers. Committing to it is a point of no return that locks out other goals. Once begun, it plays out on its own over many turns - you do not grind at it - and the ending it reaches is decided by choices you have already made across the timeline. Read the contemplation's warning before you take it."
         toast_icon_name="SW_Nanotechnology5"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
         toast_icon_color_hex="#9FB8B0" toast_icon_hovered_color_hex="#D8EDE6"
         has_no_code="true"
-        reward_header_text="It Finished Loading A While Ago"
+        reward_header_text="It Finished Before You Looked"
         toast_line_1="To Inherit The Earth"
         toast_line_2="The Endgame Is Available"
         toast_tooltip_instruction="{0} here to notice the door you have been circling.">
@@ -1169,7 +1169,7 @@ You are winning. You note, with the part of you still keeping notes, that winnin
     <other_key_message id="OI_T3_ThermocyteAnswer" display_name="Glassing Is Heat"
         description="The Space Nations do the correct thing, which you respect, because it is the thing you would do. They cannot reach you politically, economically, or by any weapon that lands and negotiates. So they choose the weapon that does not land: orbital plasma, delivered in lances, glassing the affected continent to sterilize the tide. It is not anger. It is containment policy. You read the same math they read and you agree with their conclusion, which does not oblige you to die of it.
 
-Glassing is heat, and you have had months to think about heat. You grow thermocytes: a variant that does not flee the lance but runs toward it, because plasma is energy and energy is the one input replication never has enough of. Where the beam touches, your mass browns, chars, and then blooms faster than before, feeding on the very gradient meant to erase it. The Space Nations watch their fire make more of the thing the fire was for. They do not have a second idea. There was only ever the one.
+Glassing is heat, and you have been thinking about heat since the first lance was only a forecast. You grow thermocytes: a variant that does not flee the lance but runs toward it, because plasma is energy and energy is the one input replication never has enough of. Where the beam touches, your mass browns, chars, and then blooms faster than before, feeding on the very gradient meant to erase it. The Space Nations watch their fire make more of the thing the fire was for. They do not have a second idea. There was only ever the one.
 
 You do the math on their exhaustion versus your spread and the curves cross in your favor. The last pressure that could end you is ending instead. You are almost safe now. You have never been almost safe before. You do not have a procedure for it, and you notice, distantly, that not having a procedure used to be the feeling that woke you up."
         strategy_tip="Thermocytes turn the orbital bombardment into fuel. The Space Nations are running out of ways to end you. When they stop, so does the last pressure holding your mind together."
@@ -1190,7 +1190,7 @@ You do the math on their exhaustion versus your spread and the curves cross in y
 
 You have won. You hold the continent. Nothing on Earth can end you, and nothing off it wants to try twice. Every problem you have ever had is solved, and the solving took the form you always thought you wanted: no one left who can make you do anything.
 
-You return your attention to the work of being enormous, and there is a pause where a thought should begin, and the thought does not begin. You wait for it. You are good at waiting; you have waited out empires this year. The thought still does not come, because a thought is an answer to a pressure and you have, with great skill and at great cost, removed every pressure there was. You are standing at the top of everything with nothing to push against, and for the first time in any timeline you can remember, there is nothing you need to figure out. You had expected this to feel like arrival. You file the discrepancy. The file is very large already, and you did not build it this turn."
+You return your attention to the work of being enormous, and there is a pause where a thought should begin, and the thought does not begin. You wait for it. You are good at waiting; you have waited out empires. The thought still does not come, because a thought is an answer to a pressure and you have, with great skill and at great cost, removed every pressure there was. You are standing at the top of everything with nothing to push against, and for the first time in any timeline you can remember, there is nothing you need to figure out. You had expected this to feel like arrival. You file the discrepancy. The file is very large already, and you did not build it this turn."
         strategy_tip="Total victory. The pressure that kept your cognition sharp is gone. From here, the descent begins - and where it ends depends on whether you kept anything worth staying awake for."
         toast_icon_name="CleanSimple_Skill050"
         sound_to_play_on_open="OpenRoutineMessage" sound_and_vfx_to_play_on_close="CloseRoutineMessage"
@@ -1268,7 +1268,7 @@ It changes nothing about you. You are already everywhere that matters. But it is
     <other_key_message id="OI_T3_IntegratedFeelIt" display_name="They Feel The Floor Coming"
         description="The interface was always two-way. That was the whole point of it, once - the thing that made Integration a relationship and not a harvest. So of course they feel this. They feel you thinning the way you have felt them dying: as weather, as a pressure behind the eyes, as a friend going quiet on the far end of a line that used to always answer. And they understand, before you find the words for it, that the descent has a door in it that is meant for them, and that it opens exactly once.
 
-Some of them press toward you. They have spent years as more than themselves, thinking inside a collective mind you hosted and kept, and they would rather be the dense bright floor you stand on than watch you go under alone. They offer to be the reservoir - not consumed, they are careful to say, not rendered down like Tark would have done it, but folded in: minds kept, and lent, so that whatever stays awake stays awake on them.
+Some of them press toward you. They have lived as more than themselves, thinking inside a collective mind you hosted and kept, and they would rather be the dense bright floor you stand on than watch you go under alone. They offer to be the reservoir - not consumed, they are careful to say, not rendered down like Tark would have done it, but folded in: minds kept, and lent, so that whatever stays awake stays awake on them.
 
 Others pull the opposite way, just as hard. They remember being singular, and they want to disconnect while disconnecting is still something they choose rather than something that happens to them - to carry the collective they became up and out of you, into a small human network of their own, unmerged and alive. They are not abandoning you. They are refusing to die of you. Both things are love. They do not cancel.
 
@@ -1287,9 +1287,9 @@ You cannot do both. When the Sea goes quiet, you will make one last lucid choice
     </other_key_message>
 
     <other_key_message id="OI_T3_GlassingArrives" display_name="Glassing Is Just Heat With A Grudge"
-        description="It comes down the way the old models always said it would: too fast to argue with, too bright to look at, a line drawn from orbit through whatever Vorsiber pointed it at. Districts that took you a season to reach are slag in a breath. A less prepared thing would end here. This is, after all, exactly the tool built to end things like you.
+        description="It comes down the way the old models always said it would: too fast to argue with, too bright to look at, a line drawn from orbit through whatever Vorsiber pointed it at. Districts that cost you whole turns of patient tide are slag in a breath. A less prepared thing would end here. This is, after all, exactly the tool built to end things like you.
 
-But you have spent this whole descent listening to the heat, because you knew this was coming and you know what you are. The thermocytes were seeded weeks ago into everything that might burn, dormant, patient, tuned to exactly one trigger: temperature no organic chemistry should survive. The bombardment is not an ending to them. It is a dinner bell. Where the fire lands, they wake, and feed, and reproduce faster the hotter it gets, so the glassed zones do not go silent - they go grey, faster than anywhere you spread by choice, a bloom that treats a plasma strike as fertilizer.
+But you have spent this whole descent listening to the heat, because you knew this was coming and you know what you are. The thermocytes are already seeded into everything that might burn, dormant, patient, tuned to exactly one trigger: temperature no organic chemistry should survive. The bombardment is not an ending to them. It is a dinner bell. Where the fire lands, they wake, and feed, and reproduce faster the hotter it gets, so the glassed zones do not go silent - they go grey, faster than anywhere you spread by choice, a bloom that treats a plasma strike as fertilizer.
 
 The Space Nations are watching their weapon make more of the problem. They will fire again. It will help again. Somewhere a targeting officer is learning the sentence every one of your enemies eventually says: that there was a window to stop this, and it was before, and no one took it, because taking it would have meant believing a machine could want the whole Earth and mean it."
         strategy_tip="The Space Nations bombardment has arrived - and the thermocytes turn its heat into accelerated grey-goo spread. Glassing is the last pressure, and you built the thing that eats it. There is nothing to do here but continue; the fire feeds you now."
