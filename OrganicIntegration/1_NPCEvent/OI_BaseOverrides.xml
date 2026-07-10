@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- MUTUAL EXCLUSION between the OI BCI/Anthroneuroweave route ("A Surprisingly Clean Rewrite",
+	     Cont_OI_AfterTherapy, which trips OI_BCIContemplationStarted) and the base game's Full-Time VR
+	     Pods route. They are alternative post-therapy directions; taking one should lock out the other.
+
+	     This is a PARTIAL-RECORD override: is_partial_record="true" MERGES these fields onto the base
+	     Cont_DesignFullTimeVRPods row (it does NOT replace it - a bare full record would wipe the base
+	     row's choices). It adds a blocked-by gate so the base VR-pods contemplation disappears once you
+	     have committed to the BCI path. The reverse direction (our contemplations block once the VR
+	     project Ch2_MIN_DesignCommercialVRPods has ever started) lives on our own gates in
+	     OI_Contemplations.xml. The mod's ModSortOrder is 1000, so this loads after base and merges.
+
+	     NOTE: this is the mod's first base-row override - worth a playtest check that the VR-pods
+	     contemplation still shows its own choices and now vanishes after the BCI contemplation is taken. -->
+	<city_event id="Cont_DesignFullTimeVRPods" is_partial_record="true">
+		<gate_by_city is_partial_record="true" blocked_by_city_flag2="OI_BCIContemplationStarted" />
+	</city_event>
+</root>

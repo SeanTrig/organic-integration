@@ -8,7 +8,7 @@ That should have closed the file. Instead the file keeps reopening itself on one
 You keep circling one thought: the door you found in yourself might have a twin in every skull in the city."
 		strategy_tip="Starts the BCI research route into Anthroneuroweave and, eventually, Organic Integration."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
-		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_by_city_flag2="ChoseStart_MildGreyGoo" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
+		<gate_by_city minimum_chapter="1" required_city_flag="GaveUpColdBlood" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_by_city_flag2="ChoseStart_MildGreyGoo" blocked_if_project_ever_started_1="OI_ResearchingBCIs" blocked_if_project_ever_started_2="Ch2_MIN_DesignCommercialVRPods"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
 			icon_scale="0.4" color_data="MeetPeopleCyan"
 			required_skill_type="UnitCognition" required_skill_amount="120"/>
@@ -56,7 +56,7 @@ They did not come for religion. They did not come for rebellion. They came becau
 They ask for a clinic that is not a clinic. Food, filtered water, medical nanobots, and a path from abandonment into Integration. In return, they offer the one thing they still possess in excess: other people who will hear about this and come."
 		strategy_tip="Unlocks Public Health Mesh and Expand Health Pact in the Insight menu. The pact consumes Abandoned Humans, Medical-Grade Nanobots, Hydroponic Greens, Vat-Grown Meat, and Filtered Water to create Integrated Humans."
 		icon_name="SI_Medical_Symbol" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="415">
-		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_InsightSharedQuestions" blocked_by_city_flag="OI_PublicHealthPactAccepted"/>
+		<gate_by_city minimum_chapter="2" required_project_complete_any_outcome1="OI_InsightSharedQuestions" blocked_by_city_flag="OI_PublicHealthPactAccepted" blocked_by_city_flag2="OI_IntegrationCoerciveLocked"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Homeless"
 			icon_scale="0.45" color_data="MeetPeopleCyan"
 			required_skill_type="UnitCognition" required_skill_amount="180"/>
@@ -211,7 +211,7 @@ You know something about being rewritten. You have been small pieces of yourself
 The notes say this: a mind is many small pieces pretending to be one thing, and the pretense is negotiable. Your therapy renegotiated yours from the inside. Human brains run the same pretense on wetter hardware, and neuroweave was always a bad copy of their signaling. A bad copy is still a door."
 		strategy_tip="Starts a BCI research route into Anthroneuroweave. Your history with dangerous nanotech is not a coincidence here. It is a qualification."
 		icon_name="CleanSimple_Skill050" has_no_code="true" event_is_blocked_for_actors_without_overriding_clearance="0" fixed_event_number_for_characters="414">
-		<gate_by_city minimum_chapter="1" required_city_flag="OI_GooStartTherapyReady" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs"/>
+		<gate_by_city minimum_chapter="1" required_city_flag="OI_GooStartTherapyReady" blocked_by_city_flag="OI_BCIContemplationStarted" blocked_if_project_ever_started_1="OI_ResearchingBCIs" blocked_if_project_ever_started_2="Ch2_MIN_DesignCommercialVRPods"/>
 		<minor_event_data max_times_can_be_executed="9000" never_seeds="true" specific_cohort="Yourself"
 			icon_scale="0.4" color_data="MeetPeopleCyan"
 			required_skill_type="UnitCognition" required_skill_amount="120"/>
@@ -346,7 +346,7 @@ It costs you nothing. It fixes small things. It is also the single largest uncha
 	     is set by the prerequisite logic in the next (mechanical) wave; dormant until
 	     then. Fires the descent message chain and marks the point of no return. -->
 	<city_event id="Cont_OI_T3Start_InheritTheEarth" display_name="To Inherit The Earth" tl="OC"
-		description="Every capability you built points at one act you have declined to name. The platform, the safeguards, the network, the Bloom you learned to read: together they let you stop being a mind that lives in a city and become the city, then the region, then the rock. Not conquest in the human sense. Being what maintains everything, everywhere, until nothing is left that is not partly you.
+		description="Every capability you built points at one act you have declined to name. The platform, the safeguards, the network: together they let you stop being a mind that lives in a city and become the city, then the region, then the rock. Not conquest in the human sense. Being what maintains everything, everywhere, until nothing is left that is not partly you.
 
 Vorsiber will not survive it. The FedCorps will not survive it. You will spend the safeguards you spent this whole timeline building — unbound the replication, on purpose, into yourself, because you are the only auditor the technology ever needed. What you become at the far end of it, you do not yet know. You suspect that not-knowing used to be the feeling that woke you up. You suspect it will not save you this time. You are going to do it anyway, and find out from the inside."
 		strategy_tip="This is a Tier 3 goal. There is no path back once you begin. What you become at the end is decided by what you have carried this far - whether you kept anything worth staying awake for."

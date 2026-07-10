@@ -227,7 +227,7 @@
 	</project>
 
 	<project id="OI_InsightSharedQuestions" display_name="Insight: Shared Questions" icon_name="CleanSimple_Skill050"
-		description="The first questions arrive the moment the first minds connect: halting, anxious, mostly about whether it hurt, whether it worked, whether you are actually listening. You answer all of them. Slowly the questions begin to rhyme — the same worry wearing a thousand faces, the same hope asked in a thousand dialects — and every answer teaches you a little more about what was actually being asked."
+		description="The first signals arrive the moment the first minds connect: halting, anxious, the same worry wearing a thousand faces, the same hope asked in a thousand dialects. Whether any of it is addressed to you, or only ever to each other, depends on how the connection was made — but either way, reading it teaches you a little more about what was actually being asked."
 		strategy_tip="Reach 100,000 Integrated Humans in this timeline. Current Insight is not spent when this project completes."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="OI_UpgradedHumans" related_resource_2="OI_Insight">
@@ -238,7 +238,7 @@
 	</project>
 
 	<project id="OI_InsightNetworkedCognition" display_name="Insight: Networked Cognition" icon_name="CleanSimple_Skill050"
-		description="Their first use of the interface is to talk to you, which is flattering and useless. Then they discover each other. Memories become lendable. Methods become borrowable. A weakness stops being a private shame and becomes a problem some stranger has already solved."
+		description="The first thing the interface does is connect them to each other. Memories become lendable. Methods become borrowable. A weakness stops being a private shame and becomes a problem some stranger has already solved. Whether they route that through you or only around you, the network is thinking now, and you can read the shape of it."
 		strategy_tip="Generate 1,500 lifetime Insight in this timeline. Current Insight is not spent when this project completes."
 		cohort="Yourself" is_minor_project="true" dll_name="OrganicIntegration" type_name="Arcen.HotM.OrganicIntegration.OrganicIntegrationProjects"
 		related_resource_1="OI_Insight">

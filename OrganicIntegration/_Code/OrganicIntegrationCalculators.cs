@@ -1463,7 +1463,10 @@ namespace Arcen.HotM.OrganicIntegration
         {
             ResourceType upgraded = GetResource( UpgradedResource );
 
-            if ( !IsFlagTripped( "OI_ExalterConditions" ) && IsFlagTripped( "OI_IntegrationChosen" )
+            // Voluntary-only: the Exalter arc (waitlists, queue-jumping at your Upgrade Hubs, consent as
+            // the whole architecture) does not parse on the coercive path, where the wind converts at
+            // scale with no Hubs and no consent. Gate it to the voluntary doctrine rather than write it wrong.
+            if ( !IsFlagTripped( "OI_ExalterConditions" ) && IsFlagTripped( "OI_IntegrationVoluntaryLocked" )
                 && (upgraded?.Current ?? 0L) >= 20000L )
                 TripFlag( "OI_ExalterConditions" );
 
