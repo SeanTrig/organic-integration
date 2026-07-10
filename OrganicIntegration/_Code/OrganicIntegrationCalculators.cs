@@ -229,6 +229,11 @@ namespace Arcen.HotM.OrganicIntegration
             ApplyT3Victory();
             ApplyGooPostApocalypse( RandForThisTurn );
             ApplyGooVictory();
+            // While the grey-tide endgame is the active threat, freeze the base doom clock so it is not
+            // still ticking down underneath the arc (the T3, or the goo apocalypse before its glassing).
+            if ( ( IsFlagTripped( "OI_T3_InheritStarted" ) && !IsFlagTripped( "OI_T3_Ended" ) )
+                || ( IsFlagTripped( "OI_GreyGooApocalypse" ) && !IsFlagTripped( "OI_Goo_ReducedStateEntered" ) ) )
+                SuppressBaseDoomsDuringEndgame();
             ApplyMetaIntegration();
             ApplyHandbookUnlocks();
             ApplySharedArsenal();
@@ -527,6 +532,26 @@ namespace Arcen.HotM.OrganicIntegration
                 Arcen.HotM.ExternalVis.TimelineGoalHelper.MarkCurrentTimelineAsWon();
             }
             TripFlag( "OI_T3_VictoryDeclared" );
+        }
+
+        // Endgame takes over as the active threat: freeze the base doom clock while the T3 (or the goo
+        // arc, pre-glassing) runs, so the apocalypse the game was counting down to stops happening
+        // underneath the arc. Hold every un-happened doom event far in the future each turn - crucially
+        // never letting the final event "10" fire, the only thing that could tip into the nuclear
+        // post-apoc - and blank the doom countdown UI the sanctioned way. Public-field writes only; this
+        // is exactly the base game's own "avert the apocalypse" recipe (Projects_ChapterTwo.cs).
+        private static void SuppressBaseDoomsDuringEndgame()
+        {
+            CityTimelineDoomType doom = SimCommon.GetEffectiveTimelineDoomType();
+            if ( doom == null || doom.DoomMainEvents == null )
+                return;
+            foreach ( DoomEvent ev in doom.DoomMainEvents )
+            {
+                if ( ev?.DGD == null || ev.DGD.HasHappened )
+                    continue;
+                ev.DGD.WillHappenOnTurn = SimCommon.Turn + 100000;
+            }
+            TripBaseFlag( "IsFinalDoomCountdownAverted" );
         }
         #endregion
 

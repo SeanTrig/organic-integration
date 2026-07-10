@@ -25,7 +25,7 @@
 		icon_name="SW_Nanotechnology5" turns_to_install="4" required_structure_type="LargePlotE" job_work_order_priority="98"
 		on_installation_start="InstallationStart_SmallStructure" on_installation_complete="InstallationComplete_SmallStructure" actor_data_set="SimpleJobs"
 		dll_name="HotMExternalVisualizationCode" type_name="Arcen.HotM.ExternalVis.JobsRoutineFlow"
-		job_classes="Factory" internal_robotics_type_needed="Assembler" internal_robots_count_needed="5"
+		job_classes="Factory" tags="OI_MedicalGradeNanobotReplicator" internal_robotics_type_needed="Assembler" internal_robots_count_needed="5"
 		resource_cap_to_increase_1="OI_MedicalGradeNanobots" resource_cap_increased_flat1="1000000000" is_suggested_to_always_build_at_least="1"
 		related_resource_1="OI_MedicalGradeNanobots" related_resource_2="ElementalSlurry" related_resource_3="Microbuilders" related_resource_4="Neodymium" related_resource_5="Alumina"
 		shuts_off_at_percentage_electricity="90" portrait_icon_name="BuildingMilitary">

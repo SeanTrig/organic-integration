@@ -16,4 +16,24 @@
 			spawn_as_close_as_possible="false" max_security_clearance_of_seed_spot="0"
 			should_hard_despawn_on_manager_blocked="true" should_ignore_resource_portion_of_manager_blocked_for_despawn_logic="true"/>
 	</npc_manager>
+	<!-- Batch C (endgame gamestate coupling): once the grey tide reaches the point where Vorsiber
+	     calls down the Space Nations (OI_T3_VorsiberFollowShown), Vorsiber Enforcement starts landing
+	     Inquisitors on your Medical-Grade Nanobot Replicators and tearing them down - the endgame
+	     becomes an actual fight, not a toast chain. Data-driven, mirroring the base Ch1 corporate
+	     show-of-force manager: hostile cohort + Hostile collection + a structure-seeking stance, so
+	     the game's own combat resolves the attack. Despawns when the T3 ends. -->
+	<npc_manager id="OI_T3_VorsiberInquisitors" debug_log_manager_details="false">
+		<periodic_data
+			min_turns_between_activity="2" max_turns_between_activity="3"
+			max_security_clearance_of_seed_spot="9" target_job_tag="OI_MedicalGradeNanobotReplicator"
+			threat_radius="120" home_radius="20">
+			<gate_by_city minimum_chapter="2" required_city_flag="OI_T3_VorsiberFollowShown" blocked_by_city_flag="OI_T3_Ended"/>
+		</periodic_data>
+		<unit id="0" to_spawn="VorsiberInquisitor" stance_to_start_in="AttackingObjectionableStructure" forces_collections="Hostile"
+			should_be_specific_cohort="VorsiberEnforcement" max_security_clearance_of_seed_spot="9"
+			min_to_spawn="1" max_to_spawn="2" max_to_have_extant_across_spawns="8" max_to_have_extant_per_structure="3"
+			min_squad_size_multiplier="1" max_squad_size_multiplier="1.4" max_to_ever_spawn_in_total="9999999"
+			spawn_radius_max="10" spawn_radius_relaxed_max="20"
+			should_soft_despawn_on_manager_blocked="true"/>
+	</npc_manager>
 </root>
